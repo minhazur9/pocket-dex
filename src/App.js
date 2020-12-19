@@ -1,9 +1,12 @@
 import './App.css';
+import Navbar from './components/Navbar'
+import Routes from './config/routes';
 
 function App() {
   return (
     <div className="App">
-      <h1>PocketDex</h1>
+      <Navbar/>
+      <Routes/>
     </div>
   );
 }

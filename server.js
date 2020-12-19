@@ -1,7 +1,7 @@
 // Configuration
 const express = require('express');
 const bodyParser = require('body-parser');
-const methodOverride = require('body-parser');
+const methodOverride = require('method-override');
 const morgan = require('morgan');
 
 const app = express();
@@ -14,6 +14,7 @@ app.set('view-engine','ejs');
 
 // const ctrl = require('./controllers');
 
+// Middleware
 app.use(morgan('tiny'))
 
 app.listen(PORT, () => {
