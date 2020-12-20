@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { getPokemon } from '../actions';
 
+
 const PokemonIndex = () => {
 
     const renderPokemon = () => {
         return (
-            pokemon.map((pokemon) => {
-                return <li>{pokemon.name}</li>
+            pokemon.map((pokemon,index) => {
+                return <li key={index}>{pokemon.name}</li>
             })
         )
     }

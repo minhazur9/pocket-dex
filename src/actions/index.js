@@ -1,9 +1,22 @@
 import axios from 'axios';
 import { POKEMON_LIST_DATA } from './types.js';
 
+// Pokemon Endpoint
+const pokemonListURL = 'https://pokeapi.co/api/v2/pokemon?limit=893'; 
+
+
+
 export const getPokemon = () => {
     return (dispatch) => {
-        return axios.get('https://pokeapi.co/api/v2/pokemon?limit=893')
+        const cachedData = localStorage.getItem('pokemon-list-data')
+        if(cachedData) {
+            dispatch({
+                type: POKEMON_LIST_DATA,
+                payload: JSON.parse(cachedData)
+            })
+        }
+        else {
+            return axios.get(pokemonListURL)
             .then(response => {
                 return response.data.results
             })
@@ -12,10 +25,13 @@ export const getPokemon = () => {
                     type: POKEMON_LIST_DATA,
                     payload: data
                 })
+                const dataString = JSON.stringify(data)
+                localStorage.setItem('pokemon-list-data',dataString)
             })
             .catch(error => {
                 throw (error);
             });
+        }
+        
     };
 };
-
