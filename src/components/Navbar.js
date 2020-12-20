@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 const Navbar = () => {
     return (
         <nav>
-    <div class="nav-wrapper red">
-      <Link to="/" class="brand-logo">PocketDex</Link>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <div className="nav-wrapper red">
+      <Link to="/" className="brand-logo">PocketDex</Link>
+      <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><Link to="/pokemon">All Pokemon</Link></li>
       </ul>
     </div>
