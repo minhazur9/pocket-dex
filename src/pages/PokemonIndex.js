@@ -8,6 +8,8 @@ const PokemonIndex = () => {
     const dispatch = useDispatch()
 
     const select = (e) => {
+       const highlighted = e.target.classList.contains("selected")
+       if(highlighted) return;
        const buttons = document.querySelectorAll(".pokemon-list button");
        for(let i = 0; i < buttons.length; i++) {
            buttons[i].classList.remove('selected')
