@@ -47,12 +47,6 @@ body {
         padding: 10px;
         border-color: rgb(16, 180, 230);
         border-radius: 4px;
-        &:focus {
-            font-weight:500;
-            background-color: #F44336;
-            border-color:  #F44336;
-            color:white
-        }
     }
     @media only screen and (max-width: 900px) {
         button {
@@ -61,8 +55,15 @@ body {
         &::-webkit-scrollbar{
             width: 5px;
         }
-}
+    }
    
+}
+
+.selected {
+    font-weight:500;
+    background-color: #ff1100 !important;
+    border-color:  #ff1100 !important;
+    color:white
 }
 
 // .pokemon-item {

@@ -59,13 +59,6 @@ body {
   border-radius: 4px;
 }
 
-.pokemon-list button:focus {
-  font-weight: 500;
-  background-color: #F44336;
-  border-color: #F44336;
-  color: white;
-}
-
 @media only screen and (max-width: 900px) {
   .pokemon-list button {
     font-size: 15px;
@@ -73,5 +66,12 @@ body {
   .pokemon-list::-webkit-scrollbar {
     width: 5px;
   }
+}
+
+.selected {
+  font-weight: 500;
+  background-color: #ff1100 !important;
+  border-color: #ff1100 !important;
+  color: white;
 }
 /*# sourceMappingURL=App.css.map */

@@ -6,10 +6,18 @@ import { getPokemon } from '../actions';
 const PokemonIndex = () => {
     const pokemon = useSelector(state => state.pokemon)
 
+    const select = (e) => {
+       const buttons = document.querySelectorAll(".pokemon-list button");
+       for(let i = 0; i < buttons.length; i++) {
+           buttons[i].classList.remove('selected')
+       }
+       e.target.classList.toggle('selected'); 
+    }
+
     const renderPokemon = () => {
         return (
             pokemon.map((pokemon,index) => {
-                return  <button key={index} className="pokemon-item">
+                return  <button onClick={select} key={index} className="pokemon-item">
                             {pokemon.name.toUpperCase()}
                         </button>
             })
