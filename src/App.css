@@ -89,6 +89,12 @@ body {
   text-align: center;
 }
 
+@media only screen and (max-width: 900px) {
+  .pokemon-info .name {
+    font-size: 30px;
+  }
+}
+
 .images {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -100,5 +106,11 @@ body {
 
 .images img {
   height: 120px;
+}
+
+@media only screen and (max-width: 600px) {
+  .images img {
+    height: 75px;
+  }
 }
 /*# sourceMappingURL=App.css.map */
