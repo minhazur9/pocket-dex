@@ -1,1 +1,0 @@
-export const POKEMON_LIST_DATA = 'POKEMON_LIST_DATA';

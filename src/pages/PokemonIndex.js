@@ -4,17 +4,18 @@ import { getPokemon } from '../actions';
 
 
 const PokemonIndex = () => {
+    const pokemon = useSelector(state => state.pokemon)
 
     const renderPokemon = () => {
         return (
             pokemon.map((pokemon,index) => {
-                return <li key={index}>{pokemon.name}</li>
+                return  <button key={index} className="pokemon-item">
+                            {pokemon.name}
+                        </button>
             })
         )
     }
 
-
-    const pokemon = useSelector(state => state.pokemon)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getPokemon())
@@ -22,7 +23,10 @@ const PokemonIndex = () => {
 
     return (
         <div className="pokemon-index">
-            {renderPokemon()}
+            <div className="pokemon-list">
+                {renderPokemon()}
+            </div>
+            
         </div>
     )
 }

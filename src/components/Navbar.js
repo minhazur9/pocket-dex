@@ -5,9 +5,9 @@ const Navbar = () => {
     return (
         <nav>
     <div className="nav-wrapper red">
-      <Link to="/" className="brand-logo">PocketDex</Link>
-      <ul id="nav-mobile" className="right hide-on-med-and-down">
-        <li><Link to="/pokemon">All Pokemon</Link></li>
+      <Link to="/" className="brand-logo left">PocketDex</Link>
+      <ul id="nav-mobile" className="right">
+        <li><Link to="/pokemon" className="nav-link">All Pokemon</Link></li>
       </ul>
     </div>
   </nav>
