@@ -47,11 +47,9 @@ const PokemonIndex = () => {
             <div className="pokemon-list">
                 {renderPokemon()}
             </div>
-            {console.log(info)}
             {info && 
             <PokemonInfo/>
-            }
-            
+            }     
         </div>
         
     )

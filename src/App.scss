@@ -79,3 +79,11 @@ body {
         text-align: center;
     }
 }
+
+.images {
+    display:flex;
+    justify-content: center;
+    img {
+        height: 120px;
+    }
+}

@@ -88,4 +88,17 @@ body {
 .pokemon-info .name {
   text-align: center;
 }
+
+.images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.images img {
+  height: 120px;
+}
 /*# sourceMappingURL=App.css.map */
