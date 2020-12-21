@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Pokemon Endpoint
 const pokemonListURL = 'https://pokeapi.co/api/v2/pokemon?limit=893'; 
-const pokemonInfoURL = 'https://pokeapi.co/api/v2/pokemon/1';
+const pokemonInfoURL = 'https://pokeapi.co/api/v2/pokemon/';
 
 
 
@@ -36,9 +36,9 @@ export const getPokemon = () => {
     };
 };
 
-export const getInfo = () => {
+export const getInfo = (id) => {
     return (dispatch) => {
-        return axios.get(pokemonInfoURL)
+        return axios.get(pokemonInfoURL + id)
         .then((response) => {
             return response.data;
         })

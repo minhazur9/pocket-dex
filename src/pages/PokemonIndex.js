@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import React, { useEffect } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { getInfo, getPokemon } from '../actions';
@@ -14,11 +13,11 @@ const PokemonIndex = () => {
            buttons[i].classList.remove('selected')
        }
        e.target.classList.toggle('selected');
-       renderInfo(); 
+       renderInfo(e.target.id); 
     }
 
-    const renderInfo = () => {
-        dispatch(getInfo())
+    const renderInfo = (id) => {
+        dispatch(getInfo(id))
     }
 
     // const renderImages = () => {
