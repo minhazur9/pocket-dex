@@ -42,20 +42,33 @@ body {
 }
 
 .pokemon-list::-webkit-scrollbar-thumb {
-  background-color: #F44336;
+  background-color: #888888;
+  height: 60px;
+}
+
+.pokemon-list::-webkit-scrollbar-thumb:hover {
+  background-color: #4d4d4d;
 }
 
 .pokemon-list button {
   font-size: 35px;
+  font-weight: 100;
+  background-color: white;
+  padding: 10px;
+  border-color: #10b4e6;
+  border-radius: 4px;
 }
 
 .pokemon-list button:focus {
-  background-color: #E5E5E5;
+  font-weight: 500;
+  background-color: #F44336;
+  border-color: #F44336;
+  color: white;
 }
 
 @media only screen and (max-width: 900px) {
   .pokemon-list button {
-    font-size: 18px;
+    font-size: 15px;
   }
   .pokemon-list::-webkit-scrollbar {
     width: 5px;

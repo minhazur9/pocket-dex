@@ -10,7 +10,7 @@ const PokemonIndex = () => {
         return (
             pokemon.map((pokemon,index) => {
                 return  <button key={index} className="pokemon-item">
-                            {pokemon.name}
+                            {pokemon.name.toUpperCase()}
                         </button>
             })
         )
