@@ -1,13 +1,20 @@
 import React, { useEffect } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { getInfo, getPokemon } from '../actions';
+import PokemonInfo from '../components/PokemonInfo';
 
 
 const PokemonIndex = () => {
     const pokemon = useSelector(state => state.pokemon)
+    const info = useSelector(state => state.info)
     const dispatch = useDispatch()
-
+    
     const select = (e) => {
+        highight(e)
+        updateInfo(e.target.id)
+    }
+
+    const highight = (e) => {
        const highlighted = e.target.classList.contains("selected")
        if(highlighted) return;
        const buttons = document.querySelectorAll(".pokemon-list button");
@@ -15,21 +22,16 @@ const PokemonIndex = () => {
            buttons[i].classList.remove('selected')
        }
        e.target.classList.toggle('selected');
-       renderInfo(e.target.id); 
     }
 
-    const renderInfo = (id) => {
+    const updateInfo = (id) => {
         dispatch(getInfo(id))
     }
-
-    // const renderImages = () => {
-
-    // }
 
     const renderPokemon = () => {
         return (
             pokemon.map((pokemon,index) => {
-                return  <button id={index+1} onClick={select} key={index} className="pokemon-item">
+                return  <button id={index+1} onClick={select} key={index}>
                             {pokemon.name.toUpperCase()}
                         </button>
             })
@@ -45,8 +47,13 @@ const PokemonIndex = () => {
             <div className="pokemon-list">
                 {renderPokemon()}
             </div>
+            {console.log(info)}
+            {info && 
+            <PokemonInfo/>
+            }
             
         </div>
+        
     )
 }
 

@@ -4,6 +4,7 @@
     padding:0;
     font-family: 'Source Code Pro', monospace;
     list-style: none;
+    overflow: hidden;
 }
 
 body {
@@ -66,8 +67,15 @@ body {
     color:white
 }
 
-// .pokemon-item {
-//     display: block;
-//     font-size: 35px;
-//     // border: 3px solid black;
-// }
+/* ----------------- Pokemon Info */
+
+.pokemon-info {
+    position: relative;
+    bottom:90vh;
+    left: 25vw;
+    height: 89vh;
+    width: 75vw;
+    .name {
+        text-align: center;
+    }
+}

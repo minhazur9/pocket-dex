@@ -5,6 +5,7 @@
   padding: 0;
   font-family: 'Source Code Pro', monospace;
   list-style: none;
+  overflow: hidden;
 }
 
 body {
@@ -73,5 +74,18 @@ body {
   background-color: #ff1100 !important;
   border-color: #ff1100 !important;
   color: white;
+}
+
+/* ----------------- Pokemon Info */
+.pokemon-info {
+  position: relative;
+  bottom: 90vh;
+  left: 25vw;
+  height: 89vh;
+  width: 75vw;
+}
+
+.pokemon-info .name {
+  text-align: center;
 }
 /*# sourceMappingURL=App.css.map */
