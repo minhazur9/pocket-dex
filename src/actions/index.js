@@ -43,7 +43,6 @@ export const getInfo = (name) => {
             return response.data;
         })
         .then((data) => {
-            
             dispatch({
                 type: 'POKEMON_INFO_DATA',
                 payload: data

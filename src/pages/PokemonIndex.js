@@ -15,8 +15,7 @@ const PokemonIndex = () => {
     }
 
     const search = (e) => {
-        e.preventDefault()
-        dispatch(searchPokemon('charmander'))
+        dispatch(searchPokemon(e.target.value))
     }
 
     const highight = (e) => {
@@ -50,12 +49,10 @@ const PokemonIndex = () => {
 
     return (
         <div className="pokemon-index">
-        <form onSubmit={search} >
             <div class="input-field">
-            <input id="icon_prefix" type="text" class="validate"/>
+            <input onKeyUp={search} id="icon_prefix" type="text" class="validate"/>
             <label for="icon_prefix">Search</label>
             </div>
-        </form>
             <div className="pokemon-list">
                 {renderPokemon()}
             </div>
