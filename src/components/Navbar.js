@@ -2,6 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 const Navbar = () => {
+
+    const dropdown = () => {
+      
+      
+    }
     return (
         <nav>
     <div className="nav-wrapper red">
@@ -9,12 +14,15 @@ const Navbar = () => {
       <ul id="nav-mobile" className="right">
         <li><Link to="/pokemon" className="nav-link">All Pokemon</Link></li>
       </ul>
-      <button className="hamburger-menu">
+      <button onClick={dropdown} className="hamburger-menu">
         <div></div>
         <div></div>
         <div></div>
     </button>
     </div>
+    <ul className="dropdown">
+          <li><Link to="/pokemon" className="mobile-nav-link">All Pokemon</Link></li>
+        </ul>
   </nav>
     )
 }
