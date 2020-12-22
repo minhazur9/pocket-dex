@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
-import React, { useEffect } from 'react';
-import { useSelector,useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector} from 'react-redux';
 
 const PokemonInfo = () => {
     const info = useSelector((state => state.info))

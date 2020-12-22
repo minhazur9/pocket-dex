@@ -40,6 +40,7 @@ const PokemonIndex = () => {
 
     useEffect(() => {
         dispatch(getPokemon())
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     return (

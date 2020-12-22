@@ -4,13 +4,20 @@ import {Link} from 'react-router-dom'
 const Navbar = () => {
 
     const dropdown = () => {
-      
-      
+      const dropdown = document.querySelector('.dropdown');
+      if (dropdown.style.display === 'none' || !dropdown.style.display) {
+        dropdown.style.animationName = 'slideDown'
+        dropdown.style.display = 'block' 
+      }
+      else {
+        dropdown.style.display = 'none' 
+      }
     }
+
     return (
         <nav>
     <div className="nav-wrapper red">
-      <Link to="/" className="brand-logo left">PocketDex</Link>
+      <Link to="/" onClick={() => document.querySelector('.dropdown').style.display='none'} className="brand-logo left">PocketDex</Link>
       <ul id="nav-mobile" className="right">
         <li><Link to="/pokemon" className="nav-link">All Pokemon</Link></li>
       </ul>
@@ -21,7 +28,7 @@ const Navbar = () => {
     </button>
     </div>
     <ul className="dropdown">
-          <li><Link to="/pokemon" className="mobile-nav-link">All Pokemon</Link></li>
+      <Link to="/pokemon" onClick={(e) => e.target.parentNode.style.display='none'} className="mobile-nav-link"><li>All Pokemon</li></Link>
         </ul>
   </nav>
     )
