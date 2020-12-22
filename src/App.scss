@@ -14,9 +14,36 @@ body {
 
 /* ----------------- Navbar */
 
-.nav-link {
-    font-size: 20px;
+nav {
+
+    .nav-link {
+        font-size: 20px;
+    }
+
+    @media only screen and (max-width: 992px) {
+        .hamburger-menu {
+            position: absolute;
+            border: 2px #a72d24 solid;
+            background-color: #fd1100;
+            top: 8px;
+            right: 10px;
+            height: 45px;
+            width: 65px; 
+            cursor: pointer;
+            
+            div {
+                border-bottom: white 3px solid;
+                margin: 8px;
+                // padding-bottom: 2px;
+            }
+        }
+        .nav-link {
+            display: none;
+        }
+    }
 }
+
+
 
 /* ----------------- Pokemon Index */
 

@@ -9,6 +9,11 @@ const Navbar = () => {
       <ul id="nav-mobile" className="right">
         <li><Link to="/pokemon" className="nav-link">All Pokemon</Link></li>
       </ul>
+      <button className="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
     </div>
   </nav>
     )
