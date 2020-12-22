@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { getInfo, getPokemon } from '../actions';
+import { getInfo, getPokemon, searchPokemon } from '../actions';
 import PokemonInfo from '../components/PokemonInfo';
 
 
@@ -12,6 +12,11 @@ const PokemonIndex = () => {
     const select = (e) => {
         highight(e)
         updateInfo(e.target.id)
+    }
+
+    const search = (e) => {
+        e.preventDefault()
+        dispatch(searchPokemon('charmander'))
     }
 
     const highight = (e) => {
@@ -31,7 +36,7 @@ const PokemonIndex = () => {
     const renderPokemon = () => {
         return (
             pokemon.map((pokemon,index) => {
-                return  <button id={index+1} onClick={select} key={index}>
+                return  <button id={pokemon.name} onClick={select} key={index}>
                             {pokemon.name.toUpperCase()}
                         </button>
             })
@@ -45,6 +50,12 @@ const PokemonIndex = () => {
 
     return (
         <div className="pokemon-index">
+        <form onSubmit={search} >
+            <div class="input-field">
+            <input id="icon_prefix" type="text" class="validate"/>
+            <label for="icon_prefix">Search</label>
+            </div>
+        </form>
             <div className="pokemon-list">
                 {renderPokemon()}
             </div>

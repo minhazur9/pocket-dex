@@ -36,9 +36,9 @@ export const getPokemon = () => {
     };
 };
 
-export const getInfo = (id) => {
+export const getInfo = (name) => {
     return (dispatch) => {
-        return axios.get(pokemonInfoURL + id)
+        return axios.get(pokemonInfoURL + name)
         .then((response) => {
             return response.data;
         })
@@ -49,5 +49,12 @@ export const getInfo = (id) => {
                 payload: data
             })
         })  
+    }
+}
+
+export const searchPokemon = (term) => {
+    return {
+        type: 'POKEMON_SEARCH_DATA',
+        payload: term
     }
 }

@@ -97,6 +97,7 @@ nav .nav-link {
 /* ----------------- Pokemon Index */
 .pokemon-list {
   overflow-y: auto;
+  border-top: solid 2px #10B4E6;
   overflow-x: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -106,7 +107,7 @@ nav .nav-link {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 25vw;
-  max-height: 91vh;
+  height: 79vh;
 }
 
 .pokemon-list::-webkit-scrollbar {
@@ -143,6 +144,15 @@ nav .nav-link {
   .pokemon-list::-webkit-scrollbar {
     width: 5px;
   }
+}
+
+.input-field {
+  width: 20vw;
+  left: 30px;
+}
+
+.input-field label {
+  font-family: 'Roboto', sans-serif;
 }
 
 .selected {
