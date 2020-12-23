@@ -20,9 +20,9 @@ import steel from '../images/types/steel.png'
 import water from '../images/types/water.png'
 
 const PokemonInfo = () => {
-    
 
     const info = useSelector((state => state.info))
+    const loading = useSelector((state => state.loading))
     
     // Renders the pokemon sprites
     const renderSprites = () => {
@@ -72,26 +72,47 @@ const PokemonInfo = () => {
             steel: steel,
             water: water
         }
-        return types.map((type) => {
+
+        return types.map((type,index) => {
             return (
-                <li><img src={typeTable[type.type.name]} alt={type.type.name} className="type"/></li>
+                <li key={index}><img src={typeTable[type.type.name]} alt={type.type.name} className="type"/></li>
             )
         }) 
     }
 
+    const renderLoading = () => {
+        return (
+            <>
+            <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+            </>
+        )
+        
+    }
+
+    const renderAllInfo = () => {
+        return (
+            <>
+        <h1 className="name">{info.name.toUpperCase()}</h1>
+        <div className="col2">
+            {renderPokemonId()}
+            {renderSprites()}
+        <ul className="types">
+            <p className="type-header">Types</p>
+            {renderTypes()}
+        </ul>
+        </div>
+        </>
+        )
+    }
 
     return (
         <div className="pokemon-info">
-            <h1 className="name">{info.name.toUpperCase()}</h1>
-            <div className="col2">
-                {renderPokemonId()}
-                {renderSprites()}
-            <ul className="types">
-                <p className="type-header">Types</p>
-                {renderTypes()}
-            </ul>
-            </div>
-                     
+        { loading &&
+        renderLoading()
+        }
+        {!loading && 
+        renderAllInfo()
+        }         
         </div>
     )
 }

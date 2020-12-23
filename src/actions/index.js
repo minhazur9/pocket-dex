@@ -47,7 +47,7 @@ export const getInfo = (name) => {
                 type: 'POKEMON_INFO_DATA',
                 payload: data
             })
-        })  
+        }) 
     }
 }
 
@@ -55,5 +55,17 @@ export const searchPokemon = (term) => {
     return {
         type: 'POKEMON_SEARCH_DATA',
         payload: term
+    }
+}
+
+export const startLoading = () => {
+    return {
+        type: 'START_LOADING'
+    }
+}
+
+export const stopLoading = () => {
+    return {
+        type: 'STOP_LOADING'
     }
 }

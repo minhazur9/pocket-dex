@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { getInfo, getPokemon, searchPokemon } from '../actions';
+import { getInfo, getPokemon, searchPokemon, startLoading, stopLoading } from '../actions';
 import PokemonInfo from '../components/PokemonInfo';
 
 
@@ -8,7 +8,6 @@ const PokemonIndex = () => {
     const pokemon = useSelector(state => state.pokemon)
     const info = useSelector(state => state.info)
     const dispatch = useDispatch()
-
 
     // Highlights selection and changes info to selected pokemon's
     const select = (e) => {
@@ -34,8 +33,10 @@ const PokemonIndex = () => {
     }
 
     // Changes info
-    const updateInfo = (id) => {
-        dispatch(getInfo(id))
+    const updateInfo = async(id) => {
+        dispatch(startLoading())
+        await dispatch(getInfo(id))
+        dispatch(stopLoading())
     }
 
     // Renders the pokemon list
