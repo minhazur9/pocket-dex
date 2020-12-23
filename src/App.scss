@@ -179,14 +179,24 @@ nav {
     }
     .types {
         display: flex;
-        font-size: 30px;
         justify-content: center;
+        flex-direction: column;
+        font-size: 30px;
+        margin-left: 100px;
+        @media only screen and (max-width: 900px) {
+            font-size:20px;
+            margin-left: 35px;
+        }  
+        .type {
+            align-self: center;
+            width:100px;
+            height:50px;
+            border-radius: 20px;
+            @media only screen and (max-width: 900px) {
+                width: 55px;
+                height: 25px;
+            }
+         }
     }
-    .type {
-        width:100px;
-        height:40px;
-        // background-image: url('./images/types/grass.png');
-        border-radius: 20px;
-        background-size: cover;
-    }
+    
 }

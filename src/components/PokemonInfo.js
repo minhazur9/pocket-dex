@@ -86,13 +86,10 @@ const PokemonInfo = () => {
             <div className="col2">
                 {renderPokemonId()}
                 {renderSprites()}
-            <div className="types">
-                <ul className="type-list">
+            <ul className="types">
                 <p className="type-header">Types</p>
-                    {renderTypes()}
-                </ul>
-                
-            </div>
+                {renderTypes()}
+            </ul>
             </div>
                      
         </div>

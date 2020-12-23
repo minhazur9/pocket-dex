@@ -231,16 +231,37 @@ nav .nav-link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 30px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 30px;
+  margin-left: 100px;
 }
 
-.pokemon-info .type {
+@media only screen and (max-width: 900px) {
+  .pokemon-info .types {
+    font-size: 20px;
+    margin-left: 35px;
+  }
+}
+
+.pokemon-info .types .type {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   width: 100px;
-  height: 40px;
+  height: 50px;
   border-radius: 20px;
-  background-size: cover;
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .types .type {
+    width: 55px;
+    height: 25px;
+  }
 }
 /*# sourceMappingURL=App.css.map */
