@@ -4,8 +4,8 @@ import { useSelector} from 'react-redux';
 const PokemonInfo = () => {
     const info = useSelector((state => state.info))
     
+    // Renders the pokemon sprites
     const renderSprites = () => {
-        console.log(info)
         let frontShiny = null
         let frontSprite = info['sprites']['versions']['generation-vii']['ultra-sun-ultra-moon']['front_default']
         if(frontSprite) {
@@ -14,26 +14,31 @@ const PokemonInfo = () => {
         else {
             frontSprite = info['sprites']['versions']['generation-viii']['icons']['front_default']
         }
-        
         return (
-            <>
-                <div className="images">
+                <div className="sprites">
                     <img src={`${frontSprite}`} alt="sprite"/>
                     {frontShiny && 
                     <img src={`${frontShiny}`} alt="sprite"/>
                     }
-                </div>
-                
-            </>
+                </div>  
+        )  
+    }
+
+    const renderPokemonId = () => {
+        return (
+            <p className="pokemon-id">#{info.id}</p>
         )
-        
     }
 
 
     return (
         <div className="pokemon-info">
             <h1 className="name">{info.name.toUpperCase()}</h1>
-            {renderSprites()}
+            <div className="col2">
+                {renderPokemonId()}
+                {renderSprites()}
+            </div>
+                     
         </div>
     )
 }

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 const Navbar = () => {
 
+    // Toggles dropdown menu
     const dropdown = () => {
       const dropdown = document.querySelector('.dropdown');
       if (dropdown.style.display === 'none' || !dropdown.style.display) {

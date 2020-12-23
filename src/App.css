@@ -181,21 +181,38 @@ nav .nav-link {
   }
 }
 
-.images {
+.pokemon-info .col2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pokemon-info .pokemon-id {
+  text-align: center;
+  margin-top: 20px;
+  display: inline;
+  font-size: 50px;
+}
+
+.pokemon-info .sprites {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.images img {
+.pokemon-info .sprites img {
   height: 120px;
 }
 
 @media only screen and (max-width: 600px) {
-  .images img {
+  .pokemon-info .sprites img {
     height: 75px;
   }
 }

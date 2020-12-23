@@ -153,16 +153,26 @@ nav {
             font-size: 30px
         }
     }
-    
-}
-
-.images {
-    display:flex;
-    justify-content: center;
-    img {
-        height: 120px;
-        @media only screen and (max-width: 600px) {
-            height: 75px;
+    .col2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .pokemon-id {
+        text-align: center;
+        margin-top: 20px;
+        display: inline;
+        font-size: 50px;
+    }
+    .sprites {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            height: 120px;
+            @media only screen and (max-width: 600px) {
+                height: 75px;
+            }
         }
     }
+    
 }

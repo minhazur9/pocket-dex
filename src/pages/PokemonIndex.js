@@ -8,40 +8,48 @@ const PokemonIndex = () => {
     const pokemon = useSelector(state => state.pokemon)
     const info = useSelector(state => state.info)
     const dispatch = useDispatch()
-    
+
+
+    // Highlights selection and changes info to selected pokemon's
     const select = (e) => {
         highight(e)
         updateInfo(e.target.id)
     }
 
+    // Changes the Pokemon depending on what is typed
     const search = (e) => {
-        dispatch(searchPokemon(e.target.value))
+        dispatch(searchPokemon(e.target.value.toLowerCase()))
     }
 
+
+    // Highlights selected element
     const highight = (e) => {
        const highlighted = e.target.classList.contains("selected")
        if(highlighted) return;
        const buttons = document.querySelectorAll(".pokemon-list button");
-       for(let i = 0; i < buttons.length; i++) {
-           buttons[i].classList.remove('selected')
-       }
+       buttons.forEach((button) => {
+           button.classList.remove('selected')
+       });
        e.target.classList.toggle('selected');
     }
 
+    // Changes info
     const updateInfo = (id) => {
         dispatch(getInfo(id))
     }
 
+    // Renders the pokemon list
     const renderPokemon = () => {
         return (
-            pokemon.map((pokemon,index) => {
-                return  <button id={pokemon.name} onClick={select} key={index}>
+            pokemon.map((pokemon) => {
+                return  <button id={pokemon.name} onClick={select} key={pokemon.name}>
                             {pokemon.name.toUpperCase()}
                         </button>
             })
         )
     }
 
+    // Gets all the pokemon
     useEffect(() => {
         dispatch(getPokemon())
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -49,9 +57,9 @@ const PokemonIndex = () => {
 
     return (
         <div className="pokemon-index">
-            <div class="input-field">
-            <input onKeyUp={search} id="icon_prefix" type="text" class="validate"/>
-            <label for="icon_prefix">Search</label>
+            <div className="input-field">
+            <input onKeyUp={search} id="icon_prefix" type="text" className="validate"/>
+            <label htmlFor="icon_prefix">Search</label>
             </div>
             <div className="pokemon-list">
                 {renderPokemon()}
