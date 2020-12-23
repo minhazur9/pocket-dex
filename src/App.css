@@ -189,10 +189,20 @@ nav .nav-link {
 }
 
 .pokemon-info .pokemon-id {
-  text-align: center;
-  margin-top: 20px;
-  display: inline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 50px;
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .pokemon-id {
+    font-size: 30px;
+  }
 }
 
 .pokemon-info .sprites {
@@ -215,5 +225,22 @@ nav .nav-link {
   .pokemon-info .sprites img {
     height: 75px;
   }
+}
+
+.pokemon-info .types {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pokemon-info .type {
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  background-size: cover;
 }
 /*# sourceMappingURL=App.css.map */

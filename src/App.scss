@@ -158,10 +158,13 @@ nav {
         grid-template-columns: 1fr 1fr 1fr;
     }
     .pokemon-id {
-        text-align: center;
-        margin-top: 20px;
-        display: inline;
+        display:flex;
+        justify-self: center;
+        align-items: center;
         font-size: 50px;
+        @media only screen and (max-width: 900px) {
+            font-size: 30px;
+        }
     }
     .sprites {
         display:flex;
@@ -174,5 +177,16 @@ nav {
             }
         }
     }
-    
+    .types {
+        display: flex;
+        font-size: 30px;
+        justify-content: center;
+    }
+    .type {
+        width:100px;
+        height:40px;
+        // background-image: url('./images/types/grass.png');
+        border-radius: 20px;
+        background-size: cover;
+    }
 }
