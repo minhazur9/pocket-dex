@@ -182,13 +182,6 @@ nav .nav-link {
   }
 }
 
-.pokemon-info .col2 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-}
-
 .pokemon-info .pokemon-id {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -234,7 +227,14 @@ nav .nav-link {
   }
 }
 
-.pokemon-info .types {
+.pokemon-info .col2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pokemon-info .col2 .types {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -250,13 +250,13 @@ nav .nav-link {
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .types {
+  .pokemon-info .col2 .types {
     font-size: 20px;
     margin-left: 35px;
   }
 }
 
-.pokemon-info .types .type {
+.pokemon-info .col2 .types .type {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -266,9 +266,52 @@ nav .nav-link {
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .types .type {
+  .pokemon-info .col2 .types .type {
     width: 55px;
     height: 25px;
+  }
+}
+
+.pokemon-info .col3 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.pokemon-info .col3 .base-stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pokemon-info .col3 .base-stats .stat-list {
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  font-size: 25px;
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .col3 .base-stats .stat-list {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .col3 .base-stats {
+    font-size: 20px;
   }
 }
 

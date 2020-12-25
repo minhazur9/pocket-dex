@@ -80,39 +80,63 @@ const PokemonInfo = () => {
         }) 
     }
 
+    const renderStats = () => {
+        const hp = info.stats[0].base_stat;
+        const atk = info.stats[1].base_stat;
+        const def = info.stats[2].base_stat;
+        const spAtk = info.stats[3].base_stat;
+        const spDef = info.stats[4].base_stat;
+        const speed = info.stats[5].base_stat;
+        return (
+            <>
+            <li className="stat">HP:{hp}</li>
+            <li className="stat">Attack:{atk}</li>
+            <li className="stat">Defense:{def}</li>
+            <li className="stat">Sp.Atk:{spAtk}</li>
+            <li className="stat">Sp.Def:{spDef}</li>
+            <li className="stat">Speed:{speed}</li>
+            </>
+        )
+    }
+
     const renderLoading = () => {
         return (
             <>
             <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
             </>
         )
-        
     }
 
     const renderAllInfo = () => {
         return (
-            <>
+         <>
         <h1 className="name">{info.name.toUpperCase()}</h1>
         <div className="col2">
             {renderPokemonId()}
             {renderSprites()}
-        <ul className="types">
-            <p className="type-header">Types</p>
-            {renderTypes()}
-        </ul>
+            <ul className="types">
+                <p className="type-header">Types</p>
+                {renderTypes()}
+            </ul>
         </div>
+        <div className="col3">
+            <div className="base-stats">
+                <p className="stat-header">Base Stats
+                <ul className="stat-list">
+                    {renderStats()}
+                </ul>
+                </p>
+                
+            </div>
+        </div>  
         </>
         )
     }
 
     return (
         <div className="pokemon-info">
-        { loading &&
-        renderLoading()
-        }
-        {!loading && 
-        renderAllInfo()
-        }         
+        { loading && renderLoading() }
+        { !loading && renderAllInfo() }         
         </div>
     )
 }
