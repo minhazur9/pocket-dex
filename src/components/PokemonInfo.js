@@ -99,6 +99,18 @@ const PokemonInfo = () => {
         )
     }
 
+    const renderAbilities = () => {
+        const abilities = info.abilities;
+        return abilities.map((ability) => {
+            ability.name = ability.ability.name.split("-")
+                      .map((word) => word.charAt(0).toUpperCase() + word.substr(1))
+                      .join(' ');
+            return (
+                <li className='ability'>{ability.name}</li>
+            )
+        });
+    }
+
     const renderLoading = () => {
         return (
             <>
@@ -121,13 +133,16 @@ const PokemonInfo = () => {
         </div>
         <div className="col3">
             <div className="base-stats">
-                <p className="stat-header">Base Stats
+                <div className="stats">Base Stats
                 <ul className="stat-list">
                     {renderStats()}
                 </ul>
-                </p>
-                
+                </div>
             </div>
+            <ul className="abilties">
+                <p className="ability-header">Abilties</p>
+                {renderAbilities()}
+            </ul>
         </div>  
         </>
         )
