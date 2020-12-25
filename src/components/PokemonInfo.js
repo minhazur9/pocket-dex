@@ -18,7 +18,7 @@ import psychic from '../images/types/psychic.png'
 import rock from '../images/types/rock.png'
 import steel from '../images/types/steel.png'
 import water from '../images/types/water.png'
-
+import StatChart from '../components/StatChart';
 const PokemonInfo = () => {
 
     const info = useSelector((state => state.info))
@@ -81,21 +81,8 @@ const PokemonInfo = () => {
     }
 
     const renderStats = () => {
-        const hp = info.stats[0].base_stat;
-        const atk = info.stats[1].base_stat;
-        const def = info.stats[2].base_stat;
-        const spAtk = info.stats[3].base_stat;
-        const spDef = info.stats[4].base_stat;
-        const speed = info.stats[5].base_stat;
         return (
-            <>
-            <li className="stat">HP:{hp}</li>
-            <li className="stat">Attack:{atk}</li>
-            <li className="stat">Defense:{def}</li>
-            <li className="stat">Sp.Atk:{spAtk}</li>
-            <li className="stat">Sp.Def:{spDef}</li>
-            <li className="stat">Speed:{speed}</li>
-            </>
+                <StatChart/>
         )
     }
 

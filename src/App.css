@@ -170,6 +170,7 @@ nav .nav-link {
   left: 25vw;
   height: 89vh;
   width: 75vw;
+  overflow-y: auto;
 }
 
 .pokemon-info .name {
@@ -286,11 +287,8 @@ nav .nav-link {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
   font-size: 30px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

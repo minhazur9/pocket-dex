@@ -22,6 +22,7 @@
     "react-scripts": "4.0.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "tui-chart": "^3.11.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

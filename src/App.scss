@@ -148,6 +148,7 @@ nav {
     left: 25vw;
     height: 89vh;
     width: 75vw;
+    overflow-y: auto;
     .name {
         text-align: center;
         @media only screen and (max-width: 900px) {
@@ -208,8 +209,8 @@ nav {
         .base-stats {
             display: flex;
             justify-content: center;
+            text-align: center;
             font-size: 30px;
-            flex-direction: column;
             align-items: center;
             .stat-list {
                 align-self: start;
