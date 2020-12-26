@@ -23,6 +23,7 @@ const PokemonInfo = () => {
 
     const info = useSelector((state => state.info))
     const loading = useSelector((state => state.loading))
+    const speciesInfo = useSelector(state => state.speciesInfo)
     
     // Renders the pokemon sprites
     const renderSprites = () => {

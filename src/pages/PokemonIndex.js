@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { getInfo, getPokemon, searchPokemon, startLoading, stopLoading } from '../actions';
+import { getInfo, getPokemon, getSpeciesInfo, searchPokemon, startLoading, stopLoading } from '../actions';
 import PokemonInfo from '../components/PokemonInfo';
 
 
@@ -33,9 +33,10 @@ const PokemonIndex = () => {
     }
 
     // Changes info
-    const updateInfo = async(id) => {
+    const updateInfo = async(name) => {
         dispatch(startLoading())
-        await dispatch(getInfo(id))
+        dispatch(getSpeciesInfo(name))
+        await dispatch(getInfo(name))
         dispatch(stopLoading())
     }
 
@@ -54,7 +55,7 @@ const PokemonIndex = () => {
     useEffect(() => {
         dispatch(getPokemon())
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    },[pokemon])
 
     return (
         <div className="pokemon-index">

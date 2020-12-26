@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import chart from 'tui-chart';
@@ -48,6 +47,9 @@ const StatChart = () => {
             plot: {
                 showLine: false
             },
+            series: {
+                showLabel: true
+            }
         };
         chart.barChart(container, data, options).hideSeriesLabel();
 
@@ -57,7 +59,8 @@ const StatChart = () => {
 
     useEffect(() => {
         renderChart()
-    }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [info])
 
     return (
         <>
