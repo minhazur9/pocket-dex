@@ -105,12 +105,20 @@ const PokemonInfo = () => {
         text.forEach((flavor) => {
             if(flavor.language.name === 'en') chosenText = flavor.flavor_text
         });
-        console.log(chosenText);
         return (
             <>
-                <p className="text">{chosenText}</p>
+                {/* <p className="text">{chosenText}</p> */}
             </>
         )
+    }
+
+    const renderMoveSet = () => {
+        const moveSet = info.moves;
+        return moveSet.map((move) => {
+            return (
+                <li className="move">{move}</li>
+            )
+        })
     }
 
     const renderLoading = () => {
@@ -149,6 +157,12 @@ const PokemonInfo = () => {
                 {renderFlavorText()}
             </div>
             </ul>
+        </div>
+        <div className="col4">
+            <p>Moveset</p>
+            <div className="move-set">
+
+            </div>
         </div>  
         </>
         )
