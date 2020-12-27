@@ -344,6 +344,27 @@ nav .nav-link {
   }
 }
 
+.pokemon-info .col3 .description {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 30px;
+}
+
+.pokemon-info .col3 .description .text {
+  font-size: 20px;
+  overflow-wrap: break-word;
+  width: 450px;
+}
+
 .lds-ring {
   display: inline;
   position: relative;

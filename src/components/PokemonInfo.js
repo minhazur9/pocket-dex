@@ -89,14 +89,28 @@ const PokemonInfo = () => {
 
     const renderAbilities = () => {
         const abilities = info.abilities;
-        return abilities.map((ability) => {
+        return abilities.map((ability,index) => {
             ability.name = ability.ability.name.split("-")
                       .map((word) => word.charAt(0).toUpperCase() + word.substr(1))
                       .join(' ');
             return (
-                <li className='ability'>{ability.name}</li>
+                <li key = {index*5} className='ability'>{ability.name}</li>
             )
         });
+    }
+
+    const renderFlavorText = () => {
+        const text = speciesInfo.flavor_text_entries;
+        let chosenText = '';
+        text.forEach((flavor) => {
+            if(flavor.language.name === 'en') chosenText = flavor.flavor_text
+        });
+        console.log(chosenText);
+        return (
+            <>
+                <p className="text">{chosenText}</p>
+            </>
+        )
     }
 
     const renderLoading = () => {
@@ -130,6 +144,10 @@ const PokemonInfo = () => {
             <ul className="abilties">
                 <p className="ability-header">Abilties</p>
                 {renderAbilities()}
+                <div className="description">
+                <p>Description</p>
+                {renderFlavorText()}
+            </div>
             </ul>
         </div>  
         </>
