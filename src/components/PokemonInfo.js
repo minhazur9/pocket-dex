@@ -107,7 +107,7 @@ const PokemonInfo = () => {
         });
         return (
             <>
-                {/* <p className="text">{chosenText}</p> */}
+                <p className="text">{chosenText}</p>
             </>
         )
     }
@@ -116,7 +116,7 @@ const PokemonInfo = () => {
         const moveSet = info.moves;
         return moveSet.map((move) => {
             return (
-                <li className="move">{move}</li>
+                <li className="move">{move.move.name}</li>
             )
         })
     }
@@ -161,7 +161,7 @@ const PokemonInfo = () => {
         <div className="col4">
             <p>Moveset</p>
             <div className="move-set">
-
+                {renderMoveSet()}
             </div>
         </div>  
         </>
