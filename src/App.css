@@ -365,6 +365,19 @@ nav .nav-link {
   width: 450px;
 }
 
+@media only screen and (max-width: 900px) {
+  .pokemon-info .col3 .description .text {
+    width: 150px;
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .col3 .description {
+    font-size: 20px;
+  }
+}
+
 .lds-ring {
   display: inline;
   position: relative;

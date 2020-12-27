@@ -39,7 +39,7 @@ const StatChart = () => {
             },
             xAxis: {
                 min: 0,
-                max: 150
+                max: 250
             },
             legend: {
                 visible: false
@@ -51,7 +51,7 @@ const StatChart = () => {
                 showLabel: true
             }
         };
-        chart.barChart(container, data, options).hideSeriesLabel();
+        chart.barChart(container, data, options);
 
     }
 

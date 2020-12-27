@@ -249,6 +249,13 @@ nav {
                 font-size: 20px;
                 overflow-wrap: break-word;
                 width: 450px;
+                @media only screen and (max-width: 900px) {
+                    width: 150px;
+                    font-size: 10px;
+                }
+            }
+            @media only screen and (max-width: 900px) {
+                font-size: 20px;
             }
         }
     }
