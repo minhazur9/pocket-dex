@@ -7,10 +7,10 @@ const MoveSetList = () => {
     const renderMoveSet = () => {
         const moveSet = info.moves;
         let learnMethod = '';
-        return moveSet.map((move) => {
+        return moveSet.map((move,index) => {
             learnMethod = getMethod(move);
             return (
-                <li className="move">{move.move.name}  
+                <li key={index} className="move">{move.move.name}  
                 <p className="learn-method">{learnMethod}</p>
                 </li>
             )

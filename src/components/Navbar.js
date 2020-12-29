@@ -21,6 +21,7 @@ const Navbar = () => {
       <Link to="/" onClick={() => document.querySelector('.dropdown').style.display='none'} className="brand-logo left">PocketDex</Link>
       <ul id="nav-mobile" className="right">
         <li><Link to="/pokemon" className="nav-link">All Pokemon</Link></li>
+        <li><Link to="/moves" className="nav-link">All Moves</Link></li>
       </ul>
       <button onClick={dropdown} className="hamburger-menu">
         <div></div>
@@ -30,6 +31,7 @@ const Navbar = () => {
     </div>
     <ul className="dropdown">
       <Link to="/pokemon" onClick={(e) => e.target.parentNode.style.display='none'} className="mobile-nav-link"><li>All Pokemon</li></Link>
+      <Link to="/moves" onClick={(e) => e.target.parentNode.style.display='none'} className="mobile-nav-link"><li>All Moves</li></Link>
         </ul>
   </nav>
     )

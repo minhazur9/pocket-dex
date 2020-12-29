@@ -60,7 +60,10 @@ nav .nav-link {
             animation-name: slideDown;
   }
   nav .dropdown li {
-    margin: -10px;
+    margin: -7px;
+  }
+  nav .dropdown li:hover {
+    background-color: #DA1002;
   }
   nav .nav-link {
     display: none;
@@ -72,8 +75,12 @@ nav .nav-link {
     top: 56px;
   }
   nav .dropdown li {
-    margin: -7px;
+    margin: -4px;
   }
+}
+
+.move-link {
+  top: 500px;
 }
 
 @-webkit-keyframes slideDown {
@@ -81,7 +88,7 @@ nav .nav-link {
     height: 0px;
   }
   100% {
-    height: 45px;
+    height: 98px;
   }
 }
 
@@ -90,7 +97,7 @@ nav .nav-link {
     height: 0px;
   }
   100% {
-    height: 45px;
+    height: 98px;
   }
 }
 
