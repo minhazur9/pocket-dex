@@ -19,11 +19,36 @@ import rock from '../images/types/rock.png'
 import steel from '../images/types/steel.png'
 import water from '../images/types/water.png'
 import StatChart from '../components/StatChart';
+import MoveSetList from '../components/MoveSetList';
+
+// General Pokemon Information
 const PokemonInfo = () => {
 
     const info = useSelector((state => state.info))
     const loading = useSelector((state => state.loading))
     const speciesInfo = useSelector(state => state.speciesInfo)
+
+    // Hash table for converting pokemon type strings to image
+    const typeTable = {
+        bug: bug,
+        dark: dark,
+        dragon: dragon,
+        electric: electric,
+        fairy: fairy,
+        fighting: fighting,
+        fire: fire,
+        flying: flying,
+        ghost: ghost,
+        grass: grass,
+        ground: ground,
+        ice: ice,
+        normal: normal,
+        poison: poison,
+        psychic: psychic,
+        rock: rock,
+        steel: steel,
+        water: water
+    }
     
     // Renders the pokemon sprites
     const renderSprites = () => {
@@ -45,35 +70,16 @@ const PokemonInfo = () => {
         )  
     }
 
+    // Renders the pokemon id number
     const renderPokemonId = () => {
         return (
             <p className="pokemon-id">#{info.id}</p>
         )
     }
     
+    // Render the pokemon types
     const renderTypes = () => {
         const types = info.types;
-        const typeTable = {
-            bug: bug,
-            dark: dark,
-            dragon: dragon,
-            electric: electric,
-            fairy: fairy,
-            fighting: fighting,
-            fire: fire,
-            flying: flying,
-            ghost: ghost,
-            grass: grass,
-            ground: ground,
-            ice: ice,
-            normal: normal,
-            poison: poison,
-            psychic: psychic,
-            rock: rock,
-            steel: steel,
-            water: water
-        }
-
         return types.map((type,index) => {
             return (
                 <li key={index}><img src={typeTable[type.type.name]} alt={type.type.name} className="type"/></li>
@@ -81,12 +87,7 @@ const PokemonInfo = () => {
         }) 
     }
 
-    const renderStats = () => {
-        return (
-                <StatChart/>
-        )
-    }
-
+    // Render the pokemon abilities
     const renderAbilities = () => {
         const abilities = info.abilities;
         return abilities.map((ability,index) => {
@@ -99,6 +100,7 @@ const PokemonInfo = () => {
         });
     }
 
+    // Render the pokemon flavor text
     const renderFlavorText = () => {
         const text = speciesInfo.flavor_text_entries;
         let chosenText = '';
@@ -112,29 +114,7 @@ const PokemonInfo = () => {
         )
     }
 
-    const getMethod = (move) => {
-       const version = move.version_group_details;
-       const last = version.length - 1;
-       console.log(version[last])
-            if(version[last].move_learn_method.name === 'level-up') {
-                console.log('true')
-                return `Move learned at level ${version[last].level_learned_at}`
-            }
-    }
-
-    const renderMoveSet = () => {
-        const moveSet = info.moves;
-        let learnMethod = '';
-        return moveSet.map((move) => {
-            learnMethod = getMethod(move);
-            return (
-                <li className="move">{move.move.name}  
-                <p className="learn-method">{learnMethod}</p>
-                </li>
-            )
-        })
-    }
-
+    // Renders loading spinner
     const renderLoading = () => {
         return (
             <>
@@ -143,6 +123,7 @@ const PokemonInfo = () => {
         )
     }
 
+    // Renders all the info
     const renderAllInfo = () => {
         return (
          <>
@@ -159,7 +140,7 @@ const PokemonInfo = () => {
             <div className="base-stats">
                 <div className="stats">Base Stats
                 <ul className="stat-list">
-                    {renderStats()}
+                    <StatChart/>
                 </ul>
                 </div>
             </div>
@@ -172,12 +153,7 @@ const PokemonInfo = () => {
             </div>
             </ul>
         </div>
-        <div className="col4">
-            <p>Moveset</p>
-            <div className="move-set">
-                {renderMoveSet()}
-            </div>
-        </div>  
+            <MoveSetList/>
         </>
         )
     }
