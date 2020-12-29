@@ -112,11 +112,25 @@ const PokemonInfo = () => {
         )
     }
 
+    const getMethod = (move) => {
+       const version = move.version_group_details;
+       const last = version.length - 1;
+       console.log(version[last])
+            if(version[last].move_learn_method.name === 'level-up') {
+                console.log('true')
+                return `Move learned at level ${version[last].level_learned_at}`
+            }
+    }
+
     const renderMoveSet = () => {
         const moveSet = info.moves;
+        let learnMethod = '';
         return moveSet.map((move) => {
+            learnMethod = getMethod(move);
             return (
-                <li className="move">{move.move.name}</li>
+                <li className="move">{move.move.name}  
+                <p className="learn-method">{learnMethod}</p>
+                </li>
             )
         })
     }

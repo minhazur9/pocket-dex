@@ -397,14 +397,41 @@ nav .nav-link {
   text-align: center;
   width: 1000px;
   border: 2px solid black;
-  height: 400px;
+  max-height: 400px;
   overflow-y: auto;
   margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 900px) {
   .pokemon-info .col4 .move-set {
-    width: 400px;
+    width: 300px;
+    font-size: 20px;
+  }
+}
+
+.pokemon-info .col4 .move-set .move {
+  position: relative;
+  text-align: left;
+  font-size: 20px;
+  border: 2px solid black;
+}
+
+.pokemon-info .col4 .move-set .move .learn-method {
+  display: inline;
+  text-align: right;
+  position: absolute;
+  right: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .col4 .move-set .move {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .col4 .move-set {
+    font-size: 20px;
   }
 }
 
