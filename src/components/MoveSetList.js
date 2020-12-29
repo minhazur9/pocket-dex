@@ -22,7 +22,7 @@ const MoveSetList = () => {
         const method = version[version.length - 1].move_learn_method.name;
              if(method === 'level-up') {
                  const level = version[version.length - 1].level_learned_at;
-                 return `Move learned at level ${level}`
+                 return `Learned at level ${level}`
              }
              else if(method === 'egg') {
                  return 'Egg'

@@ -275,14 +275,13 @@ nav {
         align-items:center;
         .move-set {
             text-align: center;
-            width: 1000px;
+            width: 70vw;
             border: 2px solid black;
             max-height: 400px;
             overflow-y: auto;
             margin-bottom: 20px;
             @media only screen and (max-width: 900px) {
-                width: 300px;
-                font-size: 20px;
+                width: 60vw;
             }
             .move {
                 position: relative;
@@ -293,11 +292,13 @@ nav {
                     display: inline;
                     text-align: right;
                     position: absolute;
-                    right: 20px;
-                    
+                    right: 20px;    
+                    @media only screen and (max-width: 900px) {
+                        font-size: 10px;
+                    }
                 }
                 @media only screen and (max-width: 900px) {
-                    font-size: 10px;
+                    font-size: 15px;
                 }
             }
             @media only screen and (max-width: 900px) {
