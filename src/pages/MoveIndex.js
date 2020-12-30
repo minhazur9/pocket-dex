@@ -31,9 +31,12 @@ const MoveIndex = () => {
 
     const renderMoves = () => {
         return moves.map((move) => {
+            const moveName = move.name.split('-')
+            .map((word) => word.charAt(0).toUpperCase() + word.substr(1))
+            .join(' ');
             return (
                 <button id={move.name} onClick={select} key={move.name}>
-                        {move.name.toUpperCase()}
+                        {moveName.toUpperCase()}
                     </button>
             )
         })

@@ -105,7 +105,6 @@ export const getMoves = () => {
 }
 
 export const getMoveInfo = (move) => {
-    return (dispatch) => {
         return (dispatch) => {
             return axios.get(moveInfoURL + move)
                 .then((response) => {
@@ -118,7 +117,6 @@ export const getMoveInfo = (move) => {
                     })
                 })
         }
-    }
 }
 
 export const startLoading = () => {

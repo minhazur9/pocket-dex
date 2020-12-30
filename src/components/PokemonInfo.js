@@ -91,11 +91,11 @@ const PokemonInfo = () => {
     const renderAbilities = () => {
         const abilities = info.abilities;
         return abilities.map((ability, index) => {
-            ability.name = ability.ability.name.split("-")
+            const abilityName = ability.ability.name.split("-")
                 .map((word) => word.charAt(0).toUpperCase() + word.substr(1))
                 .join(' ');
             return (
-                <li key={index * 5} className='ability'>{ability.name}</li>
+                <li key={index * 5} className='ability'>{abilityName}</li>
             )
         });
     }
