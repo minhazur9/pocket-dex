@@ -119,6 +119,13 @@ export const getMoveInfo = (move) => {
         }
 }
 
+export const searchMoves = (term) => {
+    return {
+        type: 'MOVES_SEARCH_DATA',
+        payload: term
+    }
+}
+
 export const startLoading = () => {
     return {
         type: 'START_LOADING'

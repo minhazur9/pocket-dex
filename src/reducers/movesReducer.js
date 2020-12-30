@@ -4,7 +4,7 @@ const movesReducer = (state = [], action) => {
            return [ ...action.payload]
         case 'MOVES_SEARCH_DATA':
             const foundMoves = [];
-            const allMoves = JSON.parse(localStorage.getItem('moves-list-data'))
+            const allMoves = JSON.parse(localStorage.getItem('moves-data'))
             const regexp = new RegExp(`^${action.payload}`)
             allMoves.forEach((moves) => {
                 if(moves.name.match(regexp)) foundMoves.push(moves)

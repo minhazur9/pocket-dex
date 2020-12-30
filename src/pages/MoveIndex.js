@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { getMoves, getMoveInfo, startLoading, stopLoading } from '../actions';
+import { getMoves, getMoveInfo, searchMoves, startLoading, stopLoading } from '../actions';
 
 const MoveIndex = () => {
     const dispatch = useDispatch()
@@ -29,6 +29,11 @@ const MoveIndex = () => {
         dispatch(stopLoading())
     }
 
+    // Changes the Pokemon depending on what is typed
+    const search = (e) => {
+        dispatch(searchMoves(e.target.value.replace(" ", "-").toLowerCase()))
+    }
+
     const renderMoves = () => {
         return moves.map((move) => {
             const moveName = move.name.split('-')
@@ -51,7 +56,7 @@ const MoveIndex = () => {
     return (
         <div className="move-index">
             <div className="input-field">
-            {/* <input onKeyUp={search} id="icon_prefix" type="text" className="validate"/> */}
+            <input onKeyUp={search} id="icon_prefix" type="text" className="validate"/>
             <label htmlFor="icon_prefix">Search</label>
             </div>
             <div className="list">
