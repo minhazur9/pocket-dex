@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import { useSelector,useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { getInfo, getPokemon, getSpeciesInfo, searchPokemon, startLoading, stopLoading } from '../actions';
 import PokemonInfo from '../components/PokemonInfo';
 
@@ -23,17 +23,17 @@ const PokemonIndex = () => {
 
     // Highlights selected element
     const highight = (e) => {
-       const highlighted = e.target.classList.contains("selected")
-       if(highlighted) return;
-       const buttons = document.querySelectorAll(".pokemon-list button");
-       buttons.forEach((button) => {
-           button.classList.remove('selected')
-       });
-       e.target.classList.toggle('selected');
+        const highlighted = e.target.classList.contains("selected")
+        if (highlighted) return;
+        const buttons = document.querySelectorAll(".list button");
+        buttons.forEach((button) => {
+            button.classList.remove('selected')
+        });
+        e.target.classList.toggle('selected');
     }
 
     // Changes info
-    const updateInfo = async(name) => {
+    const updateInfo = async (name) => {
         dispatch(startLoading())
         dispatch(getSpeciesInfo(name))
         await dispatch(getInfo(name))
@@ -42,35 +42,35 @@ const PokemonIndex = () => {
 
     // Renders the pokemon list
     const renderPokemon = () => {
-        return (
-            pokemon.map((pokemon) => {
-                return  <button id={pokemon.name} onClick={select} key={pokemon.name}>
-                            {pokemon.name.toUpperCase()}
-                        </button>
+        return pokemon.map((pokemon) => {
+                return (
+                    <button id={pokemon.name} onClick={select} key={pokemon.name}>
+                        {pokemon.name.toUpperCase()}
+                    </button>
+                )
             })
-        )
     }
 
     // Gets all the pokemon
     useEffect(() => {
         dispatch(getPokemon())
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    }, [])
 
     return (
         <div className="pokemon-index">
             <div className="input-field">
-            <input onKeyUp={search} id="icon_prefix" type="text" className="validate"/>
-            <label htmlFor="icon_prefix">Search</label>
+                <input onKeyUp={search} id="icon_prefix" type="text" className="validate" />
+                <label htmlFor="icon_prefix">Search</label>
             </div>
-            <div className="pokemon-list">
+            <div className="list">
                 {renderPokemon()}
             </div>
-            {info && 
-            <PokemonInfo/>
-            }     
+            {info &&
+                <PokemonInfo />
+            }
         </div>
-        
+
     )
 }
 
