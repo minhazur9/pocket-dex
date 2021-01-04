@@ -550,4 +550,19 @@ nav .nav-link {
     height: 25px;
   }
 }
+
+.move-info .col2 .damage-class {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+  .move-info .col2 .damage-class {
+    width: 55px;
+    height: 25px;
+  }
+}
 /*# sourceMappingURL=App.css.map */
