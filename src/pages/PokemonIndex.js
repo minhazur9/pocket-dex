@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getInfo, getPokemon, getSpeciesInfo, searchPokemon, startLoading, stopLoading } from '../actions';
-import PokemonInfo from '../components/PokemonInfo';
+import PokemonInfo from '../components/pokemon/PokemonInfo';
 
 
 const PokemonIndex = () => {

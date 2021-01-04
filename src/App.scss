@@ -348,4 +348,21 @@ nav {
       transform: rotate(360deg);
     }
   }
-  
+
+  /* ----------------- Move Info */
+
+  .move-info {
+    position: relative;
+    bottom:90vh;
+    margin-top:10px;
+    left: 25vw;
+    height: 89vh;
+    width: 75vw;
+    overflow-y: auto;
+    .name {
+        text-align: center;
+        @media only screen and (max-width: 900px) {
+            font-size: 30px
+        }
+    }
+  }

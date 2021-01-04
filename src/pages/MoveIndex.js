@@ -1,10 +1,12 @@
 import React, {useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { getMoves, getMoveInfo, searchMoves, startLoading, stopLoading } from '../actions';
+import MoveInfo from '../components/moves/MoveInfo';
 
 const MoveIndex = () => {
     const dispatch = useDispatch()
     const moves = useSelector(state => state.moves)
+    const moveInfo = useSelector(state => state.moveInfo)
 
     // Highlights selection and changes info to selected move's
     const select = (e) => {
@@ -34,6 +36,7 @@ const MoveIndex = () => {
         dispatch(searchMoves(e.target.value.replace(" ", "-").toLowerCase()))
     }
 
+    // Render moves to display
     const renderMoves = () => {
         return moves.map((move) => {
             const moveName = move.name.split('-')
@@ -62,9 +65,9 @@ const MoveIndex = () => {
             <div className="list">
                 {renderMoves()}
             </div>
-            {/* {info && 
-            <PokemonInfo/>
-            }      */}
+            {moveInfo && 
+            <MoveInfo/>
+            }     
         </div>
         
     )
