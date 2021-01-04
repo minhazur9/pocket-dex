@@ -528,4 +528,26 @@ nav .nav-link {
     font-size: 30px;
   }
 }
+
+.move-info .col2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.move-info .col2 .type {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+  .move-info .col2 .type {
+    width: 55px;
+    height: 25px;
+  }
+}
 /*# sourceMappingURL=App.css.map */

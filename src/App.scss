@@ -365,4 +365,18 @@ nav {
             font-size: 30px
         }
     }
-  }
+    .col2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+            .type {
+                justify-self: center;
+                width:100px;
+                height:50px;
+                border-radius: 20px;
+                @media only screen and (max-width: 900px) {
+                    width: 55px;
+                    height: 25px;
+                }
+             }
+        }
+    }

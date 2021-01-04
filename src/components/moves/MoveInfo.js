@@ -45,6 +45,13 @@ const MoveInfo = () => {
         water: water
     }
 
+    const renderType = () => {
+        const type = moveInfo.type;
+            return (
+                <img src={typeTable[type.name]} alt={type.name} className="type" />
+            )
+    }
+
     // Renders loading spinner
     const renderLoading = () => {
         return (
@@ -58,6 +65,9 @@ const MoveInfo = () => {
         return (
             <>
             <h1 className="name">{moveInfo.name.toUpperCase()}</h1>
+            <div className="col2">
+                {renderType()}
+            </div>
             </>
         )
     }
