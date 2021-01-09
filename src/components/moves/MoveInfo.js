@@ -87,9 +87,16 @@ const MoveInfo = () => {
     }
 
     const renderMoveAccuracy = () => {
-        const accuracy = moveInfo.accuracy ? moveInfo.accuracy : '---';
+        const accuracy = moveInfo.accuracy ? moveInfo.accuracy + '%' : '---';
         return (
             <p className="move-accuracy">Accuracy:{accuracy}</p>
+        )
+    }
+
+    const renderPriority = () => {
+        const priority = moveInfo.priority;
+        return (
+            <p className="effect-chance">Priority:{priority}</p>
         )
     }
 
@@ -99,6 +106,21 @@ const MoveInfo = () => {
         text.forEach((flavor) => {
             if (flavor.language.name === 'en') chosenText = flavor.flavor_text
         });
+        return (
+            <>
+                <p className="move-text">{chosenText}</p>
+            </>
+        )
+    }
+
+    const renderMoveDetails = () => {
+        const details = moveInfo.effect_entries;
+        let chosenText = '';
+        details.forEach((entry) => {
+            if (entry.language.name === 'en') chosenText = entry.effect;
+        });
+        console.log(chosenText)
+        chosenText = chosenText.replace("$effect_chance%", moveInfo.effect_chance + '%')
         return (
             <>
                 <p className="move-text">{chosenText}</p>
@@ -118,7 +140,7 @@ const MoveInfo = () => {
     const renderAllInfo = () => {
         return (
             <>
-            <h1 className="name">{moveInfo.name.toUpperCase()}</h1>
+            <h1 className="name">{moveInfo.name.toUpperCase().replace('-', ' ')}</h1>
             <div className="col2">
                 {renderType()}
                 {renderDamageClass()}
@@ -127,7 +149,16 @@ const MoveInfo = () => {
             <div className="col3">
                 {renderMovePower()}
                 {renderMoveAccuracy()}
+                {renderPriority()}
+            </div>
+            <div className="col4">
                 {renderMoveText()}
+            </div>
+            <div className="col5">
+                Effect
+            </div>
+            <div className="col6">
+                {renderMoveDetails()}
             </div>
             </>
         )

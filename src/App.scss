@@ -254,6 +254,8 @@ nav {
             flex-direction: column;
             font-size: 30px;
             .text {
+                border: 2px solid black;
+                border-radius: 12px;
                 font-size: 20px;
                 overflow-wrap: break-word;
                 width: 450px;
@@ -398,33 +400,73 @@ nav {
         }
     }
     .col3 {
-        margin-top: 25px;
-        text-align: center;
+        display: grid;
+        margin-top: 20px;
+        grid-template-columns: 1fr 1fr 1fr;
         .move-power {
             font-size: 30px;
+            justify-self: center;
             @media only screen and (max-width: 900px) {
                 font-size: 15px;
             }
         }
         .move-accuracy {
             font-size: 30px;
+            justify-self: center;
             @media only screen and (max-width: 900px) {
                 font-size: 15px;
             }
         }
-        .move-text {
-            margin-top: 15px;
-            font-size: 20px;
-            border: 2px solid black;
-            border-radius: 15px;
-            margin-left: 15px;
-            margin-right: 15px;
+        .effect-chance {
+            font-size: 30px;
+            justify-self: center;
             @media only screen and (max-width: 900px) {
-                font-size: 10px;
+                font-size: 15px;
             }
         }
         @media only screen and (max-width: 900px) {
             margin-top: 15px;
         }
         
+    }
+    .col4 {
+        text-align: center;
+        .move-text {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 20px;
+            border: 2px solid black;
+            border-radius: 20px;
+            margin-left: 15px;
+            margin-right: 15px;
+            padding: 3px;
+            @media only screen and (max-width: 900px) {
+                font-size: 10px;
+            }
+        }
+    }
+    .col5 {
+        text-align: center;
+        margin-top: 15px;
+        font-size:30px;
+        @media only screen and (max-width: 900px) {
+            font-size: 15px;
+            margin-top: 10px;
+        }
+    }
+    .col6 {
+        text-align: center;
+        .move-text {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 20px;
+            border: 2px solid black;
+            border-radius: 17px;
+            margin-left: 15px;
+            margin-right: 15px;
+            padding: 3px;
+            @media only screen and (max-width: 900px) {
+                font-size: 10px;
+            }
+        }
     }
