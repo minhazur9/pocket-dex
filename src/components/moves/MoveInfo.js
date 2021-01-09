@@ -54,6 +54,7 @@ const MoveInfo = () => {
         status: status
     }
 
+    // Renders the type of move
     const renderType = () => {
         const type = moveInfo.type;
             return (
@@ -61,6 +62,7 @@ const MoveInfo = () => {
             )
     }
 
+    // Render the damage class of the move
     const renderDamageClass = () => {
         const damageClass = moveInfo.damage_class;
         return (
@@ -68,10 +70,31 @@ const MoveInfo = () => {
         )
     }
 
+    // Renders the PP of the move
     const renderPP = () => {
         const pp = moveInfo.pp;
         return (
             <p className="pp">PP:{pp}</p>
+        )
+    }
+
+    const renderMovePower = () => {
+        const power = moveInfo.power ? moveInfo.power : '---';
+        return (
+            <p className="movePower">Power:{power}</p>
+        )
+    }
+
+    const renderMoveText = () => {
+        const text = moveInfo.flavor_text_entries;
+        let chosenText = '';
+        text.forEach((flavor) => {
+            if (flavor.language.name === 'en') chosenText = flavor.flavor_text
+        });
+        return (
+            <>
+                <p className="text">{chosenText}</p>
+            </>
         )
     }
 
@@ -92,6 +115,9 @@ const MoveInfo = () => {
                 {renderType()}
                 {renderDamageClass()}
                 {renderPP()}
+            </div>
+            <div className="col3">
+                {renderMovePower()}
             </div>
             </>
         )

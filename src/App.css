@@ -579,8 +579,14 @@ nav .nav-link {
 }
 
 .col3 {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 900px) {
+  .col3 {
+    font-size: 15px;
+  }
 }
 /*# sourceMappingURL=App.css.map */

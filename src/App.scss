@@ -398,5 +398,10 @@ nav {
         }
     }
     .col3 {
-        justify-content: center;
+        margin-top: 30px;
+        text-align: center;
+        font-size: 30px;
+        @media only screen and (max-width: 900px) {
+            font-size: 15px;
+        }
     }
