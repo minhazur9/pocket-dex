@@ -282,14 +282,16 @@ nav {
             max-height: 400px;
             overflow-y: auto;
             margin-bottom: 20px;
-            @media only screen and (max-width: 900px) {
-                width: 60vw;
-            }
             .move {
                 position: relative;
                 text-align: left;
                 font-size: 20px;
                 border: 2px solid black;
+                .move-link {
+                    display: inline;
+                    cursor: pointer;
+                    color:#00A9FF
+                }
                 .learn-method {
                     display: inline;
                     text-align: right;
@@ -305,6 +307,7 @@ nav {
             }
             @media only screen and (max-width: 900px) {
                 font-size: 20px;
+                width: 60vw;
             }
         }
     }

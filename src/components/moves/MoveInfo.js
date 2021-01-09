@@ -119,7 +119,6 @@ const MoveInfo = () => {
         details.forEach((entry) => {
             if (entry.language.name === 'en') chosenText = entry.effect;
         });
-        console.log(chosenText)
         chosenText = chosenText.replace("$effect_chance%", moveInfo.effect_chance + '%')
         return (
             <>
