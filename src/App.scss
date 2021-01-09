@@ -398,10 +398,33 @@ nav {
         }
     }
     .col3 {
-        margin-top: 30px;
+        margin-top: 25px;
         text-align: center;
-        font-size: 30px;
-        @media only screen and (max-width: 900px) {
-            font-size: 15px;
+        .move-power {
+            font-size: 30px;
+            @media only screen and (max-width: 900px) {
+                font-size: 15px;
+            }
         }
+        .move-accuracy {
+            font-size: 30px;
+            @media only screen and (max-width: 900px) {
+                font-size: 15px;
+            }
+        }
+        .move-text {
+            margin-top: 15px;
+            font-size: 20px;
+            border: 2px solid black;
+            border-radius: 15px;
+            margin-left: 15px;
+            margin-right: 15px;
+            @media only screen and (max-width: 900px) {
+                font-size: 10px;
+            }
+        }
+        @media only screen and (max-width: 900px) {
+            margin-top: 15px;
+        }
+        
     }

@@ -73,6 +73,7 @@ const MoveInfo = () => {
     // Renders the PP of the move
     const renderPP = () => {
         const pp = moveInfo.pp;
+        if (pp === 1) return <p className="pp">Z-Move</p>
         return (
             <p className="pp">PP:{pp}</p>
         )
@@ -81,7 +82,14 @@ const MoveInfo = () => {
     const renderMovePower = () => {
         const power = moveInfo.power ? moveInfo.power : '---';
         return (
-            <p className="movePower">Power:{power}</p>
+            <p className="move-power">Power:{power}</p>
+        )
+    }
+
+    const renderMoveAccuracy = () => {
+        const accuracy = moveInfo.accuracy ? moveInfo.accuracy : '---';
+        return (
+            <p className="move-accuracy">Accuracy:{accuracy}</p>
         )
     }
 
@@ -93,7 +101,7 @@ const MoveInfo = () => {
         });
         return (
             <>
-                <p className="text">{chosenText}</p>
+                <p className="move-text">{chosenText}</p>
             </>
         )
     }
@@ -118,6 +126,8 @@ const MoveInfo = () => {
             </div>
             <div className="col3">
                 {renderMovePower()}
+                {renderMoveAccuracy()}
+                {renderMoveText()}
             </div>
             </>
         )
