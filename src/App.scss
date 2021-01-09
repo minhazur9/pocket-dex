@@ -388,5 +388,15 @@ nav {
                     height: 25px;
                 }
              }
+             .pp {
+                justify-self: center;
+                font-size: 35px;
+                @media only screen and (max-width: 900px) {
+                    font-size: 20px;
+                }
+             }
         }
+    }
+    .col3 {
+        justify-content: center;
     }

@@ -565,4 +565,22 @@ nav .nav-link {
     height: 25px;
   }
 }
+
+.move-info .col2 .pp {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  font-size: 35px;
+}
+
+@media only screen and (max-width: 900px) {
+  .move-info .col2 .pp {
+    font-size: 20px;
+  }
+}
+
+.col3 {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 /*# sourceMappingURL=App.css.map */

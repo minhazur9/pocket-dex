@@ -113,7 +113,7 @@ const PokemonInfo = () => {
             </>
         )
     }
-
+    
     // Renders loading spinner
     const renderLoading = () => {
         return (

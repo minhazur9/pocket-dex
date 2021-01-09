@@ -68,6 +68,13 @@ const MoveInfo = () => {
         )
     }
 
+    const renderPP = () => {
+        const pp = moveInfo.pp;
+        return (
+            <p className="pp">PP:{pp}</p>
+        )
+    }
+
     // Renders loading spinner
     const renderLoading = () => {
         return (
@@ -84,6 +91,7 @@ const MoveInfo = () => {
             <div className="col2">
                 {renderType()}
                 {renderDamageClass()}
+                {renderPP()}
             </div>
             </>
         )
