@@ -4,6 +4,7 @@ import loadingReducer from './loadingReducer';
 import speciesReducer from './speciesReducer';
 import movesReducer from './movesReducer';
 import moveInfoReducer from './moveInfoReducer';
+import evolutionChainReducer from './evolutionChainReducer';
 import {combineReducers} from 'redux'
 
 const allReducers = combineReducers({
@@ -13,6 +14,7 @@ const allReducers = combineReducers({
     speciesInfo: speciesReducer,
     moves: movesReducer,
     moveInfo: moveInfoReducer,
+    evolutionChain: evolutionChainReducer,
 });
 
 export default allReducers

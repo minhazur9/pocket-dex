@@ -126,6 +126,21 @@ export const searchMoves = (term) => {
     }
 }
 
+export const getEvolutionChain = (endpoint) => {
+    return (dispatch) => {
+        return axios.get(endpoint)
+            .then((response) => {
+                return response.data.evolves_to;
+            })
+            .then((data) => {
+                dispatch({
+                    type: 'POKEMON_EVOLUTION_DATA',
+                    payload: data,
+                })
+            })
+    }
+}
+
 export const startLoading = () => {
     return {
         type: 'START_LOADING'
