@@ -269,6 +269,42 @@ nav {
             }
         }
     }
+
+    .evolution-chain-header {
+        font-size:25px;
+        text-align: center;
+        @media only screen and (max-width: 900px) {
+            font-size: 15px;
+        }
+    }
+
+    .evolution-line {
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+        .stage-image {
+                width: 40%;
+                text-align: center;
+                img {
+                    width: 40%;
+                    @media only screen and (max-width: 900px) {
+                        width: 10px;
+                    }
+                }
+                p {
+                    align-items: flex-end;
+                    font-size: 15px;
+                    @media only screen and (max-width: 1400px) {
+                        font-size: 10px;
+                    }
+                }
+                border: 3px #00A9FF solid;
+                padding: 10px;
+                border-radius: 10px;
+                margin: 10px;
+        }
+    }
+
     .col4 {
         display: flex;
         text-align: center;

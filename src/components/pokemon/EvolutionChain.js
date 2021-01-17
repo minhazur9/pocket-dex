@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { getEvolutionChain } from '../../actions';
@@ -15,7 +14,7 @@ const EvolutionChain = () => {
                 evolutionData.push(data.species.name)
                     data.evolves_to.map((form) => {
                        if(form.evolves_to) return getEvolutionData(form)
-                       return;
+                       return 0;
                     })
             }
     }
@@ -24,18 +23,25 @@ const EvolutionChain = () => {
         getEvolutionData(evolutionChain);
         return evolutionData.map((stage) => {
             return (
-                <h3>{stage}</h3>
+                <li className="stage-image" key={stage}>
+                        <img src={`https://img.pokemondb.net/artwork/${stage}.jpg`} alt={stage}/>
+                        <p>{stage.toUpperCase()}</p>
+                </li>
             )
         })
     }
 
     useEffect(() => {
         dispatch(getEvolutionChain(speciesInfo.evolution_chain.url))
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     return (
         <>
-        {renderChain()}
+            <p className="evolution-chain-header">Evolution Chain</p>
+            <ul className="evolution-line">
+                {renderChain()}
+            </ul>
         </>
     )
 }

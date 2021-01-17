@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getInfo, getPokemon, getSpeciesInfo, searchPokemon, getEvolutionChain, startLoading, stopLoading } from '../actions';
+import { getInfo, getPokemon, getSpeciesInfo, searchPokemon, startLoading, stopLoading } from '../actions';
 import PokemonInfo from '../components/pokemon/PokemonInfo';
 
 
 const PokemonIndex = () => {
     const pokemon = useSelector(state => state.pokemon)
     const info = useSelector(state => state.info)
-    const speciesInfo = useSelector(state => state.speciesInfo)
     const dispatch = useDispatch()
 
     // Highlights selection and changes info to selected pokemon's

@@ -387,6 +387,58 @@ nav .nav-link {
   }
 }
 
+.pokemon-info .evolution-chain-header {
+  font-size: 25px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .evolution-chain-header {
+    font-size: 15px;
+  }
+}
+
+.pokemon-info .evolution-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: relative;
+}
+
+.pokemon-info .evolution-line .stage-image {
+  width: 40%;
+  text-align: center;
+  border: 3px #00A9FF solid;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.pokemon-info .evolution-line .stage-image img {
+  width: 40%;
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .evolution-line .stage-image img {
+    width: 10px;
+  }
+}
+
+.pokemon-info .evolution-line .stage-image p {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .pokemon-info .evolution-line .stage-image p {
+    font-size: 10px;
+  }
+}
+
 .pokemon-info .col4 {
   display: -webkit-box;
   display: -ms-flexbox;
