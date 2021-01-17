@@ -1,26 +1,41 @@
+import { render } from '@testing-library/react';
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
+import { getEvolutionChain } from '../../actions';
 
 const EvolutionChain = () => {
+    const speciesInfo = useSelector(state => state.speciesInfo);
     const evolutionChain = useSelector(state => state.evolutionChain);
+    const evolutionData = [];
+    const dispatch = useDispatch();
 
-    const renderChain = (branch) => {
-        return branch.chain.evolves_to.map((form) => {
-            console.log(form)
-            if(branch.chain.evolves_to === []) return;
-            return renderChain(form)
-        }
-            
-        )
+    // dispatch(getEvolutionChain(speciesInfo.evolution_chain.url))
+    const getEvolutionData = (data) => {
+            if(data) {
+                evolutionData.push(data.species.name)
+                    data.evolves_to.map((form) => {
+                       if(form.evolves_to) return getEvolutionData(form)
+                       return;
+                    })
+            }
+    }
+
+    const renderChain = () => {
+        getEvolutionData(evolutionChain);
+        return evolutionData.map((stage) => {
+            return (
+                <h3>{stage}</h3>
+            )
+        })
     }
 
     useEffect(() => {
-        renderChain(evolutionChain)
+        dispatch(getEvolutionChain(speciesInfo.evolution_chain.url))
     },[])
 
     return (
         <>
-        {renderChain(evolutionChain)}
+        {renderChain()}
         </>
     )
 }

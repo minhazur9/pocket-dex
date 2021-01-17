@@ -20,6 +20,7 @@ import steel from '../../images/types/steel.png'
 import water from '../../images/types/water.png'
 import StatChart from './StatChart';
 import MoveSetList from './MoveSetList';
+import EvolutionChain from './EvolutionChain';
 
 // General Pokemon Information
 const PokemonInfo = () => {
@@ -113,7 +114,7 @@ const PokemonInfo = () => {
             </>
         )
     }
-    
+
     // Renders loading spinner
     const renderLoading = () => {
         return (
@@ -153,7 +154,8 @@ const PokemonInfo = () => {
                         </div>
                     </ul>
                 </div>
-                <MoveSetList />
+                <EvolutionChain />
+                <MoveSetList/>
             </>
         )
     }

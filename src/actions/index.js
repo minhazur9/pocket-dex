@@ -130,7 +130,7 @@ export const getEvolutionChain = (endpoint) => {
     return (dispatch) => {
         return axios.get(endpoint)
             .then((response) => {
-                return response.data;
+                return response.data.chain;
             })
             .then((data) => {
                 dispatch({

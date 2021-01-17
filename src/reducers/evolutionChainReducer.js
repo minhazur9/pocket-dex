@@ -1,4 +1,4 @@
-const evolutionChainReducer = (state = [], action) => {
+const evolutionChainReducer = (state = "", action) => {
     switch(action.type) {
         case 'POKEMON_EVOLUTION_DATA':
             return action.payload;
