@@ -283,7 +283,7 @@ nav {
         justify-content: space-around;
         position: relative;
         .stage-image {
-                width: 40%;
+                width: 20%;
                 text-align: center;
                 img {
                     width: 40%;
@@ -303,6 +303,11 @@ nav {
                 border-radius: 10px;
                 margin: 10px;
         }
+    }
+
+    .fa-long-arrow-right {
+        position: relative;
+        top: 50px;
     }
 
     .col4 {

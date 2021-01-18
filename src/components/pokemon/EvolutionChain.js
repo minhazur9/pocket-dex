@@ -21,12 +21,16 @@ const EvolutionChain = () => {
 
     const renderChain = () => {
         getEvolutionData(evolutionChain);
-        return evolutionData.map((stage) => {
+        return evolutionData.map((stage,index) => {
             return (
-                <li className="stage-image" key={stage}>
+                <>
+                <li className="stage-image" key={index}>
                         <img src={`https://img.pokemondb.net/artwork/${stage}.jpg`} alt={stage}/>
                         <p>{stage.toUpperCase()}</p>
                 </li>
+                {evolutionData[index + 1] && <i key={index + 10} className="fa fa-long-arrow-right" aria-hidden="false"></i>}
+                </>
+                
             )
         })
     }

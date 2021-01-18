@@ -408,7 +408,7 @@ nav .nav-link {
 }
 
 .pokemon-info .evolution-line .stage-image {
-  width: 40%;
+  width: 20%;
   text-align: center;
   border: 3px #00A9FF solid;
   padding: 10px;
@@ -437,6 +437,11 @@ nav .nav-link {
   .pokemon-info .evolution-line .stage-image p {
     font-size: 10px;
   }
+}
+
+.pokemon-info .fa-long-arrow-right {
+  position: relative;
+  top: 50px;
 }
 
 .pokemon-info .col4 {
