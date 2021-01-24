@@ -20,8 +20,9 @@ const Navbar = () => {
       <div className="nav-wrapper red">
         <Link to="/" onClick={() => document.querySelector('.dropdown').style.display = 'none'} className="brand-logo left">PocketDex</Link>
         <ul id="nav-mobile" className="right">
-          <li><Link to="/pokemon" className="nav-link">All Pokemon</Link></li>
-          <li><Link to="/moves" className="nav-link">All Moves</Link></li>
+          <li><Link to="/pokemon" className="nav-link">PokeDex</Link></li>
+          <li><Link to="/moves" className="nav-link">MoveDex</Link></li>
+          <li><Link to ="/abilities" className="nav-link">AbilityDex</Link></li>
         </ul>
         <button onClick={dropdown} className="hamburger-menu">
           <div></div>
@@ -30,8 +31,9 @@ const Navbar = () => {
         </button>
       </div>
       <ul className="dropdown">
-        <Link to="/pokemon" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>All Pokemon</li></Link>
-        <Link to="/moves" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>All Moves</li></Link>
+        <Link to="/pokemon" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>PokeDex</li></Link>
+        <Link to="/moves" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>MoveDex</li></Link>
+        <Link to ="/abilities" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>AbilityDex</li></Link>
       </ul>
     </nav>
   )

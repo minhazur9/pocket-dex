@@ -6,6 +6,7 @@ const pokemonInfoURL = 'https://pokeapi.co/api/v2/pokemon/';
 const speciesInfoURL = 'https://pokeapi.co/api/v2/pokemon-species/';
 const movesListURL = 'https://pokeapi.co/api/v2/move?limit=813';
 const moveInfoURL = 'https://pokeapi.co/api/v2/move/';
+const abilityListURL = 'https://pokeapi.co/api/v2/ability?limit=327';
 
 
 export const getPokemon = () => {
@@ -20,14 +21,11 @@ export const getPokemon = () => {
         else {
             return axios.get(pokemonListURL)
                 .then((response) => {
-                    return response.data.results;
-                })
-                .then((data) => {
                     dispatch({
                         type: 'POKEMON_LIST_DATA',
-                        payload: data
+                        payload: response.data.results
                     })
-                    const dataString = JSON.stringify(data)
+                    const dataString = JSON.stringify(response.data.results)
                     localStorage.setItem('pokemon-list-data', dataString)
                 })
                 .catch(error => {
@@ -42,12 +40,9 @@ export const getInfo = (name) => {
     return (dispatch) => {
         return axios.get(pokemonInfoURL + name)
             .then((response) => {
-                return response.data;
-            })
-            .then((data) => {
                 dispatch({
                     type: 'POKEMON_INFO_DATA',
-                    payload: data
+                    payload: response.data
                 })
             })
     }
@@ -57,12 +52,9 @@ export const getSpeciesInfo = (name) => {
     return (dispatch) => {
         return axios.get(speciesInfoURL + name)
             .then((response) => {
-                return response.data;
-            })
-            .then((data) => {
                 dispatch({
                     type: 'POKEMON_SPECIES_DATA',
-                    payload: data
+                    payload: response.data
                 })
             })
     }
@@ -87,14 +79,11 @@ export const getMoves = () => {
         else {
             axios.get(movesListURL)
                 .then((response) => {
-                    return response.data.results
-                })
-                .then((data) => {
                     dispatch({
                         type: 'MOVES_LIST_DATA',
-                        payload: data
+                        payload: response.data.results
                     })
-                    const dataString = JSON.stringify(data)
+                    const dataString = JSON.stringify(response.data.results)
                     localStorage.setItem('moves-data', dataString)
                 })
                 .catch((error) => {
@@ -108,13 +97,10 @@ export const getMoveInfo = (move) => {
         return (dispatch) => {
             return axios.get(moveInfoURL + move)
                 .then((response) => {
-                    return response.data;
-                })
-                .then((data) => {
                     dispatch({
-                        type: 'MOVE_INFO_DATA',
-                        payload: data
-                    })
+                                type: 'MOVE_INFO_DATA',
+                                payload: response.data
+                            })
                 })
         }
 }
@@ -138,6 +124,40 @@ export const getEvolutionChain = (endpoint) => {
                     payload: data,
                 })
             })
+    }
+}
+
+
+export const getAbilities = () => {
+    return (dispatch) => {
+        const cachedData = localStorage.getItem('abilities-data');
+        if (cachedData) {
+            dispatch({
+                type: 'ABILITY_LIST_DATA',
+                payload: JSON.parse(cachedData)
+            })
+        }
+        else {
+            return axios.get(abilityListURL)
+            .then((response) => {
+            dispatch({
+                type: 'ABILITY_LIST_DATA',
+                payload: response.data.results,
+            })
+            const dataString = JSON.stringify(response.data.results)
+            localStorage.setItem('abilities-data', dataString)
+        })
+        .catch((error) => {
+            throw error;
+        })
+        }
+    }
+}
+
+export const searchAbilities = (term) => {
+    return {
+        type: 'ABILITY_SEARCH_DATA',
+        payload: term,
     }
 }
 

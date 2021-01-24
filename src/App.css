@@ -338,6 +338,7 @@ nav .nav-link {
 }
 
 .pokemon-info .evolution-line .stage-image {
+  cursor: pointer;
   text-align: center;
   border: 3px #00A9FF solid;
   padding: 10px;
@@ -435,6 +436,12 @@ nav .nav-link {
     font-size: 20px;
     width: 60vw;
   }
+}
+
+.pokemon-info .chain {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .lds-ring {

@@ -18,6 +18,7 @@ import psychic from '../../images/types/psychic.png';
 import rock from '../../images/types/rock.png';
 import steel from '../../images/types/steel.png';
 import water from '../../images/types/water.png';
+import shadow from '../../images/types/shadow.png';
 import physical from '../../images/damage_classes/physical.png';
 import special from '../../images/damage_classes/special.png';
 import status from '../../images/damage_classes/status.png';
@@ -45,7 +46,8 @@ const MoveInfo = () => {
         psychic: psychic,
         rock: rock,
         steel: steel,
-        water: water
+        water: water,
+        shadow: shadow
     }
 
     const damageClassTable = {

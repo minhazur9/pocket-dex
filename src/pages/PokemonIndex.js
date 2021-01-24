@@ -17,7 +17,7 @@ const PokemonIndex = () => {
 
     // Changes the Pokemon depending on what is typed
     const search = (e) => {
-        dispatch(searchPokemon(e.target.value.toLowerCase()))
+        dispatch(searchPokemon(e.target.value.replace(" ","-").toLowerCase()))
     }
 
 

@@ -132,6 +132,7 @@
         justify-content: space-around;
         position: relative;
         .stage-image {
+                cursor: pointer;
                 text-align: center;
                 img {
                     width: 40%;
@@ -200,6 +201,10 @@
                 width: 60vw;
             }
         }
+    }
+
+    .chain {
+        display: flex;
     }
 
     
