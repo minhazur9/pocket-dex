@@ -5,6 +5,7 @@ import { getAbilities, searchAbilities, startLoading, stopLoading } from '../act
 const AbilityIndex = () => {
     const abilities = useSelector(state => state.abilities)
     const dispatch = useDispatch()
+    
 
 
     const search = (e) => {         

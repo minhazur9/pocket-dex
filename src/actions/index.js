@@ -7,6 +7,7 @@ const speciesInfoURL = 'https://pokeapi.co/api/v2/pokemon-species/';
 const movesListURL = 'https://pokeapi.co/api/v2/move?limit=813';
 const moveInfoURL = 'https://pokeapi.co/api/v2/move/';
 const abilityListURL = 'https://pokeapi.co/api/v2/ability?limit=327';
+const abilityInfoURL = 'https://pokeapi.co/api/v2/ability/'
 
 
 export const getPokemon = () => {
@@ -116,12 +117,9 @@ export const getEvolutionChain = (endpoint) => {
     return (dispatch) => {
         return axios.get(endpoint)
             .then((response) => {
-                return response.data.chain;
-            })
-            .then((data) => {
                 dispatch({
                     type: 'POKEMON_EVOLUTION_DATA',
-                    payload: data,
+                    payload: response.data.chain,
                 })
             })
     }
@@ -159,6 +157,16 @@ export const searchAbilities = (term) => {
         type: 'ABILITY_SEARCH_DATA',
         payload: term,
     }
+}
+
+export const getAbilityInfo = () => {
+    axios.get(abilityInfoURL)
+    .then((response) => {
+        return {
+            type: 'ABILITY_INFO_DATA',
+            payload: response.data,
+        }
+    })
 }
 
 export const startLoading = () => {

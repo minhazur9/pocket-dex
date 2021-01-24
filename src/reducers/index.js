@@ -6,6 +6,7 @@ import movesReducer from './movesReducer';
 import moveInfoReducer from './moveInfoReducer';
 import evolutionChainReducer from './evolutionChainReducer';
 import abilitesReducer from './abilitiesReducer';
+import abilityInfoReducer from './abilityInfoReducer';
 import {combineReducers} from 'redux'
 
 const allReducers = combineReducers({
@@ -17,6 +18,7 @@ const allReducers = combineReducers({
     moveInfo: moveInfoReducer,
     evolutionChain: evolutionChainReducer,
     abilities: abilitesReducer,
+    abilityInfo: abilityInfoReducer,
 });
 
 export default allReducers
