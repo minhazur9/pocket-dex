@@ -1,0 +1,117 @@
+.move-info {
+    position: relative;
+    bottom:90vh;
+    margin-top:10px;
+    left: 25vw;
+    height: 89vh;
+    width: 75vw;
+    overflow-y: auto;
+    .name {
+        text-align: center;
+        @media only screen and (max-width: 900px) {
+            font-size: 30px
+        }
+    }
+    .col2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+            .type {
+                justify-self: center;
+                width:100px;
+                height:50px;
+                border-radius: 20px;
+                @media only screen and (max-width: 900px) {
+                    width: 55px;
+                    height: 25px;
+                }
+             }
+             .damage-class {
+                 justify-self: center;
+                 width:100px;
+                 height:50px;
+                 border-radius: 20px;
+                @media only screen and (max-width: 900px) {
+                    width: 55px;
+                    height: 25px;
+                }
+             }
+             .pp {
+                justify-self: center;
+                font-size: 35px;
+                @media only screen and (max-width: 900px) {
+                    font-size: 20px;
+                }
+             }
+        }
+    }
+    .col3 {
+        display: grid;
+        margin-top: 20px;
+        grid-template-columns: 1fr 1fr 1fr;
+        .move-power {
+            font-size: 30px;
+            justify-self: center;
+            @media only screen and (max-width: 900px) {
+                font-size: 15px;
+            }
+        }
+        .move-accuracy {
+            font-size: 30px;
+            justify-self: center;
+            @media only screen and (max-width: 900px) {
+                font-size: 15px;
+            }
+        }
+        .effect-chance {
+            font-size: 30px;
+            justify-self: center;
+            @media only screen and (max-width: 900px) {
+                font-size: 15px;
+            }
+        }
+        @media only screen and (max-width: 900px) {
+            margin-top: 15px;
+        }
+        
+    }
+    .col4 {
+        text-align: center;
+        .move-text {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 20px;
+            border: 2px solid black;
+            border-radius: 20px;
+            margin-left: 15px;
+            margin-right: 15px;
+            padding: 3px;
+            @media only screen and (max-width: 900px) {
+                font-size: 10px;
+            }
+        }
+    }
+    .col5 {
+        text-align: center;
+        margin-top: 15px;
+        font-size:30px;
+        @media only screen and (max-width: 900px) {
+            font-size: 15px;
+            margin-top: 10px;
+        }
+    }
+    .col6 {
+        text-align: center;
+        .move-text {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 20px;
+            border: 2px solid black;
+            border-radius: 17px;
+            margin-left: 15px;
+            margin-right: 15px;
+            padding: 3px;
+            @media only screen and (max-width: 900px) {
+                font-size: 10px;
+            }
+        }
+    }

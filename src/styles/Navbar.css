@@ -1,0 +1,87 @@
+nav {
+  max-height: 200px;
+}
+
+nav .nav-link {
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+  nav .hamburger-menu {
+    position: absolute;
+    border: 2px #a72d24 solid;
+    background-color: #fd1100;
+    top: 5px;
+    right: 10px;
+    height: 45px;
+    width: 65px;
+    cursor: pointer;
+    -webkit-filter: drop-shadow(1px 1px 2px #a72d24);
+            filter: drop-shadow(1px 1px 2px #a72d24);
+    -webkit-transition: background-color 500ms;
+    transition: background-color 500ms;
+  }
+  nav .hamburger-menu:hover {
+    background-color: #DA1002;
+  }
+  nav .hamburger-menu div {
+    border-bottom: white 3px solid;
+    margin: 8px;
+  }
+  nav .dropdown {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    background-color: #f31202;
+    z-index: 2;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    border: 1px solid red;
+    -webkit-animation-duration: 400ms;
+            animation-duration: 400ms;
+    -webkit-animation-name: slideDown;
+            animation-name: slideDown;
+  }
+  nav .dropdown li {
+    margin: -7px;
+  }
+  nav .dropdown li:hover {
+    background-color: #DA1002;
+  }
+  nav .nav-link {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  nav .dropdown {
+    top: 56px;
+  }
+  nav .dropdown li {
+    margin: -4px;
+  }
+}
+
+.move-link {
+  top: 500px;
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 98px;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 98px;
+  }
+}
+/*# sourceMappingURL=Navbar.css.map */
