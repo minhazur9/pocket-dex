@@ -1,12 +1,31 @@
 import React, {useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { getAbilities, searchAbilities, startLoading, stopLoading } from '../actions';
+import { getAbilities, searchAbilities, getAbilityInfo, startLoading, stopLoading } from '../actions';
 
 const AbilityIndex = () => {
     const abilities = useSelector(state => state.abilities)
     const dispatch = useDispatch()
     
+    const select = (e) => {
+        highlight(e)
+        updateInfo(e.target.id)
+    }
 
+    const updateInfo = async(ability) => {
+        dispatch(startLoading())
+        await dispatch(getAbilityInfo(ability))
+        dispatch(stopLoading())
+    }
+
+    const highlight = (e) => {
+        const highlighted = e.target.classList.contains("selected")
+        if(highlighted) return;
+        const buttons = document.querySelectorAll(".list button");
+        buttons.forEach((button) => {
+            button.classList.remove('selected')
+        });
+        e.target.classList.toggle('selected');
+    }
 
     const search = (e) => {         
         dispatch(searchAbilities(e.target.value.replace(" ", "-").toLowerCase()))
@@ -19,7 +38,7 @@ const AbilityIndex = () => {
             .map((word) => word.charAt(0).toUpperCase() + word.substr(1))
             .join(' ');
             return (
-                <button id={ability.name} key={ability.name+index}>
+                <button id={ability.name} key={ability.name+index} onClick={select}>
                     {abilityName.toUpperCase()}
                 </button>
             )

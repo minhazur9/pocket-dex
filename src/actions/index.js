@@ -159,14 +159,17 @@ export const searchAbilities = (term) => {
     }
 }
 
-export const getAbilityInfo = () => {
-    axios.get(abilityInfoURL)
-    .then((response) => {
-        return {
+export const getAbilityInfo = (ability) => {
+    return(dispatch) => {
+        axios.get(abilityInfoURL + ability)
+        .then((response) => {
+        dispatch ({
             type: 'ABILITY_INFO_DATA',
             payload: response.data,
-        }
+        })
     })
+    }
+    
 }
 
 export const startLoading = () => {

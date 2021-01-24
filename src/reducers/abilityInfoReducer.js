@@ -1,4 +1,4 @@
-const abilityInfoReducer = (state = "", action) => {
+const abilityInfoReducer = (state = '', action) => {
     switch(action.type) {
         case 'ABILITY_INFO_DATA':
             return action.payload;
