@@ -9,7 +9,6 @@ const abilitesReducer = (state = [], action) => {
             allAbilities.forEach((ability) => {
                 if(ability.name.match(regexp)) foundAbility.push(ability)
             });
-            console.log(foundAbility)
             return foundAbility
         default:
             return state
