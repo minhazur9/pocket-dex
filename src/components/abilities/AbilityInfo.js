@@ -32,6 +32,18 @@ const AbilityInfo = () => {
         )
     }
 
+    const renderAvailablePokemon = () => {
+        const pokemon = abilityInfo.pokemon;
+        return pokemon.map((entry) => {
+            return (
+                <div key={entry.pokemon.name} className="pokemon-ability-card">
+                    <img src={`https://img.pokemondb.net/artwork/${entry.pokemon.name}.jpg`} alt={entry.pokemon.name}/>
+                    <p className="name">{entry.pokemon.name}</p> 
+                </div>
+            )
+        })
+    }
+
     const renderAllInfo = () => {
         return (
             <>
@@ -44,6 +56,12 @@ const AbilityInfo = () => {
             </div>
             <div className="col4">
             {renderEffectText()}
+            </div>
+            <div className="col5">
+                Pokemon that have this ability
+            </div>
+            <div className="col6">
+            {renderAvailablePokemon()}
             </div>
             </>
         )
