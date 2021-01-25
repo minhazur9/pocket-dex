@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux';
-import {getMoveInfo} from '../../actions';
+import {getMoveInfo, startLoading, stopLoading} from '../../actions';
 
 const MoveSetList = () => {
     const history = useHistory();
@@ -15,16 +15,18 @@ const MoveSetList = () => {
             learnMethod = getMethod(move);
             const moveName = move.move.name;
             return (
-                <li key={index} className="move"><p className='move-link' onClick={(e) => updateMoveState(e,moveName)} to="">{moveName}</p>
+                <li key={index} className="move"><p className='move-link' onClick={() => updateMoveState(moveName)} to="">{moveName}</p>
                 <p className="learn-method">{learnMethod}</p>
                 </li>
             )
         })
     }
 
-    const updateMoveState = async (e,moveName) => {
+    const updateMoveState = async (moveName) => {
+        dispatch(startLoading())
         await dispatch(getMoveInfo(moveName))
-        history.push("/moves")
+        await history.push("/moves")
+        dispatch(stopLoading())
     }
 
     const getMethod = (move) => {

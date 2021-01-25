@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import PokemonList from './PokemonList';
+
 const AbilityInfo = () => {
     const abilityInfo = useSelector(state => state.abilityInfo);
     const loading = useSelector((state => state.loading))
@@ -32,18 +34,6 @@ const AbilityInfo = () => {
         )
     }
 
-    const renderAvailablePokemon = () => {
-        const pokemon = abilityInfo.pokemon;
-        return pokemon.map((entry) => {
-            return (
-                <div key={entry.pokemon.name} className="pokemon-ability-card">
-                    <img src={`https://img.pokemondb.net/artwork/${entry.pokemon.name}.jpg`} alt={entry.pokemon.name}/>
-                    <p className="name">{entry.pokemon.name}</p> 
-                </div>
-            )
-        })
-    }
-
     const renderAllInfo = () => {
         return (
             <>
@@ -61,7 +51,7 @@ const AbilityInfo = () => {
                 Pokemon that have this ability
             </div>
             <div className="col6">
-            {renderAvailablePokemon()}
+            <PokemonList/>
             </div>
             </>
         )
