@@ -162,8 +162,7 @@ const PokemonInfo = () => {
 
     return (
         <div className="pokemon-info">
-            { loading && renderLoading()}
-            { !loading && renderAllInfo()}
+            { loading ? renderLoading() : renderAllInfo()}
         </div>
     )
 }

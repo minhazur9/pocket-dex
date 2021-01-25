@@ -2,8 +2,11 @@ import React, {useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { getAbilities, searchAbilities, getAbilityInfo, startLoading, stopLoading } from '../actions';
 
+import AbilityInfo from '../components/abilities/AbilityInfo';
+
 const AbilityIndex = () => {
     const abilities = useSelector(state => state.abilities)
+    const abilityInfo = useSelector(state => state.abilityInfo)
     const dispatch = useDispatch()
     
     const select = (e) => {
@@ -53,7 +56,7 @@ const AbilityIndex = () => {
     },[])
 
     return (
-        <div className="move-index">
+        <div className="ability-index">
             <div className="input-field">
             <input onKeyUp={search} id="icon_prefix" type="text" className="validate"/>
             <label htmlFor="icon_prefix">Search</label>
@@ -61,9 +64,9 @@ const AbilityIndex = () => {
             <div className="list">
                 {renderAbilites()}
             </div>
-            {/* {moveInfo && 
-            <MoveInfo/>
-            }      */}
+            {abilityInfo && 
+            <AbilityInfo/>
+            }     
         </div>
         
     )

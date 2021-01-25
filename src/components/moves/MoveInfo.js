@@ -167,8 +167,7 @@ const MoveInfo = () => {
 
     return (
         <div className="move-info">
-            { loading && renderLoading()}
-            { !loading && renderAllInfo()}
+            {loading ? renderLoading() : renderAllInfo()}
         </div>
     )
 }
