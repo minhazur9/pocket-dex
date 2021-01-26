@@ -23,6 +23,7 @@ const Navbar = () => {
           <li><Link to="/pokemon" className="nav-link">PokeDex</Link></li>
           <li><Link to="/moves" className="nav-link">MoveDex</Link></li>
           <li><Link to ="/abilities" className="nav-link">AbilityDex</Link></li>
+          <li><Link to ="/items" className="nav-link">ItemDex</Link></li>
         </ul>
         <button onClick={dropdown} className="hamburger-menu">
           <div></div>
@@ -34,6 +35,7 @@ const Navbar = () => {
         <Link to="/pokemon" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>PokeDex</li></Link>
         <Link to="/moves" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>MoveDex</li></Link>
         <Link to ="/abilities" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>AbilityDex</li></Link>
+        <Link to ="/items" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>ItemDex</li></Link>
       </ul>
     </nav>
   )

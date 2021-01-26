@@ -7,7 +7,8 @@ const speciesInfoURL = 'https://pokeapi.co/api/v2/pokemon-species/';
 const movesListURL = 'https://pokeapi.co/api/v2/move?limit=813';
 const moveInfoURL = 'https://pokeapi.co/api/v2/move/';
 const abilityListURL = 'https://pokeapi.co/api/v2/ability?limit=327';
-const abilityInfoURL = 'https://pokeapi.co/api/v2/ability/'
+const abilityInfoURL = 'https://pokeapi.co/api/v2/ability/';
+const itemListURL = 'https://pokeapi.co/api/v2/item?limit=954';
 
 
 export const getPokemon = () => {
@@ -167,9 +168,20 @@ export const getAbilityInfo = (ability) => {
             type: 'ABILITY_INFO_DATA',
             payload: response.data,
         })
-    })
-    }
+    })}
     
+}
+
+export const getItems = () => {
+    return (dispatch) => {
+        axios.get(itemListURL)
+        .then((response) => {
+            dispatch ({
+                type: 'ITEM_LIST_DATA',
+                payload: response.data.results
+            })
+        })
+    }
 }
 
 export const startLoading = () => {

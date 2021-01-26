@@ -45,7 +45,7 @@ const PokemonList = () => {
         return pokemon.map((entry) => {
             const pokemonName = entry.pokemon.name;
             const formattedName = pokemonName.includes('-') ? nameFormatter(entry.pokemon.name) : entry.pokemon.name;
-            if(pokemonName.includes('-totem')) return;
+            if(pokemonName.includes('-totem')) return 0;
             return (
                 <div key={pokemonName} className="pokemon-ability-card" onClick={() => updatePokemonState(pokemonName)}>
                     {renderImage(pokemonName)}
