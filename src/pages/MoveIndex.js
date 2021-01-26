@@ -14,6 +14,7 @@ const MoveIndex = () => {
         updateInfo(e.target.id)
     }
 
+    // Highlights selection
     const highight = (e) => {
         const highlighted = e.target.classList.contains("selected")
         if(highlighted) return;

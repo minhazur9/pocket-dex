@@ -96,15 +96,15 @@ export const getMoves = () => {
 }
 
 export const getMoveInfo = (move) => {
-        return (dispatch) => {
-            return axios.get(moveInfoURL + move)
-                .then((response) => {
-                    dispatch({
-                                type: 'MOVE_INFO_DATA',
-                                payload: response.data
-                            })
+    return (dispatch) => {
+        return axios.get(moveInfoURL + move)
+            .then((response) => {
+                dispatch({
+                    type: 'MOVE_INFO_DATA',
+                    payload: response.data
                 })
-        }
+            })
+    }
 }
 
 export const searchMoves = (term) => {
@@ -138,17 +138,17 @@ export const getAbilities = () => {
         }
         else {
             return axios.get(abilityListURL)
-            .then((response) => {
-            dispatch({
-                type: 'ABILITY_LIST_DATA',
-                payload: response.data.results,
-            })
-            const dataString = JSON.stringify(response.data.results)
-            localStorage.setItem('abilities-data', dataString)
-        })
-        .catch((error) => {
-            throw error;
-        })
+                .then((response) => {
+                    dispatch({
+                        type: 'ABILITY_LIST_DATA',
+                        payload: response.data.results,
+                    })
+                    const dataString = JSON.stringify(response.data.results)
+                    localStorage.setItem('abilities-data', dataString)
+                })
+                .catch((error) => {
+                    throw error;
+                })
         }
     }
 }
@@ -161,26 +161,41 @@ export const searchAbilities = (term) => {
 }
 
 export const getAbilityInfo = (ability) => {
-    return(dispatch) => {
+    return (dispatch) => {
         axios.get(abilityInfoURL + ability)
-        .then((response) => {
-        dispatch ({
-            type: 'ABILITY_INFO_DATA',
-            payload: response.data,
-        })
-    })}
-    
+            .then((response) => {
+                dispatch({
+                    type: 'ABILITY_INFO_DATA',
+                    payload: response.data,
+                })
+            })
+    }
+
 }
 
 export const getItems = () => {
+    const cachedData = localStorage.getItem('items-data');
     return (dispatch) => {
-        axios.get(itemListURL)
-        .then((response) => {
-            dispatch ({
+        if (cachedData) {
+            dispatch({
                 type: 'ITEM_LIST_DATA',
-                payload: response.data.results
+                payload: JSON.parse(cachedData)
             })
-        })
+        }
+        else {
+            axios.get(itemListURL)
+                .then((response) => {
+                    dispatch({
+                        type: 'ITEM_LIST_DATA',
+                        payload: response.data.results
+                    })
+                    const dataString = JSON.stringify(response.data.results);
+                    localStorage.setItem('items-data',dataString)
+                })
+                .catch((error) => {
+                    throw error;
+                })
+        }
     }
 }
 
