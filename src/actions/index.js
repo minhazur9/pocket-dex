@@ -9,6 +9,7 @@ const moveInfoURL = 'https://pokeapi.co/api/v2/move/';
 const abilityListURL = 'https://pokeapi.co/api/v2/ability?limit=327';
 const abilityInfoURL = 'https://pokeapi.co/api/v2/ability/';
 const itemListURL = 'https://pokeapi.co/api/v2/item?limit=954';
+const itemInfoURL = 'https://pokeapi.co/api/v2/item/';
 
 
 export const getPokemon = () => {
@@ -190,12 +191,26 @@ export const getItems = () => {
                         payload: response.data.results
                     })
                     const dataString = JSON.stringify(response.data.results);
-                    localStorage.setItem('items-data',dataString)
+                    localStorage.setItem('items-data', dataString)
                 })
                 .catch((error) => {
                     throw error;
                 })
         }
+    }
+}
+
+export const getItemInfo = (item) => {
+    return (dispatch) => {
+        axios.get(itemInfoURL + item)
+            .then((response) => {
+                dispatch({
+                    type: 'ITEM_INFO_DATA',
+                    payload: response.data
+                })
+            }
+            )
+
     }
 }
 

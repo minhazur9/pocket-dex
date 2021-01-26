@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { getItems, startLoading, stopLoading } from '../actions';
+import { getItems, getItemInfo, startLoading, stopLoading } from '../actions';
 
 const ItemIndex = () => {
     const items = useSelector(state => state.items);
@@ -24,9 +24,9 @@ const ItemIndex = () => {
      }
 
       // Changes info
-    const updateInfo = async(move) => {
+    const updateInfo = async(item) => {
         dispatch(startLoading())
-        // await dispatch(getMoveInfo(move))
+        await dispatch(getItemInfo(item))
         dispatch(stopLoading())
     }
 
@@ -34,7 +34,7 @@ const ItemIndex = () => {
         return items.map((item) => {
             const itemName = item.name.replace('-',' ')
             return (
-                <button id={item.name} key={item.name}>
+                <button id={item.name} key={item.name} onClick={select} >
                     {itemName.toUpperCase()}
                 </button>
             )
