@@ -36,6 +36,15 @@ const PokemonIndex = () => {
         return name.replace(/-.*/,'');
     }
 
+    const listNameFormatter = (pokemon) => {
+        pokemon = pokemon.split('-')   
+        const temp = pokemon[1];
+        pokemon[1] = pokemon[0];
+        pokemon[0] = temp;
+        pokemon = pokemon.join(' ')
+        return pokemon;
+}
+
     // Changes info
     const updateInfo = async (name) => {
         dispatch(startLoading())
@@ -47,9 +56,11 @@ const PokemonIndex = () => {
     // Renders the pokemon list
     const renderPokemon = () => {
         return pokemon.map((pokemon) => {
+            let {name} = pokemon;
+            if (name.includes('-')) name = listNameFormatter(name)
                 return (
-                    <button id={pokemon.name} onClick={select} key={pokemon.name}>
-                        {pokemon.name.toUpperCase()}
+                    <button id={pokemon.name} onClick={select} key={name}>
+                        {name.toUpperCase()}
                     </button>
                 )
             })

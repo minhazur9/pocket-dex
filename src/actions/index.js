@@ -214,6 +214,13 @@ export const getItemInfo = (item) => {
     }
 }
 
+export const searchItems = (term) => {
+    return {
+        type: 'ITEM_SEARCH_DATA',
+        payload: term,
+    }
+}
+
 export const startLoading = () => {
     return {
         type: 'START_LOADING'

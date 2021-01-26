@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { getItems, getItemInfo, startLoading, stopLoading } from '../actions';
+import { getItems, searchItems, getItemInfo, startLoading, stopLoading } from '../actions';
 
 const ItemIndex = () => {
     const items = useSelector(state => state.items);
@@ -21,6 +21,10 @@ const ItemIndex = () => {
             button.classList.remove('selected')
         });
         e.target.classList.toggle('selected');
+     }
+
+     const search = (e) => {
+         dispatch(searchItems(e.target.value.replace(" ", "-").toLowerCase()))
      }
 
       // Changes info
@@ -49,7 +53,7 @@ const ItemIndex = () => {
     return (
         <div className="move-index">
             <div className="input-field">
-            {/* <input onKeyUp={search} id="icon_prefix" type="text" className="validate"/> */}
+            <input onKeyUp={search} id="icon_prefix" type="text" className="validate"/>
             <label htmlFor="icon_prefix">Search</label>
             </div>
             <div className="list">
