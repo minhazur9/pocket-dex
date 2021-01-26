@@ -32,10 +32,14 @@ const PokemonIndex = () => {
         e.target.classList.toggle('selected');
     }
 
+    const nameFormatter = (name) => {
+        return name.replace(/-.*/,'');
+    }
+
     // Changes info
     const updateInfo = async (name) => {
         dispatch(startLoading())
-        await dispatch(getSpeciesInfo(name))
+        await dispatch(getSpeciesInfo(nameFormatter(name)))
         dispatch(getInfo(name))
         dispatch(stopLoading())
     }

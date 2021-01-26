@@ -59,7 +59,7 @@ const PokemonList = () => {
     const updatePokemonState = async (pokemonName) => {
         dispatch(startLoading())
         dispatch(getInfo(pokemonName))
-        await dispatch(getSpeciesInfo(pokemonName))
+        await dispatch(getSpeciesInfo(nameFormatter(pokemonName)))
         await dispatch(getEvolutionChain(speciesInfo.evolution_chain.url))
         await history.push("/pokemon")
         dispatch(stopLoading())

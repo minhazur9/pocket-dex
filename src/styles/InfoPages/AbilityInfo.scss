@@ -86,6 +86,11 @@
           left: 10px;
           padding: 5px;
           top: 25px;
+          @media only screen and (max-width: 900px) {
+            min-width:65px;
+            max-width: 65px;
+            height: 65px;
+          }
         }
         .name {
           text-align: left;
@@ -93,6 +98,10 @@
           position:absolute;
           left: 125px;
           top: 15px;
+          @media only screen and (max-width: 900px) {
+            font-size: 15px;
+            left: 80px;
+          }
         }
         .is-hidden{
           text-align: right;
@@ -100,6 +109,12 @@
           position: absolute;
           right: 20px;
           bottom: 10px;
+          @media only screen and (max-width: 900px) {
+            font-size: 10px;
+          }
+        }
+        @media only screen and (max-width: 900px) {
+          min-height: 130px;
         }
 
       }
