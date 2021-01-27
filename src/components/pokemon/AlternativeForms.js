@@ -35,6 +35,7 @@ const AlternativeForms = () => {
         return varieties.map((form) => {
             let {name} = form.pokemon
             let captionName = name;
+            if(name.includes('-totem')) return <></>;
             if(name.includes('-')) {
                 name = imageNameFormatter(name)
                 captionName = nameFormatter(name)

@@ -12,13 +12,53 @@ const EvolutionChain = () => {
         dispatch(getSpeciesInfo(pokemonName))
     }
 
+    const imageNameFormatter = (name) => {
+        if(name === 'giratina') return 'giratina-altered';
+        if(name === 'urshifu') return 'urshifu-single-strike';
+        return name;
+    }
+
+    const renderEvolutionMethod = (stage) => {
+        for (const method in stage) {
+            if(stage[method]) {
+                if(method === 'min_level') {
+                    const text = 'Level ' + stage[method]
+                    return (
+                        <p className="evolution_method">{text.toUpperCase()}</p>
+                    )
+                }
+                if(method === 'min_happiness') {
+                    const text = 'Happiness ' + stage[method]
+                    return (
+                        <p className="evolution_method">{text.toUpperCase()}</p>
+                    )
+                }
+                if(method === 'item' || method === 'held-item') {
+                    let text = stage[method].name;
+                    if(text == 'held-item') text = 'Holding ' + stage[method]
+                    return (
+                        <p className="evolution_method">{text.toUpperCase()}</p>
+                    )
+                }
+                else {
+                    return (
+                        <p className="evolution_method">{stage[method]}</p>
+                    )
+                }
+                
+            }
+        }
+    }
+
 
     const renderFirstStage = (stage) => {
         if(stage) {
+            let {name} = stage.species;
+            name = imageNameFormatter(name)
             return (
                 <div className="chain">
                 <li className="stage-image" onClick={(e) => updatePokemonState(e,stage.species.name)}>
-                        <img src={`https://img.pokemondb.net/artwork/${stage.species.name}.jpg`} alt={stage}/>
+                        <img src={`https://img.pokemondb.net/artwork/${name}.jpg`} alt={stage}/>
                         <p>{stage.species.name.toUpperCase()}</p>
                 </li>
                 <div>{stage.evolves_to.length > 0 && <i className="fa fa-long-arrow-right" aria-hidden="false"></i>}</div>
@@ -30,11 +70,15 @@ const EvolutionChain = () => {
     const renderChain = (data) => {
         if(data) {
         return data.evolves_to.map((stage,index) => {
+            const {evolution_details} = stage;
+            let {name} = stage.species;
+            name = imageNameFormatter(name);
             return (
                     <div key={index} className="chain">
                     <li className="stage-image" key={index} onClick={(e) => updatePokemonState(e,stage.species.name)}>
-                            <img src={`https://img.pokemondb.net/artwork/${stage.species.name}.jpg`} alt={stage}/>
+                            <img src={`https://img.pokemondb.net/artwork/${name}.jpg`} alt={stage}/>
                             <p>{stage.species.name.toUpperCase()}</p>
+                            {renderEvolutionMethod(evolution_details[0])}
                     </li>
                     <div key={index + 10}>{stage.evolves_to.length > 0 && <i key={index + 10} className="fa fa-long-arrow-right" aria-hidden="false"></i>}</div>
                     {stage.evolves_to.length > 0 && renderChain(stage)}
