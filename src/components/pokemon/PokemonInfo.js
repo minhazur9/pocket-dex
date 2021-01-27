@@ -71,6 +71,16 @@ const PokemonInfo = () => {
         )
     }
 
+    // Puts the name to readable format
+    const nameFormatter = (pokemon) => {
+        pokemon = pokemon.split('-')   
+        const temp = pokemon[1];
+        pokemon[1] = pokemon[0];
+        pokemon[0] = temp;
+        pokemon = pokemon.join(' ')
+        return pokemon;
+    }
+
     // Renders the pokemon id number
     const renderPokemonId = () => {
         return (
@@ -126,9 +136,11 @@ const PokemonInfo = () => {
 
     // Renders all the info
     const renderAllInfo = () => {
+        let {name} = info;
+        if (name.includes('-')) name = nameFormatter(name)
         return (
             <>
-                <h1 className="name">{info.name.toUpperCase()}</h1>
+                <h1 className="name">{name.toUpperCase()}</h1>
                 <div className="col2">
                     {renderPokemonId()}
                     {renderSprites()}

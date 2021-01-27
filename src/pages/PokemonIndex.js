@@ -43,7 +43,7 @@ const PokemonIndex = () => {
         pokemon[0] = temp;
         pokemon = pokemon.join(' ')
         return pokemon;
-}
+    }
 
     // Changes info
     const updateInfo = async (name) => {

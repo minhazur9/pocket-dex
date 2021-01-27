@@ -36,6 +36,7 @@ const PokemonList = () => {
             pokemon[1] = pokemon[0];
             pokemon[0] = temp;
             pokemon = pokemon.join(' ')
+            console.log(pokemon)
             return pokemon;
     }
     
@@ -59,8 +60,9 @@ const PokemonList = () => {
     const updatePokemonState = async (pokemonName) => {
         dispatch(startLoading())
         dispatch(getInfo(pokemonName))
-        await dispatch(getSpeciesInfo(nameFormatter(pokemonName)))
-        await dispatch(getEvolutionChain(speciesInfo.evolution_chain.url))
+        // if(pokemonName.includes('-')) pokemonName = nameFormatter(pokemonName)
+        pokemonName = pokemonName.replace(/-.*/,"")
+        await dispatch(getSpeciesInfo(pokemonName)).then(dispatch(getEvolutionChain(speciesInfo.evolution_chain.url)))
         await history.push("/pokemon")
         dispatch(stopLoading())
     }

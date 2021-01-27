@@ -2,8 +2,11 @@ import React, {useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { getItems, searchItems, getItemInfo, startLoading, stopLoading } from '../actions';
 
+import ItemInfo from '../components/items/ItemInfo';
+
 const ItemIndex = () => {
     const items = useSelector(state => state.items);
+    const itemInfo = useSelector(state => state.itemInfo);
     const dispatch = useDispatch(); 
 
     // Renders new info component
@@ -59,9 +62,9 @@ const ItemIndex = () => {
             <div className="list">
                 {renderItems()}
             </div>
-            {/* {moveInfo && 
-            <MoveInfo/>
-            }      */}
+            {itemInfo && 
+            <ItemInfo/>
+            }     
         </div>
         
     )

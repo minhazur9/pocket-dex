@@ -836,6 +836,80 @@ nav .nav-link {
   }
 }
 
+.item-info {
+  position: relative;
+  bottom: 90vh;
+  margin-top: 10px;
+  left: 25vw;
+  height: 89vh;
+  width: 75vw;
+  overflow-y: auto;
+}
+
+.item-info .name {
+  text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .item-info .name {
+    font-size: 30px;
+  }
+}
+
+.item-info .col2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.item-info .col2 .item-category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 900px) {
+  .item-info .col2 .item-category {
+    font-size: 10px;
+  }
+}
+
+.item-info .col2 .item-sprite {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 25%;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+  .item-info .col2 .item-sprite {
+    width: 20%;
+  }
+}
+
+.item-info .col2 .fling-power {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 900px) {
+  .item-info .col2 .fling-power {
+    font-size: 10px;
+  }
+}
+
 /* ----------------- Pokemon Index */
 .list {
   overflow-y: auto;
