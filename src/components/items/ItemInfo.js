@@ -30,6 +30,32 @@ const ItemInfo = () => {
         )
     }
 
+    const renderFlavorText = () => {
+        const {flavor_text_entries} = itemInfo;
+        let chosenText = '';
+        flavor_text_entries.forEach((flavor) => {
+            if (flavor.language.name === 'en') chosenText = flavor.text
+        });
+        return (
+            <>
+                <p className="item-text">{chosenText}</p>
+            </>
+        )
+    }
+
+    const renderEffectText = () => {
+        const {effect_entries} = itemInfo;
+        let chosenText = '';
+        effect_entries.forEach((entry) => {
+            if (entry.language.name === 'en') chosenText = entry.effect;
+        });
+        return (
+            <>
+                <p className="item-text">{chosenText}</p>
+            </>
+        )
+    }
+
     const renderLoading = () => {
         return (
             <>
@@ -46,6 +72,15 @@ const ItemInfo = () => {
                 {renderCategory()}
                 {renderSprite()}
                 {renderFlingPower()}
+            </div>
+            <div className="col3">
+                {renderFlavorText()}
+            </div>
+            <div className="col4">
+                Effect
+            </div>
+            <div className="col5">
+                {renderEffectText()}
             </div>
         </>
         )

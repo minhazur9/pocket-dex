@@ -9,9 +9,9 @@ const AbilityInfo = () => {
 
     
     const renderFlavorText = () => {
-        const text = abilityInfo.flavor_text_entries;
+        const {flavor_text_entries} = abilityInfo;
         let chosenText = '';
-        text.forEach((flavor) => {
+        flavor_text_entries.forEach((flavor) => {
             if (flavor.language.name === 'en') chosenText = flavor.flavor_text
         });
         return (
@@ -22,9 +22,9 @@ const AbilityInfo = () => {
     }
 
     const renderEffectText = () => {
-        const text = abilityInfo.effect_entries;
+        const {effect_entries} = abilityInfo;
         let chosenText = '';
-        text.forEach((entry) => {
+        effect_entries.forEach((entry) => {
             if (entry.language.name === 'en') chosenText = entry.effect;
         });
         return (

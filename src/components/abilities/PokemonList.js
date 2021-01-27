@@ -36,7 +36,6 @@ const PokemonList = () => {
             pokemon[1] = pokemon[0];
             pokemon[0] = temp;
             pokemon = pokemon.join(' ')
-            console.log(pokemon)
             return pokemon;
     }
     

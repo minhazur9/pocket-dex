@@ -71,4 +71,54 @@
     font-size: 10px;
   }
 }
+
+.item-info .col3 {
+  display: block;
+  text-align: center;
+}
+
+.item-info .col3 .item-text {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 3px;
+}
+
+@media only screen and (max-width: 900px) {
+  .item-info .col3 .item-text {
+    font-size: 10px;
+  }
+}
+
+.item-info .col4 {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.item-info .col5 {
+  text-align: center;
+}
+
+.item-info .col5 .item-text {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 17px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 3px;
+}
+
+@media only screen and (max-width: 900px) {
+  .item-info .col5 .item-text {
+    font-size: 10px;
+  }
+}
 /*# sourceMappingURL=ItemInfo.css.map */
