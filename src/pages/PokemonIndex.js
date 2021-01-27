@@ -33,7 +33,9 @@ const PokemonIndex = () => {
     }
 
     const nameFormatter = (name) => {
-        return name.replace(/-.*/,'');
+        if(!(name.includes('-f') || name.includes('m'))) return name.replace(/-.*/,'');
+        if(name.includes('meowstic')) return 'meowstic';
+        return name
     }
 
     const listNameFormatter = (pokemon) => {

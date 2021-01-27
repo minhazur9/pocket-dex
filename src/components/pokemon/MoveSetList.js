@@ -45,7 +45,7 @@ const MoveSetList = () => {
      }
 
     return (
-        <div className="col4">
+        <div className="row5">
             <p>Moveset</p>
             <div className="move-set">
                 {renderMoveSet()}

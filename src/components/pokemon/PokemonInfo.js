@@ -21,7 +21,7 @@ import water from '../../images/types/water.png'
 import StatChart from './StatChart';
 import MoveSetList from './MoveSetList';
 import EvolutionChain from './EvolutionChain';
-
+import AlternativeForms from './AlternativeForms';
 // General Pokemon Information
 const PokemonInfo = () => {
 
@@ -141,7 +141,7 @@ const PokemonInfo = () => {
         return (
             <>
                 <h1 className="name">{name.toUpperCase()}</h1>
-                <div className="col2">
+                <div className="row2">
                     {renderPokemonId()}
                     {renderSprites()}
                     <ul className="types">
@@ -149,7 +149,7 @@ const PokemonInfo = () => {
                         {renderTypes()}
                     </ul>
                 </div>
-                <div className="col3">
+                <div className="row3">
                     <div className="base-stats">
                         <div className="stats">Base Stats
                 <ul className="stat-list">
@@ -167,6 +167,7 @@ const PokemonInfo = () => {
                     </ul>
                 </div>
                 <EvolutionChain />
+                <AlternativeForms/>
                 <MoveSetList/>
             </>
         )

@@ -165,14 +165,14 @@ nav .nav-link {
   }
 }
 
-.pokemon-info .col2 {
+.pokemon-info .row2 {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
 }
 
-.pokemon-info .col2 .types {
+.pokemon-info .row2 .types {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -188,13 +188,13 @@ nav .nav-link {
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .col2 .types {
+  .pokemon-info .row2 .types {
     font-size: 20px;
     margin-left: 35px;
   }
 }
 
-.pokemon-info .col2 .types .type {
+.pokemon-info .row2 .types .type {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -204,20 +204,20 @@ nav .nav-link {
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .col2 .types .type {
+  .pokemon-info .row2 .types .type {
     width: 55px;
     height: 25px;
   }
 }
 
-.pokemon-info .col3 {
+.pokemon-info .row3 {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
 }
 
-.pokemon-info .col3 .base-stats {
+.pokemon-info .row3 .base-stats {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -231,7 +231,7 @@ nav .nav-link {
           align-items: center;
 }
 
-.pokemon-info .col3 .base-stats .stat-list {
+.pokemon-info .row3 .base-stats .stat-list {
   -ms-flex-item-align: start;
       -ms-grid-row-align: start;
       align-self: start;
@@ -239,18 +239,18 @@ nav .nav-link {
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .col3 .base-stats .stat-list {
+  .pokemon-info .row3 .base-stats .stat-list {
     font-size: 10px;
   }
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .col3 .base-stats {
+  .pokemon-info .row3 .base-stats {
     font-size: 20px;
   }
 }
 
-.pokemon-info .col3 .abilties {
+.pokemon-info .row3 .abilties {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -265,23 +265,23 @@ nav .nav-link {
   font-size: 30px;
 }
 
-.pokemon-info .col3 .abilties .ability {
+.pokemon-info .row3 .abilties .ability {
   font-size: 20px;
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .col3 .abilties .ability {
+  .pokemon-info .row3 .abilties .ability {
     font-size: 10px;
   }
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .col3 .abilties {
+  .pokemon-info .row3 .abilties {
     font-size: 20px;
   }
 }
 
-.pokemon-info .col3 .description {
+.pokemon-info .row3 .description {
   margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -296,7 +296,7 @@ nav .nav-link {
   font-size: 30px;
 }
 
-.pokemon-info .col3 .description .text {
+.pokemon-info .row3 .description .text {
   border: 2px solid black;
   border-radius: 12px;
   font-size: 20px;
@@ -305,14 +305,14 @@ nav .nav-link {
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .col3 .description .text {
+  .pokemon-info .row3 .description .text {
     width: 150px;
     font-size: 12px;
   }
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .col3 .description {
+  .pokemon-info .row3 .description {
     font-size: 20px;
   }
 }
@@ -375,7 +375,31 @@ nav .nav-link {
   top: 50px;
 }
 
-.pokemon-info .col4 {
+.pokemon-info .form-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: relative;
+  text-align: center;
+}
+
+.pokemon-info .form-line .form {
+  border: 3px #00A9FF solid;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  position: relative;
+}
+
+.pokemon-info .form-line .form img {
+  margin: 0 auto;
+  width: 50%;
+  margin-bottom: 7px;
+}
+
+.pokemon-info .row5 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -390,7 +414,7 @@ nav .nav-link {
           align-items: center;
 }
 
-.pokemon-info .col4 .move-set {
+.pokemon-info .row5 .move-set {
   text-align: center;
   width: 70vw;
   border: 2px solid black;
@@ -399,20 +423,20 @@ nav .nav-link {
   margin-bottom: 20px;
 }
 
-.pokemon-info .col4 .move-set .move {
+.pokemon-info .row5 .move-set .move {
   position: relative;
   text-align: left;
   font-size: 20px;
   border: 2px solid black;
 }
 
-.pokemon-info .col4 .move-set .move .move-link {
+.pokemon-info .row5 .move-set .move .move-link {
   display: inline;
   cursor: pointer;
   color: #00A9FF;
 }
 
-.pokemon-info .col4 .move-set .move .learn-method {
+.pokemon-info .row5 .move-set .move .learn-method {
   display: inline;
   text-align: right;
   position: absolute;
@@ -420,19 +444,19 @@ nav .nav-link {
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .col4 .move-set .move .learn-method {
+  .pokemon-info .row5 .move-set .move .learn-method {
     font-size: 10px;
   }
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .col4 .move-set .move {
+  .pokemon-info .row5 .move-set .move {
     font-size: 15px;
   }
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .col4 .move-set {
+  .pokemon-info .row5 .move-set {
     font-size: 20px;
     width: 60vw;
   }
@@ -442,6 +466,11 @@ nav .nav-link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.pokemon-info .form-list-header {
+  text-align: center;
+  font-size: 30px;
 }
 
 .lds-ring {
