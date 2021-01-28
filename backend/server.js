@@ -2,11 +2,12 @@
 const express = require('express');
 const session = require('express-session');
 const graphqlHTTP = require('express-graphql').graphqlHTTP;
-const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 
+
 const app = express();
+const schema = require('./controllers')
 
 // Environment Variables
 require('dotenv').config();
@@ -17,16 +18,16 @@ app.set('view-engine','ejs');
 
 // Middleware
 app.use(morgan('tiny'))
-app.use(bodyParser.urlencoded({extended:false}))
-app.use(methodOverride('_method'))
-app.use(express.static(__dirname + '/public'))
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-}))
+// app.use(methodOverride('_method'))
+// app.use(express.static(__dirname + '/public'))
+// app.use(session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: false
+// }))
 
 app.use('/', graphqlHTTP({
+    schema,
     graphiql:true
 }));
 

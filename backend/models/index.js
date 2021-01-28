@@ -1,16 +1,22 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser = true,
-    useFindAndModify = false,
-    useCreateIndex = true,
-    useUnifiedTopology = true
+mongoose.connect('mongodb://localhost:27017/poketDex',{
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    useUnifiedTopology: true
 })
 
-mongoose.connect.on('connected', () => {
-    console.log('MongoDB connected successfully')
+mongoose.connection.on('connected',() => {
+    console.log('Connected to MongoDB')
 })
 
-mongoose.connect.on('error', () => {
+mongoose.connection.on('error', (err) => {
     console.log(err);
-})
+  });
+
+
+module.exports = {
+    User: require('./User'),
+}
+  
