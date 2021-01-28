@@ -1,5 +1,8 @@
 const graphql = require('graphql');
 
+const db = require('../models');
+const PokemonType = require('./PokemonType');
+
 const {
     GraphQLObjectType,
     GraphQLString, 
@@ -12,6 +15,12 @@ const TeamType = new GraphQLObjectType({
     fields: () => ({
         id: {type:GraphQLID},
         name: {type:GraphQLString},
+        pokemon: {
+            type: new GraphQLList(PokemonType),
+            resolve(parent,args) {
+                return db.Pokemon.find({teamId:parent.id})
+            }
+        }
     })
 })
 

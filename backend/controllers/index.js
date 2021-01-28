@@ -4,15 +4,18 @@ const db = require('../models');
 
 const UserType = require('./UserType');
 const TeamType = require('./TeamType');
+const PokemonType = require('./PokemonType');
 
 const {
     GraphQLObjectType,
     GraphQLSchema,
     GraphQLString, 
     GraphQLID,
+    GraphQLInt
 } = graphql;
 
 
+// Queries the database
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
@@ -33,6 +36,7 @@ const RootQuery = new GraphQLObjectType({
     }
 })
 
+// Alters the database
 const Mutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
@@ -50,7 +54,23 @@ const Mutation = new GraphQLObjectType({
             args: {name:{type: GraphQLString}},
             resolve(parent,args) {
                 return db.Team.create({
-                    name: args.name
+                    name: args.name,
+                    teamId: args.teamId
+                })
+            }
+        },
+        addPokemon: {
+            type: PokemonType,
+            args: {
+                name:{type:GraphQLString},
+                level:{type:GraphQLInt},
+                teamId: {type:GraphQLID},
+            },
+            resolve(parent, args) {
+                return db.Pokemon.create({
+                    name: args.name,
+                    level: args.level,
+                    teamId: args.teamId,
                 })
             }
         }

@@ -18,6 +18,7 @@ mongoose.connection.on('error', (err) => {
 
 module.exports = {
     User: require('./User'),
-    Team: require('./Team')
+    Team: require('./Team'),
+    Pokemon: require('./Pokemon'),
 }
   
