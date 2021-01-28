@@ -35,7 +35,7 @@ const EvolutionChain = () => {
                 }
                 if(method === 'item' || method === 'held-item') {
                     let text = stage[method].name;
-                    if(text == 'held-item') text = 'Holding ' + stage[method]
+                    if(text === 'held-item') text = 'Holding ' + stage[method]
                     return (
                         <p className="evolution_method">{text.toUpperCase()}</p>
                     )
