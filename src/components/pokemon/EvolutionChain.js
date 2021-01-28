@@ -40,6 +40,18 @@ const EvolutionChain = () => {
                         <p className="evolution_method">{text.toUpperCase()}</p>
                     )
                 }
+                if(method == 'known_move') {
+                    let text = 'Learned ' + stage[method].name;
+                    return (
+                        <p className="evolution-method">{text.toUpperCase()}</p>
+                    )
+                }
+                if(method == 'trigger') {
+                    let text = stage[method].name;
+                    return (
+                        <p className="evolution-method">{text.toUpperCase()}</p>
+                    )
+                }
                 else {
                     return (
                         <p className="evolution_method">{stage[method]}</p>

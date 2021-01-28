@@ -2,7 +2,6 @@ const graphql = require('graphql');
 
 const {
     GraphQLObjectType,
-    GraphQLSchema,
     GraphQLString, 
     GraphQLID
 } = graphql;

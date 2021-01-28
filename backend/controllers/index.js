@@ -3,12 +3,13 @@ const graphql = require('graphql');
 const db = require('../models');
 
 const UserType = require('./UserType');
+const TeamType = require('./TeamType');
 
 const {
     GraphQLObjectType,
     GraphQLSchema,
     GraphQLString, 
-    GraphQLID
+    GraphQLID,
 } = graphql;
 
 
@@ -20,6 +21,13 @@ const RootQuery = new GraphQLObjectType({
             args: {id: {type: GraphQLID}},
             resolve(parent,args) {
                 return db.User.findById(args.id)
+            }
+        },
+        team: {
+            type: TeamType,
+            args: {id: {type: GraphQLID}},
+            resolve(parent,args) {
+                return db.Team.findById(args.id)
             }
         }
     }
@@ -34,6 +42,15 @@ const Mutation = new GraphQLObjectType({
             resolve(parent,args) {
                 return db.User.create({
                     username: args.username,
+                })
+            }
+        },
+        addTeam: {
+            type: TeamType,
+            args: {name:{type: GraphQLString}},
+            resolve(parent,args) {
+                return db.Team.create({
+                    name: args.name
                 })
             }
         }

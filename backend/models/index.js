@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/poketDex',{
+mongoose.connect('mongodb://localhost:27017/pocketDex',{
     useNewUrlParser: true,
     useFindAndModify: false,
     useCreateIndex: true,
@@ -18,5 +18,6 @@ mongoose.connection.on('error', (err) => {
 
 module.exports = {
     User: require('./User'),
+    Team: require('./Team')
 }
   
