@@ -103,13 +103,31 @@ const Mutation = new GraphQLObjectType({
                 })
             }
         },
+        deleteUser: {
+            type: UserType,
+            args: {
+                id: {type: GraphQLID}
+            },
+            resolve(parent,args) {
+                return db.User.findByIdAndDelete(args.id)
+                .then( async (foundUser) => {
+                    const foundTeams = await db.Team.find({userId:foundUser._id});
+                    await db.Team.deleteMany({userId:foundUser._id});
+                    return foundTeams;
+                })
+                .then((foundTeams) => {
+                    const teamIds = foundTeams.map(({_id}) => _id)
+                    return db.Pokemon.deleteMany({ teamId:{$in: teamIds}})
+                })
+            }
+        },
         deleteTeam: {
             type: TeamType,
             args: {
                 id: {type:GraphQLID}
             },
             resolve(parent,args) {
-                return db.Team.findOneAndDelete({_id:args.id})
+                return db.Team.findByIdAndDelete(args.id)
                 .then((foundTeam) => db.Pokemon.deleteMany({teamId:foundTeam._id}))
             }
         },
