@@ -5,10 +5,10 @@ const TeamSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    pokemon: [{
-        type: String
-    }],
-    
+    userId: {
+        type: String,
+        required: true
+    }
 },{timestamps:true})
 
 const Team = mongoose.model('Team',TeamSchema)

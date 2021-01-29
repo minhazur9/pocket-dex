@@ -9,6 +9,7 @@ const PokemonType = require('./PokemonType');
 const {
     GraphQLObjectType,
     GraphQLSchema,
+    GraphQLList,
     GraphQLString, 
     GraphQLID,
     GraphQLInt
@@ -32,6 +33,31 @@ const RootQuery = new GraphQLObjectType({
             resolve(parent,args) {
                 return db.Team.findById(args.id)
             }
+        },
+        pokemon: {
+            type: PokemonType,
+            args: {id: {type: GraphQLID}},
+            resolve(parent,args) {
+                return db.Pokemon.findById(args.id)
+            }
+        },
+        allUsers: {
+            type: new GraphQLList(UserType),
+            resolve(parent,args) {
+                return db.User.find({})
+            }
+        },
+        allTeams: {
+            type: new GraphQLList(TeamType),
+            resolve(parent,args) {
+                return db.Team.find({})
+            }
+        },
+        allPokemon: {
+            type: new GraphQLList(PokemonType),
+            resolve(parent,args) {
+                return db.Pokemon.find({})
+            }
         }
     }
 })
@@ -51,11 +77,14 @@ const Mutation = new GraphQLObjectType({
         },
         addTeam: {
             type: TeamType,
-            args: {name:{type: GraphQLString}},
+            args: {
+                name:{type: GraphQLString},
+                userId:{type: GraphQLID}
+            },
             resolve(parent,args) {
                 return db.Team.create({
                     name: args.name,
-                    teamId: args.teamId
+                    userId: args.userId,
                 })
             }
         },
@@ -72,6 +101,25 @@ const Mutation = new GraphQLObjectType({
                     level: args.level,
                     teamId: args.teamId,
                 })
+            }
+        },
+        deleteTeam: {
+            type: TeamType,
+            args: {
+                id: {type:GraphQLID}
+            },
+            resolve(parent,args) {
+                return db.Team.findOneAndDelete({_id:args.id})
+                .then((foundTeam) => db.Pokemon.deleteMany({teamId:foundTeam._id}))
+            }
+        },
+        deletePokemon: {
+            type: PokemonType,
+            args: {
+                id: {type: GraphQLID}
+            },
+            resolve(parent,args) {
+                return db.Pokemon.findOneAndDelete({_id:args.id})
             }
         }
     }
