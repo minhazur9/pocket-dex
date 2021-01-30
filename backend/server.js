@@ -18,13 +18,13 @@ app.set('view-engine','ejs');
 
 // Middleware
 app.use(morgan('tiny'))
-// app.use(methodOverride('_method'))
-// app.use(express.static(__dirname + '/public'))
-// app.use(session({
-//     secret: process.env.SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: false
-// }))
+app.use(methodOverride('_method'))
+app.use(express.static(__dirname + '/public'))
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
 
 app.use('/', graphqlHTTP({
     schema,

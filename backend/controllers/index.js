@@ -10,6 +10,7 @@ const {
     GraphQLObjectType,
     GraphQLSchema,
     GraphQLList,
+    GraphQLNonNull,
     GraphQLString, 
     GraphQLID,
     GraphQLInt
@@ -22,21 +23,21 @@ const RootQuery = new GraphQLObjectType({
     fields: {
         user: {
             type: UserType,
-            args: {id: {type: GraphQLID}},
+            args: {id: {type: new GraphQLNonNull(GraphQLID)}},
             resolve(parent,args) {
                 return db.User.findById(args.id)
             }
         },
         team: {
             type: TeamType,
-            args: {id: {type: GraphQLID}},
+            args: {id: {type: new GraphQLNonNull(GraphQLID)}},
             resolve(parent,args) {
                 return db.Team.findById(args.id)
             }
         },
         pokemon: {
             type: PokemonType,
-            args: {id: {type: GraphQLID}},
+            args: {id: {type: new GraphQLNonNull(GraphQLID)}},
             resolve(parent,args) {
                 return db.Pokemon.findById(args.id)
             }
@@ -68,7 +69,7 @@ const Mutation = new GraphQLObjectType({
     fields: {
         addUser: {
             type: UserType,
-            args: {username: {type: GraphQLString}},
+            args: {username: {type: new GraphQLNonNull(GraphQLString)}},
             resolve(parent,args) {
                 return db.User.create({
                     username: args.username,
@@ -78,8 +79,8 @@ const Mutation = new GraphQLObjectType({
         addTeam: {
             type: TeamType,
             args: {
-                name:{type: GraphQLString},
-                userId:{type: GraphQLID}
+                name:{type: new GraphQLNonNull(GraphQLString)},
+                userId:{type: new GraphQLNonNull(GraphQLID)}
             },
             resolve(parent,args) {
                 return db.Team.create({
@@ -91,9 +92,9 @@ const Mutation = new GraphQLObjectType({
         addPokemon: {
             type: PokemonType,
             args: {
-                name:{type:GraphQLString},
-                level:{type:GraphQLInt},
-                teamId: {type:GraphQLID},
+                name:{type: new GraphQLNonNull(GraphQLString)},
+                level:{type: new GraphQLNonNull(GraphQLInt)},
+                teamId: {type: new GraphQLNonNull(GraphQLID)},
             },
             resolve(parent, args) {
                 return db.Pokemon.create({
@@ -106,7 +107,7 @@ const Mutation = new GraphQLObjectType({
         deleteUser: {
             type: UserType,
             args: {
-                id: {type: GraphQLID}
+                id: {type: new GraphQLNonNull(GraphQLID)}
             },
             resolve(parent,args) {
                 return db.User.findByIdAndDelete(args.id)
@@ -124,7 +125,7 @@ const Mutation = new GraphQLObjectType({
         deleteTeam: {
             type: TeamType,
             args: {
-                id: {type:GraphQLID}
+                id: {type:new GraphQLNonNull(GraphQLID)}
             },
             resolve(parent,args) {
                 return db.Team.findByIdAndDelete(args.id)
@@ -134,10 +135,49 @@ const Mutation = new GraphQLObjectType({
         deletePokemon: {
             type: PokemonType,
             args: {
-                id: {type: GraphQLID}
+                id: {type: new GraphQLNonNull(GraphQLID)}
             },
             resolve(parent,args) {
                 return db.Pokemon.findOneAndDelete({_id:args.id})
+            }
+        },
+        editUser: {
+            type: UserType,
+            args: {
+                id: {type: new GraphQLNonNull(GraphQLID)},
+                username: {type: new GraphQLNonNull(GraphQLString)}
+            },
+            resolve(parent,args) {
+                return db.User.findByIdAndUpdate(
+                    args.id,
+                    {$set: {username: args.username}},
+                    {new: true})
+            }
+        },
+        editTeam: {
+            type: TeamType,
+            args: {
+                id: {type: new GraphQLNonNull(GraphQLID)},
+                name: {type: new GraphQLNonNull(GraphQLString)}
+            },
+            resolve(parent,args) {
+                return db.Team.findByIdAndUpdate(
+                    args.id,
+                    {$set: {name: args.name}},
+                    {new: true})
+            }
+        },
+        editPokemon: {
+            type: PokemonType,
+            args: {
+                id: {type: new GraphQLNonNull(GraphQLID)},
+                name: {type: new GraphQLNonNull(GraphQLString)}
+            },
+            resolve(parent,args) {
+                return db.Pokemon.findByIdAndUpdate(
+                    args.id,
+                    {$set: {name: args.name}},
+                    {new: true})
             }
         }
     }
