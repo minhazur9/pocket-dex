@@ -6,4 +6,31 @@
   font-weight: bold;
   color: #be0d00;
 }
+
+.signup .signup-form {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.signup .signup-form label {
+  margin-top: 20px;
+  display: block;
+  text-align: left;
+  font-size: 20px;
+  color: black;
+}
+
+.signup .signup-form .signup-input {
+  display: block;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.signup .signup-form .signup-submit {
+  margin-top: 20px;
+  background-color: #4CAC6A;
+  color: white;
+  font-weight: bold;
+}
 /*# sourceMappingURL=SignUp.css.map */
