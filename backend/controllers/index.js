@@ -1,4 +1,5 @@
 const graphql = require('graphql');
+const bycrypt = require('bcrypt')
 
 const db = require('../models');
 
@@ -21,6 +22,7 @@ const {
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
+        // Query for a user
         user: {
             type: UserType,
             args: {id: {type: new GraphQLNonNull(GraphQLID)}},
@@ -28,6 +30,7 @@ const RootQuery = new GraphQLObjectType({
                 return db.User.findById(args.id)
             }
         },
+        // Query for a team
         team: {
             type: TeamType,
             args: {id: {type: new GraphQLNonNull(GraphQLID)}},
@@ -35,6 +38,7 @@ const RootQuery = new GraphQLObjectType({
                 return db.Team.findById(args.id)
             }
         },
+        // Query for a pokemon
         pokemon: {
             type: PokemonType,
             args: {id: {type: new GraphQLNonNull(GraphQLID)}},
@@ -42,18 +46,21 @@ const RootQuery = new GraphQLObjectType({
                 return db.Pokemon.findById(args.id)
             }
         },
+        // Query for all users
         allUsers: {
             type: new GraphQLList(UserType),
             resolve(parent,args) {
                 return db.User.find({})
             }
         },
+        // Query for all teams
         allTeams: {
             type: new GraphQLList(TeamType),
             resolve(parent,args) {
                 return db.Team.find({})
             }
         },
+        // Query for all pokemon
         allPokemon: {
             type: new GraphQLList(PokemonType),
             resolve(parent,args) {
@@ -67,15 +74,22 @@ const RootQuery = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
+        // Adds new user to database
         addUser: {
             type: UserType,
-            args: {username: {type: new GraphQLNonNull(GraphQLString)}},
+            args: {
+                username: {type: new GraphQLNonNull(GraphQLString)},
+                email: {type: new GraphQLNonNull(GraphQLString)},
+                password: {type: new GraphQLNonNull(GraphQLString)},
+            },
             resolve(parent,args) {
+
                 return db.User.create({
                     username: args.username,
                 })
             }
         },
+        // Adds new team to a user
         addTeam: {
             type: TeamType,
             args: {
@@ -89,6 +103,7 @@ const Mutation = new GraphQLObjectType({
                 })
             }
         },
+        // Adds new pokemon to a team
         addPokemon: {
             type: PokemonType,
             args: {
@@ -104,6 +119,7 @@ const Mutation = new GraphQLObjectType({
                 })
             }
         },
+        // Deletes a user from the database
         deleteUser: {
             type: UserType,
             args: {
@@ -122,6 +138,7 @@ const Mutation = new GraphQLObjectType({
                 })
             }
         },
+        // Deletes a team from a user
         deleteTeam: {
             type: TeamType,
             args: {
@@ -132,6 +149,7 @@ const Mutation = new GraphQLObjectType({
                 .then((foundTeam) => db.Pokemon.deleteMany({teamId:foundTeam._id}))
             }
         },
+        // Deletes a pokemon from a team
         deletePokemon: {
             type: PokemonType,
             args: {
@@ -141,6 +159,7 @@ const Mutation = new GraphQLObjectType({
                 return db.Pokemon.findOneAndDelete({_id:args.id})
             }
         },
+        // Edits user information
         editUser: {
             type: UserType,
             args: {
@@ -154,6 +173,7 @@ const Mutation = new GraphQLObjectType({
                     {new: true})
             }
         },
+        // Edits team information
         editTeam: {
             type: TeamType,
             args: {
@@ -167,6 +187,7 @@ const Mutation = new GraphQLObjectType({
                     {new: true})
             }
         },
+        // Edits pokemon information
         editPokemon: {
             type: PokemonType,
             args: {
