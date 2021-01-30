@@ -989,6 +989,15 @@ nav .nav-link {
   }
 }
 
+.signup {
+  text-align: center;
+}
+
+.signup h3 {
+  font-weight: bold;
+  color: #be0d00;
+}
+
 /* ----------------- Pokemon Index */
 .list {
   overflow-y: auto;

@@ -24,6 +24,7 @@ const Navbar = () => {
           <li><Link to="/moves" className="nav-link">MoveDex</Link></li>
           <li><Link to ="/abilities" className="nav-link">AbilityDex</Link></li>
           <li><Link to ="/items" className="nav-link">ItemDex</Link></li>
+          <li><Link to ="/signup" className="nav-link">SignUp</Link></li>
         </ul>
         <button onClick={dropdown} className="hamburger-menu">
           <div></div>

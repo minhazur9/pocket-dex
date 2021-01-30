@@ -32,12 +32,13 @@ const PokemonIndex = () => {
         e.target.classList.toggle('selected');
     }
 
+    // Formats name to readable format
     const nameFormatter = (name) => {
         if(!(name.includes('-f') || name.includes('m'))) return name.replace(/-.*/,'');
         if(name.includes('meowstic')) return 'meowstic';
         return name
     }
-
+    // Formats name for images
     const listNameFormatter = (pokemon) => {
         pokemon = pokemon.split('-')   
         const temp = pokemon[1];

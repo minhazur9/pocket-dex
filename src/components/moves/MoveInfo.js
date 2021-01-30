@@ -81,6 +81,7 @@ const MoveInfo = () => {
         )
     }
 
+    // Renders the power of the move
     const renderMovePower = () => {
         const power = moveInfo.power ? moveInfo.power : '---';
         return (
@@ -88,6 +89,7 @@ const MoveInfo = () => {
         )
     }
 
+    // Renders the accuracy of the move
     const renderMoveAccuracy = () => {
         const accuracy = moveInfo.accuracy ? moveInfo.accuracy + '%' : '---';
         return (
@@ -95,6 +97,7 @@ const MoveInfo = () => {
         )
     }
 
+    // Renders the move priority
     const renderPriority = () => {
         const priority = moveInfo.priority;
         return (
@@ -102,6 +105,7 @@ const MoveInfo = () => {
         )
     }
 
+    // Renders the most up-to-date flavor text
     const renderMoveText = () => {
         const text = moveInfo.flavor_text_entries;
         let chosenText = '';
@@ -115,6 +119,7 @@ const MoveInfo = () => {
         )
     }
 
+    // Renders the most up-to-date details
     const renderMoveDetails = () => {
         const details = moveInfo.effect_entries;
         let chosenText = '';
@@ -138,6 +143,7 @@ const MoveInfo = () => {
         )
     }
 
+    // Renders all the info
     const renderAllInfo = () => {
         return (
             <>

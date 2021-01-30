@@ -9,17 +9,20 @@ const AbilityIndex = () => {
     const abilityInfo = useSelector(state => state.abilityInfo)
     const dispatch = useDispatch()
     
+    // Highlights and changes state
     const select = (e) => {
         highlight(e)
         updateInfo(e.target.id)
     }
 
+    // Updats the ability info
     const updateInfo = async(ability) => {
         dispatch(startLoading())
         await dispatch(getAbilityInfo(ability))
         dispatch(stopLoading())
     }
 
+    // Highlight selected button
     const highlight = (e) => {
         const highlighted = e.target.classList.contains("selected")
         if(highlighted) return;
@@ -30,11 +33,13 @@ const AbilityIndex = () => {
         e.target.classList.toggle('selected');
     }
 
+    // Searches through the ability list
     const search = (e) => {         
         dispatch(searchAbilities(e.target.value.replace(" ", "-").toLowerCase()))
     }
 
 
+    // Render all the abilities in a list
     const renderAbilites = () => {
         return abilities.map((ability,index) => {
             const abilityName = ability.name.split('-')

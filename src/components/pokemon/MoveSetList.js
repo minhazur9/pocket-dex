@@ -8,6 +8,7 @@ const MoveSetList = () => {
     const info = useSelector((state => state.info));
     const dispatch = useDispatch();
 
+    // Renders the move set
     const renderMoveSet = () => {
         const moveSet = info.moves;
         let learnMethod = '';
@@ -22,6 +23,7 @@ const MoveSetList = () => {
         })
     }
 
+    // Updates move info state
     const updateMoveState = async (moveName) => {
         dispatch(startLoading())
         await dispatch(getMoveInfo(moveName))
@@ -29,6 +31,7 @@ const MoveSetList = () => {
         dispatch(stopLoading())
     }
 
+    // gets the method used to learn move
     const getMethod = (move) => {
         const version = move.version_group_details;
         const method = version[version.length - 1].move_learn_method.name;

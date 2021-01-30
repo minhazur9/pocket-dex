@@ -37,6 +37,7 @@ const ItemIndex = () => {
         dispatch(stopLoading())
     }
 
+    // Render all the items in a list
     const renderItems = () => {
         return items.map((item) => {
             const itemName = item.name.replace('-',' ')

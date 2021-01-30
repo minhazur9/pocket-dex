@@ -85,11 +85,7 @@ const Mutation = new GraphQLObjectType({
             resolve(parent, args) {
                 db.User.findOne({ $or: [{ email: args.email }, { username: args.username }] })
                     .then((foundUser) => {
-                        if (foundUser) {
-                            console.log("Username/Email Taken")
-                            return null;
-                        }
-                            
+                        if (foundUser) return null;
                         return bycrypt.genSalt(10)
                             .then((salt) => bycrypt.hash(args.password, salt))
                             .then((hashedPassword) => db.User.create({
@@ -175,12 +171,13 @@ const Mutation = new GraphQLObjectType({
             type: UserType,
             args: {
                 id: { type: new GraphQLNonNull(GraphQLID) },
-                username: { type: new GraphQLNonNull(GraphQLString) }
+                username: { type: new GraphQLNonNull(GraphQLString) },
+                email: { type: new GraphQLNonNull(GraphQLString) }
             },
             resolve(parent, args) {
                 return db.User.findByIdAndUpdate(
                     args.id,
-                    { $set: { username: args.username } },
+                    { $set: { username: args.username, email: args.email } },
                     { new: true })
             }
         },

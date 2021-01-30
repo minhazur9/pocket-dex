@@ -10,6 +10,7 @@ const PokemonList = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // Render Image
     const renderImage = (pokemon) => {
         const pokemonName = pokemon.replace('gmax','gigantamax')
         .replace('galar','galarian')
@@ -19,6 +20,7 @@ const PokemonList = () => {
         )
     }
 
+    // Formats the name into readable format
     const nameFormatter = (pokemon) => {
             if(pokemon.includes('gmax')) {
                 pokemon = pokemon.replace('-gmax',' gigantamax').split(' ')
@@ -40,6 +42,7 @@ const PokemonList = () => {
     }
     
 
+    // Renders the pokemon info cards
     const renderCards = () => {
         const pokemon = abilityInfo.pokemon;
         return pokemon.map((entry) => {
@@ -56,6 +59,7 @@ const PokemonList = () => {
         })
     }
 
+    // Updates the pokemon info state when clicked
     const updatePokemonState = async (pokemonName) => {
         dispatch(startLoading())
         dispatch(getInfo(pokemonName))

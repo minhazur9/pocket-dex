@@ -4,6 +4,7 @@ import { useSelector} from 'react-redux';
 const AlternativeForms = () => {
     const speciesInfo = useSelector(state => state.speciesInfo);
 
+    // Formats the name into readable format
     const nameFormatter = (pokemon) => {
         pokemon = pokemon.split('-');
         const temp = pokemon[0];
@@ -13,6 +14,7 @@ const AlternativeForms = () => {
         return pokemon;
     }
 
+    // Formats the name for images
     const imageNameFormatter = (pokemon) => {
         if(pokemon.includes('gmax')) {
             pokemon = pokemon.replace('gmax',' gigantamax').split(' ')
@@ -30,6 +32,7 @@ const AlternativeForms = () => {
         return pokemon;
     }
 
+    // Renders all the forms
     const renderForms = () => {
         const {varieties} = speciesInfo;
         return varieties.map((form) => {

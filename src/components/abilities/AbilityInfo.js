@@ -8,6 +8,7 @@ const AbilityInfo = () => {
     const abilityInfo = useSelector(state => state.abilityInfo);
 
     
+    // Renders the most up-to-date flavor text
     const renderFlavorText = () => {
         const {flavor_text_entries} = abilityInfo;
         let chosenText = '';
@@ -21,6 +22,7 @@ const AbilityInfo = () => {
         )
     }
 
+    // Renders the most up-to-date effect text
     const renderEffectText = () => {
         const {effect_entries} = abilityInfo;
         let chosenText = '';
@@ -34,6 +36,7 @@ const AbilityInfo = () => {
         )
     }
 
+    // Renders all the information
     const renderAllInfo = () => {
         return (
             <>
@@ -57,6 +60,7 @@ const AbilityInfo = () => {
         )
     }
 
+    // Renders loading spinner
     const renderLoading = () => {
         return (
             <>

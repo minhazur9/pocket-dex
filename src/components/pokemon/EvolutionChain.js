@@ -7,17 +7,20 @@ const EvolutionChain = () => {
     const evolutionChain = useSelector(state => state.evolutionChain);
     const dispatch = useDispatch();
 
+    // updates the pokemon info state when clicked
     const updatePokemonState = (e,pokemonName) => {
         dispatch(getInfo(pokemonName))
         dispatch(getSpeciesInfo(pokemonName))
     }
 
+    // Formats the name for images
     const imageNameFormatter = (name) => {
         if(name === 'giratina') return 'giratina-altered';
         if(name === 'urshifu') return 'urshifu-single-strike';
         return name;
     }
 
+    // Renders the evolution method for a pokemon
     const renderEvolutionMethod = (stage) => {
         for (const method in stage) {
             if(stage[method]) {
@@ -40,13 +43,13 @@ const EvolutionChain = () => {
                         <p className="evolution_method">{text.toUpperCase()}</p>
                     )
                 }
-                if(method == 'known_move') {
+                if(method === 'known_move') {
                     let text = 'Learned ' + stage[method].name;
                     return (
                         <p className="evolution-method">{text.toUpperCase()}</p>
                     )
                 }
-                if(method == 'trigger') {
+                if(method === 'trigger') {
                     let text = stage[method].name;
                     return (
                         <p className="evolution-method">{text.toUpperCase()}</p>
@@ -63,6 +66,7 @@ const EvolutionChain = () => {
     }
 
 
+    // Renders the first stage of an evolution chain
     const renderFirstStage = (stage) => {
         if(stage) {
             let {name} = stage.species;
@@ -79,6 +83,7 @@ const EvolutionChain = () => {
         }
     }
 
+    // Rendes the rest of the chain
     const renderChain = (data) => {
         if(data) {
         return data.evolves_to.map((stage,index) => {

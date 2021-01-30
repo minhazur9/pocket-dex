@@ -8,6 +8,7 @@ const ItemInfo = () => {
     let {name} = itemInfo;
     name = name.replace('-',' ').toUpperCase();
 
+    // Renders item sprites
     const renderSprite = () => {
         const {sprites, name} = itemInfo;
         return (
@@ -15,6 +16,7 @@ const ItemInfo = () => {
         )
     }
 
+    // Renders item fling power
     const renderFlingPower = () => {
         let {fling_power} = itemInfo;
         return (
@@ -22,6 +24,7 @@ const ItemInfo = () => {
         )
     }
 
+    // Renders item category
     const renderCategory = () => {
         let {name} = itemInfo.category;
         if (name.includes('-')) name = name.replace('-',' ')
@@ -30,6 +33,7 @@ const ItemInfo = () => {
         )
     }
 
+    // Renders the most up-to-date flavor text
     const renderFlavorText = () => {
         const {flavor_text_entries} = itemInfo;
         let chosenText = '';
@@ -43,6 +47,7 @@ const ItemInfo = () => {
         )
     }
 
+    // Renders the most up-to-date effect text
     const renderEffectText = () => {
         const {effect_entries} = itemInfo;
         let chosenText = '';
@@ -56,6 +61,7 @@ const ItemInfo = () => {
         )
     }
 
+    // Renders loading spinner
     const renderLoading = () => {
         return (
             <>
@@ -64,6 +70,7 @@ const ItemInfo = () => {
         )
     }
 
+    // Renders all the information
     const renderAllInfo = () => {
         return (
         <>

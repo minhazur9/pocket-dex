@@ -14,6 +14,7 @@ const StatChart = () => {
     let height = 300;
     let width = 400;
 
+    // Renders a bar chart
     const renderChart = () => {
         const container = document.getElementById('chart-area');
         const data = {
