@@ -1025,6 +1025,12 @@ nav .nav-link {
   font-weight: bold;
 }
 
+.signup .signup-form .password-invalid {
+  text-align: left;
+  color: red;
+  font-size: 10px;
+}
+
 /* ----------------- Pokemon Index */
 .list {
   overflow-y: auto;

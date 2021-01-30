@@ -2,28 +2,27 @@
 const express = require('express');
 const session = require('express-session');
 const graphqlHTTP = require('express-graphql').graphqlHTTP;
-const methodOverride = require('method-override');
 const morgan = require('morgan');
+const cors = require('cors');
 
+require('dotenv').config();
 
 const app = express();
 const schema = require('./controllers')
 
 // Environment Variables
-require('dotenv').config();
-const PORT =  4000;
 
-app.set('view-engine','ejs');
+const PORT =  process.env.PORT || 4000;
 
 
 // Middleware
+app.use(cors())
 app.use(morgan('tiny'))
-app.use(methodOverride('_method'))
 app.use(express.static(__dirname + '/public'))
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
+    resave: true,
+    saveUninitialized: true
 }))
 
 app.use('/', graphqlHTTP({
