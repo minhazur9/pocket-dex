@@ -1,5 +1,6 @@
 const graphql = require('graphql');
 const bycrypt = require('bcrypt')
+const jwt = require('jsonwebtoken');
 
 const db = require('../models');
 
@@ -30,13 +31,26 @@ const RootQuery = new GraphQLObjectType({
                 return db.User.findById(args.id)
             }
         },
-        userByUsername: {
+        login: {
             type: UserType,
-            args: { username: { type: new GraphQLNonNull(GraphQLString) } },
-            resolve(parent, args) {
-                return db.User.findOne({ username: args.username })
+            args: {
+                username: { type: new GraphQLNonNull(GraphQLString) },
+                password: { type: new GraphQLNonNull(GraphQLString) },
+            },
+            async resolve(parent, args) {
+                const foundUser = await db.User.findOne({ username: args.username })
+                const matched = await bycrypt.compare(args.password, foundUser.password)
+                if (matched) {
+                    const { id } = foundUser;
+                    const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+                        expiresIn: 300
+                    })
+                    return {token, id:id, ...foundUser._doc}
+                }
+                else console.log('Invalid username or password')
             }
         },
+
         // Query for a team
         team: {
             type: TeamType,

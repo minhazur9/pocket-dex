@@ -11,11 +11,13 @@ mutation($username:String!,$email:String!,$password:String!){
 }
 `
 // Queries for a user by username
-export const getUserByUsernameQuery = gql`
-query($username:String!){
-    userByUsername(username:$username){
-        username
+export const login = gql`
+query($username:String!, $password:String!){
+    login(username:$username, password:$password){
         id
+        email
+        username
+        token
     }
 }
 `

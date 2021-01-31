@@ -11,7 +11,6 @@ const app = express();
 const schema = require('./controllers')
 
 // Environment Variables
-
 const PORT =  process.env.PORT || 4000;
 
 

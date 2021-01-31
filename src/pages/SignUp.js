@@ -4,7 +4,7 @@ import { useMutation } from 'react-apollo';
 
 import { addUserMutation } from '../queries/accountQueries'
 
-const SignUp = (props) => {
+const SignUp = () => {
 
     const [addUser] = useMutation(addUserMutation);
 
@@ -23,15 +23,16 @@ const SignUp = (props) => {
         if (!username) setBlankUsername(true);
         if (!password) setBlankPassword(true);
         if (!email) setBlankEmail(true);
-        if (password === confirm && password !== "" && confirm !== "") {
+        if (password === confirm && password && confirm && email && username) {
             addUser({
                 variables: {
-                    username: username || null,
-                    email: email || null,
-                    password: password || null,
+                    username: username,
+                    email: email,
+                    password: password,
                 }
             })
                 .catch((err) => console.log(err))
+            history.push('/')
         }
     }
 

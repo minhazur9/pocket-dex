@@ -15,6 +15,8 @@ const UserType = new GraphQLObjectType({
     fields: () => ({
         id: {type: GraphQLID},
         username: {type: GraphQLString},
+        email: {type: GraphQLString},
+        token: {type:GraphQLString},
         teams: {
             type: new GraphQLList(TeamType),
             resolve(parent,args) {

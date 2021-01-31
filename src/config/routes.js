@@ -6,6 +6,7 @@ import MoveIndex from '../pages/MoveIndex';
 import AbilityIndex from '../pages/AbilityIndex';
 import ItemIndex from '../pages/ItemIndex';
 import SignUp from '../pages/SignUp';
+import Login from '../pages/Login';
 
 
 const Routes = () => {
@@ -17,6 +18,7 @@ const Routes = () => {
             <Route path="/abilities" component={AbilityIndex}/>
             <Route path="/items" component={ItemIndex}/>
             <Route path="/signup" component={SignUp}/>
+            <Route path="/login" component={Login}/>
         </Switch>
     )
 }
