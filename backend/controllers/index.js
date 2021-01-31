@@ -30,6 +30,13 @@ const RootQuery = new GraphQLObjectType({
                 return db.User.findById(args.id)
             }
         },
+        userByUsername: {
+            type: UserType,
+            args: { username: { type: new GraphQLNonNull(GraphQLString) } },
+            resolve(parent, args) {
+                return db.User.findOne({ username: args.username })
+            }
+        },
         // Query for a team
         team: {
             type: TeamType,
@@ -85,7 +92,7 @@ const Mutation = new GraphQLObjectType({
             resolve(parent, args) {
                 db.User.findOne({ $or: [{ email: args.email }, { username: args.username }] })
                     .then((foundUser) => {
-                        if (foundUser) return null;
+                        if (foundUser) return 'Duplicate User Error';
                         return bycrypt.genSalt(10)
                             .then((salt) => bycrypt.hash(args.password, salt))
                             .then((hashedPassword) => db.User.create({
@@ -93,6 +100,7 @@ const Mutation = new GraphQLObjectType({
                                 email: args.email,
                                 password: hashedPassword
                             }))
+                            .catch((err) => console.log(err))
                     })
             }
         },

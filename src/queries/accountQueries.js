@@ -10,4 +10,13 @@ mutation($username:String!,$email:String!,$password:String!){
     }
 }
 `
+// Queries for a user by username
+export const getUserByUsernameQuery = gql`
+query($username:String!){
+    userByUsername(username:$username){
+        username
+        id
+    }
+}
+`
 
