@@ -5,10 +5,14 @@ import Navbar from './components/Navbar'
 import Routes from './config/routes';
 import { useDispatch } from 'react-redux'
 import { logIn } from './actions';
-import { parse } from 'graphql';
 
 
 const { REACT_APP_GRAPHQL_URI } = process.env;
+
+const getCookie = () => {
+  const cookie = document.cookie.split('; ')
+  return cookie.find(value => /^jwtToken=/.test(value))
+}
 
 const client = new ApolloClient({
   uri: REACT_APP_GRAPHQL_URI,
@@ -16,15 +20,16 @@ const client = new ApolloClient({
     credentials: "include"
   },
   headers: {
-    authorization: `JWT ${localStorage.getItem('jwtToken') || ''}`
+    authorization: `JWT ${getCookie() || ''}`
   }
 })
+
 
 
 function App() {
 
   // cache storage expiration and refresh
-  const timeout = 1000 * 60 * 60 * 12;
+  const timeout = 1000 * 10 * 60 * 12;
   const currentTime = new Date().getTime();
   const localTime = localStorage.getItem('local-time')
   if (localTime) {
@@ -32,7 +37,7 @@ function App() {
     if (ttl > timeout) {
       localStorage.removeItem('local-time')
       localStorage.removeItem('pokemon-list-data')
-      localStorage.removeItem('abilites-data')
+      localStorage.removeItem('abilities-data')
       localStorage.removeItem('moves-data')
       localStorage.removeItem('items-data')
     }
@@ -43,17 +48,8 @@ function App() {
 
   const dispatch = useDispatch();
 
-  if (localStorage.getItem("jwtToken")) dispatch(logIn())
-
-
-  if ((localStorage.getItem("jwtToken"))) {
-    const ttl = Number(currentTime) - parseInt(localTime)
-    const tokenTimeOut = 1000 * 60 * 15;
-    if (ttl > tokenTimeOut) {
-      localStorage.removeItem('jwtToken')
-    }
-  }
-
+  const cookie = document.cookie.split('; ')
+  if(cookie.find(value => /^jwtToken=/.test(value))) dispatch(logIn())
 
   return (
     <ApolloProvider client={client}>

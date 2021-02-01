@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { Link,useHistory } from 'react-router-dom'
-import { useSelector, useDispatch} from 'react-redux';
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
 
-import {logOut} from '../actions';
+import { logOut } from '../actions';
 
 const Navbar = () => {
 
@@ -11,9 +11,11 @@ const Navbar = () => {
   const history = useHistory();
 
   const signOut = () => {
+    const date = new Date();
+    date.setTime(date.getTime() - 1000*60);
+    document.cookie = `jwtToken=; expires=${date.toUTCString()}`;
     dispatch(logOut())
-    localStorage.removeItem("jwtToken")
-    history.push()
+    history.push('/')
   }
 
   // Toggles dropdown menu
@@ -40,8 +42,8 @@ const Navbar = () => {
           {loggedIn ?
             <li><Link to="/" className="nav-link" onClick={signOut}>Logout</Link></li> :
             <>
-              <li><Link to="/signup" className="nav-link">SignUp</Link></li>
-              <li><Link to="/login" className="nav-link">LogIn</Link></li>
+              <li><Link to="/signup" className="nav-link">Signup</Link></li>
+              <li><Link to="/login" className="nav-link">Login</Link></li>
             </>
 
           }

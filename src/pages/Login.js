@@ -30,7 +30,9 @@ const Login = () => {
     }
 
     const storeToken = (response) => {
-        localStorage.setItem('jwtToken', response.token)
+        const date = new Date();
+        date.setTime(date.getTime() + (15*60*1000));
+        document.cookie = `jwtToken=${response.token}; expires=${date.toUTCString()}`;
         dispatch(logIn())
         history.push("/")
     }
