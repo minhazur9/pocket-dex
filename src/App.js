@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Routes from './config/routes';
 import { useDispatch } from 'react-redux'
 import { logIn } from './actions';
+import { parse } from 'graphql';
 
 
 const { REACT_APP_GRAPHQL_URI } = process.env;
@@ -42,8 +43,15 @@ function App() {
 
   const dispatch = useDispatch();
 
-  if (localStorage.getItem("jwtToken")) {
-    dispatch(logIn())
+  if (localStorage.getItem("jwtToken")) dispatch(logIn())
+
+
+  if ((localStorage.getItem("jwtToken"))) {
+    const ttl = Number(currentTime) - parseInt(localTime)
+    const tokenTimeOut = 1000 * 60 * 15;
+    if (ttl > tokenTimeOut) {
+      localStorage.removeItem('jwtToken')
+    }
   }
 
 

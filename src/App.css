@@ -1048,6 +1048,7 @@ nav .nav-link {
 }
 
 .login .login-form label {
+  margin-top: 40px;
   display: block;
   text-align: left;
   font-size: 20px;
