@@ -40,7 +40,7 @@ const Navbar = () => {
           <li><Link to="/abilities" className="nav-link">AbilityDex</Link></li>
           <li><Link to="/items" className="nav-link">ItemDex</Link></li>
           {loggedIn ?
-            <li><Link to="/" className="nav-link" onClick={signOut}>Logout</Link></li> :
+            <li className='sign-out'><button to="/" className="nav-link" onClick={signOut}>Logout</button></li> :
             <>
               <li><Link to="/signup" className="nav-link">Signup</Link></li>
               <li><Link to="/login" className="nav-link">Login</Link></li>

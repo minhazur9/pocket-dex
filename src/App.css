@@ -22,6 +22,22 @@ nav .nav-link {
   border: none;
 }
 
+nav .sign-out:hover {
+  background-color: #DB3C30;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+nav .sign-out button {
+  display: inline;
+  position: relative;
+  border: none;
+  background-color: transparent;
+  color: white;
+  top: 2px;
+  padding: 0 15px;
+}
+
 @media only screen and (max-width: 900px) {
   nav .hamburger-menu {
     position: absolute;
@@ -38,7 +54,7 @@ nav .nav-link {
     transition: background-color 500ms;
   }
   nav .hamburger-menu:hover {
-    background-color: #DA1002;
+    background-color: #da1002;
   }
   nav .hamburger-menu div {
     border-bottom: white 3px solid;
@@ -63,7 +79,7 @@ nav .nav-link {
     margin: -7px;
   }
   nav .dropdown li:hover {
-    background-color: #DA1002;
+    background-color: #da1002;
   }
   nav .nav-link {
     display: none;
