@@ -19,6 +19,7 @@ nav {
 
 nav .nav-link {
   font-size: 20px;
+  border: none;
 }
 
 @media only screen and (max-width: 900px) {
@@ -1061,7 +1062,7 @@ nav .nav-link {
 }
 
 .login .login-form .login-submit {
-  margin-top: 25px;
+  margin-top: 20px;
   background-color: #4CAC6A;
   color: white;
   font-weight: bold;

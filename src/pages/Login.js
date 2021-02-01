@@ -11,6 +11,7 @@ const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const dispatch = useDispatch();
+    const history = useHistory();
     const [tokenAuth] = useMutation(
         tokenAuthMutation,
         {
@@ -26,6 +27,7 @@ const Login = () => {
     const storeToken = (response) => {
         localStorage.setItem('jwtToken',response.token)
         dispatch(logIn())
+        history.push("/")
     }
 
     const submitForm = (e) => {

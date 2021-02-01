@@ -1,7 +1,9 @@
 const moveInfoReducer = (state = false, action) => {
     switch(action.type) {
-        case 'USER_DATA':
+        case 'LOG_IN':
            return true;
+        case 'LOG_OUT':
+            return false;
         default:
             return state
     }

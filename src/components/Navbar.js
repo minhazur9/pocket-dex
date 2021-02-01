@@ -1,7 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { Link,useHistory } from 'react-router-dom'
+import { useSelector, useDispatch} from 'react-redux';
+
+import {logOut} from '../actions';
 
 const Navbar = () => {
+
+  const loggedIn = useSelector(state => state.loggedIn)
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const signOut = () => {
+    dispatch(logOut())
+    localStorage.removeItem("jwtToken")
+    history.push()
+  }
 
   // Toggles dropdown menu
   const dropdown = () => {
@@ -22,9 +35,16 @@ const Navbar = () => {
         <ul id="nav-mobile" className="right">
           <li><Link to="/pokemon" className="nav-link">PokeDex</Link></li>
           <li><Link to="/moves" className="nav-link">MoveDex</Link></li>
-          <li><Link to ="/abilities" className="nav-link">AbilityDex</Link></li>
-          <li><Link to ="/items" className="nav-link">ItemDex</Link></li>
-          <li><Link to ="/signup" className="nav-link">SignUp</Link></li>
+          <li><Link to="/abilities" className="nav-link">AbilityDex</Link></li>
+          <li><Link to="/items" className="nav-link">ItemDex</Link></li>
+          {loggedIn ?
+            <li><Link to="/" className="nav-link" onClick={signOut}>Logout</Link></li> :
+            <>
+              <li><Link to="/signup" className="nav-link">SignUp</Link></li>
+              <li><Link to="/login" className="nav-link">LogIn</Link></li>
+            </>
+
+          }
         </ul>
         <button onClick={dropdown} className="hamburger-menu">
           <div></div>
@@ -35,8 +55,8 @@ const Navbar = () => {
       <ul className="dropdown">
         <Link to="/pokemon" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>PokeDex</li></Link>
         <Link to="/moves" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>MoveDex</li></Link>
-        <Link to ="/abilities" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>AbilityDex</li></Link>
-        <Link to ="/items" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>ItemDex</li></Link>
+        <Link to="/abilities" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>AbilityDex</li></Link>
+        <Link to="/items" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>ItemDex</li></Link>
       </ul>
     </nav>
   )

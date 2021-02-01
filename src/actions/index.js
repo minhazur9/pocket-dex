@@ -235,6 +235,12 @@ export const stopLoading = () => {
 
 export const logIn = () => {
     return {
-        type: 'USER_DATA'
+        type: 'LOG_IN'
+    }
+}
+
+export const logOut = () => {
+    return {
+        type: 'LOG_OUT'
     }
 }

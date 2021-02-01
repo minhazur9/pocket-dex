@@ -10,7 +10,13 @@ import { logIn } from './actions';
 const { REACT_APP_GRAPHQL_URI } = process.env;
 
 const client = new ApolloClient({
-  uri: REACT_APP_GRAPHQL_URI
+  uri: REACT_APP_GRAPHQL_URI,
+  fetchOptions: {
+    credentials: "include"
+  },
+  headers: {
+    authorization: `JWT ${localStorage.getItem('jwtToken') || ''}`
+  }
 })
 
 
@@ -36,7 +42,9 @@ function App() {
 
   const dispatch = useDispatch();
 
-  if (localStorage.getItem("jtwToken")) dispatch(logIn())
+  if (localStorage.getItem("jwtToken")) {
+    dispatch(logIn())
+  }
 
 
   return (
