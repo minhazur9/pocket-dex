@@ -3,6 +3,8 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import Navbar from './components/Navbar'
 import Routes from './config/routes';
+import { useDispatch } from 'react-redux'
+import { logIn } from './actions';
 
 
 const { REACT_APP_GRAPHQL_URI } = process.env;
@@ -23,11 +25,19 @@ function App() {
     if (ttl > timeout) {
       localStorage.removeItem('local-time')
       localStorage.removeItem('pokemon-list-data')
+      localStorage.removeItem('abilites-data')
+      localStorage.removeItem('moves-data')
+      localStorage.removeItem('items-data')
     }
   }
   else {
     localStorage.setItem('local-time', JSON.stringify(currentTime))
   }
+
+  const dispatch = useDispatch();
+
+  if (localStorage.getItem("jtwToken")) dispatch(logIn())
+
 
   return (
     <ApolloProvider client={client}>

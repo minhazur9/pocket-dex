@@ -7,6 +7,7 @@ const db = require('../models');
 const UserType = require('./UserType');
 const TeamType = require('./TeamType');
 const PokemonType = require('./PokemonType');
+const AuthType = require('./AuthType');
 
 const {
     GraphQLObjectType,
@@ -31,26 +32,6 @@ const RootQuery = new GraphQLObjectType({
                 return db.User.findById(args.id)
             }
         },
-        login: {
-            type: UserType,
-            args: {
-                username: { type: new GraphQLNonNull(GraphQLString) },
-                password: { type: new GraphQLNonNull(GraphQLString) },
-            },
-            async resolve(parent, args) {
-                const foundUser = await db.User.findOne({ username: args.username })
-                const matched = await bycrypt.compare(args.password, foundUser.password)
-                if (matched) {
-                    const { id } = foundUser;
-                    const token = jwt.sign({ id }, process.env.JWT_SECRET, {
-                        expiresIn: 300
-                    })
-                    return {token, id:id, ...foundUser._doc}
-                }
-                else console.log('Invalid username or password')
-            }
-        },
-
         // Query for a team
         team: {
             type: TeamType,
@@ -116,6 +97,26 @@ const Mutation = new GraphQLObjectType({
                             }))
                             .catch((err) => console.log(err))
                     })
+            }
+        },
+        tokenAuth: {
+            type: AuthType,
+            args: {
+                username: { type: new GraphQLNonNull(GraphQLString) },
+                password: { type: new GraphQLNonNull(GraphQLString) },
+            },
+            async resolve(parent, args) {
+                const foundUser = await db.User.findOne({ username: args.username })
+                if(!foundUser) return null
+                const matched = await bycrypt.compare(args.password, foundUser.password)
+                if (matched) {
+                    const { id } = foundUser;
+                    const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+                        expiresIn: 300
+                    })
+                    return {token}
+                }
+                else return null
             }
         },
         // Adds new team to a user

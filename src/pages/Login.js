@@ -1,24 +1,41 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useLazyQuery } from 'react-apollo';
+import { useMutation } from 'react-apollo';
+import {useDispatch} from 'react-redux';
 
-import { login } from '../queries/accountQueries'
+import { tokenAuthMutation } from '../queries/accountQueries'
+import {logIn} from '../actions';
 
 const Login = () => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [signIn, { data }] = useLazyQuery(login)
+    const dispatch = useDispatch();
+    const [tokenAuth] = useMutation(
+        tokenAuthMutation,
+        {
+            onCompleted({tokenAuth}) {
+                if(tokenAuth) {
+                    storeToken(tokenAuth)
+                }
+            }
+        }
+    )
+
+
+    const storeToken = (response) => {
+        localStorage.setItem('jwtToken',response.token)
+        dispatch(logIn())
+    }
 
     const submitForm = (e) => {
         e.preventDefault();
-        signIn({
+        tokenAuth({
             variables: {
                 username: username,
                 password: password,
-            }
+            },
         })
-        
     }
 
     return (
@@ -28,10 +45,9 @@ const Login = () => {
                 <label htmlFor="username">Username</label>
                 <input type="text" name="username" onChange={(e) => setUsername(e.target.value)} />
                 <label htmlFor="password">Password</label>
-                <input type="text" name="password" onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} />
                 <button className="waves-effect waves-light btn-large login-submit">LogIn</button>
             </form>
-            {data && console.log(data)}
         </div>
     )
 }

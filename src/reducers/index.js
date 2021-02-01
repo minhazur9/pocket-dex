@@ -9,6 +9,7 @@ import abilitesReducer from './abilitiesReducer';
 import abilityInfoReducer from './abilityInfoReducer';
 import itemsReducer from './itemsReducer';
 import itemInfoReducer from './itemInfoReducer';
+import loggedInReducer from './LoggedInReducer';
 import {combineReducers} from 'redux'
 
 const allReducers = combineReducers({
@@ -23,6 +24,7 @@ const allReducers = combineReducers({
     abilityInfo: abilityInfoReducer,
     items: itemsReducer,
     itemInfo: itemInfoReducer,
+    loggedIn: loggedInReducer,
 });
 
 export default allReducers

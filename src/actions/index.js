@@ -232,3 +232,9 @@ export const stopLoading = () => {
         type: 'STOP_LOADING'
     }
 }
+
+export const logIn = () => {
+    return {
+        type: 'USER_DATA'
+    }
+}
