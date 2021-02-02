@@ -32,7 +32,7 @@ const Login = () => {
     const storeToken = (response) => {
         const date = new Date();
         date.setTime(date.getTime() + (15*60*1000));
-        document.cookie = `jwtToken=${response.token}; expires=${date.toUTCString()}`;
+        document.cookie = `jwtToken=${response.token}; Path=/; expires=${date.toUTCString()}`;
         dispatch(logIn())
         history.push("/")
     }

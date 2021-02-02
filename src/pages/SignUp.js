@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { useMutation } from 'react-apollo';
-
+import {useDispatch} from 'react-redux';
 import { addUserMutation } from '../queries/accountQueries'
+import {logIn} from '../actions';
 
 const SignUp = () => {
 
-    const [addUser] = useMutation(addUserMutation);
+    const [addUser] = useMutation(
+        addUserMutation,
+        {
+            onCompleted({ addUser }) {
+                if (addUser) storeToken(addUser);
+            }
+        }
+    );
 
 
     const [username, setUsername] = useState("");
@@ -17,6 +25,16 @@ const SignUp = () => {
     const [blankPassword, setBlankPassword] = useState(false)
     const [blankEmail, setBlankEmail] = useState(false)
     const history = useHistory();
+    const dispatch = useDispatch();
+
+
+    const storeToken = (response) => {
+        const date = new Date();
+        date.setTime(date.getTime() + (15 * 60 * 1000));
+        document.cookie = `jwtToken=${response.token}; Path=/; expires=${date.toUTCString()}`;
+        dispatch(logIn())
+        history.push('/')
+    }
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -32,7 +50,6 @@ const SignUp = () => {
                 }
             })
                 .catch((err) => console.log(err))
-            history.push('/')
         }
     }
 

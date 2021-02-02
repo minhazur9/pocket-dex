@@ -78,25 +78,29 @@ const Mutation = new GraphQLObjectType({
     fields: {
         // Adds new user to database
         addUser: {
-            type: UserType,
+            type: AuthType,
             args: {
                 username: { type: new GraphQLNonNull(GraphQLString) },
                 email: { type: new GraphQLNonNull(GraphQLString) },
                 password: { type: new GraphQLNonNull(GraphQLString) },
             },
-            resolve(parent, args) {
-                db.User.findOne({ $or: [{ email: args.email }, { username: args.username }] })
-                    .then((foundUser) => {
-                        if (foundUser) return 'Duplicate User Error';
-                        return bycrypt.genSalt(10)
-                            .then((salt) => bycrypt.hash(args.password, salt))
-                            .then((hashedPassword) => db.User.create({
-                                username: args.username,
-                                email: args.email,
-                                password: hashedPassword
-                            }))
-                            .catch((err) => console.log(err))
-                    })
+            async resolve(parent, args) {
+                const foundUser = await db.User.findOne({ $or: [{ email: args.email }, { username: args.username }] })
+                if (foundUser) return null;
+                const salt = await bycrypt.genSalt(10);
+                const hashedPassword = await bycrypt.hash(args.password, salt);
+                await db.User.create({
+                    username: args.username,
+                    email: args.email,
+                    password: hashedPassword,
+                })
+                const newUser = await db.User.findOne({username:args.username})
+                const { id } = newUser;
+                const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+                    expiresIn: 300
+                })
+                console.log({token})
+                return { token }
             }
         },
         tokenAuth: {
@@ -107,14 +111,14 @@ const Mutation = new GraphQLObjectType({
             },
             async resolve(parent, args) {
                 const foundUser = await db.User.findOne({ username: args.username })
-                if(!foundUser) return null
+                if (!foundUser) return null
                 const matched = await bycrypt.compare(args.password, foundUser.password)
                 if (matched) {
                     const { id } = foundUser;
                     const token = jwt.sign({ id }, process.env.JWT_SECRET, {
                         expiresIn: 300
                     })
-                    return {token}
+                    return { token }
                 }
                 else return null
             }

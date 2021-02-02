@@ -13,7 +13,7 @@ const Navbar = () => {
   const signOut = () => {
     const date = new Date();
     date.setTime(date.getTime() - 1000*60);
-    document.cookie = `jwtToken=; expires=${date.toUTCString()}`;
+    document.cookie = `jwtToken=; Path=/; expires=${date.toUTCString()}`;
     dispatch(logOut())
     history.push('/')
   }
