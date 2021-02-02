@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const ItemInfo = () => {
     const itemInfo = useSelector(state => state.itemInfo)
-    const loading = useSelector(state => state.loading)
+    const loading = useSelector((state => state.loading))
 
     let {name} = itemInfo;
     name = name.replace('-',' ').toUpperCase();

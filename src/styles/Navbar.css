@@ -7,6 +7,10 @@ nav .nav-link {
   border: none;
 }
 
+nav .sign-out {
+  cursor: pointer;
+}
+
 nav .sign-out:hover {
   background-color: #DB3C30;
   -webkit-transition: 0.3s;
@@ -21,6 +25,12 @@ nav .sign-out button {
   color: white;
   top: 2px;
   padding: 0 15px;
+  cursor: pointer;
+}
+
+nav #nav-mobile.left {
+  position: absolute;
+  left: 180px;
 }
 
 @media only screen and (max-width: 900px) {

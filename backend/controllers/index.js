@@ -97,7 +97,7 @@ const Mutation = new GraphQLObjectType({
                 const newUser = await db.User.findOne({username:args.username})
                 const { id } = newUser;
                 const token = jwt.sign({ id }, process.env.JWT_SECRET, {
-                    expiresIn: 300
+                    expiresIn: '12h'
                 })
                 console.log({token})
                 return { token }
@@ -116,7 +116,7 @@ const Mutation = new GraphQLObjectType({
                 if (matched) {
                     const { id } = foundUser;
                     const token = jwt.sign({ id }, process.env.JWT_SECRET, {
-                        expiresIn: 300
+                        expiresIn: '12h'
                     })
                     return { token }
                 }

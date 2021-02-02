@@ -7,6 +7,7 @@ nav {
     }
 
     .sign-out {
+        cursor: pointer;
         &:hover {
             background-color: #DB3C30;
             transition: 0.3s;
@@ -19,7 +20,12 @@ nav {
             color: white;
             top:2px;
             padding: 0 15px;
+            cursor: pointer;
         }
+    }
+    #nav-mobile.left {
+        position: absolute;
+        left: 180px;
     }
 
     @media only screen and (max-width: 900px) {

@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const signOut = () => {
     const date = new Date();
-    date.setTime(date.getTime() - 1000*60);
+    date.setTime(date.getTime() - 1000 * 60);
     document.cookie = `jwtToken=; Path=/; expires=${date.toUTCString()}`;
     dispatch(logOut())
     history.push('/')
@@ -40,7 +40,12 @@ const Navbar = () => {
           <li><Link to="/abilities" className="nav-link">AbilityDex</Link></li>
           <li><Link to="/items" className="nav-link">ItemDex</Link></li>
           {loggedIn ?
-            <li className='sign-out'><button to="/" className="nav-link" onClick={signOut}>Logout</button></li> :
+            <>
+              <ul id="nav-mobile" className="left">
+                <li><Link to="/pokemon" className="nav-link">My Team</Link></li>
+              </ul>
+              <li className='sign-out' onClick={signOut}><button to="/" className="nav-link">Logout</button></li>
+            </> :
             <>
               <li><Link to="/signup" className="nav-link">Signup</Link></li>
               <li><Link to="/login" className="nav-link">Login</Link></li>

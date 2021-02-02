@@ -7,10 +7,10 @@ const AbilityInfo = () => {
     const loading = useSelector((state => state.loading))
     const abilityInfo = useSelector(state => state.abilityInfo);
 
-    
+
     // Renders the most up-to-date flavor text
     const renderFlavorText = () => {
-        const {flavor_text_entries} = abilityInfo;
+        const { flavor_text_entries } = abilityInfo;
         let chosenText = '';
         flavor_text_entries.forEach((flavor) => {
             if (flavor.language.name === 'en') chosenText = flavor.flavor_text
@@ -24,7 +24,7 @@ const AbilityInfo = () => {
 
     // Renders the most up-to-date effect text
     const renderEffectText = () => {
-        const {effect_entries} = abilityInfo;
+        const { effect_entries } = abilityInfo;
         let chosenText = '';
         effect_entries.forEach((entry) => {
             if (entry.language.name === 'en') chosenText = entry.effect;
@@ -40,22 +40,22 @@ const AbilityInfo = () => {
     const renderAllInfo = () => {
         return (
             <>
-            <h1 className="name">{abilityInfo.name.toUpperCase()}</h1>
-            <div className="col2">
-            {renderFlavorText()}
+                <h1 className="name">{abilityInfo.name.toUpperCase()}</h1>
+                <div className="col2">
+                    {renderFlavorText()}
+                </div>
+                <div className="col3">
+                    Effect
             </div>
-            <div className="col3">
-                Effect
+                <div className="col4">
+                    {renderEffectText()}
+                </div>
+                <div className="col5">
+                    Pokemon that have this ability
             </div>
-            <div className="col4">
-            {renderEffectText()}
-            </div>
-            <div className="col5">
-                Pokemon that have this ability
-            </div>
-            <div className="col6">
-            <PokemonList/>
-            </div>
+                <div className="col6">
+                    <PokemonList />
+                </div>
             </>
         )
     }
@@ -63,9 +63,7 @@ const AbilityInfo = () => {
     // Renders loading spinner
     const renderLoading = () => {
         return (
-            <>
-                <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-            </>
+            <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
         )
     }
 
