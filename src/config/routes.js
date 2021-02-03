@@ -7,6 +7,7 @@ import AbilityIndex from '../pages/AbilityIndex';
 import ItemIndex from '../pages/ItemIndex';
 import SignUp from '../pages/SignUp';
 import Login from '../pages/Login';
+import TeamIndex from '../pages/TeamIndex';
 
 
 const Routes = () => {
@@ -19,6 +20,7 @@ const Routes = () => {
             <Route path="/items" component={ItemIndex}/>
             <Route path="/signup" component={SignUp}/>
             <Route path="/login" component={Login}/>
+            <Route path="/teams" component={TeamIndex}/>
         </Switch>
     )
 }

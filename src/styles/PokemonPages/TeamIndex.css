@@ -1,0 +1,55 @@
+.team-index {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.team-index .team-container {
+  position: relative;
+  display: inline-block;
+  border: 2px black solid;
+  left: 25%;
+  width: 30%;
+  height: 50% h3;
+  height-text-align: center;
+  height-margin: 0 auto;
+}
+
+.team-index .team-container .team-pokemon {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  padding: 20px;
+  row-gap: 10px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+.team-index .team-container .team-pokemon .add-pokemon {
+  margin: 0 auto;
+  border: 2px #f44336 solid;
+  background-color: #f44336;
+  vertical-align: auto;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  height: 70px;
+  width: 70px;
+  border-radius: 5px;
+  cursor: default;
+}
+
+.team-index .team-container .team-pokemon .add-pokemon:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+.team-index .add-team {
+  display: inline-block;
+  margin-top: 90px;
+  width: 150px;
+}
+/*# sourceMappingURL=TeamIndex.css.map */

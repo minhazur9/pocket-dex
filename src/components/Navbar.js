@@ -42,7 +42,7 @@ const Navbar = () => {
           {loggedIn ?
             <>
               <ul id="nav-mobile" className="left">
-                <li><Link to="/pokemon" className="nav-link">My Team</Link></li>
+                <li><Link to="/teams" className="nav-link">My Teams</Link></li>
               </ul>
               <li className='sign-out' onClick={signOut}><button to="/" className="nav-link">Logout</button></li>
             </> :

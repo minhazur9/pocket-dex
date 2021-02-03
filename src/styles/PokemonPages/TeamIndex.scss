@@ -1,0 +1,46 @@
+.team-index {
+    height: 100%;
+    overflow-y:auto;
+    .team-container {
+        position: relative;
+        display: inline-block;
+        border: 2px black solid;
+        left: 25%;
+        width: 30%;
+        height: 50% h3 {
+            text-align: center;
+            margin: 0 auto;
+        }
+        .team-pokemon {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 20px;
+            row-gap: 10px;
+            column-gap: 10px;
+            .add-pokemon {
+                margin: 0 auto;
+                border: 2px #f44336 solid;
+                background-color: #f44336;
+                vertical-align: auto;
+                text-align: center;
+                font-size: 50px;
+                font-weight: bold;
+                color: white;
+                height: 70px;
+                width: 70px;
+                border-radius: 5px;
+                cursor: default;
+                &:hover {
+                    transform: scale(1.2);
+                    transition-duration: 0.5s;
+                }
+            }
+        }
+    }
+
+    .add-team {
+        display: inline-block;
+        margin-top: 90px;
+        width: 150px;
+    }
+}
