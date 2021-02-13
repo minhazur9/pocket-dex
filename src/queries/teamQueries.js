@@ -9,20 +9,15 @@ export const addTeamMutation = gql`
 `
 
 
-// export const getTeams = gql`
-//     query($id:String!){
-
-//     }
-//     user(id:$id){
-//         teams{
-//             name{
-//                 pokemon{
-//                         name
-//                 }
-//             }
-//         }
-//     }
-// `;
+export const getTeams = gql`
+    query($id:ID!){
+        user(id:$id){
+            teams{
+                name
+            }
+        }
+    }
+`;
 
 // export const getPokemonData = gql`
 //     pokemon($id:String!){

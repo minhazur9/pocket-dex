@@ -9,6 +9,7 @@ const TeamPokemonInfo = () => {
     
     useEffect(() => {
         dispatch(getPokemon())
+        // eslint-disable-next-line
     },[])
  
     const renderPokemonOptions = () => {

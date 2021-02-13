@@ -32,8 +32,10 @@ const RootQuery = new GraphQLObjectType({
         user: {
             type: UserType,
             args: { id: { type: new GraphQLNonNull(GraphQLID) } },
-            resolve(parent, args) {
-                return db.User.findById(args.id)
+            async resolve(parent, args) {
+                const decoded = await jwt.verify(args.id,JWT_SECRET)
+                const {id} = decoded;
+                return db.User.findById(id)
             }
         },
         // Query for a team
@@ -64,6 +66,17 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(TeamType),
             resolve(parent, args) {
                 return db.Team.find({})
+            }
+        },
+        allTeamsByUser: {
+            type: new GraphQLList(TeamType),
+            args: {
+                userId: {type: new GraphQLNonNull(GraphQLID)}
+            },
+            async resolve(parent, args) {
+                const decoded = await jwt.verify(args.userId,JWT_SECRET)
+                const {id} = decoded;
+                return db.Team.find({userId: id})
             }
         },
         // Query for all pokemon
@@ -103,7 +116,6 @@ const Mutation = new GraphQLObjectType({
                 const token = jwt.sign({ id }, process.env.JWT_SECRET, {
                     expiresIn: '12h'
                 })
-                console.log({token})
                 return { token }
             }
         },
