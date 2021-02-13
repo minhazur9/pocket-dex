@@ -9,6 +9,9 @@ const TeamType = require('./TeamType');
 const PokemonType = require('./PokemonType');
 const AuthType = require('./AuthType');
 
+
+const {JWT_SECRET} = process.env;
+
 const {
     GraphQLObjectType,
     GraphQLSchema,
@@ -18,6 +21,7 @@ const {
     GraphQLID,
     GraphQLInt
 } = graphql;
+
 
 
 // Queries the database
@@ -130,10 +134,12 @@ const Mutation = new GraphQLObjectType({
                 name: { type: new GraphQLNonNull(GraphQLString) },
                 userId: { type: new GraphQLNonNull(GraphQLID) }
             },
-            resolve(parent, args) {
+            async resolve(parent, args) {
+                const decoded = await jwt.verify(args.userId,JWT_SECRET)
+                const {id} = decoded;
                 return db.Team.create({
                     name: args.name,
-                    userId: args.userId,
+                    userId: id,
                 })
             }
         },

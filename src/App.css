@@ -1108,13 +1108,19 @@ nav #nav-mobile.left {
 
 .team-index .teams .team-container {
   position: relative;
-  display: inline-block;
+  display: block;
   border: 2px black solid;
   left: 25%;
   width: 50%;
   height: 50% h3;
   height-text-align: center;
   height-margin: 0 auto;
+}
+
+.team-index .teams .team-container .team-name {
+  font-size: 30px;
+  border-bottom: white;
+  color: black;
 }
 
 .team-index .teams .team-container .team-pokemon {

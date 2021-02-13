@@ -1,7 +1,7 @@
 import { gql } from "apollo-boost";
 
 export const addTeamMutation = gql`
-    mutation($name:String!,$userId:String!){
+    mutation($name:String!,$userId:ID!){
         addTeam(name:$name,userId:$userId){
             name
         }

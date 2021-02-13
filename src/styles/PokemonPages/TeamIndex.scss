@@ -4,13 +4,17 @@
         width: 60%;
         .team-container {
             position: relative;
-            display: inline-block;
+            display: block;
             border: 2px black solid;
             left: 25%;
             width: 50%;
             height: 50% h3 {
                 text-align: center;
                 margin: 0 auto;
+            }
+            .team-name {
+                font-size: 30px;
+                border-bottom: white;
             }
             .team-pokemon {
                 display: grid;

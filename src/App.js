@@ -9,7 +9,7 @@ import { logIn } from './actions';
 
 const { REACT_APP_GRAPHQL_URI } = process.env;
 
-const getCookie = () => {
+export const getCookie = () => {
   const cookie = document.cookie.split('; ')
   const token = cookie.find(value => /^jwtToken=/.test(value));
   if(token) return token.slice(9);
