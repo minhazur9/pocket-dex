@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,kBAAkB,CAAC;EACf,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAC,IAAI;EACX,UAAU,EAAC,IAAI;EACf,IAAI,EAAE,IAAI;EACV,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,IAAI;CAInB;;AAXD,AAQI,kBARc,CAQd,eAAe,CAAC;EACZ,OAAO,EAAE,KAAK;CACjB",
+    "sources": [
+        "TeamPokemonInfo.scss"
+    ],
+    "names": [],
+    "file": "TeamPokemonInfo.css"
+}

@@ -1,0 +1,12 @@
+.team-pokemon-info {
+    position: relative;
+    bottom:70vh;
+    margin-top:40px;
+    left: 50vw;
+    height: 89vh;
+    width: 40vw;
+    overflow-y: auto;
+    #pokemon-select {
+        display: block;
+    }
+}
