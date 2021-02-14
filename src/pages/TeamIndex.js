@@ -53,7 +53,14 @@ const TeamIndex = () => {
                 id,
                 name: teamName
             },
-            // refetchQueries: [{ query: getTeamsQuery }]
+            refetchQueries: [
+                { 
+                    query: getTeamsQuery,
+                    variables: {
+                        userId:token
+                    } 
+                }
+            ]
         })
     }
 
@@ -66,7 +73,14 @@ const TeamIndex = () => {
                 name,
                 userId: token
             },
-            // refetchQueries: [{ query: getTeamsQuery }]
+            refetchQueries: [
+                { 
+                    query: getTeamsQuery,
+                    variables: {
+                        userId:token
+                    } 
+                }
+            ]
         })
         setAddButtonClicked(true);
     }
