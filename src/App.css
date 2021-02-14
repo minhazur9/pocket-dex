@@ -1102,8 +1102,30 @@ nav #nav-mobile.left {
 }
 
 .team-index .teams {
-  overflow-y: auto;
+  overflow-y: scroll;
   width: 60%;
+  height: 90vh;
+}
+
+.team-index .teams::-webkit-scrollbar {
+  width: 15px;
+}
+
+.team-index .teams::-webkit-scrollbar-track {
+  background-color: white;
+  border-right: #f44336 2px solid;
+  height: 100px;
+  display: none;
+}
+
+.team-index .teams::-webkit-scrollbar-thumb {
+  background-color: #10b4e6;
+  height: 60px;
+  display: none;
+}
+
+.team-index .teams::-webkit-scrollbar-thumb:hover {
+  background-color: #2da8e0;
 }
 
 .team-index .teams .team-container {
@@ -1120,7 +1142,6 @@ nav #nav-mobile.left {
 .team-index .teams .team-container .team-name {
   font-size: 30px;
   border-bottom: white;
-  color: black;
 }
 
 .team-index .teams .team-container .team-pokemon {
@@ -1163,13 +1184,11 @@ nav #nav-mobile.left {
 }
 
 .team-pokemon-info {
-  position: relative;
-  bottom: 70vh;
-  margin-top: 40px;
+  position: fixed;
+  top: 20vh;
   left: 50vw;
   height: 89vh;
   width: 40vw;
-  overflow-y: auto;
 }
 
 .team-pokemon-info #pokemon-select {

@@ -1,11 +1,9 @@
 .team-pokemon-info {
-  position: relative;
-  bottom: 70vh;
-  margin-top: 40px;
+  position: fixed;
+  top: 20vh;
   left: 50vw;
   height: 89vh;
   width: 40vw;
-  overflow-y: auto;
 }
 
 .team-pokemon-info #pokemon-select {
