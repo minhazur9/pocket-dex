@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const PokemonSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
     },
     level: {
         type: Number,

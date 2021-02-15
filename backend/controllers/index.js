@@ -149,10 +149,13 @@ const Mutation = new GraphQLObjectType({
             async resolve(parent, args) {
                 const decoded = await jwt.verify(args.userId,JWT_SECRET)
                 const {id} = decoded;
-                return db.Team.create({
+                const team = await db.Team.create({
                     name: args.name,
                     userId: id,
                 })
+                const pokemonArr = new Array(6);
+                pokemonArr.fill({name:"",level:1,nature:"adamant",teamId:team._id},0,6);
+                db.Pokemon.insertMany(pokemonArr)
             }
         },
         // Adds new pokemon to a team
