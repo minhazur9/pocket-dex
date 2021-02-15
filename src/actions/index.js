@@ -244,3 +244,10 @@ export const logOut = () => {
         type: 'LOG_OUT'
     }
 }
+
+export const getTeamPokemonInfo = (info) => {
+    return {
+        type: 'TEAM_POKEMON_INFO_DATA',
+        payload: info
+    }
+}

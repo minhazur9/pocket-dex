@@ -1,23 +1,48 @@
 import React, { useState } from 'react';
-import { useMutation, useQuery } from 'react-apollo';
+import { useDispatch } from 'react-redux';
+import { useLazyQuery, useMutation, useQuery } from 'react-apollo';
 import TeamPokemonInfo from '../components/teams/TeamPokemonInfo';
 import { getCookie } from '../App';
+import { getTeamPokemonInfo } from '../actions';
 
-import { addTeamMutation, getTeamsQuery, editTeamMutation } from '../queries/teamQueries';
+import { addTeamMutation, getTeamsQuery, editTeamMutation, getPokemonQuery } from '../queries/teamQueries';
 
 const TeamIndex = () => {
 
+    // Get JWT
     const token = getCookie();
+
+    const dispatch = useDispatch();
+    // Temporary States for Queries
     const [addButtonClicked, setAddButtonClicked] = useState(false);
-    const [pokemonClicked, setPokemonClicked] = useState(false);
+    const [pokemonClicked, setPokemonClicked] = useState(0);
     const [teamName, setTeamName] = useState("");
+
+    // Mutations
     const [addTeam] = useMutation(addTeamMutation);
     const [editTeam] = useMutation(editTeamMutation);
+
+    // Queries
     const { data } = useQuery(getTeamsQuery, {
         variables: {
             userId: token
         }
     });
+
+    const [getPokemon] = useLazyQuery(getPokemonQuery, {
+        variables: {
+            id: pokemonClicked
+        },
+        onCompleted: data => {
+            const {pokemon} = data;
+            dispatch(getTeamPokemonInfo(pokemon))
+        }
+    })
+
+    const handlePokemonSelect = (id) => {
+        setPokemonClicked(id)
+        getPokemon();
+    }
 
     const renderExistingTeams = () => {
         if (data) {
@@ -32,13 +57,7 @@ const TeamIndex = () => {
                             onBlur={editTeamInfo}
                         />
                         <div className="team-pokemon">
-                            {renderPokemon(pokemon)}
-                            <div className="add-pokemon" onClick={() => setPokemonClicked(true)}>+</div>
-                            <div className="add-pokemon" onClick={() => setPokemonClicked(true)}>+</div>
-                            <div className="add-pokemon" onClick={() => setPokemonClicked(true)}>+</div>
-                            <div className="add-pokemon" onClick={() => setPokemonClicked(true)}>+</div>
-                            <div className="add-pokemon" onClick={() => setPokemonClicked(true)}>+</div>
-                            <div className="add-pokemon" onClick={() => setPokemonClicked(true)}>+</div>
+                            {renderPokemonList(pokemon)}
                         </div>
                     </div>
                 )
@@ -46,8 +65,24 @@ const TeamIndex = () => {
         }
     }
 
-    const renderPokemon = (pokemon) => {
-        console.log(pokemon)
+    const renderPokemonList = (pokemonList) => {
+        return pokemonList.map((pokemon) => {
+            const { name, id } = pokemon;
+            if (name) {
+                return (
+                    <div key={id} className="add-pokemon">
+                        <img src={`https://img.pokemondb.net/artwork/${name}.jpg`} alt={name} onClick={() => handlePokemonSelect(id)} />
+                    </div>
+                )
+            }
+            else {
+                return (
+                    <div key={id} className="add-pokemon" onClick={() => setPokemonClicked(id)}>
+                        +
+                    </div>
+                )
+            }
+        })
     }
 
     const editTeamInfo = (e) => {
@@ -58,11 +93,11 @@ const TeamIndex = () => {
                 name: teamName
             },
             refetchQueries: [
-                { 
+                {
                     query: getTeamsQuery,
                     variables: {
-                        userId:token
-                    } 
+                        userId: token
+                    }
                 }
             ]
         })
@@ -78,43 +113,42 @@ const TeamIndex = () => {
                 userId: token
             },
             refetchQueries: [
-                { 
+                {
                     query: getTeamsQuery,
                     variables: {
-                        userId:token
-                    } 
+                        userId: token
+                    }
                 }
             ]
         })
         setAddButtonClicked(true);
     }
 
-    const renderNewTeam = () => {
-        const defaultName = `Team ${document.querySelectorAll('.team-container').length}`
-        return (
-            <div className="team-container">
-                <input className="team-name" placeholder={defaultName} />
-                <div className="team-pokemon">
-                    <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-                    <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-                    <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-                    <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-                    <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-                    <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-                </div>
-            </div>
-        )
-    }
+    // const renderNewTeam = () => {
+    //     const defaultName = `Team ${document.querySelectorAll('.team-container').length}`
+    //     return (
+    //         <div className="team-container">
+    //             <input className="team-name" placeholder={defaultName} />
+    //             <div className="team-pokemon">
+    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
+    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
+    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
+    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
+    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
+    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
+    //             </div>
+    //         </div>
+    //     )
+    // }
 
     return (
         <div className="team-index">
             <div className="teams">
                 <h1>My Teams</h1>
                 {renderExistingTeams()}
-                {addButtonClicked && renderNewTeam()}
                 <button className="waves-effect waves-light btn red darken-1 add-team" onClick={addNewTeam} >Add Team</button>
             </div>
-            { pokemonClicked && <TeamPokemonInfo />}
+            { pokemonClicked && <TeamPokemonInfo id={pokemonClicked} />}
         </div>
     )
 }

@@ -10,6 +10,7 @@ import abilityInfoReducer from './abilityInfoReducer';
 import itemsReducer from './itemsReducer';
 import itemInfoReducer from './itemInfoReducer';
 import loggedInReducer from './LoggedInReducer';
+import teamPokemonInfoReducer from './teamPokemonInfoReducer';
 import {combineReducers} from 'redux'
 
 const allReducers = combineReducers({
@@ -25,6 +26,7 @@ const allReducers = combineReducers({
     items: itemsReducer,
     itemInfo: itemInfoReducer,
     loggedIn: loggedInReducer,
+    teamPokemonInfo: teamPokemonInfoReducer,
 });
 
 export default allReducers

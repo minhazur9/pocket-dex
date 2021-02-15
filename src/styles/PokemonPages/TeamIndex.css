@@ -26,6 +26,7 @@
 }
 
 .team-index .teams .team-container {
+  margin-top: 40px;
   position: relative;
   display: block;
   border: 2px black solid;
@@ -65,6 +66,11 @@
   width: 70px;
   border-radius: 5px;
   cursor: default;
+}
+
+.team-index .teams .team-container .team-pokemon .add-pokemon img {
+  width: 100%;
+  height: 100%;
 }
 
 .team-index .teams .team-container .team-pokemon .add-pokemon:hover {

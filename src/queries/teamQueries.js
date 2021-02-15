@@ -16,6 +16,7 @@ export const getTeamsQuery = gql`
             id
             pokemon{
                 name
+                id
             }
         }
     }
@@ -28,11 +29,19 @@ export const editTeamMutation = gql`
         }
     }
 `
+export const editPokemonMutation = gql`
+    mutation($id:ID!,$name:String!){
+        editPokemon(id:$id,name:$name){
+            name
+        }
+    }
+`
 
-
-
-// export const getPokemonData = gql`
-//     pokemon($id:String!){
-//         name
-//     }
-// `;
+export const getPokemonQuery = gql`
+    query($id:ID!){
+        pokemon(id:$id){
+            name
+            id
+        }
+    }
+`
