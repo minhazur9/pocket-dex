@@ -12,10 +12,12 @@ const TeamIndex = () => {
     // Get JWT
     const token = getCookie();
 
+    // Redux State
     const dispatch = useDispatch();
+
+
     // Temporary States for Queries
-    const [addButtonClicked, setAddButtonClicked] = useState(false);
-    const [pokemonClicked, setPokemonClicked] = useState(0);
+    const [pokemonId, setPokemonId] = useState(0);
     const [teamName, setTeamName] = useState("");
 
     // Mutations
@@ -31,16 +33,16 @@ const TeamIndex = () => {
 
     const [getPokemon] = useLazyQuery(getPokemonQuery, {
         variables: {
-            id: pokemonClicked
+            id: pokemonId
         },
         onCompleted: data => {
-            const {pokemon} = data;
+            const { pokemon } = data;
             dispatch(getTeamPokemonInfo(pokemon))
         }
     })
 
     const handlePokemonSelect = (id) => {
-        setPokemonClicked(id)
+        setPokemonId(id)
         getPokemon();
     }
 
@@ -77,7 +79,7 @@ const TeamIndex = () => {
             }
             else {
                 return (
-                    <div key={id} className="add-pokemon" onClick={() => setPokemonClicked(id)}>
+                    <div key={id} className="add-pokemon" onClick={() => handlePokemonSelect(id)}>
                         +
                     </div>
                 )
@@ -121,7 +123,6 @@ const TeamIndex = () => {
                 }
             ]
         })
-        setAddButtonClicked(true);
     }
 
     // const renderNewTeam = () => {
@@ -148,7 +149,7 @@ const TeamIndex = () => {
                 {renderExistingTeams()}
                 <button className="waves-effect waves-light btn red darken-1 add-team" onClick={addNewTeam} >Add Team</button>
             </div>
-            { pokemonClicked && <TeamPokemonInfo id={pokemonClicked} />}
+            { pokemonId && <TeamPokemonInfo />}
         </div>
     )
 }

@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from 'react-apollo';
-import { getPokemon } from '../../actions';
-import { editPokemonMutation } from '../../queries/teamQueries';
+import { getPokemon, getTeamPokemonInfo } from '../../actions';
+import { editPokemonMutation, getTeamsQuery } from '../../queries/teamQueries';
+import { getCookie } from '../../App';
 
 // General Pokemon Information
-const TeamPokemonInfo = (props) => {
+const TeamPokemonInfo = () => {
+
+    const token = getCookie();
     const dispatch = useDispatch();
+    const teamPokemonInfo = useSelector(state => state.teamPokemonInfo);
     const pokemonList = useSelector(state => state.pokemon);
     const [pokemon, setPokemon] = useState("");
     const [editPokemon] = useMutation(editPokemonMutation);
@@ -20,25 +24,33 @@ const TeamPokemonInfo = (props) => {
         return pokemonList.map((pokemon) => {
             const { name } = pokemon;
             return (
-                <option key={name} id={name} value={name}>{name.toUpperCase()}</option>
+                <option key={name} value={name}>{name.toUpperCase()}</option>
             )
         })
     }
 
     const handleSubmit = (e) => {
-        const id = e.target.id;
+        e.preventDefault();
+        const { id } = teamPokemonInfo;
+        console.log(pokemon, id)
         editPokemon({
             variables: {
                 name: pokemon,
                 id,
-            }
+            },
+            refetchQueries: [
+                {
+                    query: getTeamsQuery,
+                    variables: {
+                        userId: token,
+                    }
+                }
+            ]
         })
     }
-    console.log(props.id)
-
     return (
         <div className="team-pokemon-info">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <select name="pokemon-select" id="pokemon-select" onChange={(e) => setPokemon(e.target.value)}>
                     {renderPokemonOptions()}
                 </select>
