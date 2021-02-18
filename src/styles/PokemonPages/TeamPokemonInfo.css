@@ -6,7 +6,12 @@
   width: 40vw;
 }
 
-.team-pokemon-info #pokemon-select {
+.team-pokemon-info .pokemon-select {
   display: block;
+}
+
+.team-pokemon-info .confirm-edit {
+  position: absolute;
+  bottom: 100px;
 }
 /*# sourceMappingURL=TeamPokemonInfo.css.map */

@@ -5,7 +5,6 @@
   padding: 0;
   font-family: 'Source Code Pro', monospace;
   list-style: none;
-  overflow: hidden;
 }
 
 body {
@@ -41,6 +40,10 @@ nav .sign-out button {
   top: 2px;
   padding: 0 15px;
   cursor: pointer;
+}
+
+nav .mobile-nav-link {
+  overflow: hidden;
 }
 
 nav #nav-mobile.left {
@@ -1102,6 +1105,7 @@ nav #nav-mobile.left {
 }
 
 .team-index .teams {
+  position: relative;
   overflow-y: scroll;
   width: 60%;
   height: 90vh;
@@ -1197,8 +1201,13 @@ nav #nav-mobile.left {
   width: 40vw;
 }
 
-.team-pokemon-info #pokemon-select {
+.team-pokemon-info .pokemon-select {
   display: block;
+}
+
+.team-pokemon-info .confirm-edit {
+  position: absolute;
+  bottom: 100px;
 }
 
 /* ----------------- Pokemon Index */

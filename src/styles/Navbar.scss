@@ -1,6 +1,5 @@
 nav {
     max-height: 200px;
-
     .nav-link {
         font-size: 20px;
         border: none;
@@ -22,6 +21,10 @@ nav {
             padding: 0 15px;
             cursor: pointer;
         }
+    }
+
+    .mobile-nav-link {
+        overflow: hidden;
     }
     #nav-mobile.left {
         position: absolute;

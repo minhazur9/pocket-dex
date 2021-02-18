@@ -1,4 +1,5 @@
 .team-index .teams {
+  position: relative;
   overflow-y: scroll;
   width: 60%;
   height: 90vh;

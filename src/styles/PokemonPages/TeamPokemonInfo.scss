@@ -4,7 +4,11 @@
     left: 50vw;
     height: 89vh;
     width: 40vw;
-    #pokemon-select {
+    .pokemon-select {
         display: block;
+    }
+    .confirm-edit {
+        position: absolute;
+        bottom: 100px;
     }
 }

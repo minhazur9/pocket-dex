@@ -28,6 +28,10 @@ nav .sign-out button {
   cursor: pointer;
 }
 
+nav .mobile-nav-link {
+  overflow: hidden;
+}
+
 nav #nav-mobile.left {
   position: absolute;
   left: 180px;
