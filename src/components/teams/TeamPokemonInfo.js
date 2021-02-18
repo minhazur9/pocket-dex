@@ -17,6 +17,35 @@ const TeamPokemonInfo = () => {
     const [level, setLevel] = useState('1');
     const [editPokemon] = useMutation(editPokemonMutation);
 
+    const natureOptions = [
+        {value:'hardy',label:'Hardy'},
+        {value:'lonely',label:'Lonely'},
+        {value:'adamant',label:'Adamant'},
+        {value:'naughty',label:'Naughty'},
+        {value:'brave',label:'Brave'},
+        {value:'bold',label:'Bold'},
+        {value:'docile',label:'Docile'},
+        {value:'impish',label:'Impish'},
+        {value:'lax',label:'Lax'},
+        {value:'relaxed',label:'Relaxed'},
+        {value:'modest',label:'Modest'},
+        {value:'mild',label:'Mild'},
+        {value:'bashful',label:'Bashful'},
+        {value:'rash',label:'Rash'},
+        {value:'calm',label:'Calm'},
+        {value:'gentle',label:'Gentle'},
+        {value:'quiet',label:'Quiet'},
+        {value:'careful',label:'Careful'},
+        {value:'quirky',label:'Quirky'},
+        {value:'sassy',label:'Sassy'},
+        {value:'timid',label:'Timid'},
+        {value:'hasty',label:'Hasty'},
+        {value:'jolly',label:'Jolly'},
+        {value:'naive',label:'Naive'},
+        {value:'serious',label:'Serious'},
+        
+    ]
+
     useEffect(() => {
         dispatch(getPokemon())
         setPokemon(teamPokemonInfo.name)
@@ -72,11 +101,20 @@ const TeamPokemonInfo = () => {
                     options={pokemonOptions()}
                     value={{value:pokemon,label:pokemon && pokemon.toUpperCase() || '' }}
                     onChange={(option) => setPokemon(option.value)}
+                    className='pokemon-select'
                     isSearchable
                 />
                 <label htmlFor="level">Level</label>
                 <input type="number" min='1' max='100' value={level} onChange={(e) => setLevel(e.target.value)}/>
                 {levelVerificationError()}
+                <label htmlFor="nature-select">Nature</label>
+                <Select
+                    options={natureOptions}
+                    // value={{value:pokemon,label:pokemon && pokemon.toUpperCase() || '' }}
+                    // onChange={(option) => setPokemon(option.value)}
+                    isSearchable
+                    className='nature-select'
+                />
                 <button className="waves-effect waves-light btn green darken-3 confirm-edit">Confirm</button>
             </form>
         </div>
