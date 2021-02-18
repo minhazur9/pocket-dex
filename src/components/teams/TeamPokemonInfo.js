@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from 'react-apollo';
-import { getPokemon, getTeamPokemonInfo } from '../../actions';
+import { getPokemon } from '../../actions';
 import { editPokemonMutation, getTeamsQuery, getPokemonQuery } from '../../queries/teamQueries';
 import Select from 'react-select';
 import { getCookie } from '../../App';
@@ -15,43 +15,51 @@ const TeamPokemonInfo = () => {
     const pokemonList = useSelector(state => state.pokemon);
     const [pokemon, setPokemon] = useState('bulbasaur');
     const [level, setLevel] = useState('1');
+    const [nature, setNature] = useState('hardy');
     const [editPokemon] = useMutation(editPokemonMutation);
 
-    const natureOptions = [
-        {value:'hardy',label:'Hardy'},
-        {value:'lonely',label:'Lonely'},
-        {value:'adamant',label:'Adamant'},
-        {value:'naughty',label:'Naughty'},
-        {value:'brave',label:'Brave'},
-        {value:'bold',label:'Bold'},
-        {value:'docile',label:'Docile'},
-        {value:'impish',label:'Impish'},
-        {value:'lax',label:'Lax'},
-        {value:'relaxed',label:'Relaxed'},
-        {value:'modest',label:'Modest'},
-        {value:'mild',label:'Mild'},
-        {value:'bashful',label:'Bashful'},
-        {value:'rash',label:'Rash'},
-        {value:'calm',label:'Calm'},
-        {value:'gentle',label:'Gentle'},
-        {value:'quiet',label:'Quiet'},
-        {value:'careful',label:'Careful'},
-        {value:'quirky',label:'Quirky'},
-        {value:'sassy',label:'Sassy'},
-        {value:'timid',label:'Timid'},
-        {value:'hasty',label:'Hasty'},
-        {value:'jolly',label:'Jolly'},
-        {value:'naive',label:'Naive'},
-        {value:'serious',label:'Serious'},
-        
+    const natures = [
+        'hardy',
+        'lonely',
+        'adamant',
+        'naughty',
+        'brave',
+        'bold',
+        'docile',
+        'impish',
+        'lax',
+        'relaxed',
+        'modest',
+        'mild',
+        'bashful',
+        'rash',
+        'quiet',
+        'calm',
+        'gentle',
+        'careful',
+        'quirky',
+        'sassy',
+        'timid',
+        'hasty',
+        'jolly',
+        'naive',
+        'serious'
     ]
+
+    const natureOptions = () => {
+        return natures.map((nature) => {
+            return { value: nature, label: nature.toUpperCase() }
+        })
+    }
 
     useEffect(() => {
         dispatch(getPokemon())
         setPokemon(teamPokemonInfo.name)
         setLevel(teamPokemonInfo.level)
+        setNature(teamPokemonInfo.nature)
+        // eslint-disable-next-line
     }, [teamPokemonInfo])
-    
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -60,6 +68,7 @@ const TeamPokemonInfo = () => {
             variables: {
                 name: pokemon,
                 level: Number(level),
+                nature,
                 id,
             },
             refetchQueries: [
@@ -99,19 +108,19 @@ const TeamPokemonInfo = () => {
                 <label htmlFor="pokemon-select">Pokemon</label>
                 <Select
                     options={pokemonOptions()}
-                    value={{value:pokemon,label:pokemon && pokemon.toUpperCase() || '' }}
+                    value={{ value: pokemon, label: (pokemon && pokemon.toUpperCase()) || '' }}
                     onChange={(option) => setPokemon(option.value)}
                     className='pokemon-select'
                     isSearchable
                 />
                 <label htmlFor="level">Level</label>
-                <input type="number" min='1' max='100' value={level} onChange={(e) => setLevel(e.target.value)}/>
+                <input type="number" min='1' max='100' value={level} onChange={(e) => setLevel(e.target.value)} />
                 {levelVerificationError()}
                 <label htmlFor="nature-select">Nature</label>
                 <Select
-                    options={natureOptions}
-                    // value={{value:pokemon,label:pokemon && pokemon.toUpperCase() || '' }}
-                    // onChange={(option) => setPokemon(option.value)}
+                    options={natureOptions()}
+                    value={{ value: nature, label: nature && nature.toUpperCase() || '' }}
+                    onChange={(option) => setNature(option.value)}
                     isSearchable
                     className='nature-select'
                 />

@@ -154,7 +154,7 @@ const Mutation = new GraphQLObjectType({
                     userId: id,
                 })
                 const pokemonArr = new Array(6);
-                pokemonArr.fill({ name: "", level: 1, nature: "adamant", teamId: team._id }, 0, 6);
+                pokemonArr.fill({ name: "", level: 1, nature: "hardy", teamId: team._id }, 0, 6);
                 db.Pokemon.insertMany(pokemonArr)
             }
         },
@@ -249,12 +249,13 @@ const Mutation = new GraphQLObjectType({
             args: {
                 id: { type: new GraphQLNonNull(GraphQLID) },
                 name: { type: new GraphQLNonNull(GraphQLString) },
-                level: { type: new GraphQLNonNull(GraphQLInt) }
+                level: { type: new GraphQLNonNull(GraphQLInt) },
+                nature: { type: new GraphQLNonNull(GraphQLString) }
             },
             resolve(parent, args) {
                 return db.Pokemon.findByIdAndUpdate(
                     args.id,
-                    { $set: { name: args.name, level: args.level || 1 } },
+                    { $set: { name: args.name, level: args.level || 1, nature: args.nature } },
                     { new: true })
             }
         }
