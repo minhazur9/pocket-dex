@@ -34,7 +34,7 @@
   font-weight: bold;
 }
 
-.signup .signup-form .password-invalid {
+.signup .signup-form .error-message {
   text-align: left;
   color: red;
   font-size: 10px;

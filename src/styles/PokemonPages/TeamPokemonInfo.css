@@ -10,6 +10,15 @@
   display: block;
 }
 
+.team-pokemon-info #react-select-3-input {
+  border-bottom: 1px solid white;
+}
+
+.team-pokemon-info .error-message {
+  color: red;
+  font-size: 10px;
+}
+
 .team-pokemon-info .confirm-edit {
   position: absolute;
   bottom: 100px;

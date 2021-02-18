@@ -12,19 +12,17 @@ const TeamPokemonInfo = () => {
     const token = getCookie();
     const dispatch = useDispatch();
     const teamPokemonInfo = useSelector(state => state.teamPokemonInfo);
-    console.log(teamPokemonInfo.name)
     const pokemonList = useSelector(state => state.pokemon);
-    const [pokemon, setPokemon] = useState("");
+    const [pokemon, setPokemon] = useState('bulbasaur');
+    const [level, setLevel] = useState('1');
     const [editPokemon] = useMutation(editPokemonMutation);
 
     useEffect(() => {
         dispatch(getPokemon())
-        // eslint-disable-next-line
-    }, [])
-
-    useEffect(() => {
         setPokemon(teamPokemonInfo.name)
+        setLevel(teamPokemonInfo.level)
     }, [teamPokemonInfo])
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -48,25 +46,31 @@ const TeamPokemonInfo = () => {
 
     const pokemonOptions = () => {
         return pokemonList.map((pokemon) => {
-            const { name } = pokemon;
+            const name = pokemon.name;
             return { value: name, label: name.toUpperCase() }
         })
     }
 
-    const handlePokemonChange = (e) => {
-        console.log(e.target)
-        // setPokemon(e.target)
+    const levelVerificationError = () => {
+        console.log(Number(level))
+        if (Number(level) < 1 || Number(level) > 100) {
+            return <p className="error-message">Invalid Level</p>
+        }
     }
-
 
     return (
         <div className="team-pokemon-info">
             <form onSubmit={handleSubmit}>
+                <label htmlFor="pokemon-select">Pokemon</label>
                 <Select
                     options={pokemonOptions()}
-                    value={{value:pokemon,label:pokemon.toUpperCase()}}
+                    value={{value:pokemon,label:pokemon && pokemon.toUpperCase() || '' }}
                     onChange={(option) => setPokemon(option.value)}
+                    isSearchable
                 />
+                <label htmlFor="level">Level</label>
+                <input type="number" min='1' max='100' defaultValue='1' onChange={(e) => setLevel(e.target.value)}/>
+                {levelVerificationError()}
                 <button className="waves-effect waves-light btn green darken-3 confirm-edit">Confirm</button>
             </form>
         </div>

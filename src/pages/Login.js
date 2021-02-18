@@ -26,7 +26,7 @@ const Login = () => {
 
 
     const badLoginError = () => {
-        return <p className="password-invalid" style={{fontSize:'15px'}}>Invalid username or password</p>
+        return <p className="error-message" style={{fontSize:'15px'}}>Invalid username or password</p>
     }
 
     const storeToken = (response) => {

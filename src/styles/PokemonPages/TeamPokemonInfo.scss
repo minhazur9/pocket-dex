@@ -7,6 +7,13 @@
     .pokemon-select {
         display: block;
     }
+    #react-select-3-input {
+        border-bottom: 1px solid white;
+    }
+    .error-message {
+        color: red;
+        font-size: 10px;
+    }
     .confirm-edit {
         position: absolute;
         bottom: 100px;

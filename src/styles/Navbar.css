@@ -29,6 +29,7 @@ nav .sign-out button {
 }
 
 nav .mobile-nav-link {
+  display: none;
   overflow: hidden;
 }
 
@@ -38,6 +39,10 @@ nav #nav-mobile.left {
 }
 
 @media only screen and (max-width: 900px) {
+  nav .mobile-nav-link {
+    display: block;
+    overflow: hidden;
+  }
   nav .hamburger-menu {
     position: absolute;
     border: 2px #a72d24 solid;

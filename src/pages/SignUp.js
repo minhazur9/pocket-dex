@@ -54,26 +54,26 @@ const SignUp = () => {
     }
 
     const blankUsernameError = () => {
-        if (blankUsername) return <p className="password-invalid">Username is required</p>
+        if (blankUsername) return <p className="error-message">Username is required</p>
     }
 
     const blankPasswordError = () => {
-        if (blankPassword) return <p className="password-invalid">Password is required</p>
+        if (blankPassword) return <p className="error-message">Password is required</p>
     }
 
     const blankEmailError = () => {
-        if (blankEmail) return <p className="password-invalid">Email is required</p>
+        if (blankEmail) return <p className="error-message">Email is required</p>
     }
 
     const passwordVerificationError = () => {
         if (password !== confirm && password !== "" && confirm !== "") {
-            return <p className="password-invalid">Passwords do not match</p>
+            return <p className="error-message">Passwords do not match</p>
         }
     }
 
     const userNameLengthError = () => {
         if (username.length < 3 && username !== "") {
-            return <p className="password-invalid">Username must be at least 3 characters long</p>
+            return <p className="error-message">Username must be at least 3 characters long</p>
         }
     }
 

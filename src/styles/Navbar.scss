@@ -24,6 +24,7 @@ nav {
     }
 
     .mobile-nav-link {
+        display: none;
         overflow: hidden;
     }
     #nav-mobile.left {
@@ -32,6 +33,10 @@ nav {
     }
 
     @media only screen and (max-width: 900px) {
+        .mobile-nav-link {
+            display: block;
+            overflow: hidden;
+        }
         .hamburger-menu {
             position: absolute;
             border: 2px #a72d24 solid;

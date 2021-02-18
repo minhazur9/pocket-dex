@@ -41,6 +41,7 @@ export const getPokemonQuery = gql`
     query($id:ID!){
         pokemon(id:$id){
             name
+            level
             id
         }
     }
