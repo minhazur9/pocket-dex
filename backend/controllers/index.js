@@ -10,7 +10,7 @@ const PokemonType = require('./PokemonType');
 const AuthType = require('./AuthType');
 
 
-const {JWT_SECRET} = process.env;
+const { JWT_SECRET } = process.env;
 
 const {
     GraphQLObjectType,
@@ -33,8 +33,8 @@ const RootQuery = new GraphQLObjectType({
             type: UserType,
             args: { id: { type: new GraphQLNonNull(GraphQLID) } },
             async resolve(parent, args) {
-                const decoded = await jwt.verify(args.id,JWT_SECRET)
-                const {id} = decoded;
+                const decoded = await jwt.verify(args.id, JWT_SECRET)
+                const { id } = decoded;
                 return db.User.findById(id)
             }
         },
@@ -71,12 +71,12 @@ const RootQuery = new GraphQLObjectType({
         allTeamsByUser: {
             type: new GraphQLList(TeamType),
             args: {
-                userId: {type: new GraphQLNonNull(GraphQLID)}
+                userId: { type: new GraphQLNonNull(GraphQLID) }
             },
             async resolve(parent, args) {
-                const decoded = await jwt.verify(args.userId,JWT_SECRET)
-                const {id} = decoded;
-                return db.Team.find({userId: id})
+                const decoded = await jwt.verify(args.userId, JWT_SECRET)
+                const { id } = decoded;
+                return db.Team.find({ userId: id })
             }
         },
         // Query for all pokemon
@@ -111,7 +111,7 @@ const Mutation = new GraphQLObjectType({
                     email: args.email,
                     password: hashedPassword,
                 })
-                const newUser = await db.User.findOne({username:args.username})
+                const newUser = await db.User.findOne({ username: args.username })
                 const { id } = newUser;
                 const token = jwt.sign({ id }, process.env.JWT_SECRET, {
                     expiresIn: '12h'
@@ -147,14 +147,14 @@ const Mutation = new GraphQLObjectType({
                 userId: { type: new GraphQLNonNull(GraphQLID) }
             },
             async resolve(parent, args) {
-                const decoded = await jwt.verify(args.userId,JWT_SECRET)
-                const {id} = decoded;
+                const decoded = await jwt.verify(args.userId, JWT_SECRET)
+                const { id } = decoded;
                 const team = await db.Team.create({
                     name: args.name,
                     userId: id,
                 })
                 const pokemonArr = new Array(6);
-                pokemonArr.fill({name:"",level:1,nature:"adamant",teamId:team._id},0,6);
+                pokemonArr.fill({ name: "", level: 1, nature: "adamant", teamId: team._id }, 0, 6);
                 db.Pokemon.insertMany(pokemonArr)
             }
         },
@@ -248,12 +248,13 @@ const Mutation = new GraphQLObjectType({
             type: PokemonType,
             args: {
                 id: { type: new GraphQLNonNull(GraphQLID) },
-                name: { type: new GraphQLNonNull(GraphQLString) }
+                name: { type: new GraphQLNonNull(GraphQLString) },
+                level: { type: new GraphQLNonNull(GraphQLInt) }
             },
             resolve(parent, args) {
                 return db.Pokemon.findByIdAndUpdate(
                     args.id,
-                    { $set: { name: args.name } },
+                    { $set: { name: args.name, level: args.level || 1 } },
                     { new: true })
             }
         }

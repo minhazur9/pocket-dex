@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from 'react-apollo';
 import { getPokemon, getTeamPokemonInfo } from '../../actions';
-import { editPokemonMutation, getTeamsQuery } from '../../queries/teamQueries';
+import { editPokemonMutation, getTeamsQuery, getPokemonQuery } from '../../queries/teamQueries';
 import Select from 'react-select';
 import { getCookie } from '../../App';
 
@@ -27,10 +27,10 @@ const TeamPokemonInfo = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const { id } = teamPokemonInfo;
-        console.log(pokemon, id)
         editPokemon({
             variables: {
                 name: pokemon,
+                level: Number(level),
                 id,
             },
             refetchQueries: [
@@ -38,6 +38,12 @@ const TeamPokemonInfo = () => {
                     query: getTeamsQuery,
                     variables: {
                         userId: token,
+                    }
+                },
+                {
+                    query: getPokemonQuery,
+                    variables: {
+                        id
                     }
                 }
             ]
@@ -69,7 +75,7 @@ const TeamPokemonInfo = () => {
                     isSearchable
                 />
                 <label htmlFor="level">Level</label>
-                <input type="number" min='1' max='100' defaultValue='1' onChange={(e) => setLevel(e.target.value)}/>
+                <input type="number" min='1' max='100' value={level} onChange={(e) => setLevel(e.target.value)}/>
                 {levelVerificationError()}
                 <button className="waves-effect waves-light btn green darken-3 confirm-edit">Confirm</button>
             </form>
