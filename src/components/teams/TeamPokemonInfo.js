@@ -120,23 +120,23 @@ const TeamPokemonInfo = () => {
     }
 
     const moveOptions = () => {
-        if (info) {
-            const { moves } = info;
-            return moves.map((entry) => {
-                const { name } = entry.move;
-                return { value: name, label: name.toUpperCase() }
-            })
-        }
+        const { moves } = info;
+        return moves.map((entry) => {
+            const { name } = entry.move;
+            return { value: name, label: name.toUpperCase() }
+        })
+
     }
 
     const handleMovesetChange = (option) => {
+        if (option.length > 4) option.pop();
         setMoveset(option.map((option) => option.value))
     }
 
     const presetMoveset = () => {
-            return moveset.map((move) => {
-                return { value: move, label: move.toUpperCase() }
-            })
+        return moveset.map((move) => {
+            return { value: move, label: move.toUpperCase() }
+        })
     }
 
     const levelVerificationError = () => {
@@ -180,7 +180,7 @@ const TeamPokemonInfo = () => {
                 /><br />
                 <label htmlFor="moveset-select">Moveset</label>
                 <Select
-                    options={moveOptions()}
+                    options={info && moveOptions()}
                     isMulti
                     isSearchable
                     value={(moveset && presetMoveset()) || ''}
