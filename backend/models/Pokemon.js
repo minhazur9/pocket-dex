@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const PokemonSchema = mongoose.Schema({
     name: {
         type: String,
+        default: "",
     },
     level: {
         type: Number,
@@ -12,8 +13,33 @@ const PokemonSchema = mongoose.Schema({
     },
     nature: {
         type: String,
-        default: 'Adamant'
+        default: 'hardy',
     },
+    item: {
+        type: String,
+        default: "",
+    },
+    moveset: [
+        {
+            type: String,
+            default: ""
+        },
+
+        {
+            type: String,
+            default: ""
+        },
+
+        {
+            type: String,
+            default: ""
+        },
+
+        {
+            type: String,
+            default: ""
+        },
+    ],
     teamId: {
         type: String,
         required: true

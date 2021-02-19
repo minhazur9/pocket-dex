@@ -1,6 +1,6 @@
 .team-pokemon-info {
   position: fixed;
-  top: 20vh;
+  top: 100px;
   left: 50vw;
   height: 89vh;
   width: 40vw;
@@ -18,6 +18,16 @@
   display: inline-block;
   width: 25%;
   margin: 10px;
+}
+
+.team-pokemon-info .item-select-label {
+  margin-left: 50px;
+}
+
+.team-pokemon-info .item-select {
+  display: inline-block;
+  width: 25%;
+  margin: 15px;
 }
 
 .team-pokemon-info .error-message {

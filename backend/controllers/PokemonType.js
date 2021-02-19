@@ -2,6 +2,7 @@ const graphql = require('graphql');
 
 const {
     GraphQLObjectType,
+    GraphQLList,
     GraphQLString, 
     GraphQLID,
     GraphQLInt,
@@ -14,6 +15,8 @@ const PokemonType = new GraphQLObjectType({
         name: {type:GraphQLString},
         level: {type:GraphQLInt},
         nature: {type:GraphQLString},
+        item: {type:GraphQLString},
+        moveset: {type: new GraphQLList(GraphQLString)}
     }),
 })
 
