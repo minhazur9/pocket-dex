@@ -251,12 +251,14 @@ const Mutation = new GraphQLObjectType({
                 name: { type: new GraphQLNonNull(GraphQLString) },
                 level: { type: new GraphQLNonNull(GraphQLInt) },
                 nature: { type: new GraphQLNonNull(GraphQLString) },
-                item: { type: new GraphQLNonNull(GraphQLString) }
+                item: { type: new GraphQLNonNull(GraphQLString) },
+                moveset: { type: new GraphQLNonNull(new GraphQLList(GraphQLString)) }
             },
             resolve(parent, args) {
+                if (args.moveset.length > 4) return null;
                 return db.Pokemon.findByIdAndUpdate(
                     args.id,
-                    { $set: { name: args.name, level: args.level, nature: args.nature, item: args.item } },
+                    { $set: { name: args.name, level: args.level, nature: args.nature, item: args.item, moveset: args.moveset } },
                     { new: true })
             }
         }

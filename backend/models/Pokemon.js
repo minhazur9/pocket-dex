@@ -22,22 +22,7 @@ const PokemonSchema = mongoose.Schema({
     moveset: [
         {
             type: String,
-            default: ""
-        },
-
-        {
-            type: String,
-            default: ""
-        },
-
-        {
-            type: String,
-            default: ""
-        },
-
-        {
-            type: String,
-            default: ""
+            default: "",
         },
     ],
     teamId: {

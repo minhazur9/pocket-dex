@@ -162,7 +162,7 @@ const PokemonInfo = () => {
                         {renderAbilities()}
                         <div className="description">
                             <p>Description</p>
-                            {renderFlavorText()}
+                            {speciesInfo && renderFlavorText()}
                         </div>
                     </ul>
                 </div>

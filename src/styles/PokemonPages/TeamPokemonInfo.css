@@ -38,5 +38,6 @@
 .team-pokemon-info .confirm-edit {
   position: absolute;
   bottom: 100px;
+  z-index: 0;
 }
 /*# sourceMappingURL=TeamPokemonInfo.css.map */

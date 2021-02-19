@@ -50,6 +50,9 @@ const StatChart = () => {
             },
             series: {
                 showLabel: true
+            },
+            chartExportMenu: {
+                visible: false
             }
         };
         chart.barChart(container, data, options);

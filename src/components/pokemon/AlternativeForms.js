@@ -57,7 +57,7 @@ const AlternativeForms = () => {
         <div className="row4">
         <p className="form-list-header">Alternate Forms</p>
         <ul className="form-line">
-        {renderForms()}
+        {speciesInfo && renderForms()}
         </ul>
         </div>
     )

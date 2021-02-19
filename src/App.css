@@ -10,6 +10,7 @@
 body {
   max-height: 100vh;
   max-width: 100vw;
+  overflow-y: hidden;
 }
 
 nav {
@@ -1238,6 +1239,7 @@ nav #nav-mobile.left {
 .team-pokemon-info .confirm-edit {
   position: absolute;
   bottom: 100px;
+  z-index: 0;
 }
 
 /* ----------------- Pokemon Index */
