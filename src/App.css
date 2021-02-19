@@ -1237,9 +1237,10 @@ nav #nav-mobile.left {
 }
 
 .team-pokemon-info .confirm-edit {
-  position: absolute;
-  bottom: 100px;
+  position: relative;
+  bottom: 80px;
   z-index: 0;
+  left: 85%;
 }
 
 /* ----------------- Pokemon Index */

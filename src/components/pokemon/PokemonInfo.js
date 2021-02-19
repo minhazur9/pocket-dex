@@ -153,7 +153,7 @@ const PokemonInfo = () => {
                     <div className="base-stats">
                         <div className="stats">Base Stats
                 <ul className="stat-list">
-                                <StatChart />
+                                <StatChart height={300} width={400} />
                             </ul>
                         </div>
                     </div>

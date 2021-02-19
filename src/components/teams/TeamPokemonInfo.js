@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from 'react-apollo';
+import Select from 'react-select';
 import { getPokemon, getItems, getInfo } from '../../actions';
 import { editPokemonMutation, getTeamsQuery, getPokemonQuery } from '../../queries/teamQueries';
-import Select from 'react-select';
+import StatChart from '../pokemon/StatChart';
 import { getCookie } from '../../App';
 
 // General Pokemon Information
@@ -186,6 +187,7 @@ const TeamPokemonInfo = () => {
                     value={(moveset && presetMoveset()) || ''}
                     onChange={(option) => handleMovesetChange(option)}
                 />
+                { pokemon && <StatChart height={250} width={350} />}
                 <button className="waves-effect waves-light btn green darken-3 confirm-edit">Confirm</button>
             </form>
         </div>

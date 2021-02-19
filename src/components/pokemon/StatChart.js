@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import chart from 'tui-chart';
 
 
-const StatChart = () => {
+const StatChart = (props) => {
     const info = useSelector((state => state.info));
     const hp = info.stats[0].base_stat;
     const atk = info.stats[1].base_stat;
@@ -11,8 +11,8 @@ const StatChart = () => {
     const spAtk = info.stats[3].base_stat;
     const spDef = info.stats[4].base_stat;
     const speed = info.stats[5].base_stat;
-    let height = 300;
-    let width = 400;
+    let height = props.height;
+    let width = props.width;
 
     // Renders a bar chart
     const renderChart = () => {
@@ -69,12 +69,6 @@ const StatChart = () => {
 
     return (
         <>
-            {/* <li className="stat">HP:{hp}</li>
-        <li className="stat">Attack:{atk}</li>
-        <li className="stat">Defense:{def}</li>
-        <li className="stat">Sp.Atk:{spAtk}</li>
-        <li className="stat">Sp.Def:{spDef}</li>
-        <li className="stat">Speed:{speed}</li> */}
             <li id="chart-area"></li>
         </>
     )

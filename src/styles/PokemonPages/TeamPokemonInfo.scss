@@ -31,8 +31,9 @@
         font-size: 10px;
     }
     .confirm-edit {
-        position: absolute;
-        bottom: 100px;
+        position: relative;
+        bottom: 80px;
         z-index: 0;
+        left: 85%;
     }
 }
