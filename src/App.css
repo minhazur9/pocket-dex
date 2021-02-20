@@ -1205,6 +1205,11 @@ nav #nav-mobile.left {
   left: 50vw;
   height: 89vh;
   width: 40vw;
+  overflow-y: scroll;
+}
+
+.team-pokemon-info::-webkit-scrollbar {
+  display: none;
 }
 
 .team-pokemon-info .pokemon-select {
@@ -1215,10 +1220,41 @@ nav #nav-mobile.left {
   border-bottom: 1px solid white;
 }
 
+.team-pokemon-info .mod-input {
+  position: relative;
+  display: inline;
+  width: 40px !important;
+  margin-left: 20px !important;
+  margin-right: 10px !important;
+  font-size: 25px;
+}
+
 .team-pokemon-info .nature-select {
   display: inline-block;
   width: 25%;
   margin: 10px;
+}
+
+.team-pokemon-info .ivs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.team-pokemon-info .mini-error-message {
+  display: inline;
+  position: relative;
+  color: red;
+  font-size: 10px;
+  top: 40px;
+  right: 75px;
+}
+
+.team-pokemon-info .stat-header {
+  font-size: .8rem;
+  color: #9e9e9e;
 }
 
 .team-pokemon-info .item-select-label {

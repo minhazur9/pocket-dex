@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { calculateHP } from '../../calculations/pokemonStats';
 import chart from 'tui-chart';
 
 
 const StatChart = (props) => {
     const info = useSelector((state => state.info));
-    const hp = info.stats[0].base_stat;
+    let hp = 0;
+    if (props.iv) {
+        hp = calculateHP()
+    }
+    else {
+        hp = info.stats[0].base_stat;
+    }
     const atk = info.stats[1].base_stat;
     const def = info.stats[2].base_stat;
     const spAtk = info.stats[3].base_stat;
@@ -25,11 +32,11 @@ const StatChart = (props) => {
                 },
             ]
         };
-        if(window.innerWidth <= 900) {
+        if (window.innerWidth <= 900) {
             height = 240;
             width = 200;
         }
-        if(window.innerWidth <= 850) {
+        if (window.innerWidth <= 850) {
             height = 180;
             width = 180;
         }

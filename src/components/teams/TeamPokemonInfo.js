@@ -158,12 +158,66 @@ const TeamPokemonInfo = () => {
                     className='pokemon-select'
                     isSearchable
                 />
-                <label htmlFor="level">Level</label>
-                <input type="number" min='1' max='100' value={level || ''}
+                <label htmlFor="level-input">Level</label>
+                <input className="level-input" name="level-input" type="number" min='1' max='100' value={level || ''}
                     onChange={(e) => setLevel(e.target.value)}
                     onBlur={() => (level < 1 && setLevel("1")) || (level > 100 && setLevel("100"))}
                 />
                 {levelVerificationError()}
+                <p className="stat-header">IVs</p>
+                <ul className="ivs">
+                    <li>
+                        <label htmlFor="hp-iv">HP</label>
+                        <input type="number" name='hp-iv' className="mod-input" min='0' max='31'/>
+                    </li>
+                    <li>
+                        <label htmlFor="atk-iv">ATK</label>
+                        <input type="number" name='atk-iv' className="mod-input" min='0' max='31'/>
+                    </li>
+                    <li>
+                        <label htmlFor="def-iv">DEF</label>
+                        <input type="number" name='def-iv' className="mod-input" min='0' max='31'/>
+                    </li>
+                    <li>
+                        <label htmlFor="sp-atk-iv">SP.ATK</label>
+                        <input type="number" name='sp-atk-iv' className="mod-input" min='0' max='31'/>
+                    </li>
+                    <li>
+                        <label htmlFor="sp-def-iv">DEF.ATK</label>
+                        <input type="number" name='sp-def-iv' className="mod-input" min='0' max='31'/>
+                    </li>
+                    <li>
+                        <label htmlFor="spd-iv">SPD</label>
+                        <input type="number" name='spd-iv' className="mod-input" min='0' max='31'/>
+                    </li>
+                </ul>
+                <p className="stat-header">EVs</p>
+                <ul className="ivs">
+                    <li>
+                        <label htmlFor="hp-iv">HP</label>
+                        <input type="number" name='hp-iv' className="mod-input" min='0' max='252'/>
+                    </li>
+                    <li>
+                        <label htmlFor="atk-iv">ATK</label>
+                        <input type="number" name='atk-iv' className="mod-input" min='0' max='252'/>
+                    </li>
+                    <li>
+                        <label htmlFor="def-iv">DEF</label>
+                        <input type="number" name='def-iv' className="mod-input" min='0' max='252'/>
+                    </li>
+                    <li>
+                        <label htmlFor="sp-atk-iv">SP.ATK</label>
+                        <input type="number" name='sp-atk-iv' className="mod-input" min='0' max='252'/>
+                    </li>
+                    <li>
+                        <label htmlFor="sp-def-iv">DEF.ATK</label>
+                        <input type="number" name='sp-def-iv' className="mod-input" min='0' max='252'/>
+                    </li>
+                    <li>
+                        <label htmlFor="spd-iv">SPD</label>
+                        <input type="number" name='spd-iv' className="mod-input" min='0' max='252'/>
+                    </li>
+                </ul>
                 <label htmlFor="nature-select">Nature</label>
                 <Select
                     options={natureOptions()}
@@ -187,7 +241,7 @@ const TeamPokemonInfo = () => {
                     value={(moveset && presetMoveset()) || ''}
                     onChange={(option) => handleMovesetChange(option)}
                 />
-                { pokemon && <StatChart height={250} width={350} />}
+                {info && <StatChart height={250} width={350} />}
                 <button className="waves-effect waves-light btn green darken-3 confirm-edit">Confirm</button>
             </form>
         </div>
