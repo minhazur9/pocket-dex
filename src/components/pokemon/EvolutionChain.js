@@ -22,6 +22,7 @@ const EvolutionChain = () => {
 
     // Renders the evolution method for a pokemon
     const renderEvolutionMethod = (stage) => {
+        console.log(stage)
         for (const method in stage) {
             if(stage[method]) {
                 if(method === 'min_level') {
@@ -53,11 +54,6 @@ const EvolutionChain = () => {
                     let text = stage[method].name;
                     return (
                         <p className="evolution-method">{text.toUpperCase()}</p>
-                    )
-                }
-                else {
-                    return (
-                        <p className="evolution_method">{stage[method]}</p>
                     )
                 }
                 
@@ -93,9 +89,9 @@ const EvolutionChain = () => {
             return (
                     <div key={index} className="chain">
                     <li className="stage-image" key={index} onClick={(e) => updatePokemonState(e,stage.species.name)}>
-                            <img src={`https://img.pokemondb.net/artwork/${name}.jpg`} alt={stage}/>
+                            <img src={`https://img.pokemondb.net/artwork/${name}.jpg`} alt={stage.species.name}/>
                             <p>{stage.species.name.toUpperCase()}</p>
-                            {renderEvolutionMethod(evolution_details[0])}
+                            {renderEvolutionMethod(evolution_details[evolution_details.length-1])}
                     </li>
                     <div key={index + 10}>{stage.evolves_to.length > 0 && <i key={index + 10} className="fa fa-long-arrow-right" aria-hidden="false"></i>}</div>
                     {stage.evolves_to.length > 0 && renderChain(stage)}

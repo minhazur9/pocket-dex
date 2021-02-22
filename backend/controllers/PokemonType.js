@@ -16,7 +16,9 @@ const PokemonType = new GraphQLObjectType({
         level: {type:GraphQLInt},
         nature: {type:GraphQLString},
         item: {type:GraphQLString},
-        moveset: {type: new GraphQLList(GraphQLString)}
+        moveset: {type: new GraphQLList(GraphQLString)},
+        ivs: {type:GraphQLInt},
+        evs: {type:GraphQLInt},
     }),
 })
 
