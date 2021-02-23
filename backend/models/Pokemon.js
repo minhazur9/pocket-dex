@@ -25,78 +25,96 @@ const PokemonSchema = mongoose.Schema({
             default: "",
         },
     ],
-    hpIV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 31,
-    },
-    atkIV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 31,
-    },
-    defIV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 31,
-    },
-    spAtkIV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 31,
-    },
-    spDefIV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 31,
-    },
-    spdIV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 31,
-    },
-    hpEV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 252,
-    },
-    atkEV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 252,
-    },
-    defEV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 252,
-    },
-    spAtkEV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 252,
-    },
-    spDefEV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 252,
-    },
-    spdEV: {
-        type: Number,
-        default: 0,
-        min: 0,
-        max: 252,
-    },
+
+    ivs: [
+        {
+            type: Number,
+            default: 0,
+            min: 0,
+            max: 31,
+        }
+    ],
+    
+    evs: [
+        {
+            type: Number,
+            default: 0,
+            min: 0,
+            max: 252
+        }
+    ],
+    // hpIV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 31,
+    // },
+    // atkIV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 31,
+    // },
+    // defIV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 31,
+    // },
+    // spAtkIV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 31,
+    // },
+    // spDefIV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 31,
+    // },
+    // spdIV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 31,
+    // },
+    // hpEV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 252,
+    // },
+    // atkEV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 252,
+    // },
+    // defEV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 252,
+    // },
+    // spAtkEV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 252,
+    // },
+    // spDefEV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 252,
+    // },
+    // spdEV: {
+    //     type: Number,
+    //     default: 0,
+    //     min: 0,
+    //     max: 252,
+    // },
     teamId: {
         type: String,
         required: true

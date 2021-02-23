@@ -49,6 +49,8 @@ export const getPokemonQuery = gql`
             nature
             item
             moveset
+            ivs
+            evs
             id
         }
     }
