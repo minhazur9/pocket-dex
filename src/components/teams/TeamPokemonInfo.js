@@ -80,7 +80,6 @@ const TeamPokemonInfo = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(moveset)
         const { id } = teamPokemonInfo;
         editPokemon({
             variables: {
@@ -163,6 +162,7 @@ const TeamPokemonInfo = () => {
     }
 
 
+
     return (
         <div className="team-pokemon-info">
             <form onSubmit={handleSubmit}>
@@ -175,11 +175,10 @@ const TeamPokemonInfo = () => {
                     isSearchable
                 />
                 <label htmlFor="level-input">Level</label>
-                <input className="level-input" name="level-input" type="number" min='1' max='100' value={level || ''}
+                <input className="level-input" name="level-input" type="number" min='1' max='100' value={level || ""}
                     onChange={(e) => setLevel(e.target.value)}
                     onBlur={() => (level < 1 && setLevel("1")) || (level > 100 && setLevel("100"))}
                 />
-                {levelVerificationError()}
                 <p className="stat-header">IVs</p>
                 <ul className="ivs">
                     <li>
@@ -269,7 +268,7 @@ const TeamPokemonInfo = () => {
                     value={(moveset && presetMoveset()) || ''}
                     onChange={(option) => handleMovesetChange(option)}
                 />
-                {pokemon && <StatChart height={250} width={350} />}
+                {info && pokemon && <StatChart height={250} width={350} level={level} ivs={ivs} evs={evs} />}
                 <button className="waves-effect waves-light btn green darken-3 confirm-edit">Confirm</button>
             </form>
         </div>

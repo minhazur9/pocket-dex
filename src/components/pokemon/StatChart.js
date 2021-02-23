@@ -6,18 +6,21 @@ import chart from 'tui-chart';
 
 const StatChart = (props) => {
     const info = useSelector((state => state.info));
+    let max = 250;
     let hp = 0;
-    if (props.iv) {
-        hp = calculateHP()
+    const { stats } = info;
+    if (props.level) {
+        hp = calculateHP(stats[0].base_stat,props.ivs[0],props.evs[0],props.level)
+        max = 715;
     }
     else {
-        hp = info.stats[0].base_stat;
+        hp = stats[0].base_stat;
     }
-    const atk = info.stats[1].base_stat;
-    const def = info.stats[2].base_stat;
-    const spAtk = info.stats[3].base_stat;
-    const spDef = info.stats[4].base_stat;
-    const speed = info.stats[5].base_stat;
+    const atk = stats[1].base_stat;
+    const def = stats[2].base_stat;
+    const spAtk = stats[3].base_stat;
+    const spDef = stats[4].base_stat;
+    const speed = stats[5].base_stat;
     let height = props.height;
     let width = props.width;
 
@@ -47,7 +50,7 @@ const StatChart = (props) => {
             },
             xAxis: {
                 min: 0,
-                max: 250
+                max: max
             },
             legend: {
                 visible: false
@@ -60,7 +63,7 @@ const StatChart = (props) => {
             },
             chartExportMenu: {
                 visible: false
-            }
+            },
         };
         chart.barChart(container, data, options);
 
@@ -72,7 +75,7 @@ const StatChart = (props) => {
         document.getElementById('chart-area').innerHTML = "";
         renderChart()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [info])
+    }, [info,props])
 
     return (
         <>
