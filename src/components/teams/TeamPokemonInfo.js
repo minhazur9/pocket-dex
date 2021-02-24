@@ -7,6 +7,36 @@ import { editPokemonMutation, getTeamsQuery, getPokemonQuery } from '../../queri
 import StatChart from '../pokemon/StatChart';
 import { getCookie } from '../../App';
 
+
+
+export const natures = [
+    'hardy',
+    'lonely',
+    'adamant',
+    'naughty',
+    'brave',
+    'bold',
+    'docile',
+    'impish',
+    'lax',
+    'relaxed',
+    'modest',
+    'mild',
+    'bashful',
+    'rash',
+    'quiet',
+    'calm',
+    'gentle',
+    'careful',
+    'quirky',
+    'sassy',
+    'timid',
+    'hasty',
+    'jolly',
+    'naive',
+    'serious'
+]
+
 // General Pokemon Information
 const TeamPokemonInfo = () => {
     const token = getCookie();
@@ -23,34 +53,6 @@ const TeamPokemonInfo = () => {
     const [ivs, setIVs] = useState([0, 0, 0, 0, 0, 0]);
     const [evs, setEVs] = useState([0, 0, 0, 0, 0, 0]);
     const [editPokemon] = useMutation(editPokemonMutation);
-
-    const natures = [
-        'hardy',
-        'lonely',
-        'adamant',
-        'naughty',
-        'brave',
-        'bold',
-        'docile',
-        'impish',
-        'lax',
-        'relaxed',
-        'modest',
-        'mild',
-        'bashful',
-        'rash',
-        'quiet',
-        'calm',
-        'gentle',
-        'careful',
-        'quirky',
-        'sassy',
-        'timid',
-        'hasty',
-        'jolly',
-        'naive',
-        'serious'
-    ]
 
     const natureOptions = () => {
         return natures.map((nature) => {
@@ -268,7 +270,7 @@ const TeamPokemonInfo = () => {
                     value={(moveset && presetMoveset()) || ''}
                     onChange={(option) => handleMovesetChange(option)}
                 />
-                {info && pokemon && <StatChart height={250} width={350} level={level} ivs={ivs} evs={evs} />}
+                {info && pokemon && <StatChart height={250} width={350} level={level} ivs={ivs} evs={evs} nature={nature} />}
                 <button className="waves-effect waves-light btn green darken-3 confirm-edit">Confirm</button>
             </form>
         </div>
