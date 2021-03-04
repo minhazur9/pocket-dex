@@ -33,7 +33,7 @@ const SignUp = () => {
         date.setTime(date.getTime() + (12 * 60 * 60 * 1000));
         document.cookie = `jwtToken=${response.token}; Path=/; expires=${date.toUTCString()}`;
         dispatch(logIn())
-        history.push('/')
+        history.push('/teams')
     }
 
     const submitForm = (e) => {

@@ -18,6 +18,55 @@ const Navbar = () => {
     history.push('/')
   }
 
+  const renderSignout = () => {
+    return (
+      <>
+        <li className='nav-link' onClick={signOut}><Link to="/" className="nav-link">Logout</Link></li>
+      </>
+    )
+  }
+
+  const renderDesktopAccountControls = () => {
+    return (
+      <>
+        <ul id="nav-mobile" className="left">
+          <li><Link to="/teams" className="nav-link">My Teams</Link></li>
+        </ul>
+      </>
+    )
+  }
+
+  const renderDesktopAccountLinks = () => {
+    return (
+      <>
+        <li><Link to="/signup" className="nav-link">Signup</Link></li>
+        <li><Link to="/login" className="nav-link">Login</Link></li>
+      </>
+    )
+  }
+
+
+  const renderMobileAccountControls = () => {
+    return (
+      <>
+        <Link to="/teams" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>My Teams</li></Link>
+        <Link to="/" onClick={(e) => {
+          e.target.parentNode.style.display = 'none';
+          signOut()
+        }}
+          className="mobile-nav-link"><li>Logout</li></Link>
+      </>
+    )
+  }
+
+  const renderMobileAccountLinks = () => {
+    return (
+      <>
+        <Link to="/login" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>Login</li></Link>
+      </>
+    )
+  }
+
   // Toggles dropdown menu
   const dropdown = () => {
     const dropdown = document.querySelector('.dropdown');
@@ -39,19 +88,8 @@ const Navbar = () => {
           <li><Link to="/moves" className="nav-link">MoveDex</Link></li>
           <li><Link to="/abilities" className="nav-link">AbilityDex</Link></li>
           <li><Link to="/items" className="nav-link">ItemDex</Link></li>
-          {loggedIn ?
-            <>
-              <ul id="nav-mobile" className="left">
-                <li><Link to="/teams" className="nav-link">My Teams</Link></li>
-              </ul>
-              <li className='sign-out' onClick={signOut}><button to="/" className="nav-link">Logout</button></li>
-            </> :
-            <>
-              <li><Link to="/signup" className="nav-link">Signup</Link></li>
-              <li><Link to="/login" className="nav-link">Login</Link></li>
-            </>
-
-          }
+          {loggedIn && renderSignout()}
+          {loggedIn ? renderDesktopAccountControls() : renderDesktopAccountLinks()}
         </ul>
         <button onClick={dropdown} className="hamburger-menu">
           <div></div>
@@ -64,6 +102,7 @@ const Navbar = () => {
         <Link to="/moves" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>MoveDex</li></Link>
         <Link to="/abilities" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>AbilityDex</li></Link>
         <Link to="/items" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>ItemDex</li></Link>
+        {loggedIn ? renderMobileAccountControls() : renderMobileAccountLinks()}
       </ul>
     </nav>
   )
