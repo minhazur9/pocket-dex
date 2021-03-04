@@ -84,16 +84,6 @@ const TeamPokemonInfo = () => {
             ]
         })
     }
-
-    // const moveOptions = () => {
-    //     const { moves } = info;
-    //     return moves.map((entry) => {
-    //         const { name } = entry.move;
-    //         return { value: name, label: name.toUpperCase() }
-    //     })
-
-    // }
-
     const handleMovesetChange = (option) => {
         if (option.length > 4) option.pop();
         setMoveset(option.map((option) => option.value))

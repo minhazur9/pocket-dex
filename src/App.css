@@ -1287,15 +1287,21 @@ nav #nav-mobile.left {
   height: 100vh;
   display: -ms-grid;
   display: grid;
+  overflow-y: scroll;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
 }
 
 .damage-calc-page .set-damage-vars {
+  overflow-y: scroll;
   border: 2px solid black;
   position: relative;
   display: inline-block;
   margin: 10px;
+}
+
+.damage-calc-page .set-damage-vars::-webkit-scrollbar {
+  display: none;
 }
 
 .damage-calc-page .set-damage-vars h3 {
@@ -1310,6 +1316,74 @@ nav #nav-mobile.left {
   margin-top: 5px;
   margin-left: 10px;
   margin-right: 30px;
+}
+
+.damage-calc-page .set-damage-vars .level-input {
+  display: block;
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 90%;
+}
+
+.damage-calc-page .set-damage-vars .point-labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.damage-calc-page .set-damage-vars .ivs {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.damage-calc-page .set-damage-vars .ivs .stat-labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.damage-calc-page .set-damage-vars .ivs .stat-labels label {
+  margin-top: 25px;
+}
+
+.damage-calc-page .set-damage-vars .ivs .iv-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+}
+
+.damage-calc-page .set-damage-vars .ivs .iv-inputs .mod-input {
+  width: 40px;
+  font-size: 0.8rem;
+}
+
+.damage-calc-page .set-damage-vars .ivs .ev-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+}
+
+.damage-calc-page .set-damage-vars .ivs .ev-inputs .mod-input {
+  width: 40px;
+  font-size: 0.8rem;
 }
 
 /* ----------------- Pokemon Index */

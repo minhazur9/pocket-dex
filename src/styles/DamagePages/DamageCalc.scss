@@ -1,12 +1,17 @@
 .damage-calc-page {
     height: 100vh;
     display: grid;
+    overflow-y: scroll;
     grid-template-columns: 1fr 1fr 1fr;
     .set-damage-vars {
+        overflow-y: scroll;
         border: 2px solid black;
         position: relative;
         display: inline-block;
         margin: 10px;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         h3 {
             text-align: center;
         }
@@ -17,6 +22,46 @@
             margin-top: 5px;
             margin-left: 10px;
             margin-right: 30px;
+        }
+
+        .level-input {
+            display: block;
+            margin-top: 5px;
+            margin-left: 10px;
+            width: 90%;
+        }
+        .point-labels {
+            display: flex;
+            justify-content: space-around;
+        }
+        .ivs {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            .stat-labels {
+                display: flex;
+                flex-direction: column;
+                label {
+                    margin-top: 25px;
+                }
+            }
+            .iv-inputs {
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+                .mod-input {
+                    width: 40px;
+                    font-size: 0.8rem;
+                }
+            }
+            .ev-inputs {
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+                .mod-input {
+                    width: 40px;
+                    font-size: 0.8rem;
+                }
+            }
         }
     }
 }
