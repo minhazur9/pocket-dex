@@ -1,17 +1,14 @@
 .damage-calc-page {
-    height: 100vh;
+    position: relative;
+    height: 90vh;
     display: grid;
     overflow-y: scroll;
     grid-template-columns: 1fr 1fr 1fr;
     .set-damage-vars {
-        overflow-y: scroll;
         border: 2px solid black;
         position: relative;
         display: inline-block;
         margin: 10px;
-        &::-webkit-scrollbar {
-            display: none;
-        }
         h3 {
             text-align: center;
         }

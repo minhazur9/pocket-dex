@@ -1,5 +1,6 @@
 .damage-calc-page {
-  height: 100vh;
+  position: relative;
+  height: 90vh;
   display: -ms-grid;
   display: grid;
   overflow-y: scroll;
@@ -8,15 +9,10 @@
 }
 
 .damage-calc-page .set-damage-vars {
-  overflow-y: scroll;
   border: 2px solid black;
   position: relative;
   display: inline-block;
   margin: 10px;
-}
-
-.damage-calc-page .set-damage-vars::-webkit-scrollbar {
-  display: none;
 }
 
 .damage-calc-page .set-damage-vars h3 {
