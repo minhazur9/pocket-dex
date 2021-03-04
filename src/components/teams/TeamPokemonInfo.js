@@ -53,6 +53,8 @@ const TeamPokemonInfo = () => {
     const [ivs, setIVs] = useState([0, 0, 0, 0, 0, 0]);
     const [evs, setEVs] = useState([0, 0, 0, 0, 0, 0]);
     const [editPokemon] = useMutation(editPokemonMutation);
+    const [evCount, setEvCount] = useState(0);
+    const [oldEv, setOldEvs] = useState(0);
 
     const natureOptions = () => {
         return natures.map((nature) => {
@@ -79,6 +81,12 @@ const TeamPokemonInfo = () => {
         if (pokemon) dispatch(getInfo(pokemon))
         // eslint-disable-next-line
     }, [pokemon])
+
+    useEffect(() => {
+        const sum = sumEvs(evs);
+        setEvCount(sum)
+        // eslint-disable-next-line
+    }, [evs])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -145,31 +153,29 @@ const TeamPokemonInfo = () => {
         })
     }
 
-    const setIVState = (e, stat) => {
+    const setIVState = (iv, stat) => {
         const ivCopy = ivs.slice(0);
-        ivCopy[stat] = Number(e.target.value) || 0;
-        setIVs(ivCopy)
+        if (iv < 0) ivCopy[stat] = 0;
+        else if (iv > 31) ivCopy[stat] = 31;
+        else ivCopy[stat] = iv;
+        setIVs(ivCopy);
     }
 
-    const setEVState = (e, stat) => {
+    const setEVState = (ev, stat) => {
         const evCopy = evs.slice(0);
-        evCopy[stat] = Number(e.target.value) || 0;
-        setEVs(evCopy)
+        console.log(510-evCount)
+        if (evCount - evCopy[stat] + ev > 510) evCopy[stat] = 510 - evCount;
+        else if (ev < 0) evCopy[stat] = 0;
+        else if (ev > 252) evCopy[stat] = 252;
+        else evCopy[stat] = ev;
+        setEVs(evCopy);
     }
 
-    const limitIVState = (iv,stat) => {
-        const ivCopy = ivs.slice(0);
-        ivCopy[stat] = Number(iv);
-        setIVs(ivCopy)
+    const sumEvs = (evs) => {
+        if (evs) {
+            return evs.reduce((count, currentEv) => count + currentEv)
+        }
     }
-
-    const limitEVState = (ev,stat) => {
-        const evCopy = evs.slice(0);
-        evCopy[stat] = Number(ev);
-        setEVs(evCopy)
-    }
-
-
 
     return (
         <div className="team-pokemon-info">
@@ -191,78 +197,73 @@ const TeamPokemonInfo = () => {
                 <ul className="ivs">
                     <li>
                         <label htmlFor="hp-iv">HP</label>
-                        <input type="number" name='hp-iv' value={(ivs && ivs[0].toString()) || ""} className="mod-input" min='0' max='31'
-                            onChange={(e) => setIVState(e, 0)} 
-                            onBlur={() => (ivs[0] < 0 && limitIVState("0",0)) || (ivs[0] > 31 && limitIVState("31",0))}
-                            />
+                        <input type="number" name='hp-iv' value={(ivs && ivs[0].toString()) || 0} className="mod-input" min='0' max='31'
+                            onChange={(e) => setIVState(Number(e.target.value), 0)}
+                        />
                     </li>
                     <li>
                         <label htmlFor="atk-iv">ATK</label>
-                        <input type="number" name='atk-iv' value={(ivs && ivs[1].toString()) || ""} className="mod-input" min='0' max='31'
-                            onChange={(e) => setIVState(e, 1)} 
-                            onBlur={() => (ivs[1] < 0 && limitIVState("0",1)) || (ivs[1] > 31 && limitIVState("31",1))}
-                            />
+                        <input type="number" name='atk-iv' value={(ivs && ivs[1].toString()) || 0} className="mod-input" min='0' max='31'
+                            onChange={(e) => setIVState(Number(e.target.value), 1)}
+                        />
                     </li>
                     <li>
                         <label htmlFor="def-iv">DEF</label>
-                        <input type="number" name='def-iv' value={(ivs && ivs[2].toString()) || ""} className="mod-input" min='0' max='31'
-                            onChange={(e) => setIVState(e, 2)} 
-                            onBlur={() => (ivs[2] < 0 && limitIVState("0",2)) || (ivs[2] > 31 && limitIVState("31",2))}
-                            />
+                        <input type="number" name='def-iv' value={(ivs && ivs[2].toString()) || 0} className="mod-input" min='0' max='31'
+                            onChange={(e) => setIVState(Number(e.target.value), 2)}
+                        />
                     </li>
                     <li>
                         <label htmlFor="sp-atk-iv">SP.ATK</label>
-                        <input type="number" name='sp-atk-iv' value={(ivs && ivs[3].toString()) || ""} className="mod-input" min='0' max='31'
-                            onChange={(e) => setIVState(e, 3)} 
-                            onBlur={() => (ivs[3] < 0 && limitIVState("0",3)) || (ivs[3] > 31 && limitIVState("31",3))}
-                            />
+                        <input type="number" name='sp-atk-iv' value={(ivs && ivs[3].toString()) || 0} className="mod-input" min='0' max='31'
+                            onChange={(e) => setIVState(Number(e.target.value), 3)}
+                        />
                     </li>
                     <li>
                         <label htmlFor="sp-def-iv">DEF.ATK</label>
                         <input type="number" name='sp-def-iv' value={(ivs && ivs[4].toString()) || 0} className="mod-input" min='0' max='31'
-                            onChange={(e) => setIVState(e, 4)} 
-                            onBlur={() => (ivs[4] < 0 && limitIVState("0",4)) || (ivs[4] > 31 && limitIVState("31",4))}
-                            />
+                            onChange={(e) => setIVState(Number(e.target.value), 4)}
+                        />
                     </li>
                     <li>
                         <label htmlFor="spd-iv">SPD</label>
                         <input type="number" name='spd-iv' value={(ivs && ivs[5].toString()) || 0} className="mod-input" min='0' max='31'
-                            onChange={(e) => setIVState(e, 5)} 
-                            onBlur={() => (ivs[5] < 0 && limitIVState("0",5)) || (ivs[5] > 31 && limitIVState("31",5))}
-                            />
+                            onChange={(e) => setIVState(Number(e.target.value), 5)}
+                        />
                     </li>
                 </ul>
                 <p className="stat-header">EVs</p>
                 <ul className="ivs">
                     <li>
-                        <label htmlFor="hp-iev">HP</label>
+                        <label htmlFor="hp-ev">HP</label>
                         <input type="number" name='hp-ev' value={(evs && evs[0].toString()) || 0} className="mod-input" min='0' max='252'
-                            onChange={(e) => setEVState(e, 0)} />
+                            onChange={(e) => setEVState(Number(e.target.value), 0)}
+                        />
                     </li>
                     <li>
-                        <label htmlFor="atk-iev">ATK</label>
+                        <label htmlFor="atk-ev">ATK</label>
                         <input type="number" name='atk-ev' value={(evs && evs[1].toString()) || 0} className="mod-input" min='0' max='252'
-                            onChange={(e) => setEVState(e, 1)} />
+                            onChange={(e) => setEVState(Number(e.target.value), 1)} />
                     </li>
                     <li>
                         <label htmlFor="def-ev">DEF</label>
                         <input type="number" name='def-ev' value={(evs && evs[2].toString()) || 0} className="mod-input" min='0' max='252'
-                            onChange={(e) => setEVState(e, 2)} />
+                            onChange={(e) => setEVState(Number(e.target.value), 2)} />
                     </li>
                     <li>
                         <label htmlFor="sp-atk-ev">SP.ATK</label>
                         <input type="number" name='sp-atk-ev' value={(evs && evs[3].toString()) || 0} className="mod-input" min='0' max='252'
-                            onChange={(e) => setEVState(e, 3)} />
+                            onChange={(e) => setEVState(Number(e.target.value), 3)} />
                     </li>
                     <li>
                         <label htmlFor="sp-def-ev">DEF.ATK</label>
                         <input type="number" name='sp-def-ev' value={(evs && evs[4].toString()) || 0} className="mod-input" min='0' max='252'
-                            onChange={(e) => setEVState(e, 4)} />
+                            onChange={(e) => setEVState(Number(e.target.value), 4)} />
                     </li>
                     <li>
                         <label htmlFor="spd-ev">SPD</label>
                         <input type="number" name='spd-ev' value={(evs && evs[5].toString()) || 0} className="mod-input" min='0' max='252'
-                            onChange={(e) => setEVState(e, 5)} />
+                            onChange={(e) => setEVState(Number(e.target.value), 5)} />
                     </li>
                 </ul>
                 <label htmlFor="nature-select">Nature</label>
