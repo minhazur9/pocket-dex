@@ -29,9 +29,7 @@ const Navbar = () => {
   const renderDesktopAccountControls = () => {
     return (
       <>
-        <ul id="nav-mobile" className="left">
-          <li><Link to="/teams" className="nav-link">My Teams</Link></li>
-        </ul>
+        <li><Link to="/teams" className="nav-link">My Teams</Link></li>
       </>
     )
   }
@@ -88,8 +86,11 @@ const Navbar = () => {
           <li><Link to="/moves" className="nav-link">MoveDex</Link></li>
           <li><Link to="/abilities" className="nav-link">AbilityDex</Link></li>
           <li><Link to="/items" className="nav-link">ItemDex</Link></li>
-          {loggedIn && renderSignout()}
-          {loggedIn ? renderDesktopAccountControls() : renderDesktopAccountLinks()}
+          {loggedIn ? renderSignout() : renderDesktopAccountLinks()}
+        </ul>
+        <ul id="nav-mobile" className="left">
+          {loggedIn && renderDesktopAccountControls()}
+          <li><Link to="/damagecalc" className="nav-link">Damage Calculator</Link></li>
         </ul>
         <button onClick={dropdown} className="hamburger-menu">
           <div></div>

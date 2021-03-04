@@ -1283,6 +1283,35 @@ nav #nav-mobile.left {
   margin-top: 15px;
 }
 
+.damage-calc-page {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.damage-calc-page .set-damage-vars {
+  border: 2px solid black;
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.damage-calc-page .set-damage-vars h3 {
+  text-align: center;
+}
+
+.damage-calc-page .set-damage-vars label {
+  margin: 10px;
+}
+
+.damage-calc-page .set-damage-vars .pokemon-select {
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 30px;
+}
+
 /* ----------------- Pokemon Index */
 .list {
   overflow-y: auto;

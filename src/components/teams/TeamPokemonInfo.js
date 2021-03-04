@@ -5,37 +5,10 @@ import Select from 'react-select';
 import { getPokemon, getItems, getInfo } from '../../actions';
 import { editPokemonMutation, getTeamsQuery, getPokemonQuery } from '../../queries/teamQueries';
 import StatChart from '../pokemon/StatChart';
+import { pokemonOptions, itemOptions, moveOptions, natureOptions } from '../../options/options';
 import { getCookie } from '../../App';
+import MoveSetList from '../pokemon/MoveSetList';
 
-
-
-export const natures = [
-    'hardy',
-    'lonely',
-    'adamant',
-    'naughty',
-    'brave',
-    'bold',
-    'docile',
-    'impish',
-    'lax',
-    'relaxed',
-    'modest',
-    'mild',
-    'bashful',
-    'rash',
-    'quiet',
-    'calm',
-    'gentle',
-    'careful',
-    'quirky',
-    'sassy',
-    'timid',
-    'hasty',
-    'jolly',
-    'naive',
-    'serious'
-]
 
 // General Pokemon Information
 const TeamPokemonInfo = () => {
@@ -54,13 +27,6 @@ const TeamPokemonInfo = () => {
     const [evs, setEVs] = useState([0, 0, 0, 0, 0, 0]);
     const [editPokemon] = useMutation(editPokemonMutation);
     const [evCount, setEvCount] = useState(0);
-    const [oldEv, setOldEvs] = useState(0);
-
-    const natureOptions = () => {
-        return natures.map((nature) => {
-            return { value: nature, label: nature.toUpperCase() }
-        })
-    }
 
     useEffect(() => {
         const { name, level, nature, item, moveset, ivs, evs } = teamPokemonInfo;
@@ -119,28 +85,14 @@ const TeamPokemonInfo = () => {
         })
     }
 
-    const pokemonOptions = () => {
-        return pokemonList.map((pokemon) => {
-            const { name } = pokemon;
-            return { value: name, label: name.toUpperCase() }
-        })
-    }
+    // const moveOptions = () => {
+    //     const { moves } = info;
+    //     return moves.map((entry) => {
+    //         const { name } = entry.move;
+    //         return { value: name, label: name.toUpperCase() }
+    //     })
 
-    const itemOptions = () => {
-        return itemList.map((item) => {
-            const { name } = item;
-            return { value: name, label: name.toUpperCase() }
-        })
-    }
-
-    const moveOptions = () => {
-        const { moves } = info;
-        return moves.map((entry) => {
-            const { name } = entry.move;
-            return { value: name, label: name.toUpperCase() }
-        })
-
-    }
+    // }
 
     const handleMovesetChange = (option) => {
         if (option.length > 4) option.pop();
@@ -163,7 +115,7 @@ const TeamPokemonInfo = () => {
 
     const setEVState = (ev, stat) => {
         const evCopy = evs.slice(0);
-        console.log(510-evCount)
+        console.log(510 - evCount)
         if (evCount - evCopy[stat] + ev > 510) evCopy[stat] = 510 - evCount;
         else if (ev < 0) evCopy[stat] = 0;
         else if (ev > 252) evCopy[stat] = 252;
@@ -182,7 +134,7 @@ const TeamPokemonInfo = () => {
             <form onSubmit={handleSubmit}>
                 <label htmlFor="pokemon-select">Pokemon</label>
                 <Select
-                    options={pokemonOptions()}
+                    options={pokemonOptions(pokemonList)}
                     value={{ value: pokemon || '', label: (pokemon && pokemon.toUpperCase()) || '' }}
                     onChange={(option) => setPokemon(option.value)}
                     className='pokemon-select'
@@ -276,14 +228,14 @@ const TeamPokemonInfo = () => {
                 />
                 <label className='item-select-label' htmlFor="item-select">Held Item</label>
                 <Select
-                    options={itemOptions()}
+                    options={itemOptions(itemList)}
                     value={{ value: item || '', label: (item && item.toUpperCase()) || '' }}
                     onChange={(option) => setItem(option.value)}
                     className='item-select'
                 /><br />
                 <label htmlFor="moveset-select">Moveset</label>
                 <Select
-                    options={info && moveOptions()}
+                    options={info && moveOptions(info)}
                     isMulti
                     isSearchable
                     value={(moveset && presetMoveset()) || ''}

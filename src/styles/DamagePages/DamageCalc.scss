@@ -1,0 +1,22 @@
+.damage-calc-page {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .set-damage-vars {
+        border: 2px solid black;
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+        h3 {
+            text-align: center;
+        }
+        label {
+            margin: 10px;
+        }
+        .pokemon-select {
+            margin-top: 5px;
+            margin-left: 10px;
+            margin-right: 30px;
+        }
+    }
+}
