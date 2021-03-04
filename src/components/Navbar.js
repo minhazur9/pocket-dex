@@ -90,7 +90,7 @@ const Navbar = () => {
         </ul>
         <ul id="nav-mobile" className="left">
           {loggedIn && renderDesktopAccountControls()}
-          <li><Link to="/damagecalc" className="nav-link">Damage Calculator</Link></li>
+          {/* <li><Link to="/damagecalc" className="nav-link">Damage Calculator</Link></li> */}
         </ul>
         <button onClick={dropdown} className="hamburger-menu">
           <div></div>

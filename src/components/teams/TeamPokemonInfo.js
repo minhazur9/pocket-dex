@@ -5,7 +5,7 @@ import Select from 'react-select';
 import { getPokemon, getItems, getInfo } from '../../actions';
 import { editPokemonMutation, getTeamsQuery, getPokemonQuery } from '../../queries/teamQueries';
 import StatChart from '../pokemon/StatChart';
-import { pokemonOptions, itemOptions, moveOptions, natureOptions } from '../../options/options';
+import { pokemonOptions, itemOptions, moveOptions, natureOptions, abilityOptions } from '../../options/options';
 import { getCookie } from '../../App';
 import MoveSetList from '../pokemon/MoveSetList';
 
@@ -22,6 +22,7 @@ const TeamPokemonInfo = () => {
     const [level, setLevel] = useState('1');
     const [nature, setNature] = useState('hardy');
     const [item, setItem] = useState('');
+    const [ability, setAbility] = useState('');
     const [moveset, setMoveset] = useState([]);
     const [ivs, setIVs] = useState([0, 0, 0, 0, 0, 0]);
     const [evs, setEVs] = useState([0, 0, 0, 0, 0, 0]);
@@ -29,7 +30,7 @@ const TeamPokemonInfo = () => {
     const [evCount, setEvCount] = useState(0);
 
     useEffect(() => {
-        const { name, level, nature, item, moveset, ivs, evs } = teamPokemonInfo;
+        const { name, level, nature, item, ability, moveset, ivs, evs } = teamPokemonInfo;
         dispatch(getPokemon())
         if (name) dispatch(getInfo(name))
         dispatch(getItems())
@@ -37,6 +38,7 @@ const TeamPokemonInfo = () => {
         setLevel(level)
         setNature(nature)
         setItem(item)
+        setAbility(ability)
         setMoveset(moveset)
         setIVs(ivs)
         setEVs(evs)
@@ -64,6 +66,7 @@ const TeamPokemonInfo = () => {
                 nature,
                 item,
                 moveset,
+                ability,
                 ivs,
                 evs,
                 id,
@@ -208,29 +211,39 @@ const TeamPokemonInfo = () => {
                             onChange={(e) => setEVState(Number(e.target.value), 5)} />
                     </li>
                 </ul>
-                <label htmlFor="nature-select">Nature</label>
-                <Select
-                    options={natureOptions()}
-                    value={{ value: nature || '', label: (nature && nature.toUpperCase()) || '' }}
-                    onChange={(option) => setNature(option.value)}
-                    isSearchable
-                    className='nature-select'
-                />
-                <label className='item-select-label' htmlFor="item-select">Held Item</label>
-                <Select
-                    options={itemOptions(itemList)}
-                    value={{ value: item || '', label: (item && item.toUpperCase()) || '' }}
-                    onChange={(option) => setItem(option.value)}
-                    className='item-select'
-                /><br />
-                <label htmlFor="moveset-select">Moveset</label>
-                <Select
-                    options={info && moveOptions(info)}
-                    isMulti
-                    isSearchable
-                    value={(moveset && presetMoveset()) || ''}
-                    onChange={(option) => handleMovesetChange(option)}
-                />
+                <ul className="other-vars">
+                    <label htmlFor="nature-select">Nature</label>
+                    <Select
+                        options={natureOptions()}
+                        value={{ value: nature || '', label: (nature && nature.toUpperCase()) || '' }}
+                        onChange={(option) => setNature(option.value)}
+                        isSearchable
+                        className='nature-select var-select'
+                    />
+                    <label className='item-select-label' htmlFor="item-select">Held Item</label>
+                    <Select
+                        options={itemOptions(itemList)}
+                        value={{ value: item || '', label: (item && item.toUpperCase()) || '' }}
+                        onChange={(option) => setItem(option.value)}
+                        className='item-select var-select'
+                    />
+                    <label htmlFor="ability-select">Ability</label>
+                    <Select
+                        options={abilityOptions(info)}
+                        value={{ value: ability || '', label: (ability && ability.toUpperCase()) || '' }}
+                        onChange={(option) => setAbility(option.value)}
+                        className='ability-select var-select'
+                    />
+                    </ul>
+                    <br />
+                    <label htmlFor="moveset-select">Moveset</label>
+                    <Select
+                        options={info && moveOptions(info)}
+                        isMulti
+                        isSearchable
+                        value={(moveset && presetMoveset()) || ''}
+                        onChange={(option) => handleMovesetChange(option)}
+                    />
                 {info && pokemon && <StatChart height={250} width={350} level={level} ivs={ivs} evs={evs} nature={nature} />}
                 <button className="waves-effect waves-light btn green darken-3 confirm-edit">Confirm</button>
             </form>

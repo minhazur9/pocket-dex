@@ -15,6 +15,10 @@ const PokemonSchema = mongoose.Schema({
         type: String,
         default: 'hardy',
     },
+    ability: {
+        type: String,
+        default: "",
+    },
     item: {
         type: String,
         default: "",

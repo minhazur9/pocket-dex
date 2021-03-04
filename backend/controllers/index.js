@@ -158,7 +158,7 @@ const Mutation = new GraphQLObjectType({
                 const evArr = new Array(6);
                 ivArr.fill(0);
                 evArr.fill(0);
-                pokemonArr.fill({ name: "", level: 1, nature: "hardy", ivs: ivArr, evs: evArr, teamId: team._id }, 0, 6);
+                pokemonArr.fill({ name: "", level: 1, nature: "hardy", ability: "", ivs: ivArr, evs: evArr, teamId: team._id }, 0, 6);
                 db.Pokemon.insertMany(pokemonArr)
             }
         },
@@ -256,6 +256,7 @@ const Mutation = new GraphQLObjectType({
                 level: { type: new GraphQLNonNull(GraphQLInt) },
                 nature: { type: new GraphQLNonNull(GraphQLString) },
                 item: { type: new GraphQLNonNull(GraphQLString) },
+                ability: { type: new GraphQLNonNull(GraphQLString) },
                 moveset: { type: new GraphQLNonNull(new GraphQLList(GraphQLString)) },
                 ivs: { type: new GraphQLNonNull(new GraphQLList(GraphQLInt)) },
                 evs: { type: new GraphQLNonNull(new GraphQLList(GraphQLInt)) },
@@ -264,7 +265,7 @@ const Mutation = new GraphQLObjectType({
                 if (args.moveset.length > 4) return null;
                 return db.Pokemon.findByIdAndUpdate(
                     args.id,
-                    { $set: { name: args.name, level: args.level, nature: args.nature, item: args.item, moveset: args.moveset, ivs: args.ivs, evs: args.evs } },
+                    { $set: { name: args.name, level: args.level, nature: args.nature, item: args.item, ability: args.ability, moveset: args.moveset, ivs: args.ivs, evs: args.evs } },
                     { new: true })
             }
         }

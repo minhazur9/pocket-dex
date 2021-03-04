@@ -22,7 +22,7 @@ const Routes = () => {
             <Route path="/signup" component={SignUp} />
             <Route path="/login" component={Login} />
             <Route path="/teams" component={TeamIndex} />
-            <Route path="/damagecalc" component={DamageCalc} />
+            {/* <Route path="/damagecalc" component={DamageCalc} /> */}
         </Switch>
     )
 }

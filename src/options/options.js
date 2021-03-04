@@ -53,3 +53,12 @@ export const natureOptions = () => {
         return { value: nature, label: nature.toUpperCase() }
     })
 }
+
+export const abilityOptions = (info) => {
+    let abilities = [];
+    if (info) abilities = info.abilities;
+    return abilities.map((entry) => {
+        const { name } = entry.ability;
+        return { value: name, label: name.toUpperCase() }
+    })
+}

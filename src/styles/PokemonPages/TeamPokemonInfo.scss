@@ -26,7 +26,7 @@
 
     .nature-select {
         display: inline-block;
-        width: 25%;
+        width: 45%;
         margin: 10px;
     }
 
@@ -35,6 +35,20 @@
         justify-content: space-around;
     }
 
+    .other-vars {
+        display: flex;
+        justify-content: space-around;
+        font-size: 10px;
+        label {
+            margin-top: 25px;
+        }
+    }
+
+    .ability-select {
+        display: inline-block;
+        width: 45%;
+        margin: 10px;
+    }
     .mini-error-message {
         display: inline;
         position: relative;
@@ -45,8 +59,8 @@
     }
 
     .stat-header {
-        font-size: .8rem;
-        color: #9e9e9e
+        font-size: 0.8rem;
+        color: #9e9e9e;
     }
 
     .item-select-label {
@@ -55,7 +69,7 @@
 
     .item-select {
         display: inline-block;
-        width: 25%;
+        width: 45%;
         margin: 15px;
     }
 

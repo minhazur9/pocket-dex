@@ -30,8 +30,8 @@ export const editTeamMutation = gql`
     }
 `
 export const editPokemonMutation = gql`
-    mutation($id:ID!,$name:String!,$level:Int!,$nature:String!, $item:String!, $moveset:[String!]!, $ivs: [Int!]!, $evs: [Int!]! ){
-        editPokemon(id:$id,name:$name, level: $level, nature: $nature, item: $item, moveset: $moveset, ivs: $ivs, evs: $evs){
+    mutation($id:ID!,$name:String!,$level:Int!,$nature:String!, $item:String!, $ability:String!, $moveset:[String!]!, $ivs: [Int!]!, $evs: [Int!]! ){
+        editPokemon(id:$id,name:$name, level: $level, nature: $nature, item: $item, ability:$ability moveset: $moveset, ivs: $ivs, evs: $evs){
             name
         }
     }
@@ -44,6 +44,7 @@ export const getPokemonQuery = gql`
             level
             nature
             item
+            ability
             moveset
             ivs
             evs
