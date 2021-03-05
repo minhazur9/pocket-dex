@@ -7,7 +7,6 @@ import { editPokemonMutation, getTeamsQuery, getPokemonQuery } from '../../queri
 import StatChart from '../pokemon/StatChart';
 import { pokemonOptions, itemOptions, moveOptions, natureOptions, abilityOptions } from '../../options/options';
 import { getCookie } from '../../App';
-import MoveSetList from '../pokemon/MoveSetList';
 
 
 // General Pokemon Information

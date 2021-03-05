@@ -8,10 +8,13 @@ import ItemIndex from '../pages/ItemIndex';
 import SignUp from '../pages/SignUp';
 import Login from '../pages/Login';
 import TeamIndex from '../pages/TeamIndex';
-import DamageCalc from '../pages/DamageCalc';
+import { useSelector } from 'react-redux';
+import Forbidden from '../pages/Forbidden';
+// import DamageCalc from '../pages/DamageCalc';
 
 
 const Routes = () => {
+    const loggedIn = useSelector(state => state.loggedIn)
     return (
         <Switch>
             <Route exact path="/" component={Home} />
@@ -21,7 +24,7 @@ const Routes = () => {
             <Route path="/items" component={ItemIndex} />
             <Route path="/signup" component={SignUp} />
             <Route path="/login" component={Login} />
-            <Route path="/teams" component={TeamIndex} />
+            <Route path="/teams" component={(loggedIn && TeamIndex) || Forbidden} />
             {/* <Route path="/damagecalc" component={DamageCalc} /> */}
         </Switch>
     )

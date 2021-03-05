@@ -4,9 +4,8 @@ import { useSelector } from 'react-redux';
 import PokemonList from './PokemonList';
 
 const AbilityInfo = () => {
-    const loading = useSelector((state => state.loading))
     const abilityInfo = useSelector(state => state.abilityInfo);
-
+    const loading = useSelector((state => state.loading))
 
     // Renders the most up-to-date flavor text
     const renderFlavorText = () => {

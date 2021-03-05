@@ -1,0 +1,20 @@
+.forbidden .forbidden-message {
+  padding: 15px;
+  display: inline-block;
+  border: #bc0000 4px solid;
+  margin-left: 20%;
+  margin-top: 15px;
+}
+
+.forbidden h1 {
+  text-align: center;
+  color: #bc0000;
+  font-weight: 800;
+}
+
+.forbidden p {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 25px;
+}
+/*# sourceMappingURL=Forbidden.css.map */

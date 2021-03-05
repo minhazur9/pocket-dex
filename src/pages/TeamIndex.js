@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLazyQuery, useMutation, useQuery } from 'react-apollo';
 import TeamPokemonInfo from '../components/teams/TeamPokemonInfo';
 import { getCookie } from '../App';
@@ -8,6 +8,8 @@ import { getTeamPokemonInfo } from '../actions';
 import { addTeamMutation, getTeamsQuery, editTeamMutation, getPokemonQuery } from '../queries/teamQueries';
 
 const TeamIndex = () => {
+
+    const loggedIn = useSelector(state => state.loggedIn)
 
     // Get JWT
     const token = getCookie();
@@ -124,23 +126,6 @@ const TeamIndex = () => {
             ]
         })
     }
-
-    // const renderNewTeam = () => {
-    //     const defaultName = `Team ${document.querySelectorAll('.team-container').length}`
-    //     return (
-    //         <div className="team-container">
-    //             <input className="team-name" placeholder={defaultName} />
-    //             <div className="team-pokemon">
-    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-    //                 <div className="add-pokemon empty" onClick={() => setPokemonClicked(true)}>+</div>
-    //             </div>
-    //         </div>
-    //     )
-    // }
 
     return (
         <div className="team-index">

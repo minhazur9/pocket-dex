@@ -22,7 +22,6 @@ const EvolutionChain = () => {
 
     // Renders the evolution method for a pokemon
     const renderEvolutionMethod = (stage) => {
-        console.log(stage)
         for (const method in stage) {
             if(stage[method]) {
                 if(method === 'min_level') {

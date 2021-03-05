@@ -5,6 +5,7 @@
   padding: 0;
   font-family: 'Source Code Pro', monospace;
   list-style: none;
+  font-weight: 600;
 }
 
 body {
@@ -426,6 +427,7 @@ nav #nav-mobile.left {
 }
 
 .pokemon-info .form-line .form {
+  cursor: pointer;
   border: 3px #00A9FF solid;
   padding: 10px;
   border-radius: 10px;
@@ -1399,6 +1401,26 @@ nav #nav-mobile.left {
 .damage-calc-page .set-damage-vars .ivs .ev-inputs .mod-input {
   width: 40px;
   font-size: 0.8rem;
+}
+
+.forbidden .forbidden-message {
+  padding: 15px;
+  display: inline-block;
+  border: #bc0000 4px solid;
+  margin-left: 20%;
+  margin-top: 15px;
+}
+
+.forbidden h1 {
+  text-align: center;
+  color: #bc0000;
+  font-weight: 800;
+}
+
+.forbidden p {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 25px;
 }
 
 /* ----------------- Pokemon Index */

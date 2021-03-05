@@ -11,7 +11,7 @@ const PokemonIndex = () => {
 
     // Highlights selection and changes info to selected pokemon's
     const select = (e) => {
-        highight(e)
+        highlight(e)
         updateInfo(e.target.id)
     }
 
@@ -22,7 +22,7 @@ const PokemonIndex = () => {
 
 
     // Highlights selected element
-    const highight = (e) => {
+    const highlight = (e) => {
         const highlighted = e.target.classList.contains("selected")
         if (highlighted) return;
         const buttons = document.querySelectorAll(".list button");

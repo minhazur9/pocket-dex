@@ -1,8 +1,10 @@
 import React from 'react';
-import { useSelector} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getInfo, getSpeciesInfo } from '../../actions'
 
 const AlternativeForms = () => {
     const speciesInfo = useSelector(state => state.speciesInfo);
+    const dispatch = useDispatch();
 
     // Formats the name into readable format
     const nameFormatter = (pokemon) => {
@@ -16,14 +18,14 @@ const AlternativeForms = () => {
 
     // Formats the name for images
     const imageNameFormatter = (pokemon) => {
-        if(pokemon.includes('gmax')) {
-            pokemon = pokemon.replace('gmax',' gigantamax').split(' ')
+        if (pokemon.includes('gmax')) {
+            pokemon = pokemon.replace('gmax', ' gigantamax').split(' ')
         }
-        else if(pokemon.includes('alola')) {
-            pokemon = pokemon.replace('alola',' alolan').split(' ')
+        else if (pokemon.includes('alola')) {
+            pokemon = pokemon.replace('alola', ' alolan').split(' ')
         }
-        else if(pokemon.includes('galar')) {
-            pokemon = pokemon.replace('galar',' galarian').split(' ')
+        else if (pokemon.includes('galar')) {
+            pokemon = pokemon.replace('galar', ' galarian').split(' ')
         }
         else {
             pokemon = pokemon.split('')
@@ -32,33 +34,39 @@ const AlternativeForms = () => {
         return pokemon;
     }
 
+    // updates the pokemon info state when clicked
+    const updatePokemonState = (e, pokemonName) => {
+        dispatch(getInfo(pokemonName))
+        dispatch(getSpeciesInfo(pokemonName))
+    }
+
     // Renders all the forms
     const renderForms = () => {
-        const {varieties} = speciesInfo;
+        const { varieties } = speciesInfo;
         return varieties.map((form) => {
-            let {name} = form.pokemon
+            let { name } = form.pokemon
             let captionName = name;
-            if(name.includes('-totem')) return <></>;
-            if(name.includes('-')) {
+            if (name.includes('-totem')) return <></>;
+            if (name.includes('-')) {
                 name = imageNameFormatter(name)
                 captionName = nameFormatter(name)
             }
             return (
-                <li key={name} className="form">
-                    <img src={`https://img.pokemondb.net/artwork/${name}.jpg`} alt={name}/>
+                <li key={name} className="form" onClick={(e) => updatePokemonState(e, form.pokemon.name)} >
+                    {<img src={`https://img.pokemondb.net/artwork/${name}.jpg`} alt={name} />}
                     <p>{captionName.toUpperCase()}</p>
                 </li>
             )
-            
+
         })
     }
 
     return (
         <div className="row4">
-        <p className="form-list-header">Alternate Forms</p>
-        <ul className="form-line">
-        {speciesInfo && renderForms()}
-        </ul>
+            <p className="form-list-header">Alternate Forms</p>
+            <ul className="form-line">
+                {speciesInfo && renderForms()}
+            </ul>
         </div>
     )
 }
