@@ -1,0 +1,8 @@
+.home {
+  height: 100vh;
+}
+
+.home .indicator-item.active {
+  background-color: #F44336  !important;
+}
+/*# sourceMappingURL=Home.css.map */

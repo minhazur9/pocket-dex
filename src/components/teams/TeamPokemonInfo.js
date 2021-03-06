@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from 'react-apollo';
 import Select from 'react-select';
-import { getPokemon, getItems, getInfo } from '../../actions';
+import { getPokemon, getItems, getInfo, getSpeciesInfo } from '../../actions';
 import { editPokemonMutation, getTeamsQuery, getPokemonQuery } from '../../queries/teamQueries';
 import StatChart from '../pokemon/StatChart';
 import { pokemonOptions, itemOptions, moveOptions, natureOptions, abilityOptions } from '../../options/options';
@@ -31,7 +31,10 @@ const TeamPokemonInfo = () => {
     useEffect(() => {
         const { name, level, nature, item, ability, moveset, ivs, evs } = teamPokemonInfo;
         dispatch(getPokemon())
-        if (name) dispatch(getInfo(name))
+        if (name) {
+            dispatch(getInfo(name))
+            dispatch(getSpeciesInfo(name))
+        }
         dispatch(getItems())
         setPokemon(name)
         setLevel(level)

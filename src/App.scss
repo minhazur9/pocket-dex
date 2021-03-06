@@ -9,11 +9,12 @@
 
 body {
     max-height: 100vh;
-    max-width: 100vw;
+    max-width: 100%;
     overflow-y: hidden;
 }
 
 @import "./styles/Navbar";
+@import "./styles/Home";
 @import "./styles/InfoPages/PokemonInfo";
 @import "./styles/InfoPages/MoveInfo";
 @import "./styles/InfoPages/AbilityInfo";
