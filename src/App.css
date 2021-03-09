@@ -430,6 +430,10 @@ nav .hamburger-menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   position: relative;
@@ -438,7 +442,7 @@ nav .hamburger-menu {
 .pokemon-info .evolution-line .stage-image {
   cursor: pointer;
   text-align: center;
-  border: 3px #00A9FF solid;
+  border: 3px #00a9ff solid;
   padding: 10px;
   border-radius: 10px;
   margin: 10px;
@@ -449,9 +453,9 @@ nav .hamburger-menu {
   width: 40%;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 500px) {
   .pokemon-info .evolution-line .stage-image img {
-    width: 10px;
+    width: 20%;
   }
 }
 
@@ -462,15 +466,46 @@ nav .hamburger-menu {
   font-size: 15px;
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 500px) {
   .pokemon-info .evolution-line .stage-image p {
     font-size: 10px;
   }
 }
 
-.pokemon-info .fa-long-arrow-right {
+@media only screen and (max-width: 500px) {
+  .pokemon-info .evolution-line .stage-image {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .pokemon-info .evolution-line {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.pokemon-info .arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pokemon-info .arrow .arrow-right {
   position: relative;
-  top: 50px;
+  top: 45%;
 }
 
 .pokemon-info .form-line {
@@ -485,7 +520,7 @@ nav .hamburger-menu {
 
 .pokemon-info .form-line .form {
   cursor: pointer;
-  border: 3px #00A9FF solid;
+  border: 3px #00a9ff solid;
   padding: 10px;
   border-radius: 10px;
   margin: 10px;
@@ -532,7 +567,7 @@ nav .hamburger-menu {
 .pokemon-info .row5 .move-set .move .move-link {
   display: inline;
   cursor: pointer;
-  color: #00A9FF;
+  color: #00a9ff;
 }
 
 .pokemon-info .row5 .move-set .move .learn-method {
@@ -565,6 +600,12 @@ nav .hamburger-menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media only screen and (max-width: 500px) {
+  .pokemon-info .chain {
+    display: block;
+  }
 }
 
 .pokemon-info .form-list-header {
@@ -1501,8 +1542,8 @@ nav .hamburger-menu {
 }
 
 .list::-webkit-scrollbar-track {
-  background-color: white;
-  border-right: #F44336 2px solid;
+  background-color: #fcfcfc;
+  border-right: #2DA8E0 3px solid;
 }
 
 .list::-webkit-scrollbar-thumb {
@@ -1529,6 +1570,15 @@ nav .hamburger-menu {
   }
   .list::-webkit-scrollbar {
     width: 5px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .list button {
+    font-size: 10px;
+  }
+  .list::-webkit-scrollbar {
+    width: 4px;
   }
 }
 

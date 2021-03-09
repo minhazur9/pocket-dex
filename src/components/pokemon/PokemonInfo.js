@@ -22,6 +22,7 @@ import StatChart from './StatChart';
 import MoveSetList from './MoveSetList';
 import EvolutionChain from './EvolutionChain';
 import AlternativeForms from './AlternativeForms';
+
 // General Pokemon Information
 const PokemonInfo = () => {
 

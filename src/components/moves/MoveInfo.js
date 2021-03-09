@@ -59,17 +59,19 @@ const MoveInfo = () => {
     // Renders the type of move
     const renderType = () => {
         const type = moveInfo.type;
-            return (
-                <img src={typeTable[type.name]} alt={type.name} className="type" />
-            )
+        return (
+            <img src={typeTable[type.name]} alt={type.name} className="type" />
+        )
     }
 
     // Render the damage class of the move
     const renderDamageClass = () => {
-        const damageClass = moveInfo.damage_class;
-        return (
-             <img src={damageClassTable[damageClass.name]} alt={damageClass.name} className="damage-class" />
-        )
+        const { damageClass } = moveInfo
+        if (damageClass) {
+            return (
+                <img src={damageClassTable[damageClass.name]} alt={damageClass.name} className="damage-class" />
+            )
+        }
     }
 
     // Renders the PP of the move
@@ -147,26 +149,26 @@ const MoveInfo = () => {
     const renderAllInfo = () => {
         return (
             <>
-            <h1 className="name">{moveInfo.name.toUpperCase().replace('-', ' ')}</h1>
-            <div className="col2">
-                {renderType()}
-                {renderDamageClass()}
-                {renderPP()}
+                <h1 className="name">{moveInfo.name.toUpperCase().replace('-', ' ')}</h1>
+                <div className="col2">
+                    {renderType()}
+                    {renderDamageClass()}
+                    {renderPP()}
+                </div>
+                <div className="col3">
+                    {renderMovePower()}
+                    {renderMoveAccuracy()}
+                    {renderPriority()}
+                </div>
+                <div className="col4">
+                    {renderMoveText()}
+                </div>
+                <div className="col5">
+                    Effect
             </div>
-            <div className="col3">
-                {renderMovePower()}
-                {renderMoveAccuracy()}
-                {renderPriority()}
-            </div>
-            <div className="col4">
-                {renderMoveText()}
-            </div>
-            <div className="col5">
-                Effect
-            </div>
-            <div className="col6">
-                {renderMoveDetails()}
-            </div>
+                <div className="col6">
+                    {renderMoveDetails()}
+                </div>
             </>
         )
     }

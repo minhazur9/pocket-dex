@@ -41,8 +41,8 @@ body {
         width: 15px;
     }
     &::-webkit-scrollbar-track{
-        background-color: white;
-        border-right:#F44336 2px solid;
+        background-color: #fcfcfc;
+        border-right:#2DA8E0 3px solid;
     }
     &::-webkit-scrollbar-thumb{
         background-color: rgb(16, 180, 230);
@@ -65,6 +65,14 @@ body {
         }
         &::-webkit-scrollbar{
             width: 5px;
+        }
+    }
+    @media only screen and (max-width: 500px) {
+        button {
+            font-size: 10px;
+        }
+        &::-webkit-scrollbar{
+            width: 4px;
         }
     }
    
