@@ -1,3 +1,4 @@
+// list of pokemon natures
 export const natures = [
     'hardy',
     'lonely',
@@ -26,6 +27,7 @@ export const natures = [
     'serious'
 ]
 
+// renders all pokemon
 export const pokemonOptions = (list) => {
     return list.map((pokemon) => {
         const { name } = pokemon;
@@ -33,6 +35,7 @@ export const pokemonOptions = (list) => {
     })
 }
 
+// render all items
 export const itemOptions = (list) => {
     return list.map((item) => {
         const { name } = item;
@@ -40,6 +43,7 @@ export const itemOptions = (list) => {
     })
 }
 
+// renders all moves
 export const moveOptions = (info) => {
     const { moves } = info;
     return moves.map((entry) => {
@@ -48,12 +52,14 @@ export const moveOptions = (info) => {
     })
 }
 
+// renders all natures
 export const natureOptions = () => {
     return natures.map((nature) => {
         return { value: nature, label: nature.toUpperCase() }
     })
 }
 
+// renders all abilities
 export const abilityOptions = (info) => {
     let abilities = [];
     if (info) abilities = info.abilities;

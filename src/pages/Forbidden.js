@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Page that displays if only unauthorized user tries to access a page
 const Forbidden = () => {
     return (
         <div className="forbidden">

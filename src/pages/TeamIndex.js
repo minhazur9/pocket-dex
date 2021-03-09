@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useLazyQuery, useMutation, useQuery } from 'react-apollo';
 import TeamPokemonInfo from '../components/teams/TeamPokemonInfo';
 import { getCookie } from '../App';
@@ -8,8 +8,6 @@ import { getTeamPokemonInfo } from '../actions';
 import { addTeamMutation, getTeamsQuery, editTeamMutation, getPokemonQuery } from '../queries/teamQueries';
 
 const TeamIndex = () => {
-
-    const loggedIn = useSelector(state => state.loggedIn)
 
     // Get JWT
     const token = getCookie();
@@ -43,11 +41,13 @@ const TeamIndex = () => {
         }
     })
 
+    // gets information of selected pokemon
     const handlePokemonSelect = (id) => {
         setPokemonId(id)
         getPokemon();
     }
 
+    // renders all existing teams belonging to the user
     const renderExistingTeams = () => {
         if (data) {
             const { allTeamsByUser } = data;
@@ -69,6 +69,7 @@ const TeamIndex = () => {
         }
     }
 
+    // renders all pokemon in the team
     const renderPokemonList = (pokemonList) => {
         return pokemonList.map((pokemon) => {
             const { name, id } = pokemon;
@@ -89,6 +90,7 @@ const TeamIndex = () => {
         })
     }
 
+    // edits the team info in the database
     const editTeamInfo = (e) => {
         const id = e.target.parentElement.id;
         editTeam({
@@ -108,6 +110,7 @@ const TeamIndex = () => {
     }
 
 
+    // adds a new team in the database
     const addNewTeam = () => {
         const defaultName = `Team ${document.querySelectorAll('.team-container').length + 1}`
         const name = defaultName

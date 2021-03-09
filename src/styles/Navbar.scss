@@ -4,6 +4,13 @@ nav {
         font-size: 20px;
         border: none;
     }
+    .brand-logo {
+        margin-left: 15px;
+    }
+
+    .teams-button {
+        margin-left: 15px;
+    }
 
     .sign-out {
         cursor: pointer;
@@ -32,6 +39,10 @@ nav {
         left: 180px;
     }
 
+    .hamburger-menu {
+        display: none;
+    }
+
     @media only screen and (max-width: 900px) {
         .mobile-nav-link {
             display: block;
@@ -39,6 +50,7 @@ nav {
         }
         .hamburger-menu {
             position: absolute;
+            display: block;
             border: 2px #a72d24 solid;
             background-color: #fd1100;
             top: 5px;
@@ -62,7 +74,7 @@ nav {
             width: 100%;
             top: 60px;
             background-color: #f31202;
-            z-index: 2;
+            z-index: 5;
             border: 1px solid red;
             animation-name: slideDown;
             animation-duration: 350ms;

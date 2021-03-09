@@ -28,6 +28,7 @@ const SignUp = () => {
     const dispatch = useDispatch();
 
 
+    // Stores the JWT in cookie
     const storeToken = (response) => {
         const date = new Date();
         date.setTime(date.getTime() + (12 * 60 * 60 * 1000));
@@ -36,6 +37,7 @@ const SignUp = () => {
         history.push('/teams')
     }
 
+    // Submits form to the database
     const submitForm = (e) => {
         e.preventDefault();
         if (!username) setBlankUsername(true);
@@ -53,24 +55,29 @@ const SignUp = () => {
         }
     }
 
+    // renders blank username error
     const blankUsernameError = () => {
         if (blankUsername) return <p className="error-message">Username is required</p>
     }
 
+    // renders blank password error
     const blankPasswordError = () => {
         if (blankPassword) return <p className="error-message">Password is required</p>
     }
-
+    
+    // renders blank email error
     const blankEmailError = () => {
         if (blankEmail) return <p className="error-message">Email is required</p>
     }
 
+    // renders if password and password confirmation doesn't match
     const passwordVerificationError = () => {
         if (password !== confirm && password !== "" && confirm !== "") {
             return <p className="error-message">Passwords do not match</p>
         }
     }
 
+    // renders if username is too short
     const userNameLengthError = () => {
         if (username.length < 3 && username !== "") {
             return <p className="error-message">Username must be at least 3 characters long</p>

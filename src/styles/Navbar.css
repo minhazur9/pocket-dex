@@ -7,6 +7,14 @@ nav .nav-link {
   border: none;
 }
 
+nav .brand-logo {
+  margin-left: 15px;
+}
+
+nav .teams-button {
+  margin-left: 15px;
+}
+
 nav .sign-out {
   cursor: pointer;
 }
@@ -38,6 +46,10 @@ nav #nav-mobile.left {
   left: 180px;
 }
 
+nav .hamburger-menu {
+  display: none;
+}
+
 @media only screen and (max-width: 900px) {
   nav .mobile-nav-link {
     display: block;
@@ -45,6 +57,7 @@ nav #nav-mobile.left {
   }
   nav .hamburger-menu {
     position: absolute;
+    display: block;
     border: 2px #a72d24 solid;
     background-color: #fd1100;
     top: 5px;
@@ -70,7 +83,7 @@ nav #nav-mobile.left {
     width: 100%;
     top: 60px;
     background-color: #f31202;
-    z-index: 2;
+    z-index: 5;
     border: 1px solid red;
     -webkit-animation-name: slideDown;
             animation-name: slideDown;

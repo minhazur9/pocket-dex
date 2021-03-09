@@ -12,6 +12,7 @@ const itemListURL = 'https://pokeapi.co/api/v2/item?limit=954';
 const itemInfoURL = 'https://pokeapi.co/api/v2/item/';
 
 
+// get all pokemon from api
 export const getPokemon = () => {
     return (dispatch) => {
         const cachedData = localStorage.getItem('pokemon-list-data')
@@ -39,6 +40,7 @@ export const getPokemon = () => {
     };
 };
 
+// get information of a pokemon from api
 export const getInfo = (name) => {
     return (dispatch) => {
         return axios.get(pokemonInfoURL + name)
@@ -51,6 +53,7 @@ export const getInfo = (name) => {
     }
 }
 
+// get species information of a pokemon from api
 export const getSpeciesInfo = (name) => {
     return (dispatch) => {
         return axios.get(speciesInfoURL + name)
@@ -63,6 +66,7 @@ export const getSpeciesInfo = (name) => {
     }
 }
 
+// search for the pokemon
 export const searchPokemon = (term) => {
     return {
         type: 'POKEMON_SEARCH_DATA',
@@ -70,6 +74,7 @@ export const searchPokemon = (term) => {
     }
 }
 
+// get all moves from the api
 export const getMoves = () => {
     return (dispatch) => {
         const cachedData = localStorage.getItem('moves-data');
@@ -96,6 +101,7 @@ export const getMoves = () => {
     }
 }
 
+// get information of a move from the api
 export const getMoveInfo = (move) => {
     return (dispatch) => {
         return axios.get(moveInfoURL + move)
@@ -108,6 +114,7 @@ export const getMoveInfo = (move) => {
     }
 }
 
+// search from all moves
 export const searchMoves = (term) => {
     return {
         type: 'MOVES_SEARCH_DATA',
@@ -115,6 +122,7 @@ export const searchMoves = (term) => {
     }
 }
 
+// get the evolution chain of a pokemon from the api
 export const getEvolutionChain = (endpoint) => {
     return (dispatch) => {
         return axios.get(endpoint)
@@ -128,6 +136,7 @@ export const getEvolutionChain = (endpoint) => {
 }
 
 
+// get all abilites from the api
 export const getAbilities = () => {
     return (dispatch) => {
         const cachedData = localStorage.getItem('abilities-data');
@@ -154,6 +163,7 @@ export const getAbilities = () => {
     }
 }
 
+// search through all abilities
 export const searchAbilities = (term) => {
     return {
         type: 'ABILITY_SEARCH_DATA',
@@ -161,6 +171,7 @@ export const searchAbilities = (term) => {
     }
 }
 
+// get information of an ability from the api
 export const getAbilityInfo = (ability) => {
     return (dispatch) => {
         axios.get(abilityInfoURL + ability)
@@ -174,6 +185,7 @@ export const getAbilityInfo = (ability) => {
 
 }
 
+// get all items from the api
 export const getItems = () => {
     const cachedData = localStorage.getItem('items-data');
     return (dispatch) => {
@@ -200,6 +212,7 @@ export const getItems = () => {
     }
 }
 
+// get information of an item from the api
 export const getItemInfo = (item) => {
     return (dispatch) => {
         axios.get(itemInfoURL + item)
@@ -214,6 +227,7 @@ export const getItemInfo = (item) => {
     }
 }
 
+// search from all the items
 export const searchItems = (term) => {
     return {
         type: 'ITEM_SEARCH_DATA',
@@ -221,30 +235,35 @@ export const searchItems = (term) => {
     }
 }
 
+// start loading
 export const startLoading = () => {
     return {
         type: 'START_LOADING'
     }
 }
 
+// stop loading
 export const stopLoading = () => {
     return {
         type: 'STOP_LOADING'
     }
 }
 
+// login user
 export const logIn = () => {
     return {
         type: 'LOG_IN'
     }
 }
 
+// logout user
 export const logOut = () => {
     return {
         type: 'LOG_OUT'
     }
 }
 
+// get pokemon information from a team
 export const getTeamPokemonInfo = (info) => {
     return {
         type: 'TEAM_POKEMON_INFO_DATA',

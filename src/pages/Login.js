@@ -25,10 +25,12 @@ const Login = () => {
     )
 
 
+    // Renders error username or password is invalid
     const badLoginError = () => {
         return <p className="error-message" style={{fontSize:'15px'}}>Invalid username or password</p>
     }
 
+    // Stores JWT in cookie
     const storeToken = (response) => {
         const date = new Date();
         date.setTime(date.getTime() + (12 * 60 * 60 * 1000));
@@ -39,6 +41,7 @@ const Login = () => {
 
 
 
+    // Submits the form to the database
     const submitForm = (e) => {
         e.preventDefault();
         tokenAuth({

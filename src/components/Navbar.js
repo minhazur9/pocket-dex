@@ -18,6 +18,7 @@ const Navbar = () => {
     history.push('/')
   }
 
+  // Render the signout button
   const renderSignout = () => {
     return (
       <>
@@ -26,14 +27,16 @@ const Navbar = () => {
     )
   }
 
+  // Renders the buttons that only logged in users can use on desktop
   const renderDesktopAccountControls = () => {
     return (
       <>
-        <li><Link to="/teams" className="nav-link">My Teams</Link></li>
+        <li><Link to="/teams" className="nav-link teams-button">My Teams</Link></li>
       </>
     )
   }
 
+  // Renders the signup and login buttons for desktop
   const renderDesktopAccountLinks = () => {
     return (
       <>
@@ -44,6 +47,7 @@ const Navbar = () => {
   }
 
 
+  // Renders the buttons than only logged in users can use on mobile
   const renderMobileAccountControls = () => {
     return (
       <>
@@ -57,6 +61,7 @@ const Navbar = () => {
     )
   }
 
+  // Renders the signup and login buttons for mobile
   const renderMobileAccountLinks = () => {
     return (
       <>
