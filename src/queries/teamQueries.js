@@ -57,3 +57,27 @@ export const getPokemonQuery = gql`
         }
     }
 `
+// delete team
+export const deleteTeamMutation = gql`
+    mutation($id:ID!){
+        deleteTeam(id:$id){
+            name
+        }
+    }
+`
+
+export const getAllPokemonByTeamQuery = gql`
+    query($teamId:ID!){
+        getAllPokemonByTeam(teamId:$teamId){
+            name
+            level
+            nature
+            item
+            ability
+            moveset
+            ivs
+            evs
+            id
+        }
+    }
+`

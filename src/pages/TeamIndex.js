@@ -5,7 +5,7 @@ import TeamPokemonInfo from '../components/teams/TeamPokemonInfo';
 import { getCookie } from '../App';
 import { getTeamPokemonInfo } from '../actions';
 
-import { addTeamMutation, getTeamsQuery, editTeamMutation, getPokemonQuery } from '../queries/teamQueries';
+import { addTeamMutation, getTeamsQuery, editTeamMutation, getPokemonQuery, deleteTeamMutation, getAllPokemonByTeamQuery } from '../queries/teamQueries';
 
 const TeamIndex = () => {
 
@@ -19,10 +19,12 @@ const TeamIndex = () => {
     // Temporary States for Queries
     const [pokemonId, setPokemonId] = useState(0);
     const [teamName, setTeamName] = useState("");
+    const [teamId, setTeamId] = useState(0);
 
     // Mutations
     const [addTeam] = useMutation(addTeamMutation);
     const [editTeam] = useMutation(editTeamMutation);
+    const [deleteTeam] = useMutation(deleteTeamMutation);
 
     // Queries
     const { data } = useQuery(getTeamsQuery, {
@@ -41,6 +43,28 @@ const TeamIndex = () => {
         }
     })
 
+    const [getAllPokemonByTeam] = useLazyQuery(getAllPokemonByTeamQuery, {
+        variables: {
+            teamId: teamId
+        }
+    })
+
+    const handleDeleteTeam = (e) => {
+        deleteTeam({
+            variables: {
+                id: e.target.id
+            },
+            refetchQueries: [
+                {
+                    query: getTeamsQuery,
+                    variables: {
+                        userId: token
+                    }
+                }
+            ]
+        })
+    }
+
     // gets information of selected pokemon
     const handlePokemonSelect = (id) => {
         setPokemonId(id)
@@ -49,24 +73,23 @@ const TeamIndex = () => {
 
     // renders all existing teams belonging to the user
     const renderExistingTeams = () => {
-        if (data) {
-            const { allTeamsByUser } = data;
-            return allTeamsByUser.map((team) => {
-                const { name, id, pokemon } = team;
-                return (
-                    <div id={id} key={name} className="team-container">
-                        <input className="team-name" defaultValue={name}
-                            onFocus={(e) => setTeamName(e.target.value)}
-                            onChange={(e) => setTeamName(e.target.value)}
-                            onBlur={editTeamInfo}
-                        />
-                        <div className="team-pokemon">
-                            {renderPokemonList(pokemon)}
-                        </div>
+        const { allTeamsByUser } = data;
+        return allTeamsByUser.map((team) => {
+            const { name, id, pokemon } = team;
+            return (
+                <div id={id} key={name} className="team-container">
+                    <input className="team-name" defaultValue={name}
+                        onFocus={(e) => setTeamName(e.target.value)}
+                        onChange={(e) => setTeamName(e.target.value)}
+                        onBlur={editTeamInfo}
+                    />
+                    <div className="team-pokemon">
+                        {renderPokemonList(pokemon)}
+                        {allTeamsByUser.length > 1 && <button id={id} className="waves-effect waves-light btn-small red  delete-team" onClick={handleDeleteTeam}>Delete Team</button>}
                     </div>
-                )
-            })
-        }
+                </div>
+            )
+        })
     }
 
     // renders all pokemon in the team
@@ -134,7 +157,7 @@ const TeamIndex = () => {
         <div className="team-index">
             <div className="teams">
                 <h1>My Teams</h1>
-                {renderExistingTeams()}
+                {data && renderExistingTeams()}
                 <button className="waves-effect waves-light btn red darken-1 add-team" onClick={addNewTeam} >Add Team</button>
             </div>
             { pokemonId && <TeamPokemonInfo />}

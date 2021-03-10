@@ -89,6 +89,38 @@ const TeamPokemonInfo = () => {
             ]
         })
     }
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+        const { id } = teamPokemonInfo;
+        editPokemon({
+            variables: {
+                name: "",
+                level: 1,
+                nature: "hardy",
+                item: "",
+                moveset: [],
+                ability: "",
+                ivs: [0,0,0,0,0,0],
+                evs: [0,0,0,0,0,0],
+                id,
+            },
+            refetchQueries: [
+                {
+                    query: getTeamsQuery,
+                    variables: {
+                        userId: token,
+                    }
+                },
+                {
+                    query: getPokemonQuery,
+                    variables: {
+                        id
+                    }
+                }
+            ]
+        })
+    }
     const handleMovesetChange = (option) => {
         if (option.length > 4) option.pop();
         setMoveset(option.map((option) => option.value))
@@ -126,7 +158,6 @@ const TeamPokemonInfo = () => {
 
     return (
         <div className="team-pokemon-info">
-            <form onSubmit={handleSubmit}>
                 <label htmlFor="pokemon-select">Pokemon</label>
                 <Select
                     options={pokemonOptions(pokemonList)}
@@ -247,9 +278,8 @@ const TeamPokemonInfo = () => {
                         onChange={(option) => handleMovesetChange(option)}
                     />
                 {info && pokemon && <StatChart height={250} width={350} level={level} ivs={ivs} evs={evs} nature={nature} />}
-                <button className="waves-effect waves-light btn green darken-3 confirm-edit">Confirm</button>
-                <button className="waves-effect waves-light btn red darken-3 confirm-edit">Delete</button>
-            </form>
+                <button className="waves-effect waves-light btn green darken-3 confirm-edit" onClick={handleSubmit}>Confirm</button>
+                <button className="waves-effect waves-light btn red darken-3 confirm-edit" onClick={handleDelete}>Delete</button>
         </div>
     )
 

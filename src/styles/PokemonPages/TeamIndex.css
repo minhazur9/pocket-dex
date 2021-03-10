@@ -81,6 +81,12 @@
           transition-duration: 0.5s;
 }
 
+.team-index .teams .delete-team {
+  position: relative;
+  left: 210%;
+  top: 5px;
+}
+
 .team-index .teams .add-team {
   display: inline-block;
   margin-top: 90px;

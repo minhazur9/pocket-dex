@@ -1361,6 +1361,17 @@ nav .hamburger-menu {
           transition-duration: 0.5s;
 }
 
+.team-index .teams .delete-button-container {
+  width: 200px;
+  border-top: red 2px solid;
+}
+
+.team-index .teams .delete-team {
+  position: relative;
+  left: 210%;
+  top: 5px;
+}
+
 .team-index .teams .add-team {
   display: inline-block;
   margin-top: 90px;
@@ -1462,8 +1473,9 @@ nav .hamburger-menu {
 .team-pokemon-info .confirm-edit {
   position: relative;
   z-index: 0;
-  left: 80%;
+  left: 65%;
   margin-top: 15px;
+  margin-right: 10px;
 }
 
 .damage-calc-page {

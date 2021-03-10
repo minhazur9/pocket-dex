@@ -54,6 +54,13 @@ const RootQuery = new GraphQLObjectType({
                 return db.Pokemon.findById(args.id)
             }
         },
+        getAllPokemonByTeam: {
+            type: new GraphQLList(PokemonType),
+            args: { teamId: { type: new GraphQLNonNull(GraphQLID) } },
+            resolve(parent, args) {
+                return db.Pokemon.find({ teamId: args.teamId})
+            }
+        },
         // Query for all users
         allUsers: {
             type: new GraphQLList(UserType),

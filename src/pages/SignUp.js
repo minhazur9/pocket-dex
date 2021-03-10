@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { useMutation } from 'react-apollo';
-import {useDispatch} from 'react-redux';
-import { addUserMutation } from '../queries/accountQueries'
-import {logIn} from '../actions';
+import { useDispatch } from 'react-redux';
+import { addUserMutation } from '../queries/accountQueries';
+import { addTeamMutation, getTeamsQuery } from '../queries/teamQueries';
+import { logIn } from '../actions';
+import { getCookie } from '../App';
 
 const SignUp = () => {
 
@@ -16,6 +18,7 @@ const SignUp = () => {
         }
     );
 
+    const [addTeam] = useMutation(addTeamMutation)
 
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -38,20 +41,34 @@ const SignUp = () => {
     }
 
     // Submits form to the database
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
         if (!username) setBlankUsername(true);
         if (!password) setBlankPassword(true);
         if (!email) setBlankEmail(true);
         if (password === confirm && password && confirm && email && username) {
-            addUser({
+            await addUser({
                 variables: {
                     username: username,
                     email: email,
                     password: password,
                 }
             })
-                .catch((err) => console.log(err))
+            addTeam({
+                variables: {
+                    name: "Team 1",
+                    userId: getCookie()
+                },
+                refetchQueries: [
+                    {
+                        query: getTeamsQuery,
+                        variables: {
+                            userId: getCookie()
+                        }
+                    }
+                ]
+            })
+
         }
     }
 
@@ -64,7 +81,7 @@ const SignUp = () => {
     const blankPasswordError = () => {
         if (blankPassword) return <p className="error-message">Password is required</p>
     }
-    
+
     // renders blank email error
     const blankEmailError = () => {
         if (blankEmail) return <p className="error-message">Email is required</p>
