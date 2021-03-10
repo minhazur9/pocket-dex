@@ -248,6 +248,7 @@ const TeamPokemonInfo = () => {
                     />
                 {info && pokemon && <StatChart height={250} width={350} level={level} ivs={ivs} evs={evs} nature={nature} />}
                 <button className="waves-effect waves-light btn green darken-3 confirm-edit">Confirm</button>
+                <button className="waves-effect waves-light btn red darken-3 confirm-edit">Delete</button>
             </form>
         </div>
     )

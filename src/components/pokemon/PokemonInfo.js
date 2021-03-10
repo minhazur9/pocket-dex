@@ -152,7 +152,8 @@ const PokemonInfo = () => {
                 </div>
                 <div className="row3">
                     <div className="base-stats">
-                        <div className="stats">Base Stats
+                        <div className="stats"> 
+                       <p className='stat-header'>Base Stats</p> 
                 <ul className="stat-list">
                                 <StatChart height={300} width={400} />
                             </ul>
