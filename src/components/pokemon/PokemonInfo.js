@@ -1,6 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { renderLoading } from '../Loading';
+import { getAbilityInfo, startLoading, stopLoading } from '../../actions';
+import { useHistory } from 'react-router';
+
 import bug from '../../images/types/bug.png'
 import dark from '../../images/types/dark.png'
 import dragon from '../../images/types/dragon.png'
@@ -25,12 +28,15 @@ import EvolutionChain from './EvolutionChain';
 import AlternativeForms from './AlternativeForms';
 
 
+
 // General Pokemon Information
 const PokemonInfo = () => {
 
-    const info = useSelector((state => state.info))
-    const loading = useSelector((state => state.loading))
-    const speciesInfo = useSelector(state => state.speciesInfo)
+    const info = useSelector((state => state.info));
+    const loading = useSelector((state => state.loading));
+    const speciesInfo = useSelector(state => state.speciesInfo);
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     // Hash table for converting pokemon type strings to image
     const typeTable = {
@@ -84,6 +90,14 @@ const PokemonInfo = () => {
         return pokemon;
     }
 
+    // Updates ability info state
+    const updateAbilityState = async (abilityName) => {
+        dispatch(startLoading())
+        await dispatch(getAbilityInfo(abilityName))
+        await dispatch(stopLoading())
+        history.push("/abilities")
+    }
+
     // Renders the pokemon id number
     const renderPokemonId = () => {
         return (
@@ -109,7 +123,7 @@ const PokemonInfo = () => {
                 .map((word) => word.charAt(0).toUpperCase() + word.substr(1))
                 .join(' ');
             return (
-                <li key={index * 5} className='ability'>{abilityName}</li>
+                <li key={index * 5} className='ability' onClick={() => updateAbilityState(ability.ability.name)}>{abilityName}</li>
             )
         });
     }
@@ -159,7 +173,9 @@ const PokemonInfo = () => {
                     </div>
                     <ul className="abilties">
                         <p className="ability-header">Abilties</p>
-                        {renderAbilities()}
+                        <div className="ability-list">
+                            {renderAbilities()}
+                        </div>
                         <div className="description">
                             <p>Description</p>
                             {speciesInfo && renderFlavorText()}

@@ -282,18 +282,26 @@
   font-size: 30px;
 }
 
-.pokemon-info .row3 .abilties .ability {
+.pokemon-info .row3 .abilties .ability-list {
+  border: 2px #00A9FF solid;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.pokemon-info .row3 .abilties .ability-list .ability {
+  cursor: default;
   font-size: 20px;
+  text-align: center;
+}
+
+.pokemon-info .row3 .abilties .ability-list .ability:hover {
+  color: #00A9FF;
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .row3 .abilties .ability {
+  .pokemon-info .row3 .abilties .ability-list .ability {
     font-size: 10px;
   }
-}
-
-.pokemon-info .row3 .abilties .ability-header {
-  text-decoration: underline;
 }
 
 @media only screen and (max-width: 500px) {
@@ -329,14 +337,18 @@
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 30px;
+  margin-bottom: 5px;
 }
 
 .pokemon-info .row3 .description .text {
   border: 2px solid black;
+  padding: 5px;
+  text-align: center;
   border-radius: 12px;
   font-size: 20px;
   overflow-wrap: break-word;
   width: 450px;
+  border-color: #00a9ff;
 }
 
 @media only screen and (max-width: 900px) {
@@ -528,7 +540,7 @@
 .pokemon-info .row5 .move-set {
   text-align: center;
   width: 70vw;
-  border: 3px solid #269BFF;
+  border: 3px solid #269bff;
   border-radius: 10px;
   max-height: 400px;
   overflow-y: auto;
@@ -541,7 +553,7 @@
 
 .pokemon-info .row5 .move-set .move {
   position: relative;
-  background-color: #3A3A3A;
+  background-color: #3a3a3a;
   padding: 10px;
   text-align: left;
   font-size: 20px;
