@@ -58,6 +58,12 @@ const AlternativeForms = () => {
                 name = imageNameFormatter(name)
                 captionName = nameFormatter(name)
             }
+            if (name.includes('-dusk')) {
+                name += '-mane'
+            }
+            else if (name.includes('-dawn')) {
+                name += '-wings'
+            }
             return (
                 <li key={name+index} className="form" onClick={(e) => updatePokemonState(e, form.pokemon.name)} >
                     {<img src={`https://img.pokemondb.net/artwork/${name}.jpg`} alt={name} />}

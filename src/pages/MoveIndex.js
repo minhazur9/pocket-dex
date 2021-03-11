@@ -55,6 +55,7 @@ const MoveIndex = () => {
     // Gets all the moves
     useEffect(() => {
         dispatch(getMoves())
+        return moves;
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 

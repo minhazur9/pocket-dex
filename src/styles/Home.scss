@@ -18,16 +18,31 @@
     .desc {
       text-align: center;
       max-width: 500px;
+      @media only screen and (max-width: 500px) {
+        font-size: 15px
+      }
     }
     img {
       margin: 5px;
       width: 40px;
+      @media only screen and (max-width: 500px) {
+        width: 30px
+      }
     }
 
     .lugia-icon {
       position: relative;
       width: 60px;
       bottom: 10px;
+      @media only screen and (max-width: 500px) {
+        width: 45px
+      }
+    }
+    @media only screen and (max-width: 500px) {
+      h4 {
+        font-size: 20px;
+      }
+      margin-top: 25px;
     }
   }
 }

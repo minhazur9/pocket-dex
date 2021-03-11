@@ -106,9 +106,10 @@ const EvolutionChain = () => {
     }
 
     useEffect(() => {
-        if (speciesInfo) dispatch(getEvolutionChain(speciesInfo.evolution_chain.url))
+        dispatch(getEvolutionChain(speciesInfo.evolution_chain.url))
+        return speciesInfo;
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [speciesInfo])
 
     return (
         <>

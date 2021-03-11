@@ -73,6 +73,7 @@ const PokemonIndex = () => {
     // Gets all the pokemon
     useEffect(() => {
         dispatch(getPokemon())
+        return pokemon
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

@@ -31,14 +31,41 @@
   max-width: 500px;
 }
 
+@media only screen and (max-width: 500px) {
+  .home .about .desc {
+    font-size: 15px;
+  }
+}
+
 .home .about img {
   margin: 5px;
   width: 40px;
+}
+
+@media only screen and (max-width: 500px) {
+  .home .about img {
+    width: 30px;
+  }
 }
 
 .home .about .lugia-icon {
   position: relative;
   width: 60px;
   bottom: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .home .about .lugia-icon {
+    width: 45px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .home .about {
+    margin-top: 25px;
+  }
+  .home .about h4 {
+    font-size: 20px;
+  }
 }
 /*# sourceMappingURL=Home.css.map */

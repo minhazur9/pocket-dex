@@ -24,7 +24,7 @@ $rectColor: #fefefe;
     display: flex;
     justify-self: center;
     align-items: center;
-    font-size: 50px;
+    font-size: 45px;
     border: 5px solid #f44336;
     filter: drop-shadow(4px 4px rgb(163, 163, 163));
     height: 55%;
@@ -33,13 +33,14 @@ $rectColor: #fefefe;
     background-color: #f44336;
     color: white;
     max-height: 80px;
+    margin: 10px;
     @media only screen and (max-width: 900px) {
-      font-size: 30px;
+      font-size: 20px;
       height: 40%;
       border-width: 3px;
     }
     @media only screen and (max-width: 500px) {
-      font-size: 20px;
+      font-size: 15px;
       height: 30%;
       border-width: 2px;
     }

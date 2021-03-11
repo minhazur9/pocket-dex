@@ -52,6 +52,7 @@ const ItemIndex = () => {
 
     useEffect(() => {
         dispatch(getItems())
+        return items
         // eslint-disable-next-line
     },[])
 

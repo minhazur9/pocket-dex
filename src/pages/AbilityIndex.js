@@ -58,6 +58,7 @@ const AbilityIndex = () => {
     // Gets all the abilties
     useEffect(() => {
         dispatch(getAbilities())
+        return abilities
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 

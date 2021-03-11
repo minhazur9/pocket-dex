@@ -44,17 +44,20 @@ const TeamPokemonInfo = () => {
         setMoveset(moveset)
         setIVs(ivs)
         setEVs(evs)
+        return teamPokemonInfo
         // eslint-disable-next-line
     }, [teamPokemonInfo])
 
     useEffect(() => {
-        if (pokemon) dispatch(getInfo(pokemon))
+        if(pokemon) dispatch(getInfo(pokemon))
+        return pokemon
         // eslint-disable-next-line
     }, [pokemon])
 
     useEffect(() => {
         const sum = sumEvs(evs);
         setEvCount(sum)
+        return evs
         // eslint-disable-next-line
     }, [evs])
 

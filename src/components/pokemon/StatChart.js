@@ -85,8 +85,9 @@ const StatChart = (props) => {
     useEffect(() => {
         document.getElementById('chart-area').innerHTML = "";
         renderChart()
+        return info;
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [info, props])
+    }, [info, props.iv])
 
     return (
         <>
