@@ -10,6 +10,10 @@
   border-radius: 10px;
 }
 
+.team-index .team-pokemon-info {
+  padding-left: 20px;
+}
+
 .team-index .teams {
   position: relative;
   overflow-y: scroll;
@@ -46,7 +50,7 @@
   left: 25%;
   width: 500px;
   height: 300px;
-  background-color: #47baf3;
+  background-color: #00c0ff;
 }
 
 .team-index .teams .team-container .name-container {
@@ -103,6 +107,27 @@
           transform: scale(1.2);
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
+}
+
+@media only screen and (max-width: 1400px) {
+  .team-index .teams .team-container .team-pokemon .add-pokemon {
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .team-index .teams .team-container .team-pokemon {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .team-index .teams .team-container {
+    width: 400px;
+    height: 200px;
+  }
 }
 
 .team-index .teams .delete-button-container .delete-team {

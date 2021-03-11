@@ -1,7 +1,7 @@
 .team-pokemon-info {
   position: fixed;
   top: 100px;
-  left: 50vw;
+  left: 50%;
   height: 89vh;
   width: 40vw;
   overflow-y: scroll;
