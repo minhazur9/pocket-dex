@@ -121,6 +121,12 @@
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .item-info .col2 .item-category {
+    font-size: 8px;
+  }
+}
+
 .item-info .col2 .item-sprite {
   -ms-grid-column-align: center;
       justify-self: center;
@@ -151,6 +157,12 @@
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .item-info .col2 .fling-power {
+    font-size: 8px;
+  }
+}
+
 .item-info .col3 {
   display: block;
   text-align: center;
@@ -160,7 +172,7 @@
   display: inline-block;
   margin-top: 15px;
   font-size: 20px;
-  border: 2px solid black;
+  border: 2px solid #00A9FF;
   border-radius: 20px;
   margin-left: 15px;
   margin-right: 15px;
@@ -188,7 +200,7 @@
   display: inline-block;
   margin-top: 15px;
   font-size: 20px;
-  border: 2px solid black;
+  border: 2px solid #00A9FF;
   border-radius: 17px;
   margin-left: 15px;
   margin-right: 15px;
