@@ -126,16 +126,18 @@ $rectColor: #fefefe;
       align-items: center;
       font-size: 30px;
       .ability-list {
-        border: 2px #00A9FF solid;
+        border: 2px whitesmoke solid;
         border-radius: 12px;
         padding: 5px;
-
+        background-color: #3a3a3a;
+        filter: drop-shadow(2px 2px rgb(0, 0, 0));
         .ability {
           cursor: default;
           font-size: 20px;
           text-align: center;
+          color: whitesmoke;
           &:hover {
-            color:#00A9FF
+            color:#F2BD43
           }
           @media only screen and (max-width: 900px) {
             font-size: 10px;
@@ -166,13 +168,14 @@ $rectColor: #fefefe;
       margin-bottom: 5px;
       .text {
         border: 2px solid black;
+        filter: drop-shadow(3px 3px rgb(146, 146, 146));
+        color: whitesmoke;
         padding: 5px;
         text-align: center;
         border-radius: 12px;
         font-size: 20px;
         overflow-wrap: break-word;
         width: 450px;
-        border-color: #00a9ff;
         @media only screen and (max-width: 900px) {
           width: 150px;
           font-size: 12px;

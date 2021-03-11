@@ -3,25 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { renderLoading } from '../Loading';
 import { getAbilityInfo, startLoading, stopLoading } from '../../actions';
 import { useHistory } from 'react-router';
-
-import bug from '../../images/types/bug.png'
-import dark from '../../images/types/dark.png'
-import dragon from '../../images/types/dragon.png'
-import electric from '../../images/types/electric.png'
-import fairy from '../../images/types/fairy.png'
-import fighting from '../../images/types/fighting.png'
-import fire from '../../images/types/fire.png'
-import flying from '../../images/types/flying.png'
-import ghost from '../../images/types/ghost.png'
-import grass from '../../images/types/grass.png'
-import ground from '../../images/types/ground.png'
-import ice from '../../images/types/ice.png'
-import normal from '../../images/types/normal.png'
-import poison from '../../images/types/poison.png'
-import psychic from '../../images/types/psychic.png'
-import rock from '../../images/types/rock.png'
-import steel from '../../images/types/steel.png'
-import water from '../../images/types/water.png'
+import { typeTable } from '../tables/TypeTable'
 import StatChart from './StatChart';
 import MoveSetList from './MoveSetList';
 import EvolutionChain from './EvolutionChain';
@@ -37,28 +19,6 @@ const PokemonInfo = () => {
     const speciesInfo = useSelector(state => state.speciesInfo);
     const dispatch = useDispatch();
     const history = useHistory();
-
-    // Hash table for converting pokemon type strings to image
-    const typeTable = {
-        bug: bug,
-        dark: dark,
-        dragon: dragon,
-        electric: electric,
-        fairy: fairy,
-        fighting: fighting,
-        fire: fire,
-        flying: flying,
-        ghost: ghost,
-        grass: grass,
-        ground: ground,
-        ice: ice,
-        normal: normal,
-        poison: poison,
-        psychic: psychic,
-        rock: rock,
-        steel: steel,
-        water: water
-    }
 
     // Renders the pokemon sprites
     const renderSprites = () => {
@@ -110,7 +70,7 @@ const PokemonInfo = () => {
         const types = info.types;
         return types.map((type, index) => {
             return (
-                <li key={index}><img src={typeTable[type.type.name]} alt={type.type.name} className="type" /></li>
+                <li key={index}><img src={typeTable[type.type.name].icon} alt={type.type.name} className="type" /></li>
             )
         })
     }
@@ -135,9 +95,11 @@ const PokemonInfo = () => {
         text.forEach((flavor) => {
             if (flavor.language.name === 'en') chosenText = flavor.flavor_text
         });
+        let backgroundColor = typeTable[info['types'][0]['type']['name']]['color'];
+        if (backgroundColor === '#B7B1A3' && info.types.length > 1) backgroundColor = typeTable[info['types'][1]['type']['name']]['color']
         return (
             <>
-                <p className="text">{chosenText}</p>
+                <p className="text" style={{ backgroundColor: backgroundColor }} >{chosenText}</p>
             </>
         )
     }

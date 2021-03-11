@@ -510,19 +510,23 @@ nav .hamburger-menu {
 }
 
 .pokemon-info .row3 .abilties .ability-list {
-  border: 2px #00A9FF solid;
+  border: 2px whitesmoke solid;
   border-radius: 12px;
   padding: 5px;
+  background-color: #3a3a3a;
+  -webkit-filter: drop-shadow(2px 2px black);
+          filter: drop-shadow(2px 2px black);
 }
 
 .pokemon-info .row3 .abilties .ability-list .ability {
   cursor: default;
   font-size: 20px;
   text-align: center;
+  color: whitesmoke;
 }
 
 .pokemon-info .row3 .abilties .ability-list .ability:hover {
-  color: #00A9FF;
+  color: #F2BD43;
 }
 
 @media only screen and (max-width: 900px) {
@@ -569,13 +573,15 @@ nav .hamburger-menu {
 
 .pokemon-info .row3 .description .text {
   border: 2px solid black;
+  -webkit-filter: drop-shadow(3px 3px #929292);
+          filter: drop-shadow(3px 3px #929292);
+  color: whitesmoke;
   padding: 5px;
   text-align: center;
   border-radius: 12px;
   font-size: 20px;
   overflow-wrap: break-word;
   width: 450px;
-  border-color: #00a9ff;
 }
 
 @media only screen and (max-width: 900px) {
@@ -1565,6 +1571,12 @@ nav .hamburger-menu {
   text-align: center;
   font-size: 30px;
   margin-top: 15px;
+}
+
+@media only screen and (max-width: 900px) {
+  .item-info .col4 {
+    font-size: 15px;
+  }
 }
 
 .item-info .col5 {

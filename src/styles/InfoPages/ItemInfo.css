@@ -192,6 +192,12 @@
   margin-top: 15px;
 }
 
+@media only screen and (max-width: 900px) {
+  .item-info .col4 {
+    font-size: 15px;
+  }
+}
+
 .item-info .col5 {
   text-align: center;
 }
