@@ -390,8 +390,9 @@
 }
 
 .pokemon-info .evolution-line .stage-image {
-  cursor: pointer;
   text-align: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   border: 3px #00a9ff solid;
   padding: 10px;
   border-radius: 10px;
@@ -399,8 +400,14 @@
   position: relative;
 }
 
+.pokemon-info .evolution-line .stage-image:hover {
+  background-color: #ececec;
+  opacity: 0.8;
+}
+
 .pokemon-info .evolution-line .stage-image img {
   width: 40%;
+  mix-blend-mode: multiply;
 }
 
 @media only screen and (max-width: 500px) {
@@ -469,15 +476,22 @@
 }
 
 .pokemon-info .form-line .form {
-  cursor: pointer;
   border: 3px #00a9ff solid;
   padding: 10px;
   border-radius: 10px;
   margin: 10px;
   position: relative;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.pokemon-info .form-line .form:hover {
+  background-color: #ececec;
+  opacity: 0.8;
 }
 
 .pokemon-info .form-line .form img {
+  mix-blend-mode: multiply;
   margin: 0 auto;
   width: 50%;
   margin-bottom: 7px;
@@ -513,23 +527,48 @@
 .pokemon-info .row5 .move-set {
   text-align: center;
   width: 70vw;
-  border: 2px solid black;
+  border: 3px solid #269BFF;
+  border-radius: 10px;
   max-height: 400px;
   overflow-y: auto;
   margin-bottom: 20px;
 }
 
+.pokemon-info .row5 .move-set::-webkit-scrollbar {
+  display: none;
+}
+
 .pokemon-info .row5 .move-set .move {
   position: relative;
+  background-color: #3A3A3A;
+  padding: 10px;
   text-align: left;
   font-size: 20px;
+  color: whitesmoke;
   border: 2px solid black;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.pokemon-info .row5 .move-set .move:hover {
+  opacity: 0.9;
 }
 
 .pokemon-info .row5 .move-set .move .move-link {
   display: inline;
-  cursor: pointer;
   color: #00a9ff;
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .row5 .move-set .move .move-link {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .pokemon-info .row5 .move-set .move .move-link {
+    font-size: 10px;
+  }
 }
 
 .pokemon-info .row5 .move-set .move .learn-method {
@@ -542,6 +581,12 @@
 @media only screen and (max-width: 900px) {
   .pokemon-info .row5 .move-set .move .learn-method {
     font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .pokemon-info .row5 .move-set .move .learn-method {
+    font-size: 8px;
   }
 }
 

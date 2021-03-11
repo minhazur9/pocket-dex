@@ -16,7 +16,7 @@ const MoveSetList = () => {
             learnMethod = getMethod(move);
             const moveName = move.move.name;
             return (
-                <li key={index} className="move"><p className='move-link' onClick={() => updateMoveState(moveName)} to="">{moveName}</p>
+                <li key={index} className="move" onClick={() => updateMoveState(moveName)} ><p className='move-link'>{moveName.replace("-"," ").toUpperCase()}</p>
                 <p className="learn-method">{learnMethod}</p>
                 </li>
             )
