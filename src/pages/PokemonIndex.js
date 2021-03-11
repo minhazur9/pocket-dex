@@ -17,7 +17,8 @@ const PokemonIndex = () => {
 
     // Changes the Pokemon depending on what is typed
     const search = (e) => {
-        dispatch(searchPokemon(e.target.value.replace(" ","-").toLowerCase()))
+        dispatch(searchPokemon(e.target.value.replace(" ", "-").toLowerCase()))
+        if (e.keyCode === 13) updateInfo(document.querySelector(".list button").id)
     }
 
 
@@ -34,13 +35,13 @@ const PokemonIndex = () => {
 
     // Formats name to readable format
     const nameFormatter = (name) => {
-        if(!(name.includes('-f') || name.includes('m'))) return name.replace(/-.*/,'');
-        if(name.includes('meowstic')) return 'meowstic';
+        if (!(name.includes('-f') || name.includes('m'))) return name.replace(/-.*/, '');
+        if (name.includes('meowstic')) return 'meowstic';
         return name
     }
     // Formats name for images
     const listNameFormatter = (pokemon) => {
-        pokemon = pokemon.split('-')   
+        pokemon = pokemon.split('-')
         const temp = pokemon[1];
         pokemon[1] = pokemon[0];
         pokemon[0] = temp;
@@ -59,14 +60,14 @@ const PokemonIndex = () => {
     // Renders the pokemon list
     const renderPokemon = () => {
         return pokemon.map((pokemon) => {
-            let {name} = pokemon;
+            let { name } = pokemon;
             if (name.includes('-')) name = listNameFormatter(name)
-                return (
-                    <button id={pokemon.name} onClick={select} key={name}>
-                        {name.toUpperCase()}
-                    </button>
-                )
-            })
+            return (
+                <button id={pokemon.name} onClick={select} key={name}>
+                    {name.toUpperCase()}
+                </button>
+            )
+        })
     }
 
     // Gets all the pokemon

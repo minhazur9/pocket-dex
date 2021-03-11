@@ -215,7 +215,7 @@ nav .hamburger-menu {
   border: 3px black solid;
   background-color: #f44336;
   width: 50%;
-  height: 17%;
+  height: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,6 +240,12 @@ nav .hamburger-menu {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .pokemon-info .banner {
+    height: 5%;
+  }
+}
+
 .pokemon-info .banner .name {
   display: inline-block;
   position: relative;
@@ -259,6 +265,13 @@ nav .hamburger-menu {
   .pokemon-info .banner .name {
     font-size: 13px;
     margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .pokemon-info .banner .name {
+    margin-top: 18px;
+    font-size: 12px;
   }
 }
 
@@ -293,7 +306,9 @@ nav .hamburger-menu {
       -ms-flex-align: center;
           align-items: center;
   font-size: 50px;
-  border: 5px solid black;
+  border: 5px solid #f44336;
+  -webkit-filter: drop-shadow(4px 4px #a3a3a3);
+          filter: drop-shadow(4px 4px #a3a3a3);
   height: 55%;
   padding: 10px;
   border-radius: 5px;
@@ -760,67 +775,6 @@ nav .hamburger-menu {
   font-size: 25px;
 }
 
-.lds-ring {
-  display: inline;
-  position: relative;
-  width: 80px;
-  height: 80px;
-  left: 40%;
-  top: 30%;
-}
-
-.lds-ring div {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #fff;
-  border-radius: 50%;
-  -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-          animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: red transparent transparent transparent;
-}
-
-.lds-ring div:nth-child(1) {
-  -webkit-animation-delay: -0.45s;
-          animation-delay: -0.45s;
-}
-
-.lds-ring div:nth-child(2) {
-  -webkit-animation-delay: -0.3s;
-          animation-delay: -0.3s;
-}
-
-.lds-ring div:nth-child(3) {
-  -webkit-animation-delay: -0.15s;
-          animation-delay: -0.15s;
-}
-
-@-webkit-keyframes lds-ring {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes lds-ring {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
 .move-info {
   position: relative;
   bottom: 90vh;
@@ -838,7 +792,7 @@ nav .hamburger-menu {
   border: 3px black solid;
   background-color: #05b5eb;
   width: 50%;
-  height: 17%;
+  height: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -863,6 +817,12 @@ nav .hamburger-menu {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .move-info .banner {
+    height: 5%;
+  }
+}
+
 .move-info .banner .name {
   display: inline-block;
   position: relative;
@@ -882,6 +842,13 @@ nav .hamburger-menu {
   .move-info .banner .name {
     font-size: 13px;
     margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .move-info .banner .name {
+    margin-top: 18px;
+    font-size: 12px;
   }
 }
 
@@ -1078,7 +1045,7 @@ nav .hamburger-menu {
   border: 3px black solid;
   background-color: #3a3a3a;
   width: 50%;
-  height: 17%;
+  height: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1103,6 +1070,12 @@ nav .hamburger-menu {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .ability-info .banner {
+    height: 5%;
+  }
+}
+
 .ability-info .banner .name {
   display: inline-block;
   position: relative;
@@ -1122,6 +1095,13 @@ nav .hamburger-menu {
   .ability-info .banner .name {
     font-size: 13px;
     margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .ability-info .banner .name {
+    margin-top: 18px;
+    font-size: 12px;
   }
 }
 
@@ -1301,7 +1281,7 @@ nav .hamburger-menu {
   border: 3px black solid;
   background-color: #9750d1;
   width: 50%;
-  height: 17%;
+  height: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1326,6 +1306,12 @@ nav .hamburger-menu {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .item-info .banner {
+    height: 5%;
+  }
+}
+
 .item-info .banner .name {
   display: inline-block;
   position: relative;
@@ -1345,6 +1331,13 @@ nav .hamburger-menu {
   .item-info .banner .name {
     font-size: 13px;
     margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .item-info .banner .name {
+    margin-top: 18px;
+    font-size: 12px;
   }
 }
 
@@ -1952,5 +1945,66 @@ nav .hamburger-menu {
   background-color: #ff1100 !important;
   border-color: #ff1100 !important;
   color: white;
+}
+
+.lds-ring {
+  display: inline;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  left: 40%;
+  top: 30%;
+}
+
+.lds-ring div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: red transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  -webkit-animation-delay: -0.45s;
+          animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  -webkit-animation-delay: -0.3s;
+          animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  -webkit-animation-delay: -0.15s;
+          animation-delay: -0.15s;
+}
+
+@-webkit-keyframes lds-ring {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes lds-ring {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 /*# sourceMappingURL=App.css.map */

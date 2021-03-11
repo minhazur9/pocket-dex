@@ -15,7 +15,7 @@
   border: 3px black solid;
   background-color: #05b5eb;
   width: 50%;
-  height: 17%;
+  height: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,6 +40,12 @@
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .move-info .banner {
+    height: 5%;
+  }
+}
+
 .move-info .banner .name {
   display: inline-block;
   position: relative;
@@ -59,6 +65,13 @@
   .move-info .banner .name {
     font-size: 13px;
     margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .move-info .banner .name {
+    margin-top: 18px;
+    font-size: 12px;
   }
 }
 

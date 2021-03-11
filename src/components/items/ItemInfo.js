@@ -17,7 +17,7 @@ const ItemInfo = () => {
     }
 
     // Renders item fling power
-    const renderFlingPower = () => {
+const renderFlingPower = () => {
         let { fling_power } = itemInfo;
         return (
             <p className="fling-power">Fling Power:{fling_power ? fling_power : 0}</p>

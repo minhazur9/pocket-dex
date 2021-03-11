@@ -28,6 +28,7 @@ const ItemIndex = () => {
 
      const search = (e) => {
          dispatch(searchItems(e.target.value.replace(" ", "-").toLowerCase()))
+         if (e.keyCode === 13) updateInfo(document.querySelector(".list button").id)
      }
 
       // Changes info

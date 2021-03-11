@@ -35,6 +35,7 @@ const MoveIndex = () => {
     // Changes the Pokemon depending on what is typed
     const search = (e) => {
         dispatch(searchMoves(e.target.value.replace(" ", "-").toLowerCase()))
+        if (e.keyCode === 13) updateInfo(document.querySelector(".list button").id)
     }
 
     // Render moves to display

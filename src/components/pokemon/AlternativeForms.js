@@ -43,16 +43,23 @@ const AlternativeForms = () => {
     // Renders all the forms
     const renderForms = () => {
         const { varieties } = speciesInfo;
-        return varieties.map((form) => {
+        return varieties.map((form,index) => {
             let { name } = form.pokemon
             let captionName = name;
-            if (name.includes('-totem')) return <></>;
+            if (name.includes('-totem') ||
+                name.includes('-cap') ||
+                name.includes('-cosplay') ||
+                name.includes('-phd') ||
+                name.includes('-pop-star') ||
+                name.includes('-belle') ||
+                name.includes('rock-star') ||
+                name.includes('-libre')) return <></>;
             if (name.includes('-')) {
                 name = imageNameFormatter(name)
                 captionName = nameFormatter(name)
             }
             return (
-                <li key={name} className="form" onClick={(e) => updatePokemonState(e, form.pokemon.name)} >
+                <li key={name+index} className="form" onClick={(e) => updatePokemonState(e, form.pokemon.name)} >
                     {<img src={`https://img.pokemondb.net/artwork/${name}.jpg`} alt={name} />}
                     <p>{captionName.toUpperCase()}</p>
                 </li>

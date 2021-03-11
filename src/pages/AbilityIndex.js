@@ -36,6 +36,7 @@ const AbilityIndex = () => {
     // Searches through the ability list
     const search = (e) => {         
         dispatch(searchAbilities(e.target.value.replace(" ", "-").toLowerCase()))
+        if (e.keyCode === 13) updateInfo(document.querySelector(".list button").id)
     }
 
 
