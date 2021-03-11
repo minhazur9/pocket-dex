@@ -13,10 +13,9 @@
   margin-bottom: 15px;
   border-radius: 5px;
   border: 3px black solid;
-  background-color: #9750D1;
-  margin-left: 20px;
-  margin-right: 20px;
-  height: 25%;
+  background-color: #9750d1;
+  width: 50%;
+  height: 17%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,14 +29,36 @@
 
 @media only screen and (max-width: 900px) {
   .item-info .banner {
-    height: 15%;
+    height: 12%;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .item-info .banner {
     margin-top: 20px;
-    height: 7%;
+    height: 8%;
+  }
+}
+
+.item-info .banner .name {
+  display: inline-block;
+  position: relative;
+  color: whitesmoke;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 35px;
+}
+
+@media only screen and (max-width: 900px) {
+  .item-info .banner .name {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .item-info .banner .name {
+    font-size: 13px;
+    margin-top: 15px;
   }
 }
 
@@ -46,7 +67,7 @@
   display: inline-block;
   width: 10%;
   height: 100%;
-  background-color: #E04EB6;
+  background-color: #e04eb6;
   z-index: 3;
   border-right: 2px black;
   border-radius: 2px;
@@ -57,30 +78,10 @@
   display: inline-block;
   width: 10%;
   height: 100%;
-  background-color: #E04EB6;
+  background-color: #e04eb6;
   border-left: 2px black;
   border-radius: 2px;
   z-index: 3;
-}
-
-.item-info .banner .name {
-  display: inline-block;
-  position: relative;
-  color: whitesmoke;
-  font-weight: bolder;
-}
-
-@media only screen and (max-width: 900px) {
-  .item-info .banner .name {
-    font-size: 25px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .item-info .banner .name {
-    font-size: 15px;
-    margin-top: 15px;
-  }
 }
 
 .item-info .col2 {

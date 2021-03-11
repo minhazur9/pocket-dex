@@ -214,9 +214,8 @@ nav .hamburger-menu {
   border-radius: 5px;
   border: 3px black solid;
   background-color: #f44336;
-  margin-left: 20px;
-  margin-right: 20px;
-  height: 25%;
+  width: 50%;
+  height: 17%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -230,14 +229,36 @@ nav .hamburger-menu {
 
 @media only screen and (max-width: 900px) {
   .pokemon-info .banner {
-    height: 15%;
+    height: 12%;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .pokemon-info .banner {
     margin-top: 20px;
-    height: 7%;
+    height: 8%;
+  }
+}
+
+.pokemon-info .banner .name {
+  display: inline-block;
+  position: relative;
+  color: whitesmoke;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 35px;
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .banner .name {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .pokemon-info .banner .name {
+    font-size: 13px;
+    margin-top: 15px;
   }
 }
 
@@ -246,7 +267,7 @@ nav .hamburger-menu {
   display: inline-block;
   width: 10%;
   height: 100%;
-  background-color: #FEFEFE;
+  background-color: #fefefe;
   z-index: 3;
   border-right: 2px black;
   border-radius: 2px;
@@ -257,30 +278,10 @@ nav .hamburger-menu {
   display: inline-block;
   width: 10%;
   height: 100%;
-  background-color: #FEFEFE;
+  background-color: #fefefe;
   border-left: 2px black;
   border-radius: 2px;
   z-index: 3;
-}
-
-.pokemon-info .banner .name {
-  display: inline-block;
-  position: relative;
-  color: whitesmoke;
-  font-weight: bolder;
-}
-
-@media only screen and (max-width: 900px) {
-  .pokemon-info .banner .name {
-    font-size: 25px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .pokemon-info .banner .name {
-    font-size: 15px;
-    margin-top: 15px;
-  }
 }
 
 .pokemon-info .pokemon-id {
@@ -836,27 +837,51 @@ nav .hamburger-menu {
   border-radius: 5px;
   border: 3px black solid;
   background-color: #05b5eb;
-  margin-left: 20px;
-  margin-right: 20px;
-  height: 25%;
+  width: 50%;
+  height: 17%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media only screen and (max-width: 900px) {
   .move-info .banner {
-    height: 15%;
+    height: 12%;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .move-info .banner {
     margin-top: 20px;
-    height: 7%;
+    height: 8%;
+  }
+}
+
+.move-info .banner .name {
+  display: inline-block;
+  position: relative;
+  color: whitesmoke;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 35px;
+}
+
+@media only screen and (max-width: 900px) {
+  .move-info .banner .name {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .move-info .banner .name {
+    font-size: 13px;
+    margin-top: 15px;
   }
 }
 
@@ -865,7 +890,7 @@ nav .hamburger-menu {
   display: inline-block;
   width: 10%;
   height: 100%;
-  background-color: #F44336;
+  background-color: #f44336;
   z-index: 3;
   border-right: 2px black;
   border-radius: 2px;
@@ -876,34 +901,10 @@ nav .hamburger-menu {
   display: inline-block;
   width: 10%;
   height: 100%;
-  background-color: #F44336;
+  background-color: #f44336;
   border-left: 2px black;
   border-radius: 2px;
   z-index: 3;
-}
-
-.move-info .banner .name {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-item-align: center;
-      align-self: center;
-  position: relative;
-  color: whitesmoke;
-  font-weight: bolder;
-}
-
-@media only screen and (max-width: 900px) {
-  .move-info .banner .name {
-    font-size: 25px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .move-info .banner .name {
-    font-size: 15px;
-    margin-top: 15px;
-  }
 }
 
 .move-info .col2 {
@@ -1075,10 +1076,9 @@ nav .hamburger-menu {
   margin-bottom: 15px;
   border-radius: 5px;
   border: 3px black solid;
-  background-color: #3A3A3A;
-  margin-left: 20px;
-  margin-right: 20px;
-  height: 25%;
+  background-color: #3a3a3a;
+  width: 50%;
+  height: 17%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1092,14 +1092,36 @@ nav .hamburger-menu {
 
 @media only screen and (max-width: 900px) {
   .ability-info .banner {
-    height: 15%;
+    height: 12%;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .ability-info .banner {
     margin-top: 20px;
-    height: 7%;
+    height: 8%;
+  }
+}
+
+.ability-info .banner .name {
+  display: inline-block;
+  position: relative;
+  color: whitesmoke;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 35px;
+}
+
+@media only screen and (max-width: 900px) {
+  .ability-info .banner .name {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .ability-info .banner .name {
+    font-size: 13px;
+    margin-top: 15px;
   }
 }
 
@@ -1108,7 +1130,7 @@ nav .hamburger-menu {
   display: inline-block;
   width: 10%;
   height: 100%;
-  background-color: #F2BD43;
+  background-color: #f2bd43;
   z-index: 3;
   border-right: 2px black;
   border-radius: 2px;
@@ -1119,30 +1141,10 @@ nav .hamburger-menu {
   display: inline-block;
   width: 10%;
   height: 100%;
-  background-color: #F2BD43;
+  background-color: #f2bd43;
   border-left: 2px black;
   border-radius: 2px;
   z-index: 3;
-}
-
-.ability-info .banner .name {
-  display: inline-block;
-  position: relative;
-  color: whitesmoke;
-  font-weight: bolder;
-}
-
-@media only screen and (max-width: 900px) {
-  .ability-info .banner .name {
-    font-size: 25px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .ability-info .banner .name {
-    font-size: 15px;
-    margin-top: 15px;
-  }
 }
 
 .ability-info .col2 {
@@ -1297,10 +1299,9 @@ nav .hamburger-menu {
   margin-bottom: 15px;
   border-radius: 5px;
   border: 3px black solid;
-  background-color: #9750D1;
-  margin-left: 20px;
-  margin-right: 20px;
-  height: 25%;
+  background-color: #9750d1;
+  width: 50%;
+  height: 17%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1314,14 +1315,36 @@ nav .hamburger-menu {
 
 @media only screen and (max-width: 900px) {
   .item-info .banner {
-    height: 15%;
+    height: 12%;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .item-info .banner {
     margin-top: 20px;
-    height: 7%;
+    height: 8%;
+  }
+}
+
+.item-info .banner .name {
+  display: inline-block;
+  position: relative;
+  color: whitesmoke;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 35px;
+}
+
+@media only screen and (max-width: 900px) {
+  .item-info .banner .name {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .item-info .banner .name {
+    font-size: 13px;
+    margin-top: 15px;
   }
 }
 
@@ -1330,7 +1353,7 @@ nav .hamburger-menu {
   display: inline-block;
   width: 10%;
   height: 100%;
-  background-color: #E04EB6;
+  background-color: #e04eb6;
   z-index: 3;
   border-right: 2px black;
   border-radius: 2px;
@@ -1341,30 +1364,10 @@ nav .hamburger-menu {
   display: inline-block;
   width: 10%;
   height: 100%;
-  background-color: #E04EB6;
+  background-color: #e04eb6;
   border-left: 2px black;
   border-radius: 2px;
   z-index: 3;
-}
-
-.item-info .banner .name {
-  display: inline-block;
-  position: relative;
-  color: whitesmoke;
-  font-weight: bolder;
-}
-
-@media only screen and (max-width: 900px) {
-  .item-info .banner .name {
-    font-size: 25px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .item-info .banner .name {
-    font-size: 15px;
-    margin-top: 15px;
-  }
 }
 
 .item-info .col2 {

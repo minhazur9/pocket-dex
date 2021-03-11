@@ -1,3 +1,7 @@
+@import "../Mixins";
+$bannerColor: #f44336;
+$rectColor: #fefefe;
+
 .pokemon-info {
   position: relative;
   bottom: 90vh;
@@ -7,56 +11,12 @@
   width: 75vw;
   overflow-y: auto;
   .banner {
-    margin: 0 auto;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 3px black solid;
-    background-color: #f44336;
-    margin-left: 20px;
-    margin-right: 20px;
-    height: 25%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @media only screen and (max-width: 900px) {
-      height: 15%;
-    }
-    @media only screen and (max-width: 500px) {
-      margin-top: 20px;
-      height: 7%;
-    }
+    @include addBanner($bannerColor);
     .left-rect {
-      position: relative;
-      display: inline-block;
-      width: 10%;
-      height: 100%;
-      background-color: #FEFEFE;
-      z-index: 3;
-      border-right: 2px black;
-      border-radius: 2px;
+      @include addLeftRect($rectColor);
     }
     .right-rect {
-      position: relative;
-      display: inline-block;
-      width: 10%;
-      height: 100%;
-      background-color: #FEFEFE;
-      border-left: 2px black;
-      border-radius: 2px;
-      z-index: 3;
-    }
-    .name {
-      display: inline-block;
-      position: relative;
-      color: whitesmoke;
-      font-weight: bolder;
-      @media only screen and (max-width: 900px) {
-        font-size: 25px;
-      }
-      @media only screen and (max-width: 500px) {
-        font-size: 15px;
-        margin-top: 15px;
-      }
+      @include addRightRect($rectColor);
     }
   }
 
