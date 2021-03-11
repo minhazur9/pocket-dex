@@ -65,7 +65,7 @@ const AlternativeForms = () => {
                 name += '-wings'
             }
             return (
-                <li key={name+index} className="form" onClick={(e) => updatePokemonState(e, form.pokemon.name)} >
+                <li key={captionName+index} className="form" onClick={(e) => updatePokemonState(e, form.pokemon.name)} >
                     {<img src={`https://img.pokemondb.net/artwork/${name}.jpg`} alt={name} />}
                     <p>{captionName.toUpperCase()}</p>
                 </li>

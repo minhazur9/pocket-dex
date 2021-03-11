@@ -1,82 +1,107 @@
 .team-index {
-    .teams {
-        position: relative;
-        overflow-y: scroll;
-        width: 60%;
-        height: 90vh;
-        &::-webkit-scrollbar {
-            width: 15px;
-        }
-        &::-webkit-scrollbar-track {
-            background-color: white;
-            border-right: #f44336 2px solid;
-            height: 100px;
-            display: none;
-        }
-        &::-webkit-scrollbar-thumb {
-            background-color: rgb(16, 180, 230);
-            height: 60px;
-            display: none;
-            &:hover {
-                background-color: #2da8e0;
-            }
-        }
-        .team-container {
-            margin-top: 40px;
-            position: relative;
-            display: block;
-            border: 2px black solid;
-            left: 25%;
-            width: 50%;
-            height: 50% h3 {
-                text-align: center;
-                margin: 0 auto;
-            }
-            .team-name {
-                font-size: 30px;
-                border-bottom: white;
-            }
-            .team-pokemon {
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-                padding: 20px;
-                row-gap: 10px;
-                column-gap: 10px;
-                .add-pokemon {
-                    margin: 0 auto;
-                    border: 2px #f44336 solid;
-                    background-color: #f44336;
-                    vertical-align: auto;
-                    text-align: center;
-                    font-size: 50px;
-                    font-weight: bold;
-                    color: white;
-                    height: 70px;
-                    width: 70px;
-                    border-radius: 5px;
-                    cursor: default;
-                    img {
-                        width: 100%;
-                        height: 100%;
-                    }
-                    &:hover {
-                        transform: scale(1.2);
-                        transition-duration: 0.5s;
-                    }
-                }
-            }
-        }
-
-        .delete-team {
-            position: relative;
-            left: 210%;
-            top: 5px;
-        }
-
-        .add-team {
-            display: inline-block;
-            margin-top: 90px;
-            width: 150px;
-        }
+  h1 {
+    position: relative;
+    display: inline-block;
+    margin-left: 33%;
+    font-weight: bolder;
+    border: 2px solid whitesmoke;
+    background-color: #3a3a3a;
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .teams {
+    position: relative;
+    overflow-y: scroll;
+    width: 60%;
+    height: 90vh;
+    &::-webkit-scrollbar {
+      width: 15px;
     }
+    &::-webkit-scrollbar-track {
+      background-color: white;
+      border-right: #f44336 2px solid;
+      height: 100px;
+      display: none;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(16, 180, 230);
+      height: 60px;
+      display: none;
+      &:hover {
+        background-color: #2da8e0;
+      }
+    }
+    .team-container {
+      margin-top: 40px;
+      position: relative;
+      display: block;
+      border: 2px black solid;
+      left: 25%;
+      width: 500px;
+      height: 300px;
+      background-color: #47baf3;
+      .name-container {
+        border-bottom: whitesmoke 2px solid;
+        background-color: white;
+        border-bottom: 4px solid #f44336;
+        input {
+          border-bottom: 1px solid white;
+          -webkit-box-shadow: 0 1px 0 0 white;
+          -moz-box-shadow: 0 1px 0 0 white;
+          box-shadow: 0 1px 0 0 white;
+        }
+        .team-name {
+          font-size: 30px;
+          color: #47baf3;
+        }
+      }
+
+      .team-pokemon {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 20px;
+        row-gap: 10px;
+        column-gap: 10px;
+        .add-pokemon {
+          margin: 0 auto;
+          border: 2px #f44336 solid;
+          background-color: #f44336;
+          vertical-align: auto;
+          text-align: center;
+          font-size: 50px;
+          font-weight: bold;
+          color: white;
+          height: 70px;
+          width: 70px;
+          border-radius: 5px;
+          cursor: default;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+          &:hover {
+            transform: scale(1.2);
+            transition-duration: 0.5s;
+          }
+        }
+      }
+    }
+
+    .delete-button-container {
+      .delete-team {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+      }
+    }
+
+    .add-team {
+      display: inline-block;
+      margin-top: 40px;
+      width: 150px;
+      margin-left: 41%;
+    }
+  }
 }

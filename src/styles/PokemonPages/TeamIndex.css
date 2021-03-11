@@ -1,3 +1,15 @@
+.team-index h1 {
+  position: relative;
+  display: inline-block;
+  margin-left: 33%;
+  font-weight: bolder;
+  border: 2px solid whitesmoke;
+  background-color: #3a3a3a;
+  color: whitesmoke;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .team-index .teams {
   position: relative;
   overflow-y: scroll;
@@ -32,18 +44,30 @@
   display: block;
   border: 2px black solid;
   left: 25%;
-  width: 50%;
-  height: 50% h3;
-  height-text-align: center;
-  height-margin: 0 auto;
+  width: 500px;
+  height: 300px;
+  background-color: #47baf3;
 }
 
-.team-index .teams .team-container .team-name {
+.team-index .teams .team-container .name-container {
+  border-bottom: whitesmoke 2px solid;
+  background-color: white;
+  border-bottom: 4px solid #f44336;
+}
+
+.team-index .teams .team-container .name-container input {
+  border-bottom: 1px solid white;
+  -webkit-box-shadow: 0 1px 0 0 white;
+  box-shadow: 0 1px 0 0 white;
+}
+
+.team-index .teams .team-container .name-container .team-name {
   font-size: 30px;
-  border-bottom: white;
+  color: #47baf3;
 }
 
 .team-index .teams .team-container .team-pokemon {
+  margin-top: 20px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -81,15 +105,16 @@
           transition-duration: 0.5s;
 }
 
-.team-index .teams .delete-team {
-  position: relative;
-  left: 210%;
-  top: 5px;
+.team-index .teams .delete-button-container .delete-team {
+  position: absolute;
+  right: 15px;
+  top: 10px;
 }
 
 .team-index .teams .add-team {
   display: inline-block;
-  margin-top: 90px;
+  margin-top: 40px;
   width: 150px;
+  margin-left: 41%;
 }
 /*# sourceMappingURL=TeamIndex.css.map */

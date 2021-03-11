@@ -43,6 +43,7 @@ const TeamIndex = () => {
         }
     })
 
+    // Delete Team
     const handleDeleteTeam = (e) => {
         deleteTeam({
             variables: {
@@ -72,14 +73,18 @@ const TeamIndex = () => {
             const { name, id, pokemon } = team;
             return (
                 <div id={id} key={name} className="team-container">
-                    <input className="team-name" defaultValue={name}
-                        onFocus={(e) => setTeamName(e.target.value)}
-                        onChange={(e) => setTeamName(e.target.value)}
-                        onBlur={editTeamInfo}
-                    />
+                    <div className="name-container">
+                        <input className="team-name" id={id} defaultValue={name}
+                            onFocus={(e) => setTeamName(e.target.value)}
+                            onChange={(e) => setTeamName(e.target.value)}
+                            onBlur={(e) => editTeamInfo(e.target.id)}
+                        />
+                    </div>
                     <div className="team-pokemon">
                         {renderPokemonList(pokemon)}
-                        {allTeamsByUser.length > 1 && <button id={id} className="waves-effect waves-light btn-small red  delete-team" onClick={handleDeleteTeam}>Delete Team</button>}
+                    </div>
+                    <div className="delete-button-container">
+                        {allTeamsByUser.length > 1 && <button id={id} className="waves-effect waves-light btn-small red darken-3  delete-team" onClick={handleDeleteTeam}>Delete Team</button>}
                     </div>
                 </div>
             )
@@ -108,8 +113,7 @@ const TeamIndex = () => {
     }
 
     // edits the team info in the database
-    const editTeamInfo = (e) => {
-        const id = e.target.parentElement.id;
+    const editTeamInfo = (id) => {
         editTeam({
             variables: {
                 id,
