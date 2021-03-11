@@ -164,7 +164,7 @@ nav .hamburger-menu {
 }
 
 .home .indicator-item.active {
-  background-color: #F44336  !important;
+  background-color: #f44336 !important;
 }
 
 .home .about {
@@ -208,13 +208,38 @@ nav .hamburger-menu {
   overflow-y: auto;
 }
 
-.pokemon-info .name {
+.pokemon-info .banner {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 3px black solid;
+  background-color: #06a5f5;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.pokemon-info .banner .name {
+  position: relative;
   text-align: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: whitesmoke;
+  font-weight: bolder;
+  top: 28%;
 }
 
 @media only screen and (max-width: 900px) {
-  .pokemon-info .name {
-    font-size: 30px;
+  .pokemon-info .banner .name {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .pokemon-info .banner .name {
+    font-size: 15px;
+    margin-top: 35%;
   }
 }
 
@@ -227,11 +252,28 @@ nav .hamburger-menu {
       -ms-flex-align: center;
           align-items: center;
   font-size: 50px;
+  border: 5px solid black;
+  height: 55%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f44336;
+  color: white;
+  max-height: 80px;
 }
 
 @media only screen and (max-width: 900px) {
   .pokemon-info .pokemon-id {
     font-size: 30px;
+    height: 40%;
+    border-width: 3px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .pokemon-info .pokemon-id {
+    font-size: 20px;
+    height: 30%;
+    border-width: 2px;
   }
 }
 
@@ -1361,11 +1403,6 @@ nav .hamburger-menu {
           transition-duration: 0.5s;
 }
 
-.team-index .teams .delete-button-container {
-  width: 200px;
-  border-top: red 2px solid;
-}
-
 .team-index .teams .delete-team {
   position: relative;
   left: 210%;
@@ -1638,6 +1675,10 @@ nav .hamburger-menu {
   padding: 10px;
   border-color: #10b4e6;
   border-radius: 4px;
+}
+
+.list button:active {
+  background-color: white;
 }
 
 @media only screen and (max-width: 900px) {

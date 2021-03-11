@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { renderLoading } from '../Loading';
 
 import PokemonList from './PokemonList';
 
 const AbilityInfo = () => {
     const abilityInfo = useSelector(state => state.abilityInfo);
-    const loading = useSelector((state => state.loading))
+    const loading = useSelector((state => state.loading));
 
     // Renders the most up-to-date flavor text
     const renderFlavorText = () => {
@@ -56,13 +57,6 @@ const AbilityInfo = () => {
                     <PokemonList />
                 </div>
             </>
-        )
-    }
-
-    // Renders loading spinner
-    const renderLoading = () => {
-        return (
-            <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
         )
     }
 

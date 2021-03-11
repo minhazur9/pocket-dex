@@ -1,34 +1,33 @@
 .home {
-    overflow-y: auto;
-    height: 100vh;
-    .indicator-item {
-        z-index: 2
+  overflow-y: auto;
+  height: 100vh;
+  .indicator-item {
+    z-index: 2;
+  }
+  .indicator-item.active {
+    background-color: #f44336 !important;
+  }
+  .about {
+    position: relative;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    bottom: 40px;
+    text-align: center;
+    overflow-wrap: break-word;
+    .desc {
+      text-align: center;
+      max-width: 500px;
     }
-    .indicator-item.active {
-        background-color: #F44336  !important;
+    img {
+      margin: 5px;
+      width: 40px;
     }
-    .about {
-        position: relative;
-        display: flex;
-        flex: 1;
-        justify-content: space-around;
-        bottom: 40px;
-        text-align: center;
-        overflow-wrap: break-word;
-        .desc {
-            text-align: center;
-            max-width: 500px
-        }
-        img {
-            margin: 5px;
-            width: 40px;
-        }
 
-        .lugia-icon {
-            position: relative;
-            width: 60px;
-            bottom: 10px;
-        }
-
+    .lugia-icon {
+      position: relative;
+      width: 60px;
+      bottom: 10px;
     }
+  }
 }

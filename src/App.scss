@@ -58,6 +58,9 @@ body {
         padding: 10px;
         border-color: rgb(16, 180, 230);
         border-radius: 4px;
+        &:active {
+            background-color: white;
+        }
     }
     @media only screen and (max-width: 900px) {
         button {

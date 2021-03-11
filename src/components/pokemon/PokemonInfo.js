@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { renderLoading } from '../Loading';
 import bug from '../../images/types/bug.png'
 import dark from '../../images/types/dark.png'
 import dragon from '../../images/types/dragon.png'
@@ -18,10 +19,12 @@ import psychic from '../../images/types/psychic.png'
 import rock from '../../images/types/rock.png'
 import steel from '../../images/types/steel.png'
 import water from '../../images/types/water.png'
+import banner from '../../images/pokemon-artworks/pokedex-banner.png'
 import StatChart from './StatChart';
 import MoveSetList from './MoveSetList';
 import EvolutionChain from './EvolutionChain';
 import AlternativeForms from './AlternativeForms';
+
 
 // General Pokemon Information
 const PokemonInfo = () => {
@@ -74,7 +77,7 @@ const PokemonInfo = () => {
 
     // Puts the name to readable format
     const nameFormatter = (pokemon) => {
-        pokemon = pokemon.split('-')   
+        pokemon = pokemon.split('-')
         const temp = pokemon[1];
         pokemon[1] = pokemon[0];
         pokemon[0] = temp;
@@ -126,22 +129,18 @@ const PokemonInfo = () => {
         )
     }
 
-    // Renders loading spinner
-    const renderLoading = () => {
-        return (
-            <>
-                <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-            </>
-        )
-    }
-
     // Renders all the info
     const renderAllInfo = () => {
-        let {name} = info;
+        let { name } = info;
         if (name.includes('-')) name = nameFormatter(name)
         return (
             <>
-                <h1 className="name">{name.toUpperCase()}</h1>
+                <div className="banner">
+                    <div className="left-rect"></div>
+                    <div className="rigth-rect"></div>
+                    <h1 className="name">{name.toUpperCase()}</h1>
+                </div>
+
                 <div className="row2">
                     {renderPokemonId()}
                     {renderSprites()}
@@ -152,9 +151,9 @@ const PokemonInfo = () => {
                 </div>
                 <div className="row3">
                     <div className="base-stats">
-                        <div className="stats"> 
-                       <p className='stat-header'>Base Stats</p> 
-                <ul className="stat-list">
+                        <div className="stats">
+                            <p className='stat-header'>Base Stats</p>
+                            <ul className="stat-list">
                                 <StatChart height={300} width={400} />
                             </ul>
                         </div>
@@ -169,8 +168,8 @@ const PokemonInfo = () => {
                     </ul>
                 </div>
                 <EvolutionChain />
-                <AlternativeForms/>
-                <MoveSetList/>
+                <AlternativeForms />
+                <MoveSetList />
             </>
         )
     }

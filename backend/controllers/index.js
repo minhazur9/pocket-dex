@@ -166,7 +166,7 @@ const Mutation = new GraphQLObjectType({
                 ivArr.fill(0);
                 evArr.fill(0);
                 pokemonArr.fill({ name: "", level: 1, nature: "hardy", ability: "", ivs: ivArr, evs: evArr, teamId: team._id }, 0, 6);
-                db.Pokemon.insertMany(pokemonArr)
+                return db.Pokemon.insertMany(pokemonArr)
             }
         },
         // Adds new pokemon to a team

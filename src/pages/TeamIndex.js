@@ -4,8 +4,9 @@ import { useLazyQuery, useMutation, useQuery } from 'react-apollo';
 import TeamPokemonInfo from '../components/teams/TeamPokemonInfo';
 import { getCookie } from '../App';
 import { getTeamPokemonInfo } from '../actions';
+import { renderLoading } from '../components/Loading';
 
-import { addTeamMutation, getTeamsQuery, editTeamMutation, getPokemonQuery, deleteTeamMutation, getAllPokemonByTeamQuery } from '../queries/teamQueries';
+import { addTeamMutation, getTeamsQuery, editTeamMutation, getPokemonQuery, deleteTeamMutation } from '../queries/teamQueries';
 
 const TeamIndex = () => {
 
@@ -19,7 +20,6 @@ const TeamIndex = () => {
     // Temporary States for Queries
     const [pokemonId, setPokemonId] = useState(0);
     const [teamName, setTeamName] = useState("");
-    const [teamId, setTeamId] = useState(0);
 
     // Mutations
     const [addTeam] = useMutation(addTeamMutation);
@@ -27,7 +27,7 @@ const TeamIndex = () => {
     const [deleteTeam] = useMutation(deleteTeamMutation);
 
     // Queries
-    const { data } = useQuery(getTeamsQuery, {
+    const { data, loading } = useQuery(getTeamsQuery, {
         variables: {
             userId: token
         }
@@ -40,12 +40,6 @@ const TeamIndex = () => {
         onCompleted: data => {
             const { pokemon } = data;
             dispatch(getTeamPokemonInfo(pokemon))
-        }
-    })
-
-    const [getAllPokemonByTeam] = useLazyQuery(getAllPokemonByTeamQuery, {
-        variables: {
-            teamId: teamId
         }
     })
 
@@ -157,6 +151,7 @@ const TeamIndex = () => {
         <div className="team-index">
             <div className="teams">
                 <h1>My Teams</h1>
+                {loading && renderLoading()}
                 {data && renderExistingTeams()}
                 <button className="waves-effect waves-light btn red darken-1 add-team" onClick={addNewTeam} >Add Team</button>
             </div>

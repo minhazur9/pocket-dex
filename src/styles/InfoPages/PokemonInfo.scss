@@ -1,328 +1,369 @@
 .pokemon-info {
-    position: relative;
-    bottom: 90vh;
-    margin-top: 10px;
-    left: 25vw;
-    height: 89vh;
-    width: 75vw;
-    overflow-y: auto;
+  position: relative;
+  bottom: 90vh;
+  margin-top: 10px;
+  left: 25vw;
+  height: 89vh;
+  width: 75vw;
+  overflow-y: auto;
+  .left-rect {
+      
+  }
+  .banner {
+    // background-image: url("images/pokemon-artworks/pokedex-banner.svg");
+    margin: 0 auto;
+    // background-size: 100% 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 3px black solid;
+    background-color: #06a5f5;
+    margin-left: 20px;
+    margin-right: 20px;
     .name {
-        text-align: center;
-        @media only screen and (max-width: 900px) {
-            font-size: 30px;
-        }
+      position: relative;
+      text-align: center;
+      margin-right: 10px;
+      margin-left: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: whitesmoke;
+      font-weight: bolder;
+      top: 28%;
+      @media only screen and (max-width: 900px) {
+        font-size: 20px;
+      }
+      @media only screen and (max-width: 500px) {
+        font-size: 15px;
+        margin-top: 35%;
+      }
     }
-    .pokemon-id {
-        display: flex;
-        justify-self: center;
-        align-items: center;
-        font-size: 50px;
-        @media only screen and (max-width: 900px) {
-            font-size: 30px;
-        }
-    }
-    .sprites {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        img {
-            height: 120px;
-            @media only screen and (max-width: 900px) {
-                height: 75px;
-            }
-            @media only screen and (max-width: 600px) {
-                height: 55px;
-            }
-        }
-    }
-    .row2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        .types {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            font-size: 30px;
-            margin-left: 100px;
-            @media only screen and (max-width: 900px) {
-                font-size: 20px;
-                margin-left: 35px;
-            }
-            .type-header {
-                @media only screen and (max-width: 900px) {
-                    font-size: 15px;
-                    margin-right: 15px;
-                }
-            }
-            .type {
-                align-self: center;
-                width: 100px;
-                height: 50px;
-                border-radius: 20px;
-                @media only screen and (max-width: 900px) {
-                    width: 55px;
-                    height: 25px;
-                }
-                @media only screen and (max-width: 900px) {
-                    width: 40px;
-                    height: 15px;
-                }
-            }
-        }
-    }
-    .row3 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        .base-stats {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            font-size: 30px;
-            align-items: center;
-            .stat-header {
-                @media only screen and (max-width: 500px) {
-                    font-size: 15px;
-                }
-            }
-            .stat-list {
-                align-self: start;
-                font-size: 25px;
-                @media only screen and (max-width: 900px) {
-                    font-size: 10px;
-                }
-            }
-            @media only screen and (max-width: 900px) {
-                font-size: 20px;
-            }
-        }
-        .abilties {
-            display: flex;
-            justify-self: center;
-            flex-direction: column;
-            align-items: center;
-            font-size: 30px;
-            .ability {
-                font-size: 20px;
-                @media only screen and (max-width: 900px) {
-                    font-size: 10px;
-                }
-            }
-            .ability-header {
-                text-decoration: underline;
-                @media only screen and (max-width: 500px) {
-                    margin-top: 10px;
-                }
-            }
-            @media only screen and (max-width: 900px) {
-                font-size: 20px;
-            }
-            @media only screen and (max-width: 500px) {
-                position: relative;
-                font-size: 10px;
-                right: 15px;
-            }
-        }
-        .description {
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            font-size: 30px;
-            .text {
-                border: 2px solid black;
-                border-radius: 12px;
-                font-size: 20px;
-                overflow-wrap: break-word;
-                width: 450px;
-                @media only screen and (max-width: 900px) {
-                    width: 150px;
-                    font-size: 12px;
-                }
-                @media only screen and (max-width: 500px) {
-                    width: 100px;
-                    font-size: 8px;
-                    padding: 3px;
-                }
-            }
-            @media only screen and (max-width: 900px) {
-                font-size: 20px;
-            }
-            @media only screen and (max-width: 900px) {
-                font-size: 10px;
-            }
-        }
-    }
+  }
 
-    .evolution-chain-header {
+  .pokemon-id {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    font-size: 50px;
+    border: 5px solid black;
+    height: 55%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f44336;
+    color: white;
+    max-height: 80px;
+    @media only screen and (max-width: 900px) {
+      font-size: 30px;
+      height: 40%;
+      border-width: 3px;
+    }
+    @media only screen and (max-width: 500px) {
+      font-size: 20px;
+      height: 30%;
+      border-width: 2px;
+    }
+  }
+  .sprites {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      height: 120px;
+      @media only screen and (max-width: 900px) {
+        height: 75px;
+      }
+      @media only screen and (max-width: 600px) {
+        height: 55px;
+      }
+    }
+  }
+  .row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .types {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 30px;
+      margin-left: 100px;
+      @media only screen and (max-width: 900px) {
+        font-size: 20px;
+        margin-left: 35px;
+      }
+      .type-header {
+        @media only screen and (max-width: 900px) {
+          font-size: 15px;
+          margin-right: 15px;
+        }
+      }
+      .type {
+        align-self: center;
+        width: 100px;
+        height: 50px;
+        border-radius: 20px;
+        @media only screen and (max-width: 900px) {
+          width: 55px;
+          height: 25px;
+        }
+        @media only screen and (max-width: 900px) {
+          width: 40px;
+          height: 15px;
+        }
+      }
+    }
+  }
+  .row3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .base-stats {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      font-size: 30px;
+      align-items: center;
+      .stat-header {
+        @media only screen and (max-width: 500px) {
+          font-size: 15px;
+        }
+      }
+      .stat-list {
+        align-self: start;
         font-size: 25px;
-        text-align: center;
         @media only screen and (max-width: 900px) {
-            font-size: 15px;
+          font-size: 10px;
         }
+      }
+      @media only screen and (max-width: 900px) {
+        font-size: 20px;
+      }
     }
-
-    .evolution-line {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+    .abilties {
+      display: flex;
+      justify-self: center;
+      flex-direction: column;
+      align-items: center;
+      font-size: 30px;
+      .ability {
+        font-size: 20px;
+        @media only screen and (max-width: 900px) {
+          font-size: 10px;
+        }
+      }
+      .ability-header {
+        text-decoration: underline;
+        @media only screen and (max-width: 500px) {
+          margin-top: 10px;
+        }
+      }
+      @media only screen and (max-width: 900px) {
+        font-size: 20px;
+      }
+      @media only screen and (max-width: 500px) {
         position: relative;
-        .stage-image {
-            cursor: pointer;
-            text-align: center;
-            img {
-                width: 40%;
-                @media only screen and (max-width: 500px) {
-                    width: 20%;
-                }
-            }
-            p {
-                align-items: flex-end;
-                font-size: 15px;
-                @media only screen and (max-width: 500px) {
-                    font-size: 10px;
-                }
-            }
-            border: 3px #00a9ff solid;
-            padding: 10px;
-            border-radius: 10px;
-            margin: 10px;
-            position: relative;
-            @media only screen and (max-width: 500px) {
-                display: block;
-            }
+        font-size: 10px;
+        right: 15px;
+      }
+    }
+    .description {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      font-size: 30px;
+      .text {
+        border: 2px solid black;
+        border-radius: 12px;
+        font-size: 20px;
+        overflow-wrap: break-word;
+        width: 450px;
+        @media only screen and (max-width: 900px) {
+          width: 150px;
+          font-size: 12px;
         }
         @media only screen and (max-width: 500px) {
-            flex-direction: column;
-            align-items: center;
+          width: 100px;
+          font-size: 8px;
+          padding: 3px;
         }
+      }
+      @media only screen and (max-width: 900px) {
+        font-size: 20px;
+      }
+      @media only screen and (max-width: 900px) {
+        font-size: 10px;
+      }
     }
+  }
 
-    .arrow {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .arrow-right {
-            position: relative;
-            top: 45%;
+  .evolution-chain-header {
+    font-size: 25px;
+    text-align: center;
+    @media only screen and (max-width: 900px) {
+      font-size: 15px;
+    }
+  }
+
+  .evolution-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    .stage-image {
+      cursor: pointer;
+      text-align: center;
+      img {
+        width: 40%;
+        @media only screen and (max-width: 500px) {
+          width: 20%;
         }
+      }
+      p {
+        align-items: flex-end;
+        font-size: 15px;
+        @media only screen and (max-width: 500px) {
+          font-size: 10px;
+        }
+      }
+      border: 3px #00a9ff solid;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 10px;
+      position: relative;
+      @media only screen and (max-width: 500px) {
+        display: block;
+      }
     }
+    @media only screen and (max-width: 500px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 
-    .form-line {
-        display: flex;
-        justify-content: space-around;
+  .arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .arrow-right {
+      position: relative;
+      top: 45%;
+    }
+  }
+
+  .form-line {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    text-align: center;
+    .form {
+      cursor: pointer;
+      border: 3px #00a9ff solid;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 10px;
+      position: relative;
+      img {
+        margin: 0 auto;
+        width: 50%;
+        margin-bottom: 7px;
+      }
+      @media only screen and (max-width: 500px) {
+        display: block;
+      }
+    }
+    @media only screen and (max-width: 500px) {
+      display: block;
+    }
+  }
+
+  .row5 {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    font-size: 30px;
+    align-items: center;
+    .move-set {
+      text-align: center;
+      width: 70vw;
+      border: 2px solid black;
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      .move {
         position: relative;
-        text-align: center;
-        .form {
-            cursor: pointer;
-            border: 3px #00a9ff solid;
-            padding: 10px;
-            border-radius: 10px;
-            margin: 10px;
-            position: relative;
-            img {
-                margin: 0 auto;
-                width: 50%;
-                margin-bottom: 7px;
-            }
-            @media only screen and (max-width: 500px) {
-                display: block;
-            }
+        text-align: left;
+        font-size: 20px;
+        border: 2px solid black;
+        .move-link {
+          display: inline;
+          cursor: pointer;
+          color: #00a9ff;
         }
-        @media only screen and (max-width: 500px) {
-            display: block;
+        .learn-method {
+          display: inline;
+          text-align: right;
+          position: absolute;
+          right: 20px;
+          @media only screen and (max-width: 900px) {
+            font-size: 10px;
+          }
         }
+        @media only screen and (max-width: 900px) {
+          font-size: 15px;
+        }
+      }
+      @media only screen and (max-width: 900px) {
+        font-size: 20px;
+        width: 60vw;
+      }
     }
+  }
 
-    .row5 {
-        display: flex;
-        text-align: center;
-        flex-direction: column;
-        font-size: 30px;
-        align-items: center;
-        .move-set {
-            text-align: center;
-            width: 70vw;
-            border: 2px solid black;
-            max-height: 400px;
-            overflow-y: auto;
-            margin-bottom: 20px;
-            .move {
-                position: relative;
-                text-align: left;
-                font-size: 20px;
-                border: 2px solid black;
-                .move-link {
-                    display: inline;
-                    cursor: pointer;
-                    color: #00a9ff;
-                }
-                .learn-method {
-                    display: inline;
-                    text-align: right;
-                    position: absolute;
-                    right: 20px;
-                    @media only screen and (max-width: 900px) {
-                        font-size: 10px;
-                    }
-                }
-                @media only screen and (max-width: 900px) {
-                    font-size: 15px;
-                }
-            }
-            @media only screen and (max-width: 900px) {
-                font-size: 20px;
-                width: 60vw;
-            }
-        }
+  .chain {
+    display: flex;
+    @media only screen and (max-width: 500px) {
+      display: block;
     }
+  }
 
-    .chain {
-        display: flex;
-        @media only screen and (max-width: 500px) {
-            display: block;
-        }
-    }
-
-    .form-list-header {
-        text-align: center;
-        font-size: 25px;
-    }
+  .form-list-header {
+    text-align: center;
+    font-size: 25px;
+  }
 }
 
 .lds-ring {
-    display: inline;
-    position: relative;
-    width: 80px;
-    height: 80px;
-    left: 40%;
-    top: 30%;
+  display: inline;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  left: 40%;
+  top: 30%;
 }
 .lds-ring div {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border: 8px solid #fff;
-    border-radius: 50%;
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: red transparent transparent transparent;
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: red transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
-    animation-delay: -0.45s;
+  animation-delay: -0.45s;
 }
 .lds-ring div:nth-child(2) {
-    animation-delay: -0.3s;
+  animation-delay: -0.3s;
 }
 .lds-ring div:nth-child(3) {
-    animation-delay: -0.15s;
+  animation-delay: -0.15s;
 }
 @keyframes lds-ring {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
