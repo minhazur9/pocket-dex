@@ -1,117 +1,163 @@
 .move-info {
-    position: relative;
-    bottom:90vh;
-    margin-top:10px;
-    left: 25vw;
-    height: 89vh;
-    width: 75vw;
-    overflow-y: auto;
+  position: relative;
+  bottom: 90vh;
+  margin-top: 10px;
+  left: 25vw;
+  height: 89vh;
+  width: 75vw;
+  overflow-y: auto;
+  .banner {
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 3px black solid;
+    background-color: #05b5eb;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 25%;
+    display: flex;
+    justify-content: space-between;
+    @media only screen and (max-width: 900px) {
+      height: 15%;
+    }
+    @media only screen and (max-width: 500px) {
+      margin-top: 20px;
+      height: 7%;
+    }
+    .left-rect {
+      position: relative;
+      display: inline-block;
+      width: 10%;
+      height: 100%;
+      background-color:#F44336;
+      z-index: 3;
+      border-right: 2px black;
+      border-radius: 2px;
+    }
+    .right-rect {
+      position: relative;
+      display: inline-block;
+      width: 10%;
+      height: 100%;
+      background-color: #F44336;
+      border-left: 2px black;
+      border-radius: 2px;
+      z-index: 3;
+    }
     .name {
-        text-align: center;
-        @media only screen and (max-width: 900px) {
-            font-size: 30px
-        }
-    }
-    .col2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-            .type {
-                justify-self: center;
-                width:100px;
-                height:50px;
-                border-radius: 20px;
-                @media only screen and (max-width: 900px) {
-                    width: 55px;
-                    height: 25px;
-                }
-             }
-             .damage-class {
-                 justify-self: center;
-                 width:100px;
-                 height:50px;
-                 border-radius: 20px;
-                @media only screen and (max-width: 900px) {
-                    width: 55px;
-                    height: 25px;
-                }
-             }
-             .pp {
-                justify-self: center;
-                font-size: 35px;
-                @media only screen and (max-width: 900px) {
-                    font-size: 20px;
-                }
-             }
-        }
-    }
-    .col3 {
-        display: grid;
-        margin-top: 20px;
-        grid-template-columns: 1fr 1fr 1fr;
-        .move-power {
-            font-size: 30px;
-            justify-self: center;
-            @media only screen and (max-width: 900px) {
-                font-size: 15px;
-            }
-        }
-        .move-accuracy {
-            font-size: 30px;
-            justify-self: center;
-            @media only screen and (max-width: 900px) {
-                font-size: 15px;
-            }
-        }
-        .effect-chance {
-            font-size: 30px;
-            justify-self: center;
-            @media only screen and (max-width: 900px) {
-                font-size: 15px;
-            }
-        }
-        @media only screen and (max-width: 900px) {
-            margin-top: 15px;
-        }
-        
-    }
-    .col4 {
-        text-align: center;
-        .move-text {
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 20px;
-            border: 2px solid black;
-            border-radius: 20px;
-            margin-left: 15px;
-            margin-right: 15px;
-            padding: 3px;
-            @media only screen and (max-width: 900px) {
-                font-size: 10px;
-            }
-        }
-    }
-    .col5 {
-        text-align: center;
+      display: flex;
+      align-self: center;
+      position: relative;
+      color: whitesmoke;
+      font-weight: bolder;
+      @media only screen and (max-width: 900px) {
+        font-size: 25px;
+      }
+      @media only screen and (max-width: 500px) {
+        font-size: 15px;
         margin-top: 15px;
-        font-size:30px;
-        @media only screen and (max-width: 900px) {
-            font-size: 15px;
-            margin-top: 10px;
-        }
+      }
     }
-    .col6 {
-        text-align: center;
-        .move-text {
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 20px;
-            border: 2px solid black;
-            border-radius: 17px;
-            margin-left: 15px;
-            margin-right: 15px;
-            padding: 3px;
-            @media only screen and (max-width: 900px) {
-                font-size: 10px;
-            }
-        }
+  }
+  .col2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .type {
+      justify-self: center;
+      width: 100px;
+      height: 50px;
+      border-radius: 20px;
+      @media only screen and (max-width: 900px) {
+        width: 55px;
+        height: 25px;
+      }
     }
+    .damage-class {
+      justify-self: center;
+      width: 100px;
+      height: 50px;
+      border-radius: 20px;
+      @media only screen and (max-width: 900px) {
+        width: 55px;
+        height: 25px;
+      }
+    }
+    .pp {
+      justify-self: center;
+      font-size: 35px;
+      @media only screen and (max-width: 900px) {
+        font-size: 20px;
+      }
+    }
+  }
+}
+.col3 {
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  .move-power {
+    font-size: 30px;
+    justify-self: center;
+    @media only screen and (max-width: 900px) {
+      font-size: 15px;
+    }
+  }
+  .move-accuracy {
+    font-size: 30px;
+    justify-self: center;
+    @media only screen and (max-width: 900px) {
+      font-size: 15px;
+    }
+  }
+  .effect-chance {
+    font-size: 30px;
+    justify-self: center;
+    @media only screen and (max-width: 900px) {
+      font-size: 15px;
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    margin-top: 15px;
+  }
+}
+.col4 {
+  text-align: center;
+  .move-text {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 3px;
+    @media only screen and (max-width: 900px) {
+      font-size: 10px;
+    }
+  }
+}
+.col5 {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 30px;
+  @media only screen and (max-width: 900px) {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+}
+.col6 {
+  text-align: center;
+  .move-text {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 17px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 3px;
+    @media only screen and (max-width: 900px) {
+      font-size: 10px;
+    }
+  }
+}

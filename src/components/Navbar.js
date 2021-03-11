@@ -104,10 +104,10 @@ const Navbar = () => {
         </button>
       </div>
       <ul className="dropdown">
-        <Link to="/pokemon" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>PokeDex</li></Link>
-        <Link to="/moves" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>MoveDex</li></Link>
-        <Link to="/abilities" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>AbilityDex</li></Link>
-        <Link to="/items" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>ItemDex</li></Link>
+        <Link to="/pokemon" onClick={() => document.querySelector(".dropdown").style.display = "none"} className="mobile-nav-link"><li>PokeDex</li></Link>
+        <Link to="/moves" onClick={() => document.querySelector(".dropdown").style.display = "none"} className="mobile-nav-link"><li>MoveDex</li></Link>
+        <Link to="/abilities" onClick={() => document.querySelector(".dropdown").style.display = "none"} className="mobile-nav-link"><li>AbilityDex</li></Link>
+        <Link to="/items" onClick={() => document.querySelector(".dropdown").style.display = "none"} className="mobile-nav-link"><li>ItemDex</li></Link>
         {loggedIn ? renderMobileAccountControls() : renderMobileAccountLinks()}
       </ul>
     </nav>

@@ -8,13 +8,78 @@
   overflow-y: auto;
 }
 
-.ability-info .name {
-  text-align: center;
+.ability-info .banner {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 3px black solid;
+  background-color: #3A3A3A;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media only screen and (max-width: 900px) {
-  .ability-info .name {
-    font-size: 30px;
+  .ability-info .banner {
+    height: 15%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .ability-info .banner {
+    margin-top: 20px;
+    height: 7%;
+  }
+}
+
+.ability-info .banner .left-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #F2BD43;
+  z-index: 3;
+  border-right: 2px black;
+  border-radius: 2px;
+}
+
+.ability-info .banner .right-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #F2BD43;
+  border-left: 2px black;
+  border-radius: 2px;
+  z-index: 3;
+}
+
+.ability-info .banner .name {
+  display: inline-block;
+  position: relative;
+  color: whitesmoke;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 900px) {
+  .ability-info .banner .name {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .ability-info .banner .name {
+    font-size: 15px;
+    margin-top: 15px;
   }
 }
 

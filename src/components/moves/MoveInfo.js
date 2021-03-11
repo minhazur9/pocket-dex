@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { renderLoading } from '../Loading';
 import bug from '../../images/types/bug.png';
 import dark from '../../images/types/dark.png';
 import dragon from '../../images/types/dragon.png';
@@ -136,20 +137,15 @@ const MoveInfo = () => {
         )
     }
 
-    // Renders loading spinner
-    const renderLoading = () => {
-        return (
-            <>
-                <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-            </>
-        )
-    }
-
     // Renders all the info
     const renderAllInfo = () => {
         return (
             <>
-                <h1 className="name">{moveInfo.name.toUpperCase().replace('-', ' ')}</h1>
+                <div className="banner">
+                    <div className="left-rect"></div>
+                    <h1 className="name">{moveInfo.name.toUpperCase().replace('-', ' ')}</h1>
+                    <div className="right-rect"></div>
+                </div>
                 <div className="col2">
                     {renderType()}
                     {renderDamageClass()}

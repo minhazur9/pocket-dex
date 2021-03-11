@@ -6,35 +6,56 @@
   height: 89vh;
   width: 75vw;
   overflow-y: auto;
-  .left-rect {
-      
-  }
   .banner {
-    // background-image: url("images/pokemon-artworks/pokedex-banner.svg");
     margin: 0 auto;
-    // background-size: 100% 100%;
     margin-bottom: 15px;
     border-radius: 5px;
     border: 3px black solid;
-    background-color: #06a5f5;
+    background-color: #f44336;
     margin-left: 20px;
     margin-right: 20px;
-    .name {
+    height: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media only screen and (max-width: 900px) {
+      height: 15%;
+    }
+    @media only screen and (max-width: 500px) {
+      margin-top: 20px;
+      height: 7%;
+    }
+    .left-rect {
       position: relative;
-      text-align: center;
-      margin-right: 10px;
-      margin-left: 10px;
-      padding-left: 10px;
-      padding-right: 10px;
+      display: inline-block;
+      width: 10%;
+      height: 100%;
+      background-color: #FEFEFE;
+      z-index: 3;
+      border-right: 2px black;
+      border-radius: 2px;
+    }
+    .right-rect {
+      position: relative;
+      display: inline-block;
+      width: 10%;
+      height: 100%;
+      background-color: #FEFEFE;
+      border-left: 2px black;
+      border-radius: 2px;
+      z-index: 3;
+    }
+    .name {
+      display: inline-block;
+      position: relative;
       color: whitesmoke;
       font-weight: bolder;
-      top: 28%;
       @media only screen and (max-width: 900px) {
-        font-size: 20px;
+        font-size: 25px;
       }
       @media only screen and (max-width: 500px) {
         font-size: 15px;
-        margin-top: 35%;
+        margin-top: 15px;
       }
     }
   }

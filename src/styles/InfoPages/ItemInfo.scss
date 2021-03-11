@@ -1,84 +1,131 @@
 .item-info {
-    position: relative;
-    bottom:90vh;
-    margin-top:10px;
-    left: 25vw;
-    height: 89vh;
-    width: 75vw;
-    overflow-y: auto;
+  position: relative;
+  bottom: 90vh;
+  margin-top: 10px;
+  left: 25vw;
+  height: 89vh;
+  width: 75vw;
+  overflow-y: auto;
+  .banner {
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 3px black solid;
+    background-color: #9750D1;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media only screen and (max-width: 900px) {
+      height: 15%;
+    }
+    @media only screen and (max-width: 500px) {
+      margin-top: 20px;
+      height: 7%;
+    }
+    .left-rect {
+      position: relative;
+      display: inline-block;
+      width: 10%;
+      height: 100%;
+      background-color: #E04EB6;
+      z-index: 3;
+      border-right: 2px black;
+      border-radius: 2px;
+    }
+    .right-rect {
+      position: relative;
+      display: inline-block;
+      width: 10%;
+      height: 100%;
+      background-color: #E04EB6;
+      border-left: 2px black;
+      border-radius: 2px;
+      z-index: 3;
+    }
     .name {
-        text-align: center;
-        @media only screen and (max-width: 900px) {
-            font-size: 30px
-        }
-    }
-    .col2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        .item-category {
-            display: flex;
-            justify-self: center;
-            align-items: center;
-            font-size: 30px;
-            @media only screen and (max-width: 900px) {
-                font-size: 10px;
-            }
-         }
-        .item-sprite {
-            justify-self: center;
-            width:25%;
-            border-radius: 20px;
-            @media only screen and (max-width: 900px) {
-                width: 20%
-            }
-        }
-        .fling-power {
-            display: flex;
-            justify-self: center;
-            align-items: center;
-            font-size: 30px;
-            @media only screen and (max-width: 900px) {
-                font-size: 10px;
-            }
-         }
-    }
-    .col3 {
-        display: block;
-        text-align: center;
-        .item-text {
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 20px;
-            border: 2px solid black;
-            border-radius: 20px;
-            margin-left: 15px;
-            margin-right: 15px;
-            padding: 3px;
-            @media only screen and (max-width: 900px) {
-                font-size: 10px;
-            }
-        }
-    }
-    .col4 {
-        display: block;
-        text-align: center;
-        font-size: 30px;
-        margin-top: 15px;
-    }
-    .col5 {
-        text-align: center;
-          .item-text {
-              display: inline-block;
-              margin-top: 15px;
-              font-size: 20px;
-              border: 2px solid black;
-              border-radius: 17px;
-              margin-left: 15px;
-              margin-right: 15px;
-              padding: 3px;
-              @media only screen and (max-width: 900px) {
-                  font-size: 10px;
-              }
-          }
+      display: inline-block;
+      position: relative;
+      color: whitesmoke;
+      font-weight: bolder;
+      @media only screen and (max-width: 900px) {
+        font-size: 25px;
       }
+      @media only screen and (max-width: 500px) {
+        font-size: 15px;
+        margin-top: 15px;
+      }
+    }
+  }
+  .col2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .item-category {
+      display: flex;
+      justify-self: center;
+      align-items: center;
+      font-size: 30px;
+      @media only screen and (max-width: 900px) {
+        font-size: 10px;
+      }
+    }
+    .item-sprite {
+      justify-self: center;
+      width: 25%;
+      border-radius: 20px;
+      @media only screen and (max-width: 900px) {
+        width: 20%;
+      }
+    }
+    .fling-power {
+      display: flex;
+      justify-self: center;
+      align-items: center;
+      font-size: 30px;
+      @media only screen and (max-width: 900px) {
+        font-size: 10px;
+      }
+    }
+  }
+  .col3 {
+    display: block;
+    text-align: center;
+    .item-text {
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 20px;
+      border: 2px solid black;
+      border-radius: 20px;
+      margin-left: 15px;
+      margin-right: 15px;
+      padding: 3px;
+      @media only screen and (max-width: 900px) {
+        font-size: 10px;
+      }
+    }
+  }
+  .col4 {
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 15px;
+  }
+  .col5 {
+    text-align: center;
+    .item-text {
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 20px;
+      border: 2px solid black;
+      border-radius: 17px;
+      margin-left: 15px;
+      margin-right: 15px;
+      padding: 3px;
+      @media only screen and (max-width: 900px) {
+        font-size: 10px;
+      }
+    }
+  }
 }

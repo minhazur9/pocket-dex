@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { renderLoading } from '../Loading';
 
@@ -40,7 +40,12 @@ const AbilityInfo = () => {
     const renderAllInfo = () => {
         return (
             <>
+            <div className="banner">
+                <div className="left-rect"></div>
                 <h1 className="name">{abilityInfo.name.toUpperCase()}</h1>
+                <div className="right-rect"></div>
+            </div>
+                
                 <div className="col2">
                     {renderFlavorText()}
                 </div>

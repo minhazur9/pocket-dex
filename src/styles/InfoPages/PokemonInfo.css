@@ -13,33 +13,73 @@
   margin-bottom: 15px;
   border-radius: 5px;
   border: 3px black solid;
-  background-color: #06a5f5;
+  background-color: #f44336;
   margin-left: 20px;
   margin-right: 20px;
+  height: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .banner {
+    height: 15%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .pokemon-info .banner {
+    margin-top: 20px;
+    height: 7%;
+  }
+}
+
+.pokemon-info .banner .left-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #FEFEFE;
+  z-index: 3;
+  border-right: 2px black;
+  border-radius: 2px;
+}
+
+.pokemon-info .banner .right-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #FEFEFE;
+  border-left: 2px black;
+  border-radius: 2px;
+  z-index: 3;
 }
 
 .pokemon-info .banner .name {
+  display: inline-block;
   position: relative;
-  text-align: center;
-  margin-right: 10px;
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
   color: whitesmoke;
   font-weight: bolder;
-  top: 28%;
 }
 
 @media only screen and (max-width: 900px) {
   .pokemon-info .banner .name {
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .pokemon-info .banner .name {
     font-size: 15px;
-    margin-top: 35%;
+    margin-top: 15px;
   }
 }
 

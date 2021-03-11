@@ -8,13 +8,79 @@
   overflow-y: auto;
 }
 
-.move-info .name {
-  text-align: center;
+.move-info .banner {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 3px black solid;
+  background-color: #05b5eb;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 @media only screen and (max-width: 900px) {
-  .move-info .name {
-    font-size: 30px;
+  .move-info .banner {
+    height: 15%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .move-info .banner {
+    margin-top: 20px;
+    height: 7%;
+  }
+}
+
+.move-info .banner .left-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #F44336;
+  z-index: 3;
+  border-right: 2px black;
+  border-radius: 2px;
+}
+
+.move-info .banner .right-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #F44336;
+  border-left: 2px black;
+  border-radius: 2px;
+  z-index: 3;
+}
+
+.move-info .banner .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  position: relative;
+  color: whitesmoke;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 900px) {
+  .move-info .banner .name {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .move-info .banner .name {
+    font-size: 15px;
+    margin-top: 15px;
   }
 }
 

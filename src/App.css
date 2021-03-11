@@ -213,33 +213,73 @@ nav .hamburger-menu {
   margin-bottom: 15px;
   border-radius: 5px;
   border: 3px black solid;
-  background-color: #06a5f5;
+  background-color: #f44336;
   margin-left: 20px;
   margin-right: 20px;
+  height: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon-info .banner {
+    height: 15%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .pokemon-info .banner {
+    margin-top: 20px;
+    height: 7%;
+  }
+}
+
+.pokemon-info .banner .left-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #FEFEFE;
+  z-index: 3;
+  border-right: 2px black;
+  border-radius: 2px;
+}
+
+.pokemon-info .banner .right-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #FEFEFE;
+  border-left: 2px black;
+  border-radius: 2px;
+  z-index: 3;
 }
 
 .pokemon-info .banner .name {
+  display: inline-block;
   position: relative;
-  text-align: center;
-  margin-right: 10px;
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
   color: whitesmoke;
   font-weight: bolder;
-  top: 28%;
 }
 
 @media only screen and (max-width: 900px) {
   .pokemon-info .banner .name {
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .pokemon-info .banner .name {
     font-size: 15px;
-    margin-top: 35%;
+    margin-top: 15px;
   }
 }
 
@@ -790,13 +830,79 @@ nav .hamburger-menu {
   overflow-y: auto;
 }
 
-.move-info .name {
-  text-align: center;
+.move-info .banner {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 3px black solid;
+  background-color: #05b5eb;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 @media only screen and (max-width: 900px) {
-  .move-info .name {
-    font-size: 30px;
+  .move-info .banner {
+    height: 15%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .move-info .banner {
+    margin-top: 20px;
+    height: 7%;
+  }
+}
+
+.move-info .banner .left-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #F44336;
+  z-index: 3;
+  border-right: 2px black;
+  border-radius: 2px;
+}
+
+.move-info .banner .right-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #F44336;
+  border-left: 2px black;
+  border-radius: 2px;
+  z-index: 3;
+}
+
+.move-info .banner .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  position: relative;
+  color: whitesmoke;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 900px) {
+  .move-info .banner .name {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .move-info .banner .name {
+    font-size: 15px;
+    margin-top: 15px;
   }
 }
 
@@ -964,13 +1070,78 @@ nav .hamburger-menu {
   overflow-y: auto;
 }
 
-.ability-info .name {
-  text-align: center;
+.ability-info .banner {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 3px black solid;
+  background-color: #3A3A3A;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media only screen and (max-width: 900px) {
-  .ability-info .name {
-    font-size: 30px;
+  .ability-info .banner {
+    height: 15%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .ability-info .banner {
+    margin-top: 20px;
+    height: 7%;
+  }
+}
+
+.ability-info .banner .left-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #F2BD43;
+  z-index: 3;
+  border-right: 2px black;
+  border-radius: 2px;
+}
+
+.ability-info .banner .right-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #F2BD43;
+  border-left: 2px black;
+  border-radius: 2px;
+  z-index: 3;
+}
+
+.ability-info .banner .name {
+  display: inline-block;
+  position: relative;
+  color: whitesmoke;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 900px) {
+  .ability-info .banner .name {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .ability-info .banner .name {
+    font-size: 15px;
+    margin-top: 15px;
   }
 }
 
@@ -1121,13 +1292,78 @@ nav .hamburger-menu {
   overflow-y: auto;
 }
 
-.item-info .name {
-  text-align: center;
+.item-info .banner {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 3px black solid;
+  background-color: #9750D1;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media only screen and (max-width: 900px) {
-  .item-info .name {
-    font-size: 30px;
+  .item-info .banner {
+    height: 15%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .item-info .banner {
+    margin-top: 20px;
+    height: 7%;
+  }
+}
+
+.item-info .banner .left-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #E04EB6;
+  z-index: 3;
+  border-right: 2px black;
+  border-radius: 2px;
+}
+
+.item-info .banner .right-rect {
+  position: relative;
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  background-color: #E04EB6;
+  border-left: 2px black;
+  border-radius: 2px;
+  z-index: 3;
+}
+
+.item-info .banner .name {
+  display: inline-block;
+  position: relative;
+  color: whitesmoke;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 900px) {
+  .item-info .banner .name {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .item-info .banner .name {
+    font-size: 15px;
+    margin-top: 15px;
   }
 }
 

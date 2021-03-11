@@ -19,7 +19,6 @@ import psychic from '../../images/types/psychic.png'
 import rock from '../../images/types/rock.png'
 import steel from '../../images/types/steel.png'
 import water from '../../images/types/water.png'
-import banner from '../../images/pokemon-artworks/pokedex-banner.png'
 import StatChart from './StatChart';
 import MoveSetList from './MoveSetList';
 import EvolutionChain from './EvolutionChain';
@@ -137,8 +136,8 @@ const PokemonInfo = () => {
             <>
                 <div className="banner">
                     <div className="left-rect"></div>
-                    <div className="rigth-rect"></div>
                     <h1 className="name">{name.toUpperCase()}</h1>
+                    <div className="right-rect"></div>
                 </div>
 
                 <div className="row2">
