@@ -1306,7 +1306,6 @@ nav .hamburger-menu {
 .ability-info .col6 {
   text-align: center;
   display: block;
-  border: 2px solid black;
   border-radius: 10px;
   margin-right: 15px;
   margin-left: 15px;
@@ -1315,12 +1314,17 @@ nav .hamburger-menu {
   position: relative;
 }
 
+.ability-info .col6::-webkit-scrollbar {
+  width: 15px;
+}
+
 .ability-info .col6 .pokemon-ability-card {
   margin: 10px;
   border: 2px solid black;
   border-radius: 15px;
   position: relative;
   min-height: 200px;
+  background-color: #00A9FF;
   cursor: pointer;
 }
 
@@ -1329,7 +1333,7 @@ nav .hamburger-menu {
   max-width: 110px;
   min-width: 100px;
   height: 100px;
-  border: 2px black solid;
+  border: 2px whitesmoke solid;
   border-radius: 50%;
   left: 10px;
   padding: 5px;
@@ -1350,6 +1354,7 @@ nav .hamburger-menu {
   position: absolute;
   left: 125px;
   top: 15px;
+  color: whitesmoke;
 }
 
 @media only screen and (max-width: 900px) {
@@ -1363,6 +1368,7 @@ nav .hamburger-menu {
   text-align: right;
   font-size: 20px;
   position: absolute;
+  color: whitesmoke;
   right: 20px;
   bottom: 10px;
 }
