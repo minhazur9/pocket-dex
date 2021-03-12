@@ -13,13 +13,15 @@ const SignUp = () => {
         addUserMutation,
         {
             onCompleted({ addUser }) {
-                if (addUser) storeToken(addUser);
+                if (addUser.token === 'username already exists') setDuplicateUser(true)
+                else if (addUser.token === 'email already exists') setDuplicateEmail(true)
+                else if (addUser.token === 'email is invalid') setInvalidEmail(true)
+                else storeToken(addUser);
             }
         }
     );
 
     const [addTeam] = useMutation(addTeamMutation)
-
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -27,6 +29,9 @@ const SignUp = () => {
     const [blankUsername, setBlankUsername] = useState(false)
     const [blankPassword, setBlankPassword] = useState(false)
     const [blankEmail, setBlankEmail] = useState(false)
+    const [invalidEmail, setInvalidEmail] = useState(false)
+    const [duplicateUser, setDuplicateUser] = useState(false)
+    const [duplicateEmail, setDuplicateEmail] = useState(false)
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -36,6 +41,20 @@ const SignUp = () => {
         const date = new Date();
         date.setTime(date.getTime() + (12 * 60 * 60 * 1000));
         document.cookie = `jwtToken=${response.token}; Path=/; expires=${date.toUTCString()}`;
+        addTeam({
+            variables: {
+                name: "Team 1",
+                userId: getCookie()
+            },
+            refetchQueries: [
+                {
+                    query: getTeamsQuery,
+                    variables: {
+                        userId: getCookie()
+                    }
+                }
+            ]
+        })
         dispatch(logIn())
         history.push('/teams')
     }
@@ -54,37 +73,34 @@ const SignUp = () => {
                     password: password,
                 }
             })
-            addTeam({
-                variables: {
-                    name: "Team 1",
-                    userId: getCookie()
-                },
-                refetchQueries: [
-                    {
-                        query: getTeamsQuery,
-                        variables: {
-                            userId: getCookie()
-                        }
-                    }
-                ]
-            })
-
         }
     }
 
     // renders blank username error
     const blankUsernameError = () => {
-        if (blankUsername) return <p className="error-message">Username is required</p>
+        return <p className="error-message">Username is required</p>
+    }
+
+    const duplicateUserError = () => {
+        return <p className="error-message">Username is taken</p>
     }
 
     // renders blank password error
     const blankPasswordError = () => {
-        if (blankPassword) return <p className="error-message">Password is required</p>
+        return <p className="error-message">Password is required</p>
     }
 
     // renders blank email error
     const blankEmailError = () => {
-        if (blankEmail) return <p className="error-message">Email is required</p>
+        return <p className="error-message">Email is required</p>
+    }
+
+    const invalidEmailError = () => {
+        return <p className="error-message">Email is invalid</p>
+    }
+
+    const duplicateEmailError = () => {
+        return <p className="error-message">There is already an account using this email</p>
     }
 
     // renders if password and password confirmation doesn't match
@@ -96,9 +112,7 @@ const SignUp = () => {
 
     // renders if username is too short
     const userNameLengthError = () => {
-        if (username.length < 3 && username !== "") {
-            return <p className="error-message">Username must be at least 3 characters long</p>
-        }
+        return <p className="error-message">Username must be at least 3 characters long</p>
     }
 
     return (
@@ -107,18 +121,30 @@ const SignUp = () => {
             <form className="signup-form" onSubmit={submitForm} >
                 <label htmlFor="username">Username</label>
                 <input className='signup-input' type="text" name='username'
-                    onFocus={() => setBlankUsername(false)} onChange={(e) => setUsername(e.target.value)} />
-                {userNameLengthError()}
-                {blankUsernameError()}
+                    onFocus={() => {
+                        setBlankUsername(false)
+                        setDuplicateUser(false)
+                    }}
+                    onChange={(e) => setUsername(e.target.value)} />
+                {username && username.length < 3 && userNameLengthError()}
+                {blankUsername && blankUsernameError()}
+                {duplicateUser && duplicateUserError()}
                 <label htmlFor="email">Email</label>
                 <input className='signup-input' type="email" name='email'
-                    onFocus={() => setBlankEmail(false)} onChange={(e) => setEmail(e.target.value)} />
-                {blankEmailError()}
+                    onFocus={() => {
+                        setBlankEmail(false)
+                        setDuplicateEmail(false)
+                        setInvalidEmail(false)
+                    }}
+                    onChange={(e) => setEmail(e.target.value)} />
+                {blankEmail && blankEmailError()}
+                {duplicateEmail && duplicateEmailError()}
+                {invalidEmail && invalidEmailError()}
                 <label htmlFor="password">Password</label>
                 <input className='signup-input' type="password" name='password'
                     onFocus={() => setBlankPassword(false)} onChange={(e) => setPassword(e.target.value)} />
                 {passwordVerificationError()}
-                {blankPasswordError()}
+                {blankPassword && blankPasswordError()}
                 <label htmlFor="confirm">Confirm Password</label>
                 <input className='signup-input' type="password" name='confirm' onChange={(e) => setConfirm(e.target.value)} />
                 {passwordVerificationError()}

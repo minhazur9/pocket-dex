@@ -54,27 +54,27 @@ const RootQuery = new GraphQLObjectType({
                 return db.Pokemon.findById(args.id)
             }
         },
-        getAllPokemonByTeam: {
-            type: new GraphQLList(PokemonType),
-            args: { teamId: { type: new GraphQLNonNull(GraphQLID) } },
-            resolve(parent, args) {
-                return db.Pokemon.find({ teamId: args.teamId })
-            }
-        },
+        // getAllPokemonByTeam: {
+        //     type: new GraphQLList(PokemonType),
+        //     args: { teamId: { type: new GraphQLNonNull(GraphQLID) } },
+        //     resolve(parent, args) {
+        //         return db.Pokemon.find({ teamId: args.teamId })
+        //     }
+        // },
         // Query for all users
-        allUsers: {
-            type: new GraphQLList(UserType),
-            resolve(parent, args) {
-                return db.User.find({})
-            }
-        },
+        // allUsers: {
+        //     type: new GraphQLList(UserType),
+        //     resolve(parent, args) {
+        //         return db.User.find({})
+        //     }
+        // },3
         // Query for all teams
-        allTeams: {
-            type: new GraphQLList(TeamType),
-            resolve(parent, args) {
-                return db.Team.find({})
-            }
-        },
+        // allTeams: {
+        //     type: new GraphQLList(TeamType),
+        //     resolve(parent, args) {
+        //         return db.Team.find({})
+        //     }
+        // },
         allTeamsByUser: {
             type: new GraphQLList(TeamType),
             args: {
@@ -87,12 +87,12 @@ const RootQuery = new GraphQLObjectType({
             }
         },
         // Query for all pokemon
-        allPokemon: {
-            type: new GraphQLList(PokemonType),
-            resolve(parent, args) {
-                return db.Pokemon.find({})
-            }
-        }
+        // allPokemon: {
+        //     type: new GraphQLList(PokemonType),
+        //     resolve(parent, args) {
+        //         return db.Pokemon.find({})
+        //     }
+        // }
     }
 })
 
@@ -109,8 +109,11 @@ const Mutation = new GraphQLObjectType({
                 password: { type: new GraphQLNonNull(GraphQLString) },
             },
             async resolve(parent, args) {
+                const regexp = new RegExp(/.*\@.*\.(com|org|gov|edu)/g);
+                if(!args.email.match(regexp)) return {token: 'email is invalid'}
                 const foundUser = await db.User.findOne({ $or: [{ email: args.email }, { username: args.username }] })
-                if (foundUser) return null;
+                if (foundUser && foundUser.username === args.username) return {token:'username already exists'};
+                else if (foundUser && foundUser.email === args.email) return {token: 'email already exists'}
                 const salt = await bycrypt.genSalt(10);
                 const hashedPassword = await bycrypt.hash(args.password, salt);
                 await db.User.create({
