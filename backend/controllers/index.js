@@ -58,7 +58,7 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(PokemonType),
             args: { teamId: { type: new GraphQLNonNull(GraphQLID) } },
             resolve(parent, args) {
-                return db.Pokemon.find({ teamId: args.teamId})
+                return db.Pokemon.find({ teamId: args.teamId })
             }
         },
         // Query for all users
@@ -130,10 +130,11 @@ const Mutation = new GraphQLObjectType({
             type: AuthType,
             args: {
                 username: { type: new GraphQLNonNull(GraphQLString) },
+                email: { type: new GraphQLNonNull(GraphQLString) },
                 password: { type: new GraphQLNonNull(GraphQLString) },
             },
             async resolve(parent, args) {
-                const foundUser = await db.User.findOne({ username: args.username })
+                const foundUser = await db.User.findOne({ $or: [{ email: args.email }, { username: args.username }] })
                 if (!foundUser) return null
                 const matched = await bycrypt.compare(args.password, foundUser.password)
                 if (matched) {

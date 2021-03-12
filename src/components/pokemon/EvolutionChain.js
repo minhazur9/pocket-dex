@@ -89,6 +89,7 @@ const EvolutionChain = () => {
                 const { evolution_details } = stage;
                 let { name } = stage.species;
                 name = imageNameFormatter(name);
+                if(name === 'lycanroc') name += '-midday'
                 return (
                     <div key={index} className="chain">
                         <li className="stage-image" key={index} onClick={(e) => updatePokemonState(e, stage.species.name)}>

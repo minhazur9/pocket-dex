@@ -48,7 +48,14 @@ const PokemonList = () => {
         return pokemon.map((entry) => {
             const pokemonName = entry.pokemon.name;
             const formattedName = pokemonName.includes('-') ? nameFormatter(entry.pokemon.name) : entry.pokemon.name;
-            if(pokemonName.includes('-totem')) return 0;
+            if(pokemonName.includes('-totem')
+            || pokemonName.includes('-cosplay')
+            || pokemonName.includes('-cap')
+            || pokemonName.includes('-libre')
+            || pokemonName.includes('-phd')
+            || pokemonName.includes('-pop-star')
+            || pokemonName.includes('-belle')
+            || pokemonName.includes('-rock-star')) return <></>;
             return (
                 <div key={pokemonName} className="pokemon-ability-card" onClick={() => updatePokemonState(pokemonName)}>
                     {renderImage(pokemonName)}

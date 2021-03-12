@@ -58,11 +58,14 @@ const AlternativeForms = () => {
                 name = imageNameFormatter(name)
                 captionName = nameFormatter(name)
             }
-            if (name.includes('-dusk')) {
+            if (name.includes('necrozma-dusk')) {
                 name += '-mane'
             }
             else if (name.includes('-dawn')) {
                 name += '-wings'
+            }
+            else if (name.includes('-own-tempo')) {
+                name = 'rockruff'
             }
             return (
                 <li key={captionName+index} className="form" onClick={(e) => updatePokemonState(e, form.pokemon.name)} >

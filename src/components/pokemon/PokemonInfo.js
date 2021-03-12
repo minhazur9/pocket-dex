@@ -60,8 +60,10 @@ const PokemonInfo = () => {
 
     // Renders the pokemon id number
     const renderPokemonId = () => {
+        const {id} = info;
+        if(id > 893) return <p className='pokemon-id'>SPECIAL</p>
         return (
-            <p className="pokemon-id">#{info.id}</p>
+            <p className="pokemon-id">#{id}</p>
         )
     }
 

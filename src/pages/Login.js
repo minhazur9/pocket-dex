@@ -47,6 +47,7 @@ const Login = () => {
         tokenAuth({
             variables: {
                 username: username,
+                email: username,
                 password: password,
             },
         })
@@ -57,7 +58,7 @@ const Login = () => {
             <form className="login-form" onSubmit={submitForm}>
                 <h3>Login</h3>
                 {invalidcredentials && badLoginError()}
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username">Username or Email</label>
                 <input type="text" name="username" className="login-input" 
                 onFocus={() => setInvalidCredientials(false)} onChange={(e) => setUsername(e.target.value)} />
                 <label htmlFor="password">Password</label>
