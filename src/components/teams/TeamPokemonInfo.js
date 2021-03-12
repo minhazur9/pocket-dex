@@ -30,6 +30,7 @@ const TeamPokemonInfo = () => {
 
     useEffect(() => {
         const { name, level, nature, item, ability, moveset, ivs, evs } = teamPokemonInfo;
+        console.log(name)
         dispatch(getPokemon())
         if (name) {
             dispatch(getInfo(name))
@@ -49,7 +50,10 @@ const TeamPokemonInfo = () => {
     }, [teamPokemonInfo])
 
     useEffect(() => {
-        if (pokemon) dispatch(getInfo(pokemon))
+        if (pokemon) {
+            dispatch(getInfo(pokemon))
+            dispatch(getSpeciesInfo(pokemon))
+        }
         return pokemon
         // eslint-disable-next-line
     }, [pokemon])

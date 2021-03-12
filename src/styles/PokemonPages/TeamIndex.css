@@ -61,10 +61,10 @@
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 500px) {
   .team-index .teams h1 {
     font-size: 15px;
-    margin-left: 65px;
+    margin-left: 55px;
   }
 }
 

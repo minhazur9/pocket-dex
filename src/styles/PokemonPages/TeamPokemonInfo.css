@@ -160,6 +160,12 @@
   }
 }
 
+@media only screen and (max-width: 500px) {
+  .team-pokemon-info .confirm-edit {
+    left: 28%;
+  }
+}
+
 @media only screen and (max-width: 1400px) {
   .team-pokemon-info {
     width: 550px;
