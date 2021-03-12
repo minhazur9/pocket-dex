@@ -49,7 +49,7 @@ const TeamPokemonInfo = () => {
     }, [teamPokemonInfo])
 
     useEffect(() => {
-        if(pokemon) dispatch(getInfo(pokemon))
+        if (pokemon) dispatch(getInfo(pokemon))
         return pokemon
         // eslint-disable-next-line
     }, [pokemon])
@@ -61,6 +61,7 @@ const TeamPokemonInfo = () => {
         // eslint-disable-next-line
     }, [evs])
 
+    // submits the form information the database
     const handleSubmit = (e) => {
         e.preventDefault();
         const { id } = teamPokemonInfo;
@@ -93,6 +94,7 @@ const TeamPokemonInfo = () => {
         })
     }
 
+    // clears all pokemon information their defaults
     const handleDelete = (e) => {
         e.preventDefault();
         const { id } = teamPokemonInfo;
@@ -124,17 +126,21 @@ const TeamPokemonInfo = () => {
             ]
         })
     }
+
+    // adds a new move to the multi-select with a limit of 4
     const handleMovesetChange = (option) => {
         if (option.length > 4) option.pop();
         setMoveset(option.map((option) => option.value))
     }
 
+    // presets the moveset based on what it was previously
     const presetMoveset = () => {
         return moveset.map((move) => {
             return { value: move, label: move.toUpperCase() }
         })
     }
 
+    // sets the ivs
     const setIVState = (iv, stat) => {
         const ivCopy = ivs.slice(0);
         if (iv < 0) ivCopy[stat] = 0;
@@ -143,6 +149,7 @@ const TeamPokemonInfo = () => {
         setIVs(ivCopy);
     }
 
+    // sets the evs
     const setEVState = (ev, stat) => {
         const evCopy = evs.slice(0);
         console.log(510 - evCount)
@@ -153,6 +160,7 @@ const TeamPokemonInfo = () => {
         setEVs(evCopy);
     }
 
+    // sums up all the evs that have been allocated
     const sumEvs = (evs) => {
         if (evs) {
             return evs.reduce((count, currentEv) => count + currentEv)
@@ -161,7 +169,7 @@ const TeamPokemonInfo = () => {
 
     return (
         <div className="team-pokemon-info">
-            <label htmlFor="pokemon-select">Pokemon</label>
+            <label htmlFor="pokemon-select" className="pokemon-select-label">Pokemon</label>
             <Select
                 options={pokemonOptions(pokemonList)}
                 value={{ value: pokemon || '', label: (pokemon && pokemon.toUpperCase()) || '' }}
@@ -169,11 +177,13 @@ const TeamPokemonInfo = () => {
                 className='pokemon-select'
                 isSearchable
             />
-            <label htmlFor="level-input">Level</label>
-            <input className="level-input" name="level-input" type="number" min='1' max='100' value={level || ""}
-                onChange={(e) => setLevel(e.target.value)}
-                onBlur={() => (level < 1 && setLevel("1")) || (level > 100 && setLevel("100"))}
-            />
+            <div className="level-container">
+                <label htmlFor="level-input" className="level-input-label" >Level</label>
+                <input className="level-input" name="level-input" type="number" min='1' max='100' value={level || ""}
+                    onChange={(e) => setLevel(e.target.value)}
+                    onBlur={() => (level < 1 && setLevel("1")) || (level > 100 && setLevel("100"))}
+                />
+            </div>
             <p className="stat-header">IVs</p>
             <ul className="ivs">
                 <li>

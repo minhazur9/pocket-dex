@@ -42,6 +42,32 @@
   background-color: #2da8e0;
 }
 
+@media only screen and (max-width: 1400px) {
+  .team-index .teams h1 {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .team-index .teams h1 {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .team-index .teams h1 {
+    margin-bottom: -20px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .team-index .teams h1 {
+    font-size: 15px;
+    margin-left: 65px;
+  }
+}
+
 .team-index .teams .team-container {
   margin-top: 40px;
   position: relative;
@@ -68,6 +94,12 @@
 .team-index .teams .team-container .name-container .team-name {
   font-size: 30px;
   color: #47baf3;
+}
+
+@media only screen and (max-width: 500px) {
+  .team-index .teams .team-container .name-container .team-name {
+    font-size: 15px;
+  }
 }
 
 .team-index .teams .team-container .team-pokemon {
@@ -117,6 +149,14 @@
   }
 }
 
+@media only screen and (max-width: 1100px) {
+  .team-index .teams .team-container .team-pokemon .add-pokemon {
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
 @media only screen and (max-width: 1400px) {
   .team-index .teams .team-container .team-pokemon {
     margin-top: 0;
@@ -124,8 +164,45 @@
 }
 
 @media only screen and (max-width: 1400px) {
+  .team-index .teams .team-container .team-pokemon {
+    margin-top: -10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .team-index .teams .team-container .team-pokemon {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    margin-left: -5px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
   .team-index .teams .team-container {
     width: 400px;
+    height: 200px;
+    left: 20%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .team-index .teams .team-container {
+    left: 22%;
+    width: 300px;
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .team-index .teams .team-container {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .team-index .teams .team-container {
+    width: 100px;
     height: 200px;
   }
 }
@@ -141,5 +218,23 @@
   margin-top: 40px;
   width: 150px;
   margin-left: 41%;
+}
+
+@media only screen and (max-width: 1100px) {
+  .team-index .teams .add-team {
+    margin-left: 30%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .team-index .teams .add-team {
+    margin-left: 27%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .team-index .teams .add-team {
+    margin-left: 10%;
+  }
 }
 /*# sourceMappingURL=TeamIndex.css.map */

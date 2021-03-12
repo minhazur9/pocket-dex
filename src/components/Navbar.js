@@ -10,6 +10,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  // Signs the user out
   const signOut = () => {
     const date = new Date();
     date.setTime(date.getTime() - 1000 * 60);
@@ -51,9 +52,9 @@ const Navbar = () => {
   const renderMobileAccountControls = () => {
     return (
       <>
-        <Link to="/teams" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>My Teams</li></Link>
-        <Link to="/" onClick={(e) => {
-          e.target.parentNode.style.display = 'none';
+        <Link to="/teams" onClick={() => document.querySelector(".dropdown").style.display = "none"} className="mobile-nav-link"><li>My Teams</li></Link>
+        <Link to="/" onClick={() => {
+          document.querySelector(".dropdown").style.display = "none"
           signOut()
         }}
           className="mobile-nav-link"><li>Logout</li></Link>
@@ -65,7 +66,7 @@ const Navbar = () => {
   const renderMobileAccountLinks = () => {
     return (
       <>
-        <Link to="/login" onClick={(e) => e.target.parentNode.style.display = 'none'} className="mobile-nav-link"><li>Login</li></Link>
+        <Link to="/login" onClick={() => document.querySelector(".dropdown").style.display = "none"} className="mobile-nav-link"><li>Login</li></Link>
       </>
     )
   }

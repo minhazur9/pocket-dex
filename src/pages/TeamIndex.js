@@ -157,6 +157,7 @@ const TeamIndex = () => {
                 <h1>My Teams</h1>
                 {loading && renderLoading()}
                 {data && renderExistingTeams()}
+                <div className="add-team-container"></div>
                 <button className="waves-effect waves-light btn red darken-1 add-team" onClick={addNewTeam} >Add Team</button>
             </div>
             { pokemonId && <TeamPokemonInfo />}

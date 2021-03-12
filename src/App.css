@@ -1729,6 +1729,32 @@ nav .hamburger-menu {
   background-color: #2da8e0;
 }
 
+@media only screen and (max-width: 1400px) {
+  .team-index .teams h1 {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .team-index .teams h1 {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .team-index .teams h1 {
+    margin-bottom: -20px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .team-index .teams h1 {
+    font-size: 15px;
+    margin-left: 65px;
+  }
+}
+
 .team-index .teams .team-container {
   margin-top: 40px;
   position: relative;
@@ -1755,6 +1781,12 @@ nav .hamburger-menu {
 .team-index .teams .team-container .name-container .team-name {
   font-size: 30px;
   color: #47baf3;
+}
+
+@media only screen and (max-width: 500px) {
+  .team-index .teams .team-container .name-container .team-name {
+    font-size: 15px;
+  }
 }
 
 .team-index .teams .team-container .team-pokemon {
@@ -1804,6 +1836,14 @@ nav .hamburger-menu {
   }
 }
 
+@media only screen and (max-width: 1100px) {
+  .team-index .teams .team-container .team-pokemon .add-pokemon {
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
 @media only screen and (max-width: 1400px) {
   .team-index .teams .team-container .team-pokemon {
     margin-top: 0;
@@ -1811,8 +1851,45 @@ nav .hamburger-menu {
 }
 
 @media only screen and (max-width: 1400px) {
+  .team-index .teams .team-container .team-pokemon {
+    margin-top: -10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .team-index .teams .team-container .team-pokemon {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    margin-left: -5px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
   .team-index .teams .team-container {
     width: 400px;
+    height: 200px;
+    left: 20%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .team-index .teams .team-container {
+    left: 22%;
+    width: 300px;
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .team-index .teams .team-container {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .team-index .teams .team-container {
+    width: 100px;
     height: 200px;
   }
 }
@@ -1830,21 +1907,35 @@ nav .hamburger-menu {
   margin-left: 41%;
 }
 
+@media only screen and (max-width: 1100px) {
+  .team-index .teams .add-team {
+    margin-left: 30%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .team-index .teams .add-team {
+    margin-left: 27%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .team-index .teams .add-team {
+    margin-left: 10%;
+  }
+}
+
 .team-pokemon-info {
   position: fixed;
   top: 100px;
   left: 50%;
   height: 89vh;
-  width: 40vw;
-  overflow-y: scroll;
+  width: 700px;
+  overflow-y: auto;
 }
 
 .team-pokemon-info::-webkit-scrollbar {
   display: none;
-}
-
-.team-pokemon-info .pokemon-select {
-  display: block;
 }
 
 .team-pokemon-info #react-select-3-input {
@@ -1860,27 +1951,56 @@ nav .hamburger-menu {
   font-size: 25px;
 }
 
+@media only screen and (max-width: 900px) {
+  .team-pokemon-info .mod-input {
+    width: 100% !important;
+  }
+}
+
 .team-pokemon-info .nature-select {
   display: inline-block;
   width: 45%;
   margin: 10px;
 }
 
+@media only screen and (max-width: 1100px) {
+  .team-pokemon-info .nature-select {
+    width: 90%;
+  }
+}
+
 .team-pokemon-info .ivs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media only screen and (max-width: 900px) {
+  .team-pokemon-info .ivs {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .team-pokemon-info .other-vars {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   font-size: 10px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .team-pokemon-info .other-vars {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .team-pokemon-info .other-vars label {
@@ -1891,6 +2011,12 @@ nav .hamburger-menu {
   display: inline-block;
   width: 45%;
   margin: 10px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .team-pokemon-info .ability-select {
+    width: 90%;
+  }
 }
 
 .team-pokemon-info .mini-error-message {
@@ -1907,14 +2033,33 @@ nav .hamburger-menu {
   color: #9e9e9e;
 }
 
+@media only screen and (max-width: 1400px) {
+  .team-pokemon-info .stat-header {
+    margin-left: 100px;
+  }
+}
+
 .team-pokemon-info .item-select-label {
   margin-left: 50px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .team-pokemon-info .item-select-label {
+    margin-left: 0;
+  }
 }
 
 .team-pokemon-info .item-select {
   display: inline-block;
   width: 45%;
   margin: 15px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .team-pokemon-info .item-select {
+    width: 90%;
+    margin: 10px;
+  }
 }
 
 .team-pokemon-info .error-message {
@@ -1928,6 +2073,42 @@ nav .hamburger-menu {
   left: 65%;
   margin-top: 15px;
   margin-right: 10px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .team-pokemon-info .confirm-edit {
+    left: 53%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .team-pokemon-info .confirm-edit {
+    left: 32%;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .team-pokemon-info {
+    width: 550px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .team-pokemon-info {
+    width: 450px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .team-pokemon-info {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .team-pokemon-info {
+    width: 150px;
+  }
 }
 
 .damage-calc-page {

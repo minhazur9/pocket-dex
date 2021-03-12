@@ -54,6 +54,10 @@ const StatChart = (props) => {
             height = 180;
             width = 180;
         }
+        if (window.innerWidth <= 550) {
+            height = 165;
+            width = 165;
+        }
         const options = {
             chart: {
                 width: width,
@@ -87,7 +91,7 @@ const StatChart = (props) => {
         renderChart()
         return info;
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [info, props.iv])
+    }, [info, props.level,props.ivs,props.evs])
 
     return (
         <>
