@@ -32,7 +32,7 @@ You can search up info about the abilities that pokemon could have and get infor
 
 You could also search for items, consumables, held items, berries, any of them and get stuff like fling power, in-game description and in-depth effect.
 
-![Itemdex](assets/Abilitydex.PNG)
+![Itemdex](assets/ItemDex.PNG)
 
 ## Building Teams
 
