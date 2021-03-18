@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { useMutation } from 'react-apollo';
 import { useDispatch } from 'react-redux';
+import emailjs from 'emailjs-com';
 import { addUserMutation } from '../queries/accountQueries';
 import { addTeamMutation, getTeamsQuery } from '../queries/teamQueries';
 import { logIn } from '../actions';
@@ -16,7 +17,10 @@ const SignUp = () => {
                 if (addUser.token === 'username already exists') setDuplicateUser(true)
                 else if (addUser.token === 'email already exists') setDuplicateEmail(true)
                 else if (addUser.token === 'email is invalid') setInvalidEmail(true)
-                else storeToken(addUser);
+                else {
+                    storeToken(addUser);
+                    sendWelcomeEmail();
+                }
             }
         }
     );
@@ -35,6 +39,7 @@ const SignUp = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
+    const { REACT_APP_SERVICE_ID, REACT_APP_TEMPLATE_ID, REACT_APP_USER_ID } = process.env;
 
     // Stores the JWT in cookie
     const storeToken = (response) => {
@@ -57,6 +62,17 @@ const SignUp = () => {
         })
         dispatch(logIn())
         history.push('/teams')
+    }
+
+    // Paramters for the email template
+    const templateParams = {
+        to_email: email,
+        to_name: username,
+    }
+
+    // Sends welcome email to signed up user
+    const sendWelcomeEmail = () => {
+        emailjs.send(REACT_APP_SERVICE_ID, REACT_APP_TEMPLATE_ID, templateParams, REACT_APP_USER_ID)
     }
 
     // Submits form to the database
