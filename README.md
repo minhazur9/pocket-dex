@@ -8,7 +8,7 @@ This is a pokemon database appliation that can be used to look at information ab
 
 ## The Dexes
 
-The information from the dexes come straight from the [pokeAPI](https://pokeapi.co/)
+All of the information about the pokemon, moves, abilities, and items come straight from the [pokeAPI](https://pokeapi.co/)
 
 ### PokeDex
 
