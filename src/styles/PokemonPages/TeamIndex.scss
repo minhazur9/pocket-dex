@@ -49,7 +49,7 @@
       }
       @media only screen and (max-width: 500px) {
         font-size: 15px;
-        margin-left: 55px
+        margin-left: 55px;
       }
     }
     .team-container {
@@ -74,6 +74,10 @@
         .team-name {
           font-size: 30px;
           color: #47baf3;
+          cursor: default;
+          @media only screen and (max-width: 900px) {
+            font-size: 20px;
+          }
           @media only screen and (max-width: 500px) {
             font-size: 15px;
           }
@@ -129,7 +133,6 @@
           grid-template-columns: 1fr 1fr;
           margin-left: -5px;
         }
-        
       }
       @media only screen and (max-width: 1400px) {
         width: 400px;
@@ -156,6 +159,26 @@
         position: absolute;
         right: 15px;
         top: 10px;
+        @media only screen and (max-width: 900px) {
+          width: 37%;
+        }
+        @media only screen and (max-width: 500px) {
+          display: none;
+        }
+      }
+    }
+
+    .trash-icon {
+      display: none;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      color: rgb(121 121 121 / 87%);
+      &:hover {
+        color: #f44336;
+      }
+      @media only screen and (max-width: 500px) {
+        display: inline-block;
       }
     }
 

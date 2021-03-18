@@ -6,6 +6,9 @@ import { getCookie } from '../App';
 import { getTeamPokemonInfo } from '../actions';
 import { renderLoading } from '../components/Loading';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+
 import { addTeamMutation, getTeamsQuery, editTeamMutation, getPokemonQuery, deleteTeamMutation } from '../queries/teamQueries';
 
 const TeamIndex = () => {
@@ -44,10 +47,10 @@ const TeamIndex = () => {
     })
 
     // Delete Team
-    const handleDeleteTeam = (e) => {
+    const handleDeleteTeam = (id) => {
         deleteTeam({
             variables: {
-                id: e.target.id
+                id: id
             },
             refetchQueries: [
                 {
@@ -84,7 +87,8 @@ const TeamIndex = () => {
                         {renderPokemonList(pokemon)}
                     </div>
                     <div className="delete-button-container">
-                        {allTeamsByUser.length > 1 && <button id={id} className="waves-effect waves-light btn-small red darken-3  delete-team" onClick={handleDeleteTeam}>Delete Team</button>}
+                        {allTeamsByUser.length > 1 && <button id={id} className="waves-effect waves-light btn-small red darken-3  delete-team" onClick={(e) => handleDeleteTeam(e.currentTarget.id)}>Delete Team</button>}
+                        {allTeamsByUser.length > 1 &&  <FontAwesomeIcon icon={faTrashAlt} id={id} className="trash-icon fa-sm" onClick={(e) => handleDeleteTeam(e.currentTarget.id)} />}
                     </div>
                 </div>
             )

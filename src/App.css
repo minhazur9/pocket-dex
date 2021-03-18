@@ -1787,6 +1787,13 @@ nav .hamburger-menu {
 .team-index .teams .team-container .name-container .team-name {
   font-size: 30px;
   color: #47baf3;
+  cursor: default;
+}
+
+@media only screen and (max-width: 900px) {
+  .team-index .teams .team-container .name-container .team-name {
+    font-size: 20px;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -1904,6 +1911,35 @@ nav .hamburger-menu {
   position: absolute;
   right: 15px;
   top: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+  .team-index .teams .delete-button-container .delete-team {
+    width: 37%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .team-index .teams .delete-button-container .delete-team {
+    display: none;
+  }
+}
+
+.team-index .teams .trash-icon {
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.team-index .teams .trash-icon:hover {
+  color: #f44336;
+}
+
+@media only screen and (max-width: 500px) {
+  .team-index .teams .trash-icon {
+    display: inline-block;
+  }
 }
 
 .team-index .teams .add-team {
