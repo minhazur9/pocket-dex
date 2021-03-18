@@ -1613,11 +1613,25 @@ nav .hamburger-menu {
 .signup h3 {
   font-weight: bold;
   color: #be0d00;
+  margin: 20px;
+}
+
+@media only screen and (max-width: 500px) {
+  .signup h3 {
+    font-size: 25px;
+  }
 }
 
 .signup .signup-form {
   margin: 0 auto;
   width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .signup .signup-form label {
@@ -1626,6 +1640,12 @@ nav .hamburger-menu {
   text-align: left;
   font-size: 20px;
   color: black;
+}
+
+@media only screen and (max-width: 500px) {
+  .signup .signup-form label {
+    font-size: 15px;
+  }
 }
 
 .signup .signup-form .signup-input {
@@ -1661,6 +1681,13 @@ nav .hamburger-menu {
   margin: 0 auto;
   margin-top: 5%;
   width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .login .login-form label {
@@ -1669,6 +1696,12 @@ nav .hamburger-menu {
   text-align: left;
   font-size: 20px;
   color: black;
+}
+
+@media only screen and (max-width: 500px) {
+  .login .login-form label {
+    font-size: 15px;
+  }
 }
 
 .login .login-form .login-input {

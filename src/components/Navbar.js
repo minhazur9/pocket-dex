@@ -66,6 +66,7 @@ const Navbar = () => {
   const renderMobileAccountLinks = () => {
     return (
       <>
+        <Link to="/signup" onClick={() => document.querySelector(".dropdown").style.display = "none"} className="mobile-nav-link"><li>Signup</li></Link>
         <Link to="/login" onClick={() => document.querySelector(".dropdown").style.display = "none"} className="mobile-nav-link"><li>Login</li></Link>
       </>
     )
