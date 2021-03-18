@@ -26,7 +26,6 @@ app.use(session({
 
 app.use('/', graphqlHTTP({
     schema,
-    graphiql:true
 }));
 
 app.listen(PORT, () => {
