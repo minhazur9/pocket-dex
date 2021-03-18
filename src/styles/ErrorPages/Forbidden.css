@@ -6,15 +6,51 @@
   margin-top: 15px;
 }
 
-.forbidden h1 {
+.forbidden .forbidden-message h1 {
   text-align: center;
-  color: #bc0000;
+  color: #c90f0f;
   font-weight: 800;
 }
 
-.forbidden p {
+@media only screen and (max-width: 1100px) {
+  .forbidden .forbidden-message h1 {
+    font-size: 35px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .forbidden .forbidden-message h1 {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .forbidden .forbidden-message h1 {
+    font-size: 20px;
+  }
+}
+
+.forbidden .forbidden-message p {
   text-align: center;
   font-weight: bolder;
   font-size: 25px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .forbidden .forbidden-message p {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .forbidden .forbidden-message p {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .forbidden .forbidden-message p {
+    font-size: 10px;
+  }
 }
 /*# sourceMappingURL=Forbidden.css.map */

@@ -237,6 +237,7 @@
   position: absolute;
   right: 5px;
   top: 5px;
+  color: rgba(122, 122, 122, 0.87);
 }
 
 .team-index .teams .trash-icon:hover {
