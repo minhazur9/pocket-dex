@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/pocketDex',{
+const { MONGODB_URI } = process.env;
+
+mongoose.connect(MONGODB_URI,{
     useNewUrlParser: true,
     useFindAndModify: false,
     useCreateIndex: true,
