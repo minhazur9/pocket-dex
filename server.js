@@ -32,9 +32,11 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true
 }));
 
+app.use(express.static('public'))
+
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname+'build/index.html'));
+    res.sendFile(path.resolve(__dirname, 'build','index.html'));
 })
 
 app.listen(PORT, () => {

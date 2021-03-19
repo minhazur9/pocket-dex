@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import { logIn } from './actions';
 
 
-const { REACT_APP_GRAPHQL_URI } = process.env;
+// const { REACT_APP_GRAPHQL_URI } = process.env;
 
 
 export const getCookie = () => {
@@ -18,7 +18,7 @@ export const getCookie = () => {
 }
 
 const client = new ApolloClient({
-  uri: REACT_APP_GRAPHQL_URI,
+  uri: '/graphql',
   fetchOptions: {
     credentials: "include"
   },

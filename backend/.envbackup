@@ -1,3 +1,0 @@
-PORT=<replaceme>
-MONGODB_URI=<replaceme>
-SESSION_SECRET=<replaceme>
