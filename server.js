@@ -25,14 +25,12 @@ app.use(session({
 }))
 
 
-app.use(express.static('build'));
-
 app.use('/graphql', graphqlHTTP({
     schema,
     graphiql: true
 }));
 
-app.use(express.static('public'))
+app.use(express.static('build'))
 
 
 app.get('*', (req, res) => {
