@@ -1,33 +1,40 @@
 // Configuration
+require('dotenv').config({ path: "/home/min/Projects/pocket-dex/.env" });
 const express = require('express');
 const session = require('express-session');
 const graphqlHTTP = require('express-graphql').graphqlHTTP;
 const morgan = require('morgan');
 const cors = require('cors');
+const path = require('path');
 
-require('dotenv').config();
 
 const app = express();
 const schema = require('./controllers')
 
 // Environment Variables
-const PORT =  process.env.PORT || 4000;
-
+const PORT = process.env.PORT || 4000;
+const SECRET = process.env.SESSION_SECRET;
 
 // Middleware
 app.use(cors())
 app.use(morgan('tiny'))
 app.use(express.static(__dirname + '/public'))
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: SECRET,
     resave: true,
     saveUninitialized: true
 }))
 
-app.use('/', graphqlHTTP({
+app.use('/graphql', graphqlHTTP({
     schema,
     graphiql: true
 }));
+
+app.use(express.static('public'));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+})
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
