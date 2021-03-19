@@ -18,7 +18,6 @@ const SECRET = process.env.SESSION_SECRET;
 // Middleware
 app.use(cors())
 app.use(morgan('tiny'))
-app.use(express.static(__dirname + '/public'))
 app.use(session({
     secret: SECRET,
     resave: true,
