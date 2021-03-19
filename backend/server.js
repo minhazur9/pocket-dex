@@ -24,9 +24,8 @@ app.use(session({
     saveUninitialized: true
 }))
 
-app.use('/graphql', graphqlHTTP({
+app.use(process.env.REACT_APP_GRAPHQL_URI, graphqlHTTP({
     schema,
-    graphiql: true
 }));
 
 app.use(express.static('public'));
