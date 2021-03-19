@@ -24,17 +24,13 @@ app.use(session({
     saveUninitialized: true
 }))
 
-app.use(express.static(path.join(__dirname, 'build')));
-
-
 app.use('/graphql', graphqlHTTP({
     schema,
     graphiql: true
 }));
 
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build','index.html'));
+app.get("*", () => {
+    app.use(express.static("client/build"))
 })
 
 app.listen(PORT, () => {
