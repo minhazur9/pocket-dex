@@ -158,6 +158,12 @@
   display: block;
 }
 
+@media only screen and (max-width: 900px) {
+  .ability-info .col5 {
+    font-size: 10px;
+  }
+}
+
 .ability-info .col6 {
   text-align: center;
   display: block;
