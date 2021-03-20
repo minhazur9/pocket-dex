@@ -54,8 +54,9 @@ const MoveIndex = () => {
 
     // Gets all the moves
     useEffect(() => {
+        const abortCont = new AbortController();
         dispatch(getMoves())
-        return moves;
+        return () => abortCont.abort();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 

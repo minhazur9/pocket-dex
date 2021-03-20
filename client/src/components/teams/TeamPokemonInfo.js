@@ -29,6 +29,7 @@ const TeamPokemonInfo = () => {
     const [evCount, setEvCount] = useState(0);
 
     useEffect(() => {
+        const abortCont = new AbortController();
         const { name, level, nature, item, ability, moveset, ivs, evs } = teamPokemonInfo;
         dispatch(getPokemon())
         if (name) {
@@ -44,23 +45,25 @@ const TeamPokemonInfo = () => {
         setMoveset(moveset)
         setIVs(ivs)
         setEVs(evs)
-        return teamPokemonInfo
+        return () => abortCont.abort()
         // eslint-disable-next-line
     }, [teamPokemonInfo])
 
     useEffect(() => {
+        const abortCont = new AbortController();
         if (pokemon) {
             dispatch(getInfo(pokemon))
             dispatch(getSpeciesInfo(pokemon))
         }
-        return pokemon
+        return () => abortCont.abort()
         // eslint-disable-next-line
     }, [pokemon])
 
     useEffect(() => {
+        const abortCont = new AbortController();
         const sum = sumEvs(evs);
         setEvCount(sum)
-        return evs
+        return () => abortCont.abort()
         // eslint-disable-next-line
     }, [evs])
 

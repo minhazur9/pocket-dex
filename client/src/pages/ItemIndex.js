@@ -51,8 +51,9 @@ const ItemIndex = () => {
     }
 
     useEffect(() => {
+        const abortCont = new AbortController();
         dispatch(getItems())
-        return items
+        return () => abortCont.abort()
         // eslint-disable-next-line
     },[])
 

@@ -87,7 +87,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav-wrapper red">
-        <Link to="/" onClick={() => document.querySelector('.dropdown').style.display = 'none'} className="brand-logo left">PocketDex</Link>
+        <Link to="/" onClick={() => document.querySelector('.dropdown').style.display = 'none'} className="brand-logo left"><span className="logo-pocket">Pocket</span><span className="logo-dex" >Dex</span></Link>
         <ul id="nav-mobile" className="right">
           <li><Link to="/pokemon" className="nav-link">PokeDex</Link></li>
           <li><Link to="/moves" className="nav-link">MoveDex</Link></li>

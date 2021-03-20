@@ -107,8 +107,9 @@ const EvolutionChain = () => {
     }
 
     useEffect(() => {
+        const abortCont = new AbortController();
         dispatch(getEvolutionChain(speciesInfo.evolution_chain.url))
-        return speciesInfo;
+        return () => abortCont.abort();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [speciesInfo])
 

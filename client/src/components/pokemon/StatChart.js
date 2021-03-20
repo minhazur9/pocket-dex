@@ -87,9 +87,10 @@ const StatChart = (props) => {
 
 
     useEffect(() => {
+        const abortCont = new AbortController();
         document.getElementById('chart-area').innerHTML = "";
         renderChart()
-        return info;
+        return () => abortCont.abort()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [info, props.level,props.ivs,props.evs])
 

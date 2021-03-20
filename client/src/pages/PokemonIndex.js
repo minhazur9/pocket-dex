@@ -72,8 +72,9 @@ const PokemonIndex = () => {
 
     // Gets all the pokemon
     useEffect(() => {
+        const abortCont = new AbortController();
         dispatch(getPokemon())
-        return pokemon
+        return () => abortCont.abort()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
