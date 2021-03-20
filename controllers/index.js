@@ -54,27 +54,6 @@ const RootQuery = new GraphQLObjectType({
                 return db.Pokemon.findById(args.id)
             }
         },
-        // getAllPokemonByTeam: {
-        //     type: new GraphQLList(PokemonType),
-        //     args: { teamId: { type: new GraphQLNonNull(GraphQLID) } },
-        //     resolve(parent, args) {
-        //         return db.Pokemon.find({ teamId: args.teamId })
-        //     }
-        // },
-        // Query for all users
-        // allUsers: {
-        //     type: new GraphQLList(UserType),
-        //     resolve(parent, args) {
-        //         return db.User.find({})
-        //     }
-        // },3
-        // Query for all teams
-        // allTeams: {
-        //     type: new GraphQLList(TeamType),
-        //     resolve(parent, args) {
-        //         return db.Team.find({})
-        //     }
-        // },
         allTeamsByUser: {
             type: new GraphQLList(TeamType),
             args: {
@@ -86,13 +65,6 @@ const RootQuery = new GraphQLObjectType({
                 return db.Team.find({ userId: id })
             }
         },
-        // Query for all pokemon
-        // allPokemon: {
-        //     type: new GraphQLList(PokemonType),
-        //     resolve(parent, args) {
-        //         return db.Pokemon.find({})
-        //     }
-        // }
     }
 })
 
@@ -173,42 +145,6 @@ const Mutation = new GraphQLObjectType({
                 return db.Pokemon.insertMany(pokemonArr)
             }
         },
-        // Adds new pokemon to a team
-        addPokemon: {
-            type: PokemonType,
-            args: {
-                name: { type: new GraphQLNonNull(GraphQLString) },
-                level: { type: new GraphQLNonNull(GraphQLInt) },
-                teamId: { type: new GraphQLNonNull(GraphQLID) },
-            },
-            resolve(parent, args) {
-                return db.Pokemon.create({
-                    name: args.name,
-                    level: args.level,
-                    teamId: args.teamId,
-                })
-            }
-        },
-        // Deletes a user from the database
-        deleteUser: {
-            type: UserType,
-            args: {
-                id: { type: new GraphQLNonNull(GraphQLID) }
-            },
-            resolve(parent, args) {
-                return db.User.findByIdAndDelete(args.id)
-                    .then(async (foundUser) => {
-                        const foundTeams = await db.Team.find({ userId: foundUser._id });
-                        await db.Team.deleteMany({ userId: foundUser._id });
-                        return foundTeams;
-                    })
-                    .then((foundTeams) => {
-                        const teamIds = foundTeams.map(({ _id }) => _id)
-                        return db.Pokemon.deleteMany({ teamId: { $in: teamIds } })
-                    })
-            }
-        },
-        // Deletes a team from a user
         deleteTeam: {
             type: TeamType,
             args: {
@@ -219,32 +155,6 @@ const Mutation = new GraphQLObjectType({
                     .then((foundTeam) => db.Pokemon.deleteMany({ teamId: foundTeam._id }))
             }
         },
-        // Deletes a pokemon from a team
-        deletePokemon: {
-            type: PokemonType,
-            args: {
-                id: { type: new GraphQLNonNull(GraphQLID) }
-            },
-            resolve(parent, args) {
-                return db.Pokemon.findOneAndDelete({ _id: args.id })
-            }
-        },
-        // Edits user information
-        editUser: {
-            type: UserType,
-            args: {
-                id: { type: new GraphQLNonNull(GraphQLID) },
-                username: { type: new GraphQLNonNull(GraphQLString) },
-                email: { type: new GraphQLNonNull(GraphQLString) }
-            },
-            resolve(parent, args) {
-                return db.User.findByIdAndUpdate(
-                    args.id,
-                    { $set: { username: args.username, email: args.email } },
-                    { new: true })
-            }
-        },
-        // Edits team information
         editTeam: {
             type: TeamType,
             args: {
@@ -282,6 +192,8 @@ const Mutation = new GraphQLObjectType({
         }
     }
 })
+
+
 
 module.exports = new GraphQLSchema({
     query: RootQuery,

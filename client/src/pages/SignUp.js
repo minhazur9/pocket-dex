@@ -8,6 +8,9 @@ import { addTeamMutation, getTeamsQuery } from '../queries/teamQueries';
 import { logIn } from '../actions';
 import { getCookie } from '../App';
 
+require('dotenv').config({ path: "../../../.env" })
+
+
 const SignUp = () => {
 
     const [addUser] = useMutation(
@@ -38,8 +41,6 @@ const SignUp = () => {
     const [duplicateEmail, setDuplicateEmail] = useState(false)
     const history = useHistory();
     const dispatch = useDispatch();
-
-    const { REACT_APP_SERVICE_ID, REACT_APP_TEMPLATE_ID, REACT_APP_USER_ID } = process.env;
 
     // Stores the JWT in cookie
     const storeToken = (response) => {
@@ -72,7 +73,7 @@ const SignUp = () => {
 
     // Sends welcome email to signed up user
     const sendWelcomeEmail = () => {
-        emailjs.send(REACT_APP_SERVICE_ID, REACT_APP_TEMPLATE_ID, templateParams, REACT_APP_USER_ID)
+        emailjs.send('service_5s1sx5t', 'template_f3gz52e', templateParams, 'user_cIbsYc1qZGDdodomicrDe')
     }
 
     // Submits form to the database

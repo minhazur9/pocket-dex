@@ -1,15 +1,16 @@
 // Configuration
-require('dotenv').config({ path: "/home/min/Projects/pocket-dex/.env" });
 const express = require('express');
 const session = require('express-session');
-const graphqlHTTP = require('express-graphql').graphqlHTTP;
 const morgan = require('morgan');
 const cors = require('cors');
-const path = require('path');
+const { ApolloServer } = require('apollo-server-express');
 
+const typeDefs = require('./controllers/typeDefs')
+const resolvers = require('./controllers/resolvers')
 
+const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
-const schema = require('./controllers')
+server.applyMiddleware({ app, path: '/graphql' });
 
 // Environment Variables
 const PORT = process.env.PORT || 4000;
@@ -23,15 +24,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
-
-app.use('/graphql', graphqlHTTP({
-    schema,
-    graphiql: true
-}));
-
-app.get("*", () => {
-    app.use(express.static("client/build"))
-})
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)

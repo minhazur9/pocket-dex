@@ -30,7 +30,6 @@ const TeamPokemonInfo = () => {
 
     useEffect(() => {
         const { name, level, nature, item, ability, moveset, ivs, evs } = teamPokemonInfo;
-        console.log(name)
         dispatch(getPokemon())
         if (name) {
             dispatch(getInfo(name))
