@@ -11,7 +11,7 @@ const resolvers = require('./controllers/resolvers')
 
 const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
-server.applyMiddleware({ app, path: 'https://main.d3pt0m0fidcvhg.amplifyapp.com/graphql' });
+server.applyMiddleware({ app, path: '/graphql' });
 
 // Environment Variables
 const PORT = process.env.PORT || 4000;
@@ -25,6 +25,14 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static('client/build'));
+}
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+})
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
