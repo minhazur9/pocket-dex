@@ -4,6 +4,7 @@ const express = require('express');
 const session = require('express-session');
 const morgan = require('morgan');
 const cors = require('cors');
+const path = require('path');
 const { ApolloServer } = require('apollo-server-express');
 
 const typeDefs = require('./controllers/typeDefs')
