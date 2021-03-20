@@ -16,7 +16,7 @@ export const getCookie = () => {
 }
 
 const client = new ApolloClient({
-  uri: 'https://main.d3pt0m0fidcvhg.amplifyapp.com/',
+  uri: 'https://main.d3pt0m0fidcvhg.amplifyapp.com/graphql',
   fetchOptions: {
     credentials: "include"
   },
