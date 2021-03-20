@@ -158,7 +158,6 @@ const TeamPokemonInfo = () => {
     // sets the evs
     const setEVState = (ev, stat) => {
         const evCopy = evs.slice(0);
-        console.log(510 - evCount)
         if (evCount - evCopy[stat] + ev > 510) evCopy[stat] = 510 - evCount;
         else if (ev < 0) evCopy[stat] = 0;
         else if (ev > 252) evCopy[stat] = 252;
