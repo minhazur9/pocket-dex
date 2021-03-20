@@ -10,7 +10,7 @@ import Login from '../pages/Login';
 import TeamIndex from '../pages/TeamIndex';
 import { useSelector } from 'react-redux';
 import Forbidden from '../pages/Forbidden';
-// import Unknown from '../pages/Unknown';
+import Unknown from '../pages/Unknown';
 // import DamageCalc from '../pages/DamageCalc';
 
 
@@ -26,7 +26,7 @@ const Routes = () => {
             <Route path="/signup" component={SignUp} />
             <Route path="/login" component={Login} />
             <Route path="/teams" component={(loggedIn && TeamIndex) || Forbidden} />
-            {/* <Route path="" component={Unknown} /> */}
+            <Route path="" component={Unknown} />
             {/* <Route path="/damagecalc" component={DamageCalc} /> */}
         </Switch>
     )

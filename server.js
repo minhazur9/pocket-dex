@@ -1,4 +1,5 @@
 // Configuration
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const morgan = require('morgan');
@@ -10,7 +11,7 @@ const resolvers = require('./controllers/resolvers')
 
 const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
-server.applyMiddleware({ app, path: '/graphql' });
+server.applyMiddleware({ app, path: 'https://main.d3pt0m0fidcvhg.amplifyapp.com/graphql' });
 
 // Environment Variables
 const PORT = process.env.PORT || 4000;
