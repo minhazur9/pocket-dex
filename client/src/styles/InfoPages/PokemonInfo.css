@@ -1,11 +1,13 @@
 .pokemon-info {
   position: relative;
-  bottom: 90vh;
-  margin-top: 10px;
-  left: 25vw;
+  bottom: 25px;
   height: 89vh;
   width: 75vw;
   overflow-y: auto;
+}
+
+.pokemon-info::-webkit-scrollbar {
+  display: none;
 }
 
 .pokemon-info .banner {
@@ -15,7 +17,7 @@
   border: 3px black solid;
   background-color: #f44336;
   width: 50%;
-  height: 15%;
+  height: 90px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,13 +31,13 @@
 
 @media only screen and (max-width: 900px) {
   .pokemon-info .banner {
-    height: 12%;
+    height: 60px;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .pokemon-info .banner {
-    margin-top: 20px;
+    margin-top: 30px;
     height: 8%;
   }
 }
@@ -61,6 +63,12 @@
   }
 }
 
+@media only screen and (max-width: 800px) {
+  .pokemon-info .banner .name {
+    font-size: 15px;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .pokemon-info .banner .name {
     font-size: 13px;
@@ -71,7 +79,7 @@
 @media only screen and (max-width: 400px) {
   .pokemon-info .banner .name {
     margin-top: 18px;
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -550,7 +558,6 @@
   border-radius: 10px;
   max-height: 400px;
   overflow-y: auto;
-  margin-bottom: 20px;
 }
 
 .pokemon-info .row5 .move-set::-webkit-scrollbar {

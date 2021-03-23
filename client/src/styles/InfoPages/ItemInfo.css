@@ -1,9 +1,7 @@
 .item-info {
   position: relative;
-  bottom: 90vh;
-  margin-top: 10px;
-  left: 25vw;
-  height: 89vh;
+  bottom: 25px;
+  height: 90vh;
   width: 75vw;
   overflow-y: auto;
 }
@@ -15,7 +13,7 @@
   border: 3px black solid;
   background-color: #9750d1;
   width: 50%;
-  height: 15%;
+  height: 90px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,13 +27,13 @@
 
 @media only screen and (max-width: 900px) {
   .item-info .banner {
-    height: 12%;
+    height: 60px;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .item-info .banner {
-    margin-top: 20px;
+    margin-top: 30px;
     height: 8%;
   }
 }
@@ -61,6 +59,12 @@
   }
 }
 
+@media only screen and (max-width: 800px) {
+  .item-info .banner .name {
+    font-size: 15px;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .item-info .banner .name {
     font-size: 13px;
@@ -71,7 +75,7 @@
 @media only screen and (max-width: 400px) {
   .item-info .banner .name {
     margin-top: 18px;
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -172,7 +176,7 @@
   display: inline-block;
   margin-top: 15px;
   font-size: 20px;
-  border: 2px solid #00A9FF;
+  border: 2px solid #00a9ff;
   border-radius: 20px;
   margin-left: 15px;
   margin-right: 15px;
@@ -206,7 +210,7 @@
   display: inline-block;
   margin-top: 15px;
   font-size: 20px;
-  border: 2px solid #00A9FF;
+  border: 2px solid #00a9ff;
   border-radius: 17px;
   margin-left: 15px;
   margin-right: 15px;

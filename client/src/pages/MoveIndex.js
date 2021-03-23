@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import { useSelector,useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { getMoves, getMoveInfo, searchMoves, startLoading, stopLoading } from '../actions';
 import MoveInfo from '../components/moves/MoveInfo';
 
@@ -17,16 +17,16 @@ const MoveIndex = () => {
     // Highlights selection
     const highight = (e) => {
         const highlighted = e.target.classList.contains("selected")
-        if(highlighted) return;
+        if (highlighted) return;
         const buttons = document.querySelectorAll(".list button");
         buttons.forEach((button) => {
             button.classList.remove('selected')
         });
         e.target.classList.toggle('selected');
-     }
+    }
 
-     // Changes info
-    const updateInfo = async(move) => {
+    // Changes info
+    const updateInfo = async (move) => {
         dispatch(startLoading())
         await dispatch(getMoveInfo(move))
         dispatch(stopLoading())
@@ -42,12 +42,12 @@ const MoveIndex = () => {
     const renderMoves = () => {
         return moves.map((move) => {
             const moveName = move.name.split('-')
-            .map((word) => word.charAt(0).toUpperCase() + word.substr(1))
-            .join(' ');
+                .map((word) => word.charAt(0).toUpperCase() + word.substr(1))
+                .join(' ');
             return (
                 <button id={move.name} onClick={select} key={move.name}>
-                        {moveName.toUpperCase()}
-                    </button>
+                    {moveName.toUpperCase()}
+                </button>
             )
         })
     }
@@ -58,22 +58,23 @@ const MoveIndex = () => {
         dispatch(getMoves())
         return () => abortCont.abort();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    }, [])
 
     return (
         <div className="move-index">
             <div className="input-field">
-            <input onKeyUp={search} id="icon_prefix" type="text" className="validate"/>
-            <label htmlFor="icon_prefix">Search</label>
+                <input onKeyUp={search} id="icon_prefix" type="text" className="validate" />
+                <label htmlFor="icon_prefix">Search</label>
             </div>
-            <div className="list">
-                {renderMoves()}
+            <div className="layout">
+                <div className="list">
+                    {renderMoves()}
+                </div>
+                {moveInfo && <MoveInfo />}
             </div>
-            {moveInfo && 
-            <MoveInfo/>
-            }     
+
         </div>
-        
+
     )
 }
 

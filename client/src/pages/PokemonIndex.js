@@ -84,12 +84,12 @@ const PokemonIndex = () => {
                 <input onKeyUp={search} id="icon_prefix" type="text" className="validate" />
                 <label htmlFor="icon_prefix">Search</label>
             </div>
-            <div className="list">
-                {renderPokemon()}
+            <div className="layout">
+                <div className="list">
+                    {renderPokemon()}
+                </div>
+                {info && <PokemonInfo />}
             </div>
-            {info &&
-                <PokemonInfo />
-            }
         </div>
 
     )

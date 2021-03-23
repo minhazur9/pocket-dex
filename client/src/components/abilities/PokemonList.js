@@ -45,7 +45,7 @@ const PokemonList = () => {
     // Renders the pokemon info cards
     const renderCards = () => {
         const pokemon = abilityInfo.pokemon;
-        return pokemon.map((entry) => {
+        return pokemon.map((entry, index) => {
             const pokemonName = entry.pokemon.name;
             const formattedName = pokemonName.includes('-') ? nameFormatter(entry.pokemon.name) : entry.pokemon.name;
             if(pokemonName.includes('-totem')
@@ -57,7 +57,7 @@ const PokemonList = () => {
             || pokemonName.includes('-belle')
             || pokemonName.includes('-rock-star')) return <></>;
             return (
-                <div key={pokemonName} className="pokemon-ability-card" onClick={() => updatePokemonState(pokemonName)}>
+                <div key={pokemonName+index} className="pokemon-ability-card" onClick={() => updatePokemonState(pokemonName)}>
                     {renderImage(pokemonName)}
                     <p className="name">{formattedName.toUpperCase()}</p> 
                     <p className="is-hidden">Hidden Ability:{entry.is_hidden.toString().toUpperCase()}</p>

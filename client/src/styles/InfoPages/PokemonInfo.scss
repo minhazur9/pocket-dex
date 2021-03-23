@@ -4,12 +4,13 @@ $rectColor: #fefefe;
 
 .pokemon-info {
   position: relative;
-  bottom: 90vh;
-  margin-top: 10px;
-  left: 25vw;
+  bottom: 25px;
   height: 89vh;
   width: 75vw;
   overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none
+  }
   .banner {
     @include addBanner($bannerColor);
     .left-rect {
@@ -298,7 +299,6 @@ $rectColor: #fefefe;
       border-radius: 10px;
       max-height: 400px;
       overflow-y: auto;
-      margin-bottom: 20px;
       &::-webkit-scrollbar {
         display: none;
       }

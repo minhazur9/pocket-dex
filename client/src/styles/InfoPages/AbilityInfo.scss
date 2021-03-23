@@ -3,12 +3,13 @@ $bannerColor: #3a3a3a;
 $rectColor: #f2bd43;
 .ability-info {
   position: relative;
-  bottom: 90vh;
-  margin-top: 10px;
-  left: 25vw;
-  height: 89vh;
+  bottom: 25px;
+  height: 90vh;
   width: 75vw;
   overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none
+  }
   .banner {
     @include addBanner($bannerColor);
     .left-rect {
@@ -24,7 +25,7 @@ $rectColor: #f2bd43;
       display: inline-block;
       margin-top: 15px;
       font-size: 20px;
-      border: 2px solid #00A9FF;
+      border: 2px solid #00a9ff;
       border-radius: 20px;
       margin-left: 15px;
       margin-right: 15px;
@@ -50,7 +51,7 @@ $rectColor: #f2bd43;
       display: inline-block;
       margin-top: 15px;
       font-size: 20px;
-      border: 2px solid #00A9FF;
+      border: 2px solid #00a9ff;
       border-radius: 17px;
       margin-left: 15px;
       margin-right: 15px;
@@ -86,7 +87,8 @@ $rectColor: #f2bd43;
       border-radius: 15px;
       position: relative;
       min-height: 200px;
-      background-color:#00A9FF;
+      background-color: #00a9ff;
+      margin-bottom: 10px;
       cursor: pointer;
       img {
         position: absolute;
@@ -110,7 +112,7 @@ $rectColor: #f2bd43;
         position: absolute;
         left: 125px;
         top: 15px;
-        color:whitesmoke;
+        color: whitesmoke;
         @media only screen and (max-width: 900px) {
           font-size: 15px;
           left: 80px;
